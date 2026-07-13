@@ -14,7 +14,7 @@
 
 | # | 功能 | 状态 |
 |---|---|---|
-| 0.1 | 前端脚手架（Vite + React + TypeScript） | ⬜ |
+| 0.1 | 前端脚手架（Vite + React + TypeScript） | ✅ |
 | 0.2 | 后端脚手架（FastAPI 项目结构） | ⬜ |
 | 0.3 | MySQL 数据库创建 + SQLAlchemy 连接配置 | ⬜ |
 | 0.4 | Git 初始化 + .gitignore | ⬜ |
@@ -74,7 +74,7 @@
 
 | Skill | 何时使用 |
 |---|---|
-| `isaac-fullstack` | **自动触发** — 在此项目目录下做任何开发任务时自动加载。包含技术栈、目录约定、功能清单和进度追踪规则。详细开发规范见 `SKILL.md` |
+| `isaac-fullstack` | **自动触发** — 在此项目目录下做任何开发任务时自动加载。遵循"先判断意图再行动"原则，不因疑问句而修改文件。详细开发规范见 `SKILL.md` |
 
 ### 何时查阅 Skill 的 Reference 文件
 
@@ -100,16 +100,11 @@
 
 ## 进度记录
 
-每完成一个功能，在此区域追加记录，同时更新上方表格状态（⬜ → ✅）。
+### 2026-07-13 — 前端脚手架 ✅
 
-格式：
-```
-### YYYY-MM-DD — 功能名称 ✅
-
-- **文件**：`backend/app/models/xxx.py`、`frontend/src/pages/XxxPage.tsx`
-- **验证**：`cd backend && uvicorn app.main:app --reload` → `http://localhost:8000/api/v1/xxx`
-- **备注**：（踩坑记录、特殊配置等）
-```
+- **文件**：`frontend/`（Vite + React + TypeScript 模板）
+- **验证**：`cd frontend && npx tsc --noEmit && npx vite build` — 类型检查通过，构建成功
+- **备注**：清理了 Vite 默认模板（App.tsx、index.css、无用资源），按约定创建了 `src/api/`、`src/components/`、`src/pages/`、`src/types/`、`src/hooks/` 子目录
 
 ---
 
