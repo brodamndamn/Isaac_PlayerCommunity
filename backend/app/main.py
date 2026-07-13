@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 
+from app.api import characters, items
 from app.core.config import settings
 from app.core.database import SessionLocal
 
@@ -34,6 +35,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+app.include_router(characters.router)
+app.include_router(items.router)
 
 
 @app.get("/api/v1/health")

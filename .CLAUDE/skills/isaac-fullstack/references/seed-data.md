@@ -4,12 +4,15 @@
 
 种子数据脚本用于向数据库批量导入 Isaac 游戏的基础数据（道具、角色、结局），避免手工逐条录入。
 
-脚本位置：`backend/seed_data.py`
+**数据抓取**：`backend/seed_data/fetch_items.py` — 从 Fandom Wiki API 自动抓取道具数据并生成 `items.json`
+
+**数据导入**：`backend/seed_data.py` — 读取 JSON 文件，导入数据库
 
 运行方式：
 ```bash
 cd backend
-python seed_data.py
+python seed_data/fetch_items.py   # 第一步：从 Wiki 抓取数据
+python seed_data.py               # 第二步：导入数据库
 ```
 
 ## 数据量预估
@@ -92,11 +95,12 @@ if __name__ == "__main__":
 
 ```
 backend/
-├── seed_data.py              # 导入脚本
+├── seed_data.py              # 导入脚本（读取 JSON → 写数据库）
 └── seed_data/
+    ├── fetch_items.py        # Wiki 抓取脚本（生成 items.json）
     ├── items.json            # 道具数据（JSON 数组）
     ├── characters.json       # 角色数据
     └── endings.json          # 结局数据
 ```
 
-这样数据内容和导入逻辑分离，后续修改数据不需要改代码。
+数据内容和导入逻辑分离，后续修改数据不需要改代码。

@@ -1,0 +1,515 @@
+[
+  {
+    "id": 1,
+    "name_en": "Isaac",
+    "name_cn": "以撒",
+    "is_tainted": false,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [
+      "The D6"
+    ],
+    "unlock_method": "初始角色",
+    "description": "初始角色。初始携带 D6（解锁后），可重抽道具"
+  },
+  {
+    "id": 2,
+    "name_en": "Magdalene",
+    "name_cn": "抹大拉",
+    "is_tainted": false,
+    "health": "4❤",
+    "damage": 3.5,
+    "speed": 0.85,
+    "tears": 2.73,
+    "starting_items": [
+      "Yum Heart"
+    ],
+    "unlock_method": "初始角色",
+    "description": "初始携带美味之心，可回复生命。速度较慢但血量高"
+  },
+  {
+    "id": 3,
+    "name_en": "Cain",
+    "name_cn": "该隐",
+    "is_tainted": false,
+    "health": "2❤",
+    "damage": 4.2,
+    "speed": 1.3,
+    "tears": 2.73,
+    "starting_items": [
+      "Lucky Foot"
+    ],
+    "unlock_method": "初始角色",
+    "description": "初始携带幸运脚。伤害高、速度快，但只有两颗心"
+  },
+  {
+    "id": 4,
+    "name_en": "Judas",
+    "name_cn": "犹大",
+    "is_tainted": false,
+    "health": "1❤",
+    "damage": 4.72,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [
+      "The Book of Belial"
+    ],
+    "unlock_method": "初始角色",
+    "description": "初始携带彼列之书。伤害极高但只有一颗心，高风险高回报"
+  },
+  {
+    "id": 5,
+    "name_en": "???",
+    "name_cn": "小蓝人",
+    "is_tainted": false,
+    "health": "3💙",
+    "damage": 3.5,
+    "speed": 1.1,
+    "tears": 2.73,
+    "starting_items": [
+      "We Need To Go Deeper!"
+    ],
+    "unlock_method": "击败 Mom's Heart 10 次",
+    "description": "魂心角色，无法获得红心。初始携带粪便"
+  },
+  {
+    "id": 6,
+    "name_en": "Eve",
+    "name_cn": "夏娃",
+    "is_tainted": false,
+    "health": "2❤",
+    "damage": 2.62,
+    "speed": 1.23,
+    "tears": 2.73,
+    "starting_items": [
+      "Monster Manual",
+      "Dead Bird"
+    ],
+    "unlock_method": "初始角色",
+    "description": "初始携带死鸟和巴比伦娼妇。低血量时触发强力增益"
+  },
+  {
+    "id": 7,
+    "name_en": "Samson",
+    "name_cn": "参孙",
+    "is_tainted": false,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.1,
+    "tears": 2.73,
+    "starting_items": [
+      "Bloody Lust"
+    ],
+    "unlock_method": "初始角色",
+    "description": "初始携带嗜血。每受一次伤害，伤害提升——越战越勇"
+  },
+  {
+    "id": 8,
+    "name_en": "Azazel",
+    "name_cn": "阿萨谢尔",
+    "is_tainted": false,
+    "health": "3🖤",
+    "damage": 5.25,
+    "speed": 1.25,
+    "tears": 2.73,
+    "starting_items": [
+      "Brimstone",
+      "Bob's Rotten Head"
+    ],
+    "unlock_method": "与恶魔房交易 3 次",
+    "description": "初始自带硫磺火（短程）和飞行能力。魂心角色"
+  },
+  {
+    "id": 9,
+    "name_en": "Lazarus",
+    "name_cn": "拉撒路",
+    "is_tainted": false,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [
+      "Spider Bite"
+    ],
+    "unlock_method": "初始角色",
+    "description": "初始携带拉撒路的破布。死亡后复活为强化版 Lazarus Risen"
+  },
+  {
+    "id": 10,
+    "name_en": "Eden",
+    "name_cn": "伊甸",
+    "is_tainted": false,
+    "health": "随机",
+    "damage": null,
+    "speed": null,
+    "tears": null,
+    "starting_items": [],
+    "unlock_method": "完成一次 Womb 阶段",
+    "description": "每次游戏的属性、初始道具和外观完全随机"
+  },
+  {
+    "id": 11,
+    "name_en": "The Lost",
+    "name_cn": "游魂",
+    "is_tainted": false,
+    "health": "无",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [
+      "Eve's Mascara",
+      "Brimstone"
+    ],
+    "unlock_method": "特定死亡方式解锁",
+    "description": "无法获得任何血量，一击必死。自带飞行和魂心"
+  },
+  {
+    "id": 12,
+    "name_en": "Lilith",
+    "name_cn": "莉莉丝",
+    "is_tainted": false,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [
+      "Box of Friends",
+      "Incubus"
+    ],
+    "unlock_method": "贪婪模式击败 Ultra Greed",
+    "description": "初始携带恶魔宝宝和淫妇之盒。无法发射眼泪，由跟班代打"
+  },
+  {
+    "id": 13,
+    "name_en": "Keeper",
+    "name_cn": "店主",
+    "is_tainted": false,
+    "health": "2💰",
+    "damage": 4.2,
+    "speed": 0.8,
+    "tears": 2.73,
+    "starting_items": [
+      "Jar of Flies"
+    ],
+    "unlock_method": "贪婪机捐献 1000 枚硬币",
+    "description": "硬币血量角色，最多 2 枚硬币。硬币代替红心回复"
+  },
+  {
+    "id": 14,
+    "name_en": "Apollyon",
+    "name_cn": "亚玻伦",
+    "is_tainted": false,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [
+      "Void"
+    ],
+    "unlock_method": "击败 Mega Satan 后",
+    "description": "初始携带虚空。可将道具吸入虚空，转化为属性加成"
+  },
+  {
+    "id": 15,
+    "name_en": "The Forgotten",
+    "name_cn": "遗骸",
+    "is_tainted": false,
+    "health": "3💙 + 3🦴",
+    "damage": 5.25,
+    "speed": 1.3,
+    "tears": 1.36,
+    "starting_items": [
+      "Jaw Bone"
+    ],
+    "unlock_method": "特殊解锁流程",
+    "description": "双形态角色——灵魂体发射眼泪，骷髅体进行近战攻击"
+  },
+  {
+    "id": 16,
+    "name_en": "Bethany",
+    "name_cn": "伯大尼",
+    "is_tainted": false,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [
+      "Lodestone"
+    ],
+    "unlock_method": "击败 Mom's Heart 后",
+    "description": "初始携带魂火之书。使用魂火充能主动道具，而非普通充能"
+  },
+  {
+    "id": 17,
+    "name_en": "Jacob & Esau",
+    "name_cn": "雅各与以扫",
+    "is_tainted": false,
+    "health": "3❤ + 3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [
+      "R Key"
+    ],
+    "unlock_method": "击败 Mother 后",
+    "description": "同时操控两个角色。Jacob 被击中触发 Esau 的仇恨"
+  },
+  {
+    "id": 18,
+    "name_en": "Tainted Isaac",
+    "name_cn": "里以撒",
+    "is_tainted": true,
+    "base_character_id": 1,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "道具槽位限制为 8 个，拾取第 9 个时必须替换。道具循环更频繁"
+  },
+  {
+    "id": 19,
+    "name_en": "Tainted Magdalene",
+    "name_cn": "里抹大拉",
+    "is_tainted": true,
+    "base_character_id": 2,
+    "health": "4❤",
+    "damage": 2.62,
+    "speed": 0.85,
+    "tears": 2.73,
+    "starting_items": [],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "接触敌人时产生红心掉落。受伤后短暂获得伤害增益"
+  },
+  {
+    "id": 20,
+    "name_en": "Tainted Cain",
+    "name_cn": "里该隐",
+    "is_tainted": true,
+    "base_character_id": 3,
+    "health": "2❤",
+    "damage": 3.5,
+    "speed": 1.3,
+    "tears": 2.73,
+    "starting_items": [
+      "Hold"
+    ],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "只能通过拾取物合成道具。初始携带制作袋"
+  },
+  {
+    "id": 21,
+    "name_en": "Tainted Judas",
+    "name_cn": "里犹大",
+    "is_tainted": true,
+    "base_character_id": 4,
+    "health": "2🖤",
+    "damage": 4.72,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [
+      "The Book of Belial"
+    ],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "初始携带暗影之书。进入暗影模式时无法被伤害"
+  },
+  {
+    "id": 22,
+    "name_en": "Tainted ???",
+    "name_cn": "里小蓝人",
+    "is_tainted": true,
+    "base_character_id": 5,
+    "health": "3💙",
+    "damage": 3.5,
+    "speed": 1.1,
+    "tears": 2.73,
+    "starting_items": [
+      "We Need To Go Deeper!"
+    ],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "粪便变为爆炸粪便。粪便效果更丰富多样"
+  },
+  {
+    "id": 23,
+    "name_en": "Tainted Eve",
+    "name_cn": "里夏娃",
+    "is_tainted": true,
+    "base_character_id": 6,
+    "health": "2❤",
+    "damage": 2.62,
+    "speed": 1.23,
+    "tears": 2.73,
+    "starting_items": [
+      "Everything Jar"
+    ],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "每次拾取道具召唤血块跟班。低血量时血块自动攻击"
+  },
+  {
+    "id": 24,
+    "name_en": "Tainted Samson",
+    "name_cn": "里参孙",
+    "is_tainted": true,
+    "base_character_id": 7,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.1,
+    "tears": 2.73,
+    "starting_items": [
+      "TMTRAINER"
+    ],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "攻击时进入狂暴状态，获得大幅伤害增益但会持续扣血"
+  },
+  {
+    "id": 25,
+    "name_en": "Tainted Azazel",
+    "name_cn": "里阿萨谢尔",
+    "is_tainted": true,
+    "base_character_id": 8,
+    "health": "3🖤",
+    "damage": 4.37,
+    "speed": 1.25,
+    "tears": 2.73,
+    "starting_items": [
+      "Brimstone"
+    ],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "短程硫磺火变为大范围近战挥砍。受伤后释放全屏爆炸"
+  },
+  {
+    "id": 26,
+    "name_en": "Tainted Lazarus",
+    "name_cn": "里拉撒路",
+    "is_tainted": true,
+    "base_character_id": 9,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "每清理一个房间自动在活 Lazarus 和死 Lazarus 之间切换。两个形态独立管理道具"
+  },
+  {
+    "id": 27,
+    "name_en": "Tainted Eden",
+    "name_cn": "里伊甸",
+    "is_tainted": true,
+    "base_character_id": 10,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "每次受伤时全部属性和道具完全重新随机。永远无法预测"
+  },
+  {
+    "id": 28,
+    "name_en": "Tainted Lost",
+    "name_cn": "里游魂",
+    "is_tainted": true,
+    "base_character_id": 11,
+    "health": "无",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "比普通游魂更难——无法获得 Holy Mantle 的免费护盾，只有更好的道具掉落"
+  },
+  {
+    "id": 29,
+    "name_en": "Tainted Lilith",
+    "name_cn": "里莉莉丝",
+    "is_tainted": true,
+    "base_character_id": 12,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [
+      "Spindown Dice"
+    ],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "发射眼泪时从身后甩出跟班对敌人造成伤害。近战式跟班攻击"
+  },
+  {
+    "id": 30,
+    "name_en": "Tainted Keeper",
+    "name_cn": "里店主",
+    "is_tainted": true,
+    "base_character_id": 13,
+    "health": "2💰",
+    "damage": 4.2,
+    "speed": 0.8,
+    "tears": 2.73,
+    "starting_items": [],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "杀死敌人掉落快速消失的硬币。商店物品可用硬币购买并变得更便宜"
+  },
+  {
+    "id": 31,
+    "name_en": "Tainted Apollyon",
+    "name_cn": "里亚玻伦",
+    "is_tainted": true,
+    "base_character_id": 14,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [
+      "Void"
+    ],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "虚空不再吸入道具，而是将道具转化为蝗虫攻击敌人"
+  },
+  {
+    "id": 32,
+    "name_en": "Tainted Forgotten",
+    "name_cn": "里遗骸",
+    "is_tainted": true,
+    "base_character_id": 15,
+    "health": "3💙",
+    "damage": 5.25,
+    "speed": 1.3,
+    "tears": 0.91,
+    "starting_items": [],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "灵魂体抓住骷髅体投掷出去，骷髅砸中敌人造成伤害。完全不同的操作方式"
+  },
+  {
+    "id": 33,
+    "name_en": "Tainted Bethany",
+    "name_cn": "里伯大尼",
+    "is_tainted": true,
+    "base_character_id": 16,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [
+      "Lodestone"
+    ],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "魂火之书改为用红心充能。可以从虚空中召唤特殊道具"
+  },
+  {
+    "id": 34,
+    "name_en": "Tainted Jacob",
+    "name_cn": "里雅各",
+    "is_tainted": true,
+    "base_character_id": 17,
+    "health": "3❤",
+    "damage": 3.5,
+    "speed": 1.0,
+    "tears": 2.73,
+    "starting_items": [],
+    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "description": "被黑暗以扫追杀——碰到即死。可使用 Anima Sola 短暂定身他"
+  }
+]
