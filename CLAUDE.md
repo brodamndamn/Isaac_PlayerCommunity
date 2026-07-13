@@ -15,9 +15,9 @@
 | # | 功能 | 状态 |
 |---|---|---|
 | 0.1 | 前端脚手架（Vite + React + TypeScript） | ✅ |
-| 0.2 | 后端脚手架（FastAPI 项目结构） | ⬜ |
-| 0.3 | MySQL 数据库创建 + SQLAlchemy 连接配置 | ⬜ |
-| 0.4 | Git 初始化 + .gitignore | ⬜ |
+| 0.2 | 后端脚手架（FastAPI 项目结构） | ✅ |
+| 0.3 | MySQL 数据库创建 + SQLAlchemy 连接配置 | ✅ |
+| 0.4 | Git 初始化 + .gitignore | ✅ |
 
 ### 阶段二：攻略数据层（道具 → 角色 → 结局）
 
@@ -74,7 +74,7 @@
 
 | Skill | 何时使用 |
 |---|---|
-| `isaac-fullstack` | **自动触发** — 在此项目目录下做任何开发任务时自动加载。遵循"先判断意图再行动"原则，不因疑问句而修改文件。详细开发规范见 `SKILL.md` |
+| `isaac-fullstack` | **自动触发** — 遵循项目目录结构约定、先判断意图再行动、未经用户验证不标已完成。详细规范见 `SKILL.md` |
 
 ### 何时查阅 Skill 的 Reference 文件
 
@@ -105,6 +105,25 @@
 - **文件**：`frontend/`（Vite + React + TypeScript 模板）
 - **验证**：`cd frontend && npx tsc --noEmit && npx vite build` — 类型检查通过，构建成功
 - **备注**：清理了 Vite 默认模板（App.tsx、index.css、无用资源），按约定创建了 `src/api/`、`src/components/`、`src/pages/`、`src/types/`、`src/hooks/` 子目录
+
+### 2026-07-13 — 后端脚手架 ✅
+
+- **文件**：`backend/app/main.py`、`backend/app/core/config.py`、`backend/requirements.txt`
+- **验证**：`cd backend && python -m uvicorn app.main:app --port 8000` → 服务正常启动
+- **备注**：创建了 `app/models/`、`app/schemas/`、`app/api/`、`app/core/` 包结构；含 CORS（允许 `localhost:5173`）和 `/api/v1/health` 端点
+
+### 2026-07-13 — 数据库连接配置 ✅
+
+- **文件**：`backend/app/core/database.py`、`backend/.env`
+- **验证**：`cd backend && python -m uvicorn app.main:app --port 8000` → `[OK] 数据库连接成功: isaac_community`
+- **备注**：PyMySQL + SQLAlchemy 2.0；`Base` 声明式基类 + `get_db` 依赖注入已就绪
+
+### 2026-07-13 — Git 初始化 + .gitignore ✅
+
+- **文件**：`.gitignore`、`.git/`
+- **验证**：`git status` 正常运行，`.env` 和 `node_modules/` 已被忽略
+- **备注**：已忽略 Python/Node/IDE/环境变量文件；`uploads/*` 保留目录但忽略内容
+
 
 ---
 
