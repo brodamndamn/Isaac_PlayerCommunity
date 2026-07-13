@@ -23,7 +23,7 @@
 
 | # | 功能 | 状态 |
 |---|---|---|
-| 1.1 | 道具数据模型 + 数据库迁移 | ⬜ |
+| 1.1 | 道具数据模型 + 数据库迁移 | ✅ |
 | 1.2 | 道具种子数据（~700 条） | ⬜ |
 | 1.3 | 道具列表 API（分页 + 搜索 + 分类筛选） | ⬜ |
 | 1.4 | 道具详情 API | ⬜ |
@@ -117,6 +117,12 @@
 - **文件**：`backend/app/core/database.py`、`backend/.env`
 - **验证**：`cd backend && python -m uvicorn app.main:app --port 8000` → `[OK] 数据库连接成功: isaac_community`
 - **备注**：PyMySQL + SQLAlchemy 2.0；`Base` 声明式基类 + `get_db` 依赖注入已就绪
+
+### 2026-07-13 — 道具数据模型 + 数据库迁移 ✅
+
+- **文件**：`backend/app/models/item.py`、`backend/alembic/`
+- **验证**：`python -c "from app.core.database import engine; from sqlalchemy import inspect; print(inspect(engine).get_columns('items'))"` — 14 字段对应 schema 约定
+- **备注**：Alembic 已初始化，后续新增模型只需 `alembic revision --autogenerate -m "xxx"` + `alembic upgrade head`
 
 ### 2026-07-13 — Git 初始化 + .gitignore ✅
 
