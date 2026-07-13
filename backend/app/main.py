@@ -1,10 +1,11 @@
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from sqlalchemy import text
 
-from app.api import characters, items
+from app.api import characters, endings, items
 from app.core.config import settings
 from app.core.database import SessionLocal
 
@@ -37,7 +38,29 @@ app.add_middleware(
 )
 
 
+# 统一异常处理 — 将所有错误转为约定的 {code, message, data} 格式
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request: Request, exc: HTTPException):
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={
+            "code": exc.status_code,
+            "message": exc.detail if isinstance(exc.detail, str) else str(exc.detail),
+            "data": None,
+        },
+    )
+
+
+@app.exception_handler(Exception)
+async def general_exception_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=500,
+        content={"code": 500, "message": "服务器内部错误", "data": None},
+    )
+
+
 app.include_router(characters.router)
+app.include_router(endings.router)
 app.include_router(items.router)
 
 

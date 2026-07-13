@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 from app.core.database import SessionLocal
-from app.models import Character, Item
+from app.models import Character, Ending, Item
 
 
 def seed_items(db) -> int:
@@ -86,6 +86,37 @@ def seed_characters(db) -> int:
     return count
 
 
+def seed_endings(db) -> int:
+    """Import ending seed data from JSON. Returns count."""
+    json_path = Path(__file__).parent / "seed_data" / "endings.json"
+    if not json_path.exists():
+        print(f"[SKIP] {json_path} not found, run seed_data/fetch_endings.py first")
+        return 0
+
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    count = 0
+    for d in data:
+        ending = Ending(
+            id=d["id"],
+            name_en=d["name_en"],
+            name_cn=d["name_cn"],
+            ending_number=d["ending_number"],
+            completion_method=d.get("completion_method", ""),
+            unlock_method=d.get("unlock_method"),
+            required_character=d.get("required_character"),
+            boss_name=d.get("boss_name", ""),
+            unlocks=d.get("unlocks"),
+            image_url=d.get("image_url"),
+        )
+        db.merge(ending)
+        count += 1
+
+    db.commit()
+    return count
+
+
 def main():
     db = SessionLocal()
     try:
@@ -93,6 +124,8 @@ def main():
         print(f"[OK] Items imported: {n}")
         n2 = seed_characters(db)
         print(f"[OK] Characters imported: {n2}")
+        n3 = seed_endings(db)
+        print(f"[OK] Endings imported: {n3}")
     except Exception as e:
         db.rollback()
         print(f"[FAIL] {e}")

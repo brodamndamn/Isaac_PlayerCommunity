@@ -1,0 +1,58 @@
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.status {
+  padding: 40px;
+  text-align: center;
+  color: #999;
+}
+
+.back {
+  font-size: 14px;
+  color: #666;
+  text-decoration: none;
+}
+
+.title {
+  font-size: 28px;
+  margin: 16px 0 0;
+}
+
+.num {
+  font-size: 20px;
+  color: #999;
+  font-weight: 400;
+}
+
+.nameEn {
+  font-size: 15px;
+  color: #888;
+  margin: 4px 0 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+
+.table tr {
+  border-bottom: 1px solid #eee;
+}
+
+.table .label {
+  width: 100px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #888;
+  background: #fafafa;
+  font-weight: 500;
+}
+
+.table td {
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #333;
+}

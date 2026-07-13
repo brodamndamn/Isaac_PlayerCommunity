@@ -1,0 +1,16 @@
+.hearts {
+  font-size: inherit;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.plus {
+  margin: 0 4px;
+  color: #888;
+}
+
+.half {
+  display: inline-block;
+  transform: scaleX(0.5);
+  transform-origin: left center;
+}

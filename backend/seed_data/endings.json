@@ -1,0 +1,315 @@
+[
+  {
+    "id": 1,
+    "name_en": "Ending 1",
+    "name_cn": "结局 1",
+    "ending_number": 1,
+    "completion_method": "击败 妈妈的心脏 第 1 次",
+    "unlock_method": null,
+    "required_character": null,
+    "boss_name": "妈妈的心脏",
+    "unlocks": [
+      "伊甸（角色）"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 2,
+    "name_en": "Ending 2",
+    "name_cn": "结局 2",
+    "ending_number": 2,
+    "completion_method": "击败 妈妈的心脏 第 2 次",
+    "unlock_method": null,
+    "required_character": null,
+    "boss_name": "妈妈的心脏",
+    "unlocks": [
+      "橡胶胶水"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 3,
+    "name_en": "Ending 3",
+    "name_cn": "结局 3",
+    "ending_number": 3,
+    "completion_method": "击败 妈妈的心脏 第 3 次",
+    "unlock_method": null,
+    "required_character": null,
+    "boss_name": "妈妈的心脏",
+    "unlocks": [
+      "超凡升天"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 4,
+    "name_en": "Ending 4",
+    "name_cn": "结局 4",
+    "ending_number": 4,
+    "completion_method": "击败 妈妈的心脏 第 4 次",
+    "unlock_method": null,
+    "required_character": null,
+    "boss_name": "妈妈的心脏",
+    "unlocks": [
+      "铁丝衣架"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 5,
+    "name_en": "Ending 5",
+    "name_cn": "结局 5",
+    "ending_number": 5,
+    "completion_method": "击败 妈妈的心脏 第 5 次",
+    "unlock_method": null,
+    "required_character": null,
+    "boss_name": "妈妈的心脏",
+    "unlocks": [
+      "一切都很糟糕（成就）"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 6,
+    "name_en": "Ending 6",
+    "name_cn": "结局 6",
+    "ending_number": 6,
+    "completion_method": "击败 妈妈的心脏 第 6 次",
+    "unlock_method": null,
+    "required_character": null,
+    "boss_name": "妈妈的心脏",
+    "unlocks": [
+      "吐根酊",
+      "全家福"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 7,
+    "name_en": "Ending 7",
+    "name_cn": "结局 7",
+    "ending_number": 7,
+    "completion_method": "击败 妈妈的心脏 第 7 次",
+    "unlock_method": null,
+    "required_character": null,
+    "boss_name": "妈妈的心脏",
+    "unlocks": [
+      "实验性疗法",
+      "底片"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 8,
+    "name_en": "Ending 8",
+    "name_cn": "结局 8",
+    "ending_number": 8,
+    "completion_method": "击败 妈妈的心脏 第 8 次",
+    "unlock_method": null,
+    "required_character": null,
+    "boss_name": "妈妈的心脏",
+    "unlocks": [
+      "美分"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 9,
+    "name_en": "Ending 9",
+    "name_cn": "结局 9",
+    "ending_number": 9,
+    "completion_method": "击败 妈妈的心脏 第 9 次",
+    "unlock_method": null,
+    "required_character": null,
+    "boss_name": "妈妈的心脏",
+    "unlocks": [
+      "胎儿博士"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 10,
+    "name_en": "Ending 10",
+    "name_cn": "结局 10",
+    "ending_number": 10,
+    "completion_method": "击败 妈妈的心脏 第 10 次",
+    "unlock_method": null,
+    "required_character": null,
+    "boss_name": "妈妈的心脏",
+    "unlocks": [
+      "???（小蓝人角色）"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 11,
+    "name_en": "Ending 11",
+    "name_cn": "结局 11",
+    "ending_number": 11,
+    "completion_method": "击败 妈妈的心脏 第 11 次",
+    "unlock_method": null,
+    "required_character": null,
+    "boss_name": "妈妈的心脏",
+    "unlocks": [
+      "它还活着（Boss 永久替换妈妈的心脏）"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 12,
+    "name_en": "Ending 12",
+    "name_cn": "结局 12",
+    "ending_number": 12,
+    "completion_method": "进入 阴间 并击败 撒但",
+    "unlock_method": "击败 妈妈的心脏 后选择进入 阴间",
+    "required_character": null,
+    "boss_name": "撒但",
+    "unlocks": [
+      "阴间路线永久解锁",
+      "犹大（角色）"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 13,
+    "name_en": "Ending 13",
+    "name_cn": "结局 13",
+    "ending_number": 13,
+    "completion_method": "进入 大教堂 并击败 以撒",
+    "unlock_method": "击败 妈妈的心脏 后选择进入 大教堂",
+    "required_character": null,
+    "boss_name": "以撒",
+    "unlocks": [
+      "大教堂路线永久解锁",
+      "D6（道具，以撒初始携带）"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 14,
+    "name_en": "Ending 14",
+    "name_cn": "结局 14",
+    "ending_number": 14,
+    "completion_method": "携带 全家福 进入 宝箱层 并击败 ???（小蓝人）",
+    "unlock_method": "击败 以撒 后携带 全家福 进入 宝箱层",
+    "required_character": null,
+    "boss_name": "???（小蓝人）",
+    "unlocks": [
+      "游魂（角色线索）"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 15,
+    "name_en": "Ending 15",
+    "name_cn": "结局 15",
+    "ending_number": 15,
+    "completion_method": "携带 底片 进入 暗室 并击败 羔羊",
+    "unlock_method": "击败 撒但 后携带 底片 进入 暗室",
+    "required_character": null,
+    "boss_name": "羔羊",
+    "unlocks": [
+      "暗室路线永久解锁"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 16,
+    "name_en": "Ending 16",
+    "name_cn": "结局 16",
+    "ending_number": 16,
+    "completion_method": "在 宝箱层 或 暗室 击败 超级撒但",
+    "unlock_method": "收集两片钥匙碎片，在 宝箱层/暗室 打开金色大门",
+    "required_character": null,
+    "boss_name": "超级撒但",
+    "unlocks": [
+      "亚玻伦（角色）"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 17,
+    "name_en": "Ending 17",
+    "name_cn": "结局 17",
+    "ending_number": 17,
+    "completion_method": "在 ??? 层（蓝色子宫）击败 静寂",
+    "unlock_method": "30 分钟内击败 妈妈的心脏，进入 蓝色子宫",
+    "required_character": null,
+    "boss_name": "静寂",
+    "unlocks": [
+      "虚空层解锁",
+      "堆肥"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 18,
+    "name_en": "Ending 18",
+    "name_cn": "结局 18",
+    "ending_number": 18,
+    "completion_method": "贪婪模式中击败 究极贪婪",
+    "unlock_method": "贪婪模式下通关所有层",
+    "required_character": null,
+    "boss_name": "究极贪婪",
+    "unlocks": [
+      "店主（角色）"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 19,
+    "name_en": "Ending 19",
+    "name_cn": "结局 19",
+    "ending_number": 19,
+    "completion_method": "究极贪婪模式中击败 究极大贪婪",
+    "unlock_method": "究极贪婪模式下通关所有层",
+    "required_character": null,
+    "boss_name": "究极大贪婪",
+    "unlocks": [
+      "究极贪婪模式永久解锁"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 20,
+    "name_en": "Ending 20",
+    "name_cn": "结局 20",
+    "ending_number": 20,
+    "completion_method": "在 虚空 层击败 精神错乱",
+    "unlock_method": "击败 静寂 后进入 虚空，找到 精神错乱 房间",
+    "required_character": null,
+    "boss_name": "精神错乱",
+    "unlocks": [
+      "遗骸（角色线索）"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 21,
+    "name_en": "Ending 21",
+    "name_cn": "结局 21",
+    "ending_number": 21,
+    "completion_method": "在 尸骸层 II 击败 母亲",
+    "unlock_method": "在 陵墓 获取 刀 碎片，进入 尸骸层",
+    "required_character": null,
+    "boss_name": "母亲",
+    "unlocks": [
+      "雅各与以扫（角色）"
+    ],
+    "image_url": null
+  },
+  {
+    "id": 22,
+    "name_en": "Ending 22",
+    "name_cn": "结局 22",
+    "ending_number": 22,
+    "completion_method": "在 家层击败 教条 和 祸兽",
+    "unlock_method": "使用 爸爸的便条 进入 上升路线",
+    "required_character": null,
+    "boss_name": "祸兽",
+    "unlocks": [
+      "伯大尼（角色）"
+    ],
+    "image_url": null
+  }
+]

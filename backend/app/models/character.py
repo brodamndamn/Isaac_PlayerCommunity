@@ -28,12 +28,12 @@ class Character(Base):
     tears: Mapped[float | None] = mapped_column(
         Numeric(4, 2), nullable=True, comment="初始射速"
     )
-    starting_items: Mapped[dict | None] = mapped_column(
+    starting_items: Mapped[list | None] = mapped_column(
         JSON, nullable=True, comment="初始携带道具 ID 数组"
     )
     unlock_method: Mapped[str | None] = mapped_column(Text, nullable=True, comment="解锁方式")
     description: Mapped[str | None] = mapped_column(Text, nullable=True, comment="角色特性描述")
-    suitable_items: Mapped[dict | None] = mapped_column(
+    suitable_items: Mapped[list | None] = mapped_column(
         JSON, nullable=True, comment="适合道具 ID 数组"
     )
     image_url: Mapped[str | None] = mapped_column(String(255), nullable=True, comment="图片路径")

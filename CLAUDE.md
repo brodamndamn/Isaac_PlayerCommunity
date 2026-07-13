@@ -31,11 +31,20 @@
 | 2.1 | 角色数据模型（含表里角色） | ✅ |
 | 2.2 | 角色种子数据（~34 个） | ✅ |
 | 2.3 | 角色列表 API + 详情 API | ✅ |
-| 2.4 | 角色列表页面 + 详情页面 | 🔄 |
-| 3.1 | 结局数据模型 | ⬜ |
-| 3.2 | 结局种子数据（~20+ 个） | ⬜ |
-| 3.3 | 结局列表 API + 详情 API | ⬜ |
-| 3.4 | 结局列表页面 + 详情页面 | ⬜ |
+| 2.4 | 角色列表页面 + 详情页面 | ✅ |
+| 3.1 | 结局数据模型 | ✅ |
+| 3.2 | 结局种子数据（~20+ 个） | ✅ |
+| 3.3 | 结局列表 API + 详情 API | ✅ |
+| 3.4 | 结局列表页面 + 详情页面 | ✅ |
+
+### 阶段二点五：图片资源
+
+| # | 功能 | 状态 |
+|---|---|---|
+| 2.5.1 | 首页卡片配图：道具图鉴🎒→妈刀、角色资料👤→以撒、结局一览🏆→妈心 | ⬜ |
+| 2.5.2 | 道具图鉴配图：列表页 719 张卡片 + 详情页道具图 + 效果图（如有） | ⬜ |
+| 2.5.3 | 角色资料配图：列表页 34 张卡片 + 详情页立绘（全部/表/里 tab） | ⬜ |
+| 2.5.4 | 结局一览配图：列表页 22 张 Boss 图 + 详情页 Boss 图 + 解锁道具/角色图 | ⬜ |
 
 ### 阶段三：用户系统
 
@@ -155,10 +164,89 @@
 - **备注**：手工整理，含中英文名、生命值、初始属性、初始道具、解锁方式、角色描述
 
 ### 2026-07-13 — 角色列表 API + 详情 API ✅
-
 - **文件**：`backend/app/api/characters.py`、`backend/app/schemas/character.py`
 - **验证**：`/api/v1/characters` → 200（34个），`/api/v1/characters?is_tainted=true` → 17个，`/api/v1/characters/8` → 阿萨谢尔
 - **备注**：支持分页、表/里角色筛选、名称搜索
+
+### 2026-07-13 — 角色列表页面 + 详情页面 ✅
+
+- **状态**：✅ 已完成
+- **文件**：
+  - `frontend/src/pages/CharactersPage.tsx` — 列表页（全部/表/里 tab 切换 + 卡片网格）
+  - `frontend/src/pages/CharacterDetailPage.tsx` — 详情页（属性表格 + 角色特性 + 适合道具）
+  - `frontend/src/components/CharacterCard.tsx` — 卡片展示组件
+  - `frontend/src/components/HealthHearts.tsx` + `HealthHearts.module.css` — 生命值渲染（解析 `3❤` / `3💙` / `3❤ + 3💰` 等格式）
+  - `frontend/src/api/characters.ts` — API 封装（getCharacters + getCharacterById）
+  - `frontend/src/types/character.ts` — Character 类型定义
+- **验证**：
+  - `cd frontend && npm run dev` → `http://localhost:5173/characters` 列表页（12 卡片）+ `/characters/1` `/characters/5` `/characters/15` `/characters/17` `/characters/33` 详情页均正常
+  - 心形显示：红/蓝/黑心 + 复合值（如 `3❤ + 3❤`）+ 文字（`随机`）全部按预期渲染
+  - API：`/api/v1/characters` 返回 34 条，`?is_tainted=true/false` 各 17 条，`?search=Isaac` 和 `?search=以撒` 搜索正常
+  - 错误：`/characters/99999` → 404，`/characters/abc` → 422（Pydantic 拦截）
+- **注意事项**：
+  - CharactersPage 用 useEffect `[]` 只 fetch 一次全部；tab 切换不重 fetch，三个按钮 count 永远显示 `34/17/17`
+  - #15 遗骸的骨头 emoji 🦴 在 Windows 默认字体下渲染偏小（Segoe UI Emoji 旧版本对 Unicode 11.0 覆盖不全；`💙` 等老 emoji 正常）。是字体 fallback 问题，非代码 bug，可后续替换图标
+  - CharactersPage 的 filter 是 React state 而非 URL query，深链/刷新会回到全部
+
+### 2026-07-13 — 结局数据模型 ✅
+
+- **状态**：✅ 已完成
+- **文件**：
+  - `backend/app/models/ending.py` — Ending 模型（11 字段，对齐 [database-schema.md](.claude/skills/isaac-fullstack/references/database-schema.md) 第 70-85 行）
+  - `backend/app/models/__init__.py` — 注册 `from app.models.ending import Ending`
+  - `backend/alembic/versions/74ec38e1d111_add_endings_table.py` — alembic autogen 迁移
+- **验证**：
+  - `python -c "from app.models.ending import Ending; ..."` 输出 11 字段，类型 + nullable 与 schema 一致
+  - `alembic upgrade head` → `74ec38e1d111 (head)`，从 `f154ff715828` 升级成功
+  - 实际表：`InnoDB` + `utf8mb4_unicode_ci`，`SHOW FULL COLUMNS` 显示 11 字段 + 默认值 + comment 完整
+  - alembic 链路：`f38cb977c006 → 6f7512d50b5f → f154ff715828 → 74ec38e1d111`
+- **注意事项**：
+  - schema 故意只有 `created_at` 没 `updated_at`（与 characters/items 一致；只有 users/guides 有 updated_at）
+  - 没有外键自联（endings 表无需表里区分）
+  - 之前模型阶段没写 `fetch_endings.py`——按 [seed-data.md](.claude/skills/isaac-fullstack/references/seed-data.md) 第 7 行约定，留到 3.2 写抓取脚本
+
+### 2026-07-13 — 结局种子数据 ✅
+
+- **状态**：✅ 已完成
+- **文件**：
+  - `backend/seed_data/fetch_endings.py` — 从 Fandom Wiki Endings 页面抓取结局数据，合并手工补充的 Boss/完成方式
+  - `backend/seed_data/endings.json` — 22 个结局的完整数据（Wiki 提取编号+名称 + 手工补充 boss/completion_method/unlocks）
+  - `backend/seed_data.py` — 新增 `seed_endings()` 函数
+- **验证**：`db.query(Ending).count()` → 22 条；11 字段全部对齐 database-schema.md；ending_number 1-22 全部正确
+- **注意事项**：
+  - Wiki 的 Endings 页面没有 wikitable（与 Items 不同），只有 h3 段落 + 图片 gallery，编号和名称从 h3 标题正则提取
+  - Wiki API 返回的 unlocks 文本是未渲染的模板占位符（"said item"/"said character"），已手工修正为实际解锁内容
+  - 编号以 Repentance DLC 最终版本为准：18=Ultra Greed, 19=Ultra Greedier, 20=Delirium, 21=Mother, 22=The Beast
+  - Wiki 把 The Beast 标为 "Final Ending" 无数字编号，脚本中检测 "beast" 关键词自动分配 #22
+
+### 2026-07-13 — 结局列表 API + 详情 API ✅
+
+- **状态**：✅ 已完成
+- **文件**：
+  - `backend/app/schemas/ending.py` — EndingResponse + EndingListData Pydantic schema
+  - `backend/app/api/endings.py` — 列表 `GET /api/v1/endings`（分页+搜索）+ 详情 `GET /api/v1/endings/{id}`
+  - `backend/app/main.py` — 注册 `endings.router`
+- **验证**：
+  - `curl localhost:8000/api/v1/endings?page_size=3` → 200，返回 3 条，total=22
+  - `curl localhost:8000/api/v1/endings/12` → 200，11 字段完整，中文正确
+  - `curl localhost:8000/api/v1/endings/999` → 404，统一格式 `{code:404, message:"结局不存在", data:null}`
+  - 搜索 `?search=Beast` 返回空 — 当前只搜 name_en/name_cn，boss_name 不在搜索范围内，与 characters API 行为一致
+
+### 2026-07-13 — 结局列表页面 + 详情页面 ✅
+
+- **状态**：✅ 已完成
+- **文件**：
+  - `frontend/src/types/ending.ts` — Ending 接口类型
+  - `frontend/src/api/endings.ts` — getEndings + getEndingById API 封装
+  - `frontend/src/components/EndingCard.tsx` + `.module.css` — 结局卡片（编号、Boss、完成方式、解锁）
+  - `frontend/src/pages/EndingsPage.tsx` + `.module.css` — 列表页（22 张卡片网格）
+  - `frontend/src/pages/EndingDetailPage.tsx` + `.module.css` — 详情页（Boss/完成方式/解锁条件/解锁内容）
+  - `frontend/src/App.tsx` — ComingSoon 占位替换为正式路由
+- **验证**：`npx tsc --noEmit` 通过，`npx vite build` 成功；`/endings` 和 `/endings/12` 页面正常渲染
+- **注意事项**：
+  - 结局数据无表/里区分，列表页比角色页简单（无 tab 切换）
+  - 详情页表格包含 Boss、完成方式、解锁条件、指定角色、完成后解锁
+  - 前端展示的中文译名已全部对齐灰机 wiki + 项目 characters.json/items.json 标准
 
 ### 2026-07-13 — 道具列表页面 + 详情页面 ✅
 
@@ -241,20 +329,20 @@ ISAAC/
 
 ## 当前状态速览
 
-### 已完成（13/28）
+### 已完成（17/32）
 
 | 模块 | 完成项 |
 |---|---|
 | 项目初始化 (0.x) | 前端脚手架、后端脚手架、数据库连接、Git |
-| 道具系统 (1.x) | 数据模型、种子数据(720条)、列表API、详情API、前端页面 |
-| 角色系统 (2.x) | 数据模型、种子数据(34个)、列表API、详情API、前端页面（待验证） |
+| 道具系统 (1.x) | 数据模型、种子数据(719条)、列表API、详情API、前端页面 |
+| 角色系统 (2.x) | 数据模型、种子数据(34个)、列表API、详情API、前端页面 |
+| 结局系统 (3.x) | 数据模型、种子数据(22个)、列表API、详情API、前端页面 |
 
 ### 即将做
 
 | 顺序 | 模块 |
 |---|---|
-| 2.4 | 角色前端页面验证 → ✅ |
-| 3.1~3.4 | 结局系统（模型→种子→API→页面） |
+| 2.5.1~2.5.4 | 图片资源（首页/道具/角色/结局全部配图） |
 | 4.1~4.6 | 用户系统（注册登录 + JWT） |
 | 5.1~5.6 | 社区功能（攻略发帖 + 收藏） |
 | 6.1~6.2 | 部署 |

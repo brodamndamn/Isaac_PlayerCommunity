@@ -145,6 +145,77 @@ resp = requests.get(BASE_URL, params=params)
 
 - **道具图标**：统一裁剪/缩放为 **64×64 PNG**
 - **角色立绘**：统一缩放为 **128×128 PNG**
-- **文件命名**：使用道具/角色的英文名或游戏内 ID，小写 + 短横线，如 `brimstone.png`、`azazel.png`
+- **Boss 图片**：统一缩放为 **128×128 PNG**
+- **效果截图**：保持原始比例，宽度不超过 400px
+- **文件命名**：使用道具/角色的英文名或游戏内 ID，小写 + 短横线，如 `brimstone.png`、`azazel.png`、`mega-satan.png`
 - **存储路径**：前端 `public/images/items/`、`public/images/characters/`、`public/images/endings/`
 - **数据库存储**：只存相对路径（如 `items/brimstone.png`），不存完整 URL
+
+---
+
+## 八、阶段二点五配图任务实施指南
+
+### 2.5.1 首页卡片配图
+
+当前状态：三个入口卡片分别用 emoji 占位（🎒 道具图鉴、👤 角色资料、🏆 结局一览）。
+
+目标：将 emoji 替换为游戏内代表性图片：
+- 🎒 道具图鉴 → 妈刀（Mom's Knife，游戏内道具 ID 114）
+- 👤 角色资料 → 以撒（Isaac，默认角色肖像）
+- 🏆 结局一览 → 妈妈的心脏（Mom's Heart，最核心的 Boss）
+
+实施：
+1. 从 Wiki 下载 3 张代表性图片存入 `frontend/public/images/`
+2. 修改 `HomePage.tsx` 的 `SECTIONS` 数组，将 `icon` 从 emoji 替换为 `<img>` 组件
+3. 图片尺寸建议 64×64（与卡片匹配）
+
+### 2.5.2 道具图鉴配图（重点）
+
+当前状态：
+- `ItemCard`（列表页卡片）：无图片，只有文字（ID、分类标签、名称、效果描述、星级）
+- `ItemDetailPage`（详情页）：有 `imagePlaceholder`（"图片"占位）和 `effectImagePlaceholder`（"效果图"占位）
+
+目标：
+- 列表页每张卡片左上角显示道具精灵图（64×64）
+- 详情页标题行左侧显示道具精灵图（64×64）
+- 详情页效果描述区右侧显示效果截图（如有；非必需）
+
+实施：
+1. 从 Fandom Wiki 批量下载 719 个道具精灵图至 `frontend/public/images/items/`
+2. 批量更新数据库 `items.image_url` → `items/<英文名>.png`
+3. 修改 `ItemCard`：卡片左侧新增道具图片区域
+4. 修改 `ItemDetailPage`：将 `imagePlaceholder` 和 `effectImagePlaceholder` 替换为 `<img>`（效果图没有时保留占位或隐藏）
+
+### 2.5.3 角色资料配图
+
+当前状态：
+- `CharacterCard`（列表页卡片）：无图片，只有文字
+- `CharacterDetailPage`（详情页）：有 `imagePlaceholder`（"立绘"占位）、`itemPlaceholder`（"道具N"占位）
+
+目标：
+- 列表页每张卡片左上角显示角色立绘（128×128 缩略图）
+- 详情页标题行左侧显示角色立绘（128×128）
+- 三个 tab（全部 34 人 / 表角色 17 人 / 里角色 17 人）的卡片都应显示对应图片
+
+实施：
+1. 从 Fandom Wiki 下载 34 个角色立绘至 `frontend/public/images/characters/`
+2. 批量更新数据库 `characters.image_url` → `characters/<英文名>.png`
+3. 修改 `CharacterCard`：卡片左侧新增角色图片区域
+4. 修改 `CharacterDetailPage`：将 `imagePlaceholder` 替换为 `<img>`
+
+### 2.5.4 结局一览配图
+
+当前状态：
+- `EndingCard`（列表页卡片）：无图片，只有文字（编号、名称、Boss、完成方式、解锁）
+- `EndingDetailPage`（详情页）：无图片，纯表格文字
+
+目标：
+- 列表页每张卡片显示对应 Boss 图片（128×128 缩略图）
+- 详情页显示 Boss 图片 + 解锁内容对应的道具/角色图片
+
+实施：
+1. 从 Fandom Wiki 下载 Boss 图片 + 关键解锁道具/角色图至 `frontend/public/images/endings/`
+2. 批量更新数据库 `endings.image_url` → `endings/<boss英文名>.png`
+3. 修改 `EndingCard`：卡片左侧新增 Boss 图片区域
+4. 修改 `EndingDetailPage`：表格上方显示 Boss 图片，解锁行显示对应道具/角色缩略图
+5. 解锁道具/角色图可通过查询 `items.image_url` / `characters.image_url` 获取（配合 `unlocks` JSON 字段匹配）

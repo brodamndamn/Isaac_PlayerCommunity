@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getCharacters } from "../api/characters";
 import CharacterCard from "../components/CharacterCard";
 import type { Character } from "../types/character";
@@ -9,23 +9,19 @@ export default function CharactersPage() {
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState<"all" | "normal" | "tainted">("all");
 
-  const fetchCharacters = useCallback(async () => {
-    setLoading(true);
-    try {
-      const isTainted = filter === "tainted" ? true : filter === "normal" ? false : undefined;
-      const res = await getCharacters({ page_size: 34, is_tainted: isTainted });
-      setCharacters(res.data!.items);
-    } finally {
-      setLoading(false);
-    }
-  }, [filter]);
-
+  // 一次性拉全部；tab 切换只控制显示，不重 fetch，避免 count 跟着变动
   useEffect(() => {
-    fetchCharacters();
-  }, [fetchCharacters]);
+    setLoading(true);
+    getCharacters({ page_size: 34 })
+      .then((res) => setCharacters(res.data!.items))
+      .finally(() => setLoading(false));
+  }, []);
 
   const normal = characters.filter((c) => !c.is_tainted);
   const tainted = characters.filter((c) => c.is_tainted);
+  const totalCount = characters.length;
+  const normalCount = normal.length;
+  const taintedCount = tainted.length;
 
   return (
     <div>
@@ -38,7 +34,7 @@ export default function CharactersPage() {
             onClick={() => setFilter(f)}
             className={`${styles.fBtn} ${filter === f ? styles.active : ""}`}
           >
-            {f === "all" ? `全部 (${characters.length})` : f === "normal" ? `表角色 (${normal.length})` : `里角色 (${tainted.length})`}
+            {f === "all" ? `全部 (${totalCount})` : f === "normal" ? `表角色 (${normalCount})` : `里角色 (${taintedCount})`}
           </button>
         ))}
       </div>
@@ -52,7 +48,7 @@ export default function CharactersPage() {
             <section>
               <h2 className={styles.sectionTitle}>表角色</h2>
               <div className={styles.grid}>
-                {(filter === "normal" ? characters : normal).map((c) => (
+                {normal.map((c) => (
                   <CharacterCard key={c.id} character={c} />
                 ))}
               </div>
@@ -64,7 +60,7 @@ export default function CharactersPage() {
             <section>
               <h2 className={styles.sectionTitle}>里角色</h2>
               <div className={styles.grid}>
-                {(filter === "tainted" ? characters : tainted).map((c) => (
+                {tainted.map((c) => (
                   <CharacterCard key={c.id} character={c} />
                 ))}
               </div>

@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CharacterDetailPage from "./pages/CharacterDetailPage";
 import CharactersPage from "./pages/CharactersPage";
+import EndingDetailPage from "./pages/EndingDetailPage";
+import EndingsPage from "./pages/EndingsPage";
 import HomePage from "./pages/HomePage";
 import ItemDetailPage from "./pages/ItemDetailPage";
 import ItemsPage from "./pages/ItemsPage";
@@ -40,6 +42,8 @@ export default function App() {
             <Route path="/items/:id" element={<ItemDetailPage />} />
             <Route path="/characters" element={<CharactersPage />} />
             <Route path="/characters/:id" element={<CharacterDetailPage />} />
+            <Route path="/endings" element={<EndingsPage />} />
+            <Route path="/endings/:id" element={<EndingDetailPage />} />
           </Routes>
         </main>
         <footer style={{ textAlign: "center", padding: 16, fontSize: 13, color: "#999", borderTop: "1px solid #eee" }}>

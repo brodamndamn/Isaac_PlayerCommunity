@@ -80,10 +80,11 @@ ISAAC/
 3. **种子数据** — 导入道具、角色、结局的基础数据
 4. **攻略 API** — 道具/角色/结局的只读 API（不需要用户系统）
 5. **攻略页面** — 前端展示页面（可以先看到效果）
-6. **用户系统** — 注册、登录、JWT 中间件
-7. **社区 API** — 创建攻略、删除、收藏（需要认证）
-8. **社区页面** — 发帖、收藏页面
-9. **部署** — Nginx + Uvicorn 生产配置
+6. **图片资源** — 下载道具/角色/Boss 图片，更新数据库 image_url，替换前端 emoji/占位符（阶段二点五）
+7. **用户系统** — 注册、登录、JWT 中间件
+8. **社区 API** — 创建攻略、删除、收藏（需要认证）
+9. **社区页面** — 发帖、收藏页面
+10. **部署** — Nginx + Uvicorn 生产配置
 
 先做只读展示（道具/角色/结局），让项目尽早有可见成果，再做需要用户系统的社区功能。
 
@@ -91,11 +92,28 @@ ISAAC/
 
 《以撒的结合》道具、角色、结局的精灵图/图标获取方式，详见 [references/images.md](references/images.md)。
 
+**阶段二点五 — 配图任务总览：**
+
+| 任务 | 范围 | 图片类型 | 存储路径 |
+|---|---|---|---|
+| 2.5.1 首页卡片 | 3 张（妈刀、以撒、妈心） | 道具/角色/Boss 图标 | `frontend/public/images/` |
+| 2.5.2 道具配图 | 719 个道具 | 精灵图 + 效果截图 | `frontend/public/images/items/` |
+| 2.5.3 角色配图 | 34 个角色 | 角色立绘 | `frontend/public/images/characters/` |
+| 2.5.4 结局配图 | 22 个结局 | Boss 图 + 解锁道具/角色图 | `frontend/public/images/endings/` |
+
+**通用流程（每个子任务都遵循）：**
+1. 从 Fandom Rebirth Wiki 逐张下载图片（右键 → 在新标签页中打开图片 → 保存 PNG）
+2. 图片尺寸统一处理（道具 64×64、角色立绘 128×128、Boss 图 128×128）
+3. 文件命名：英文小写 + 短横线（如 `moms-knife.png`、`azazel.png`）
+4. 存入对应 `frontend/public/images/` 子目录
+5. 更新数据库对应 `image_url` 字段（相对路径，如 `items/moms-knife.png`）
+6. 修改前端组件：将 emoji/占位 div 替换为 `<img>` 标签，src 指向数据库 `image_url` 或默认路径
+
 简要原则：
 - 个人资料站使用 Wiki 图片属于合理使用，需标注版权归 Edmund McMillen / Nicalis
 - 推荐从 Fandom Rebirth Wiki 逐张下载（最方便），或从 The Spriters Resource 批量下载精灵表
 - 不要打包分发游戏原始资源文件
-- 项目中存储图片时建议统一为 64x64 PNG
+- 项目中存储图片时道具图标统一为 64x64 PNG，角色/Boss 立绘统一为 128×128 PNG
 
 ## 技术规范
 

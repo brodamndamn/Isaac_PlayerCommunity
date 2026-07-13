@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getCharacterById } from "../api/characters";
 import type { Character } from "../types/character";
+import HealthHearts from "../components/HealthHearts";
 import styles from "./CharacterDetailPage.module.css";
 
 export default function CharacterDetailPage() {
@@ -53,7 +54,7 @@ export default function CharacterDetailPage() {
           )}
           <tr>
             <td className={styles.label}>生命值</td>
-            <td>{char.health}</td>
+            <td><HealthHearts health={char.health} /></td>
           </tr>
           {char.damage != null && (
             <tr>
