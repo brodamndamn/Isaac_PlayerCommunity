@@ -12,18 +12,14 @@ const CATEGORY_LABELS: Record<string, string> = {
   pill: "药丸",
 };
 
-const POOL_LABELS: Record<string, string> = {
-  treasure: "宝箱房",
-  boss: "Boss房",
-  shop: "商店",
-  devil: "恶魔房",
-  angel: "天使房",
-  secret_room: "隐藏房",
-  library: "图书馆",
-  golden_chest: "金宝箱",
-  arcade: "街机厅",
-  demon_beggar: "恶魔乞丐",
-};
+// 解析道具池文字中的图片占位符 [img:pool/xxx]
+function parsePoolEntry(entry: string): { img?: string; label: string } {
+  const match = entry.match(/^\[img:(.+?)\]\s*(.*)/);
+  if (match) {
+    return { img: match[1], label: match[2] || match[1] };
+  }
+  return { label: entry };
+}
 
 export default function ItemDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -45,9 +41,8 @@ export default function ItemDetailPage() {
   if (error) return <p className={styles.status} style={{ color: "#c0392b" }}>{error}</p>;
   if (!item) return null;
 
-  const pools = item.item_pools
-    ?.map((p) => POOL_LABELS[p] || p)
-    .join("、") || "未知";
+  // 道具池：解析 [img:pool/xxx] 占位符 + 中文名
+  const poolEntries = item.item_pools?.map(parsePoolEntry) ?? [];
 
   return (
     <div className={styles.container}>
@@ -102,7 +97,28 @@ export default function ItemDetailPage() {
           )}
           <tr>
             <td className={styles.label}>道具池</td>
-            <td>{pools}</td>
+            <td>
+              {poolEntries.length > 0 ? (
+                <div className={styles.poolList}>
+                  {poolEntries.map((entry, i) => (
+                    <span key={i} className={styles.poolItem}>
+                      {entry.img ? (
+                        <img
+                          src={`/images/${entry.img}.png`}
+                          alt={entry.label}
+                          className={styles.poolIcon}
+                        />
+                      ) : (
+                        <span className={styles.poolIconPlaceholder} />
+                      )}
+                      {entry.label}
+                    </span>
+                  ))}
+                </div>
+              ) : (
+                "未知"
+              )}
+            </td>
           </tr>
           {item.unlock_method && (
             <tr>
@@ -112,6 +128,46 @@ export default function ItemDetailPage() {
           )}
         </tbody>
       </table>
+
+      {/* 属性变化表格 */}
+      {item.stat_changes && item.stat_changes.length > 0 && (
+        <section className={styles.section}>
+          <h3>属性变化</h3>
+          <table className={styles.statTable}>
+            <thead>
+              <tr>
+                <th>属性</th>
+                <th>加成 / 削弱</th>
+              </tr>
+            </thead>
+            <tbody>
+              {item.stat_changes.map((row, i) => {
+                // row[0] = "[img:stat/damage] 伤害", row[1] = "+1.00"
+                const attrMatch = row[0].match(/^\[img:(.+?)\]\s*(.*)/);
+                const imgPath = attrMatch ? attrMatch[1] : null;
+                const attrName = attrMatch ? attrMatch[2] : row[0];
+                return (
+                  <tr key={i}>
+                    <td className={styles.statAttr}>
+                      {imgPath ? (
+                        <img
+                          src={`/images/${imgPath}.png`}
+                          alt={attrName}
+                          className={styles.statIcon}
+                        />
+                      ) : (
+                        <span className={styles.statIconPlaceholder} />
+                      )}
+                      {attrName}
+                    </td>
+                    <td className={styles.statValue}>{row[1]}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </section>
+      )}
 
       {/* 效果描述 */}
       <section className={styles.section}>

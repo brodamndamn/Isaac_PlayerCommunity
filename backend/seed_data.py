@@ -40,6 +40,7 @@ def seed_items(db) -> int:
             image_url=data.get("image_url"),
             suitable_characters=data.get("suitable_characters"),
             item_pools=data.get("item_pools"),
+            stat_changes=data.get("stat_changes"),
         )
         db.merge(item)
         count += 1

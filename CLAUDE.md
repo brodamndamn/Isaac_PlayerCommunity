@@ -340,6 +340,52 @@
 
 866 条道具（719 原 + 147 卡牌药丸新）
 
+### 2026-07-14 — 图片系统完整重构 ✅
+
+- **状态**：✅ 已完成
+- **总结果**：866 条 item 全部 image_url 可用，详情页/列表页都显示 32×32 像素精灵图（药丸 19×19，卡牌 14×18）
+- **涉及文件**：
+  - `frontend/src/components/ItemCard.tsx` — 列表页（左图右标题布局）
+  - `frontend/src/components/ItemCard.module.css` — 重构为 flex row + image 左布局
+  - `frontend/src/pages/ItemDetailPage.tsx` — 详情页标题区用 `<img>` 显示 sprite
+  - `frontend/src/pages/ItemDetailPage.module.css` — `.itemImage` 128×128
+  - `backend/seed_data/fetch_item_images_fixed.py` — **新建**：用 `Collectible <Name> icon.png` 模板抓缺失道具图（150/155 成功）
+  - `backend/seed_data/fetch_card_sprites.py` — **新建**：95 张卡牌每张独立 sprite
+  - `backend/seed_data/update_item_images.py` — **新建**：磁盘合法 sprite → DB image_url 同步
+  - `backend/seed_data/mark_pill_images.py` — **新建**（部分回退）：将药丸 image_url 标记为 polarity
+  - `frontend/public/images/items/_shared/` — 11 张共享 sprite 源（2 塔罗 + 1 扑克 + Joker/Rules/Chaos/Rune/Soul_stone + 3 药丸 + 1 杂项）
+- **关键发现与决策**：
+  1. **之前 `fetch_item_images.py` 全失败**：用 MediaWiki `pageimages` API 抓到的全是 `Dlc_a_indicator.png` 占位图（变异颜色只有 3 个不同 URL）。改用 `Collectible <Name> icon.png` 直接拼文件名模板，命中率 90%+
+  2. **路径问题**：DB 存的 `items/1.png` 对应磁盘 `public/images/items/1.png`，前端 `src` 必须是 `/images/${image_url}`（不是 `/${image_url}`），否则路径错导致 alt 文字显示
+  3. **图片尺寸**：道具 sprite 是 32×32 WebP，卡牌是 14×18，药丸是 19×19，符文是 39×50 — 用 pixelated CSS 让大图不糊
+  4. **卡牌 sprite 共享 fallback**：8 个符文（Fandom 无独立 sprite）+ Ace of Spades + ? Card 用 `_shared/` 文件 fallback
+  5. **药丸按列分配**：用户要求按列循环，最左 `_shared/pill_black_white.png`，中间 `_shared/pill_white_white.png`，右边 `_shared/pill_white_yellow.png`，按 `(ID-733) % 3` 分配
+  6. **？Card 仍未解决**：Fandom Wiki 没 `? Card` 独立 sprite，目前用 tarot_normal 临时占位
+  7. **逆位塔罗中文「？」丢失**：原 fetch_cn_cards_pills_v2.py 正则 `[一-鿿?!]+` 只匹配半角 `?`，匹配不了全角 `？`（U+FF1F）。修复后用 `[一-鿿㐀-䶿?!？！]+` 重新抓 ID 805-826 22 张
+- **修复流程**：
+  | 步骤 | 操作 |
+  |---|---|
+  | 1 | 隔离 41 个 >15KB 可疑大图到 `_quarantine/`，删 56 个文件 |
+  | 2 | 用户报 15 个错误图 ID，移到 `_quarantine/`，重抓真 sprite（全部 32×32） |
+  | 3 | 用户报 3 个无图 ID（320/550/551），补抓 `Blue Baby's Only Friend` / `Mom's Shovel` sprite |
+  | 4 | 重抓 150/155 个 1-732 范围缺失图（用 `Collectible <Name> icon.png` 模板） |
+  | 5 | 抓 95 张卡牌每张独立 sprite |
+  | 6 | 修改前端 ItemCard 布局（图左 + 标题右 + 描述下） |
+  | 7 | 修改 src 路径 `/images/${image_url}` 修复图片加载 |
+  | 8 | 修复逆位塔罗中文「？」丢失 |
+  | 9 | ItemDetailPage 加图片（128×128） |
+  | 10 | 删除 `_quarantine/` 目录（用户确认） |
+- **验证**：
+  - `curl /api/v1/items/733` 返回 `image_url: "items/_shared/pill_black_white.png"`
+  - `curl /images/items/_shared/pill_black_white.png` → 200 + 138B
+  - `curl /images/items/1.png` → 200
+  - 数据库 866/866 有 image_url
+- **注意事项**：
+  - `_shared/` 子目录在 `items/` 下，DB image_url 路径必须含 `items/` 前缀
+  - WebP 文件虽然是 .png 后缀，但浏览器能识别（都是 WebP lossless with alpha）
+  - 卡牌 sprite 大小差异：塔罗/扑克/Joker/Rules 14×18、符文 39×50、魂石 19×22、杂项各种
+  - ? Card 仍是 todo，等用户决定 fallback 方案
+
 ### 2026-07-14 — 卡牌药丸翻译补全 ✅
 
 - **状态**：✅ 已完成
@@ -453,13 +499,14 @@ ISAAC/
 | 道具分类重做 | passive 470 / active 168 / trinket 81 / card 97 / pill 50 = 866 条 |
 | 卡牌药丸数据 | 从 Wiki 抓取 147 条 + 中文名/效果（97/97 卡牌名+效果、49/50 药丸名、50/50 药丸效果） |
 | 前端优化 | 实时搜索、翻页跳转、返回按钮、道具分色边框 |
+| 图片系统重构 | 866/866 item 都有 image_url；列表页图左标题右布局；详情页 128×128 sprite；逆位塔罗补 ？；药丸按列分配 3 sprite |
 
 ### 进行中
 
 | 顺序 | 模块 |
 |---|---|
 | 2.5.1 | 首页配图（妈刀和以撒图片不合适，待换） |
-| 2.5.2 | 道具配图（604 张已下载，~115 张缺失 + 部分错误待修正） |
+| 2.5.2-a | ? Card (ID 844) 缺独立 sprite，目前 fallback 到 tarot_normal——待选方案 |
 | 2.5.3 | 角色配图（⬜ 未开始） |
 | 2.5.4 | 结局配图（⬜ 未开始） |
 

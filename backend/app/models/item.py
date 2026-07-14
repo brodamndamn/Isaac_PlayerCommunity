@@ -33,6 +33,9 @@ class Item(Base):
     item_pools: Mapped[list | None] = mapped_column(
         JSON, nullable=True, comment="道具池列表"
     )
+    stat_changes: Mapped[list | None] = mapped_column(
+        JSON, nullable=True, comment="属性变化列表 [[属性, 数值], ...]"
+    )
     created_at: Mapped[datetime] = mapped_column(
         DateTime, nullable=False, server_default=func.now()
     )

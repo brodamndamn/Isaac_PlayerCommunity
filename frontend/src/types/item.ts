@@ -11,5 +11,6 @@ export interface Item {
   recharge_time: string | null;
   image_url: string | null;
   item_pools: string[] | null;
+  stat_changes: string[][] | null;
   suitable_characters: number[] | null;
 }

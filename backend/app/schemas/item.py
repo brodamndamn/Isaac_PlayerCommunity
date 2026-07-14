@@ -18,6 +18,7 @@ class ItemResponse(BaseModel):
     recharge_time: str | None
     image_url: str | None
     item_pools: list | None
+    stat_changes: list | None
     suitable_characters: list | None
 
     model_config = {"from_attributes": True}
