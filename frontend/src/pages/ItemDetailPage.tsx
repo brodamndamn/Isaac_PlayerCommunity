@@ -92,7 +92,7 @@ export default function ItemDetailPage() {
           {item.recharge_time && (
             <tr>
               <td className={styles.label}>充能</td>
-              <td>{item.recharge_time} 格</td>
+              <td>{item.recharge_time}</td>
             </tr>
           )}
           <tr>
