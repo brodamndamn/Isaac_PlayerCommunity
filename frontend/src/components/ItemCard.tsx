@@ -33,22 +33,41 @@ const BORDER_CLASS: Record<string, string> = {
 export default function ItemCard({ item }: ItemCardProps) {
   return (
     <Link to={`/items/${item.id}`} className={`${styles.card} ${styles[BORDER_CLASS[item.category]] || ""}`}>
-      <div className={styles.header}>
-        <span className={styles.id}>#{item.id}</span>
-        <span className={`${styles.category} ${styles[TAG_CLASS[item.category]] || ""}`}>
-          {CATEGORY_LABELS[item.category] || item.category}
-        </span>
-      </div>
-      <h3 className={styles.name}>{item.name_cn || item.name_en}</h3>
-      {item.pick_up_text && (
-        <p className={styles.quote}>"{item.pick_up_text}"</p>
-      )}
-      <p className={styles.desc}>{item.effect || item.description}</p>
-      {item.quality != null && (
-        <div className={styles.quality}>
-          {"★".repeat(item.quality)}{"☆".repeat(4 - item.quality)}
+      {/* 上半：图左 + 标题右 */}
+      <div className={styles.topRow}>
+        {item.image_url ? (
+          <img
+            src={`/images/${item.image_url}`}
+            alt={item.name_cn || item.name_en}
+            className={styles.thumb}
+            loading="lazy"
+          />
+        ) : (
+          <div className={styles.thumbPlaceholder} />
+        )}
+        <div className={styles.titleCol}>
+          <div className={styles.headerRow}>
+            <span className={styles.id}>#{item.id}</span>
+            <span className={`${styles.category} ${styles[TAG_CLASS[item.category]] || ""}`}>
+              {CATEGORY_LABELS[item.category] || item.category}
+            </span>
+          </div>
+          <h3 className={styles.name}>{item.name_cn || item.name_en}</h3>
+          <p className={styles.nameEn}>{item.name_en}</p>
         </div>
-      )}
+      </div>
+      {/* 下半：描述 + 星级 */}
+      <div className={styles.bottomRow}>
+        {item.pick_up_text && (
+          <p className={styles.quote}>"{item.pick_up_text}"</p>
+        )}
+        <p className={styles.desc}>{item.effect || item.description}</p>
+        {item.quality != null && (
+          <div className={styles.quality}>
+            {"★".repeat(item.quality)}{"☆".repeat(4 - item.quality)}
+          </div>
+        )}
+      </div>
     </Link>
   );
 }
