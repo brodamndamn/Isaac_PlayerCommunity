@@ -1,0 +1,3 @@
+Line: 在该攻击方式下，射速修正 \times 1/3 
+repr: '在该攻击方式下，射速修正 \\times 1/3 '
+chars around times: ' \\times 1/3 '

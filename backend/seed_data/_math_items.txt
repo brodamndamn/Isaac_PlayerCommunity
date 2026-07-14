@@ -1,0 +1,76 @@
+active ID 97: The Book of Sin
+active ID 324: Undefined
+active ID 642: Magic Skin
+passive ID 69: Chocolate Milk
+passive ID 89: Spider Bite
+passive ID 103: The Common Cold
+passive ID 110: Mom's Contacts
+passive ID 114: Mom's Knife
+passive ID 118: Brimstone
+passive ID 149: Ipecac
+passive ID 150: Tough Love
+passive ID 157: Bloody Lust
+passive ID 162: Celtic Cross
+passive ID 200: Mom's Eyeshadow
+passive ID 201: Iron Bar
+passive ID 217: Mom's Wig
+passive ID 219: Old Bandage
+passive ID 225: Gimpy
+passive ID 228: Mom's Perfume
+passive ID 229: Monstro's Lung
+passive ID 230: Abaddon
+passive ID 231: Ball of Tar
+passive ID 241: Contract From Below
+passive ID 257: Fire Mind
+passive ID 259: Dark Matter
+passive ID 303: Virgo
+passive ID 368: Epiphora
+passive ID 374: Holy Light
+passive ID 395: Tech X
+passive ID 410: Evil Eye
+passive ID 440: Kidney Stone
+passive ID 443: Apple!
+passive ID 461: Parasitoid
+passive ID 495: Ghost Pepper
+passive ID 503: Little Horn (Item)
+passive ID 531: Haemolacria
+passive ID 562: Rock Bottom
+passive ID 569: Blood Oath
+passive ID 575: The Intruder
+passive ID 579: Spirit Sword
+passive ID 606: Ocular Rift
+passive ID 616: Bird's Eye
+passive ID 617: Lodestone
+passive ID 618: Rotten Tomato
+passive ID 621: Red Stew
+passive ID 637: Knockout Drops
+passive ID 678: C Section
+passive ID 681: Lil Portal
+passive ID 731: Stye
+trinket ID 881: A Missing Page
+trinket ID 884: Bible Tract
+trinket ID 885: Black Lipstick
+trinket ID 892: Cain's Eye
+trinket ID 895: Cartridge
+trinket ID 901: Eve's Bird Foot
+trinket ID 907: Isaac's Fork
+trinket ID 916: Mom's Pearl
+trinket ID 923: Pinky Eye
+trinket ID 925: Purple Heart
+trinket ID 926: Push Pin
+trinket ID 927: Red Patch
+trinket ID 932: Samson's Lock
+trinket ID 972: Black Tooth
+trinket ID 975: Cracked Crown
+trinket ID 981: Extension Cord
+trinket ID 995: Ouroboros Worm
+trinket ID 1008: A Lighter
+trinket ID 1015: Blessed Penny
+trinket ID 1021: Charged Penny
+trinket ID 1022: Chewed Pen
+trinket ID 1038: Ice Cube
+trinket ID 1039: Jawbreaker
+trinket ID 1050: Old Capacitor
+trinket ID 1053: Polished Bone
+
+Total: 74
