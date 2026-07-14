@@ -31,15 +31,22 @@ const BORDER_CLASS: Record<string, string> = {
 };
 
 export default function ItemCard({ item }: ItemCardProps) {
+  // 判定是否为药丸（category === 'pill'），用对应的 _shared sprite
+  // 或者其他 image_url（如 _shared/xxx 或 items/xxx）
+  const pillSprite = item.category === "pill";
+  const imgSrc = item.image_url
+    ? `/images/${item.image_url}`
+    : null;
+
   return (
     <Link to={`/items/${item.id}`} className={`${styles.card} ${styles[BORDER_CLASS[item.category]] || ""}`}>
       {/* 上半：图左 + 标题右 */}
       <div className={styles.topRow}>
-        {item.image_url ? (
+        {imgSrc ? (
           <img
-            src={`/images/${item.image_url}`}
+            src={imgSrc}
             alt={item.name_cn || item.name_en}
-            className={styles.thumb}
+            className={pillSprite ? styles.pillThumb : styles.thumb}
             loading="lazy"
           />
         ) : (

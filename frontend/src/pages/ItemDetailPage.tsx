@@ -54,9 +54,17 @@ export default function ItemDetailPage() {
       <button onClick={() => navigate(-1)} className={styles.back}>&larr; 返回</button>
       {/* 标题区域 */}
       <div className={styles.titleRow}>
-        <div className={styles.imagePlaceholder}>
-          <span>图片</span>
-        </div>
+        {item.image_url ? (
+          <img
+            src={`/images/${item.image_url}`}
+            alt={item.name_cn || item.name_en}
+            className={styles.itemImage}
+          />
+        ) : (
+          <div className={styles.imagePlaceholder}>
+            <span>图片</span>
+          </div>
+        )}
         <div>
           <h1 className={styles.name}>{item.name_cn || item.name_en}</h1>
           <p className={styles.nameEn}>{item.name_en}</p>
