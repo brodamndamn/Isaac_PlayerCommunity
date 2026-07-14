@@ -1,0 +1,22 @@
+ID 783 0 - The Fool:
+  effect: 传送到当前层的初始房间。
+
+ID 784 I - The Magician:
+  effect: 在当前房间中，获得 弯勺魔术的效果。
+射程 +3.00 
+多个I-魔术师的该效果不叠加。
+
+ID 785 II - The High Priestess:
+  effect: 生成妈妈的脚踩踏敌人，对房间中血量最高的敌人造成 300.00 点伤害。
+如果房间中没有敌人，则会瞄准角色进行一次踩踏。
+房间未清理完成时，踩踏可以打开房间中未上锁的门。
+
+ID 792 IX - The Hermit:
+  effect: 传送到当前层的商店。
+
+ID 793 X - Wheel of Fortune:
+  effect: 66% 概率生成 1 个赌博机， 33% 概率生成 1 个预言机， 1% 概率生成 1 个夹娃娃机。
+
+ID 794 XI - Strength:
+  effect: 在当前房间中，获得 魔法蘑菇的被动效果和 1 个心之容器。
+

@@ -1,0 +1,30 @@
+ID 783 0 - The Fool:
+  pools: ['[img:pool/card_drop] 卡牌掉落']
+  unlock: 初始即可获得
+  stat_changes: None
+
+ID 784 I - The Magician:
+  pools: ['[img:pool/card_drop] 卡牌掉落']
+  unlock: 初始即可获得
+  stat_changes: [['[img:stat/range] 射程', '+3.00']]
+
+ID 792 IX - The Hermit:
+  pools: ['[img:pool/card_drop] 卡牌掉落']
+  unlock: 初始即可获得
+  stat_changes: None
+
+ID 796 XIII - Death:
+  pools: ['[img:pool/card_drop] 卡牌掉落']
+  unlock: 初始即可获得
+  stat_changes: None
+
+ID 835 Joker:
+  pools: ['[img:pool/card_drop] 卡牌掉落']
+  unlock: 初始即可获得
+  stat_changes: None
+
+ID 849 Rune of Hagalaz:
+  pools: ['[img:pool/card_drop] 卡牌掉落']
+  unlock: 通过 挑战#1：漆黑一片
+  stat_changes: None
+

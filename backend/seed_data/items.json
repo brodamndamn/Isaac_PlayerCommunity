@@ -13485,1455 +13485,1757 @@
     "name_en": "0 - The Fool",
     "name_cn": "愚者",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 同上，没有额外效果。",
+    "effect": "传送到当前层的初始房间。",
     "quality": null,
     "id": 783,
     "description": "Teleports Isaac back to the starting room of the floor that he is currently on.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "I - The Magician",
     "name_cn": "魔术师",
     "category": "card",
-    "effect": "使用后： 在当前房间中，获得 弯勺魔术 的效果。 射程 +3.00 多个 I-魔术师 的该效果不叠加。",
+    "effect": "在当前房间中，泪弹获得追踪效果。\n射程 +3.00 \n多个I-魔术师的该效果不叠加。",
     "quality": null,
     "id": 784,
     "description": "Grantshoming tearsfor the current room.Grantshoming tearsand +3Rangefor the current room.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/range] 射程",
+        "+3.00"
+      ]
+    ]
   },
   {
     "name_en": "II - The High Priestess",
     "name_cn": "女祭司",
     "category": "card",
-    "effect": "Mom's dismembered leg stomps on the enemy with the most health, dealing 300 damage and destroying obstacles in the area. If used in an empty room or during theMomfight, stomps Isaac instead.Isaac can move to avoid the stomp.",
+    "effect": "生成妈妈的脚踩踏敌人，对房间中血量最高的敌人造成 300.00 点伤害。\n如果房间中没有敌人，则会瞄准角色进行一次踩踏。\n房间未清理完成时，踩踏可以打开房间中未上锁的门。",
     "quality": null,
     "id": 785,
     "description": "Mom's dismembered leg stomps on the enemy with the most health, dealing 300 damage and destroying obstacles in the area. If used in an empty room or during theMomfight, stomps Isaac instead.Isaac can move to avoid the stomp.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "III - The Empress",
     "name_cn": "皇后",
     "category": "card",
-    "effect": "Triggers theWhore of Babyloneffect (+1.5Damage, +0.3Speed) for the current room, regardless of Isaac's health total.",
+    "effect": "在当前房间中，获得 1 层巴比伦状态。",
     "quality": null,
     "id": 786,
     "description": "Triggers theWhore of Babyloneffect (+1.5Damage, +0.3Speed) for the current room, regardless of Isaac's health total.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "IV - The Emperor",
     "name_cn": "皇帝",
     "category": "card",
-    "effect": "使用后： 传送到当前层的 头目房 。 如果当前层有多个 头目房 ，则随机传送到其中一个。 如果当前层没有 头目房 ，则随机传送到一个房间。",
+    "effect": "传送到当前层的头目房。\n如果当前层有多个头目房，则随机传送到其中一个。\n如果当前层没有头目房，则随机传送到一个房间。",
     "quality": null,
     "id": 787,
     "description": "Teleports Isaac into theBoss Room.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "V - The Hierophant",
     "name_cn": "教皇",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 生成3个 骨心 。",
+    "effect": "生成 2 个魂心。",
     "quality": null,
     "id": 788,
     "description": "Drops 2 fullSoul Heartson the ground.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/soul_heart] 魂心",
+        "+2"
+      ]
+    ]
   },
   {
     "name_en": "VI - The Lovers",
     "name_cn": "恋人",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 生成 3 个 红心 。",
+    "effect": "生成 2 个红心。",
     "quality": null,
     "id": 789,
     "description": "Drops 2 fullRed Heartson the ground.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "VII - The Chariot",
     "name_cn": "战车",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 触发 2 次 VII-战车 的使用效果。",
+    "effect": "触发 1 次 彩虹独角兽的使用效果。",
     "quality": null,
     "id": 790,
     "description": "Givesinvulnerabilityand +0.28speedfor six seconds, removing the ability to shoot tears and replacing it with the ability to deal contact damage to enemies.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "VIII - Justice",
     "name_cn": "正义",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 生成 4 ~ 14 个 金箱子 。",
+    "effect": "生成 1 个随机心。\n生成 1 个随机硬币。\n生成 1 个随机钥匙。\n生成 1 个随机炸弹。",
     "quality": null,
     "id": 791,
     "description": "Drops a random type ofHeart,Key,Bomb, andCoinpickup on the ground.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "IX - The Hermit",
     "name_cn": "隐者",
     "category": "card",
-    "effect": "使用后： 如果房间中没有下列物品，则生成1个 硬币 ；否则将所有下列物品根据种类转化为 n 个 硬币 ，其中 n 与物品种类有关： 道具： n=15 ； 永恒之心 、 金心 、 金钥匙 、 钥匙圈 、 充能钥匙 、 金炸弹 、 双炸弹 、 巨型炸弹 ： n=10 ； 福袋 ： n=7 ； 双红心 、 黑心 、 骨心 ： n=6 ； 魂心 、 钥匙 、 炸弹 、 胶囊 、 电池 、 卡牌 、 饰品 ： n=5 ； 红心 、 胆小的红心 、 混合心 ： n=3 ； 半魂心 、 腐心 ： n=2 ； 半红心 ： n=1 ；",
+    "effect": "传送到当前层的商店。",
     "quality": null,
     "id": 792,
     "description": "Teleports Isaac to theShop.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "X - Wheel of Fortune",
     "name_cn": "命运之轮",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 触发2次 X-命运之轮？ 的使用效果。",
+    "effect": "66% 概率生成 1 个赌博机， 33% 概率生成 1 个预言机， 1% 概率生成 1 个夹娃娃机。",
     "quality": null,
     "id": 793,
     "description": "Creates aSlot MachineorFortune Telling Machinenear Isaac.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XI - Strength",
     "name_cn": "力量",
     "category": "card",
-    "effect": "Grants the effects ofMagic Mushroom(minus the health restoration) for one room. The addedRed Heart containeris not removed if doing so would kill Isaac.",
+    "effect": "在当前房间中，获得 魔法蘑菇的被动效果和 1 个心之容器。",
     "quality": null,
     "id": 794,
     "description": "Grants the effects ofMagic Mushroom(minus the health restoration) for one room. The addedRed Heart containeris not removed if doing so would kill Isaac.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XII - The Hanged Man",
     "name_cn": "倒吊人",
     "category": "card",
-    "effect": "使用后： 获得以下效果，持续30秒： 角色的形象变为 店主 。 移速 -0.10 获得 内眼 的效果。 每当角色消灭敌人时，生成1个 硬币 。",
+    "effect": "在当前房间中，角色获得飞行效果。",
     "quality": null,
     "id": 795,
     "description": "Grantsflightfor the duration of the room.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XIII - Death",
     "name_cn": "死亡",
     "category": "card",
-    "effect": "Deals 40 damage to all enemies in the room.",
+    "effect": "对当前房间中的所有敌人造成 40.00 点伤害。",
     "quality": null,
     "id": 796,
     "description": "Deals 40 damage to all enemies in the room.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XIV - Temperance",
     "name_cn": "节制",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 触发2次 XIV-节制？ 的使用效果。",
+    "effect": "生成 1 个献血机。\n改为生成 1 个恶魔乞丐。",
     "quality": null,
     "id": 797,
     "description": "Creates aBlood Donation Machinenear Isaac.Spawns aDevil Beggarinstead inGreed mode.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XV - The Devil",
     "name_cn": "恶魔",
     "category": "card",
-    "effect": "Grants +2Damagefor the current room.",
+    "effect": "在当前房间中，触发 彼列之书的使用效果。",
     "quality": null,
     "id": 798,
     "description": "Grants +2Damagefor the current room.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XVI - The Tower",
     "name_cn": "塔",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 触发 2 次 XVI-塔 的使用效果。",
+    "effect": "触发 1 次 无政府主义者食谱的使用效果。",
     "quality": null,
     "id": 799,
     "description": "Drops 6Troll Bombsrandomly around the room.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XVII - The Stars",
     "name_cn": "星星",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 传送到当前层的 宝箱房 。 如果是首次进入这个宝箱房，则这个宝箱房必定为有二选一道具的房间布局。 如果当前楼层有 星象房 ，则传送到当前层的星象房。",
+    "effect": "传送到当前层的宝箱房。\n如果当前楼层有星象房，则传送到当前层的星象房。",
     "quality": null,
     "id": 800,
     "description": "Teleports Isaac to theTreasure Room. Randomly chooses a Treasure Room if there is an activeCurse of the Labyrinth.If there is aPlanetarium, teleports Isaac there instead.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XVIII - The Moon",
     "name_cn": "月亮",
     "category": "card",
-    "effect": "角色被传送到 究极隐藏房 后，如果该究级隐藏房尚未有任何出口，会随机开启一个与其和一个普通房间都相邻的红色房间，以供角色离开。",
+    "effect": "传送到当前层的隐藏房。",
     "quality": null,
     "id": 801,
     "description": "Teleports Isaac to theSecret Room. Opens one random wall inside the Secret Room, so Isaac can leave even if he doesn't have anyBombs. Randomly chooses a Secret Room if there are multiple (viaFragmented Cardand/orLuna).",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XIX - The Sun",
     "name_cn": "太阳",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 回复所有红心容器。 对当前房间中的所有敌人造成2次 200.00 点伤害。 在地图上显示除 超级隐藏房 与 究极隐藏房 以外所有的房间的图标和位置。 解除当前楼层的 黑暗诅咒！ 。",
+    "effect": "回复所有红心容器。\n对当前房间中所有敌人造成 100.00 点伤害。\n在地图上显示除超级隐藏房与究极隐藏房以外所有的房间的图标和位置。\n解除当前楼层的黑暗诅咒！。",
     "quality": null,
     "id": 802,
     "description": "Restores Isaac to fullhealth, deals 100 damage to all enemies in the room, and reveals the map for the current floor, except for theSuper Secret RoomandUltra Secret Room.RemovesCurse of  Darknessfor the current floor.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XX - Judgement",
     "name_cn": "审判",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 触发2次 XX-审判？ 的使用效果。",
+    "effect": "随机生成 1 个乞丐、恶魔乞丐、钥匙大师或炸弹乞丐。\n\n使用后：\n随机生成 1 个乞丐、恶魔乞丐、钥匙大师、炸弹乞丐、电池乞丐或腐烂乞丐。",
     "quality": null,
     "id": 803,
     "description": "Spawns aBeggaror aDevil Beggarnear Isaac. Has a 2% chance to spawn aBattery Bum,Rotten Beggar,Key Master, orBomb Buminstead.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XXI - The World",
     "name_cn": "世界",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 同上，没有额外效果。",
+    "effect": "在地图上显示除超级隐藏房与究极隐藏房以外所有房间的图标和位置。",
     "quality": null,
     "id": 804,
     "description": "Reveals the entire floor, except for theSuper Secret RoomandUltra Secret Room.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "0 - The Fool?",
     "name_cn": "愚者？",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 同上，没有额外效果。",
+    "effect": "为角色保留半颗心的血量，失去剩余的所有心，并生成等量的对应掉落物。\n失去所有硬币、炸弹和钥匙，并生成等量的对应掉落物。\n如果硬币、炸弹和钥匙达到一定数量则改为生成对应的底座道具（如 25美分、 轰！、 骷髅钥匙、 烟火盛宴等）。\n掉落物和底座道具均会以最少的个数形式生成（如角色拥有110个硬币，使用卡牌后将会生成1个铸币和 一美元）。\n丢弃所有饰品、卡牌和胶囊。",
     "quality": null,
     "id": 805,
     "description": "Drops allHeartsandpickupsIsaac currently possesses on the floor, leaving Isaac at half a heart. Pickups may be dropped as items such asA QuarterandBoom!.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化游魂 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/coin] 硬币",
+        "+110"
+      ]
+    ]
   },
   {
     "name_en": "I - The Magician?",
     "name_cn": "魔术师？",
     "category": "card",
-    "effect": "使用后： 在当前房间中，获得 弯勺魔术 的效果。 射程 +3.00 多个 I-魔术师 的该效果不叠加。",
+    "effect": "获得以下效果，持续60秒：\n角色会排斥敌人和敌方泪弹。",
     "quality": null,
     "id": 806,
     "description": "Grants a repelling blue aura for one minute, likeThe Soulbut stronger and with a wider area of effect.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化犹大 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "II - The High Priestess?",
     "name_cn": "女祭司？",
     "category": "card",
-    "effect": "Mom's leg starts stomping down repeatedly (targeting Isaac, not the enemies) for one minute, like holdingBroken Shovel.",
+    "effect": "获得以下效果，持续60秒：\n妈妈的脚不断地对角色及其周围进行践踏。",
     "quality": null,
     "id": 807,
     "description": "Mom's leg starts stomping down repeatedly (targeting Isaac, not the enemies) for one minute, like holdingBroken Shovel.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化莉莉丝 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "III - The Empress?",
     "name_cn": "皇后？",
     "category": "card",
-    "effect": "Grants 2 temporaryRed Heart Containers, +1.5Fire Rate, and -0.1Speedfor one minute, along withMagdalene's hairstyle. The effect does not stack with itself. When the effect ends, if the removal of the Heart Containers would kill Isaac, he is left with one instead.",
+    "effect": "获得以下效果，持续60秒：\n移速 -0.10 \n射速修正 +1.50 \n角色获得抹大拉的发型。\n获得2个心之容器。",
     "quality": null,
     "id": 808,
     "description": "Grants 2 temporaryRed Heart Containers, +1.5Fire Rate, and -0.1Speedfor one minute, along withMagdalene's hairstyle. The effect does not stack with itself. When the effect ends, if the removal of the Heart Containers would kill Isaac, he is left with one instead.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化夏娃 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/speed] 移速",
+        "-0.10"
+      ],
+      [
+        "[img:stat/health] 生命",
+        "+2"
+      ]
+    ]
   },
   {
     "name_en": "IV - The Emperor?",
     "name_cn": "皇帝？",
     "category": "card",
-    "effect": "使用后： 传送到当前层的 头目房 。 如果当前层有多个 头目房 ，则随机传送到其中一个。 如果当前层没有 头目房 ，则随机传送到一个房间。",
+    "effect": "将角色传送到一个额外的随机头目房。\n清理房间后，会生成一个头目房道具池的道具，并打开头目房门，可以回到使用卡牌前的房间。若在错误房内使用卡牌，则会回到进入错误房前的房间。\n如果拥有 额外选择，会额外生成1个头目房道具池的道具。角色拾取其中一个道具后，另一个会消失。\n如果在当前楼层使用过 撒但圣经，会改为生成1个需要进行恶魔交易的恶魔房道具池的道具。",
     "quality": null,
     "id": 809,
     "description": "Teleports Isaac into an extraBoss Roomfrom the boss pool two floors deeper than the current floor (but never a final boss). The boss will drop a reward. Exiting the room returns Isaac to where he used the card.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化??? 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "V - The Hierophant?",
     "name_cn": "教皇？",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 生成3个 骨心 。",
+    "effect": "生成2个骨心。",
     "quality": null,
     "id": 810,
     "description": "Drops 2Bone Heartson the ground.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化伯大尼 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "VI - The Lovers?",
     "name_cn": "恋人？",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 生成 3 个 红心 。",
+    "effect": "生成1个当前房间道具池的道具。\n失去1个心之容器，若角色无心之容器则改为失去2个魂心。\n获得。",
     "quality": null,
     "id": 811,
     "description": "Creates a random item from the current room's item pool. Turns oneRed Heart Containeror twoSoul Heartsinto aBroken Heart.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化抹大拉 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/soul_heart] 魂心",
+        "+2"
+      ]
+    ]
   },
   {
     "name_en": "VII - The Chariot?",
     "name_cn": "战车？",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 触发 2 次 VII-战车 的使用效果。",
+    "effect": "角色变为石像，持续 10 秒，期间获得以下效果：\n角色无法移动。\n射速修正 × 400 % \n角色获得无敌效果。",
     "quality": null,
     "id": 812,
     "description": "Isaac becomes an invincible statue with 4× fire rate for 10 seconds. The statue can be nudged slightly by moving and is affected by knockback.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#42：烫手山芋",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/tears] 射速",
+        "+400"
+      ]
+    ]
   },
   {
     "name_en": "VIII - Justice?",
     "name_cn": "正义？",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 生成 4 ~ 14 个 金箱子 。",
+    "effect": "生成 2 ~ 4 个金箱子。",
     "quality": null,
     "id": 813,
     "description": "Creates 2 to 4Locked Chestsnear Isaac.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#43：大量过牌！",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "IX - The Hermit?",
     "name_cn": "隐者？",
     "category": "card",
-    "effect": "使用后： 如果房间中没有下列物品，则生成1个 硬币 ；否则将所有下列物品根据种类转化为 n 个 硬币 ，其中 n 与物品种类有关： 道具： n=15 ； 永恒之心 、 金心 、 金钥匙 、 钥匙圈 、 充能钥匙 、 金炸弹 、 双炸弹 、 巨型炸弹 ： n=10 ； 福袋 ： n=7 ； 双红心 、 黑心 、 骨心 ： n=6 ； 魂心 、 钥匙 、 炸弹 、 胶囊 、 电池 、 卡牌 、 饰品 ： n=5 ； 红心 、 胆小的红心 、 混合心 ： n=3 ； 半魂心 、 腐心 ： n=2 ； 半红心 ： n=1 ；",
+    "effect": "如果房间中没有下列物品，则生成1个硬币；否则将所有下列物品根据种类转化为 n 个硬币，其中 n 与物品种类有关：\n道具： n=15 ；\n永恒之心、金心、金钥匙、钥匙圈、充能钥匙、金炸弹、双炸弹、巨型炸弹： n=10 ；\n福袋： n=7 ；\n双红心、黑心、骨心： n=6 ；\n魂心、钥匙、炸弹、胶囊、电池、卡牌、饰品： n=5 ；\n红心、胆小的红心、混合心： n=3 ；\n半魂心、腐心： n=2 ；\n半红心： n=1 ；",
     "quality": null,
     "id": 814,
     "description": "Turns items and pickups in the room intoCoins, matching their normal shop price. If there is nothing to sell, drops aPenny.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#44：赤键救赎",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/coin] 硬币",
+        "+1"
+      ]
+    ]
   },
   {
     "name_en": "X - Wheel of Fortune?",
     "name_cn": "命运之轮？",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 触发2次 X-命运之轮？ 的使用效果。",
+    "effect": "触发随机点数的骰子房的效果。",
     "quality": null,
     "id": 815,
     "description": "Invokes a randomDice Roomeffect.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化该隐 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XI - Strength?",
     "name_cn": "力量？",
     "category": "card",
-    "effect": "All enemies in the room are weakened, becomingslowand taking double damage. The effect lasts up to one minute or until the room is left.",
+    "effect": "获得以下效果，持续30秒：\n使当前房间中充满紫色烟雾。\n当前房间中所有敌人减速，并受到双倍的伤害。\n角色受到由怪物造成的所有伤害降至半颗心。\n大体型变种与骷髅变种的精英怪物造成的伤害会被降至一颗心而非半颗心。",
     "quality": null,
     "id": 816,
     "description": "All enemies in the room are weakened, becomingslowand taking double damage. The effect lasts up to one minute or until the room is left.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化参孙 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XII - The Hanged Man?",
     "name_cn": "倒吊人？",
     "category": "card",
-    "effect": "使用后： 获得以下效果，持续30秒： 角色的形象变为 店主 。 移速 -0.10 获得 内眼 的效果。 每当角色消灭敌人时，生成1个 硬币 。",
+    "effect": "获得以下效果，持续30秒：\n角色的形象变为店主。\n移速 -0.10 \n一次发射3颗泪弹。\n每当角色消灭敌人时，生成1个硬币。",
     "quality": null,
     "id": 817,
     "description": "Isaac turns visually intoKeeperfor 30 seconds, with triple shot and -0.1Speed. Killed enemies drop randomCoins.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化店主 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/speed] 移速",
+        "-0.10"
+      ],
+      [
+        "[img:stat/coin] 硬币",
+        "+1"
+      ]
+    ]
   },
   {
     "name_en": "XIII - Death?",
     "name_cn": "死亡？",
     "category": "card",
-    "effect": "Creates afriendlyBonyor temporary bone orbital for each enemy killed in the current room.",
+    "effect": "触发 亡者之书的使用效果。",
     "quality": null,
     "id": 818,
     "description": "Creates afriendlyBonyor temporary bone orbital for each enemy killed in the current room.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化遗骸 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XIV - Temperance?",
     "name_cn": "节制？",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 触发2次 XIV-节制？ 的使用效果。",
+    "effect": "触发5次随机胶囊的使用效果。",
     "quality": null,
     "id": 819,
     "description": "Forces Isaac to eat 5 randomPillsin quick succession.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#45",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XV - The Devil?",
     "name_cn": "恶魔？",
     "category": "card",
-    "effect": "InvokesThe Bible(which can killMom). GrantsFlightand spawns aSeraphimfamiliar for 30 seconds.",
+    "effect": "获得以下效果，持续30秒：\n生成1个炽天使跟班，发射追踪泪弹。\n触发 圣经的使用效果。",
     "quality": null,
     "id": 820,
     "description": "InvokesThe Bible(which can killMom). GrantsFlightand spawns aSeraphimfamiliar for 30 seconds.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化阿撒泻勒 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XVI - The Tower?",
     "name_cn": "塔？",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 触发 2 次 XVI-塔 的使用效果。",
+    "effect": "在当前房间中，生成7簇石头。",
     "quality": null,
     "id": 821,
     "description": "Creates 7 clusters of randomrocksand other obstacles. Spawned clusters will often containtinted rocks, with the possibility of finding more than one in the same room. The pathways between exits can't be blocked.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化亚玻伦 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XVII - The Stars?",
     "name_cn": "星星？",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 传送到当前层的 宝箱房 。 如果是首次进入这个宝箱房，则这个宝箱房必定为有二选一道具的房间布局。 如果当前楼层有 星象房 ，则传送到当前层的星象房。",
+    "effect": "角色失去1个最早获得的被动道具。\n生成2个当前房间道具池的道具。",
     "quality": null,
     "id": 822,
     "description": "Removes Isaac's oldest passive item (ignoring starting items) and creates 2 random items from the current room's item pool. Does nothing if Isaac has no items.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化以撒 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XVIII - The Moon?",
     "name_cn": "月亮？",
     "category": "card",
-    "effect": "角色被传送到 究极隐藏房 后，如果该究级隐藏房尚未有任何出口，会随机开启一个与其和一个普通房间都相邻的红色房间，以供角色离开。",
+    "effect": "将角色传送至当前层的究极隐藏房。",
     "quality": null,
     "id": 823,
     "description": "Teleports Isaac to theUltra Secret Room. The pathway back to the normal rooms will be made ofRed Rooms.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化雅各 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XIX - The Sun?",
     "name_cn": "太阳？",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 回复所有红心容器。 对当前房间中的所有敌人造成2次 200.00 点伤害。 在地图上显示除 超级隐藏房 与 究极隐藏房 以外所有的房间的图标和位置。 解除当前楼层的 黑暗诅咒！ 。",
+    "effect": "在当前楼层中，获得以下效果：\n角色的所有心之容器变为骨心。\n伤害 +1.50 \n角色获得飞行效果，泪弹获得穿透效果。\n获得无法被移除的黑暗诅咒！。\n当角色下一次进入新的楼层时，将角色的所有被转换的骨心变为心之容器。",
     "quality": null,
     "id": 824,
     "description": "GainSpirit of the Nightand +1.5Damagefor the current floor. Turns Isaac's Red Hearts into Bone Hearts, but they revert once the effect ends. Also causesCurse of  Darknessthat cannot be dispelled.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化雅各 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/damage] 伤害",
+        "+1.50"
+      ]
+    ]
   },
   {
     "name_en": "XX - Judgement?",
     "name_cn": "审判？",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 触发2次 XX-审判？ 的使用效果。",
+    "effect": "生成1个补货机。",
     "quality": null,
     "id": 825,
     "description": "Creates aShop Restock Machinenear Isaac.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化拉撒路 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "XXI - The World?",
     "name_cn": "世界？",
     "category": "card",
-    "effect": "使用后（ 塔罗牌桌布 ）： 同上，没有额外效果。",
+    "effect": "生成一个暗门。",
     "quality": null,
     "id": 826,
     "description": "Creates a trap door which always leads to aCrawl Space.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化伊甸 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "2 of Clubs",
-    "name_cn": "梅花",
+    "name_cn": "梅花2",
     "category": "card",
-    "effect": "Doubles Isaac'sBombs. If he has no bombs, gives him 2 instead.",
+    "effect": "如果角色有炸弹，则炸弹个数 × 2 ；否则炸弹个数 +2",
     "quality": null,
     "id": 827,
     "description": "Doubles Isaac'sBombs. If he has no bombs, gives him 2 instead.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "2 of Diamonds",
-    "name_cn": "方片",
+    "name_cn": "方片2",
     "category": "card",
-    "effect": "使用后： 如果角色有 硬币 ，则硬币个数 × 2 ；否则硬币个数 +2 ",
+    "effect": "如果角色有硬币，则硬币个数 × 2 ；否则硬币个数 +2",
     "quality": null,
     "id": 828,
     "description": "Doubles Isaac'sPenny. If he has no coins, gives him 2 instead.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "2 of Spades",
-    "name_cn": "黑桃",
+    "name_cn": "黑桃2",
     "category": "card",
-    "effect": "Doubles Isaac'sKeys. If he has no keys, gives him 2 instead.",
+    "effect": "如果角色有钥匙，则钥匙个数 × 2 ；否则钥匙个数 +2",
     "quality": null,
     "id": 829,
     "description": "Doubles Isaac'sKeys. If he has no keys, gives him 2 instead.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "2 of Hearts",
-    "name_cn": "红桃",
+    "name_cn": "红桃2",
     "category": "card",
-    "effect": "Doubles Isaac's current number ofRed Hearts. Doesn't add new Red Heart containers, just fills empty ones. If Isaac has only empty Red Heart containers, he is healed for 1 Red Heart.DoublesTainted Bethany's Blood Charges.",
+    "effect": "如果角色有红心，则角色的红心数量 ×2 ；否则回复一颗红心。",
     "quality": null,
     "id": 830,
     "description": "Doubles Isaac's current number ofRed Hearts. Doesn't add new Red Heart containers, just fills empty ones. If Isaac has only empty Red Heart containers, he is healed for 1 Red Heart.DoublesTainted Bethany's Blood Charges.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Ace of Clubs",
-    "name_cn": "梅花",
+    "name_cn": "梅花A",
     "category": "card",
-    "effect": "Turns allPickups,Chests, andnon-boss enemies in the room into randomBombpickups, includingTroll Bombs.",
+    "effect": "将房间中的变为炸弹。",
     "quality": null,
     "id": 831,
     "description": "Turns allPickups,Chests, andnon-boss enemies in the room into randomBombpickups, includingTroll Bombs.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "\"帽子戏法！\"：完成3连胜1次",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Ace of Diamonds",
-    "name_cn": "方片",
+    "name_cn": "方片A",
     "category": "card",
-    "effect": "使用后： 将房间中的 所有 掉落物 所有 掉落物 和 怪物 变为 硬币 。",
+    "effect": "将房间中的变为硬币。",
     "quality": null,
     "id": 832,
     "description": "Turns allPickups,Chests, andnon-boss enemies in the room into randomCoinpickups.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "\"冲！\"：在20分钟内击败 羔羊",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Ace of Spades",
-    "name_cn": "黑桃",
+    "name_cn": "黑桃A",
     "category": "card",
-    "effect": "使用后： 将房间中的 所有 掉落物 所有 掉落物 和 怪物 变为 钥匙 。",
+    "effect": "将房间中的变为钥匙。",
     "quality": null,
     "id": 833,
     "description": "Turns allPickups,Chests, andnon-boss enemies in the room into randomKeypickups.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "\"这就是钥匙\"：在不拾取心、硬币和炸弹的情况下，击败 羔羊",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Ace of Hearts",
-    "name_cn": "红桃",
+    "name_cn": "红桃A",
     "category": "card",
-    "effect": "使用后： 将房间中的 所有 掉落物 所有 掉落物 和 怪物 变为 随机心 。",
+    "effect": "将房间中的变为随机心。",
     "quality": null,
     "id": 834,
     "description": "Turns allPickups,Chests, andnon-boss enemies in the room into randomHearts.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "\"刀刃上生存\"：在只拥有半颗心的情况下，完成一层（第一层除外）",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Joker",
     "name_cn": "鬼牌",
     "category": "card",
-    "effect": "Teleports Isaac to theDevil RoomorAngel Room.",
+    "effect": "传送到当前层的恶魔房/天使房。\n具体进入恶魔房/天使房由天使房转换率决定。关于转换为天使房的详细概率判定，请参阅文章",
     "quality": null,
     "id": 835,
     "description": "Teleports Isaac to theDevil RoomorAngel Room.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Suicide King",
     "name_cn": "自杀之王",
     "category": "card",
-    "effect": "解锁 自杀之王 的成就的背景颜色和用某个角色通过 头目车轮战 的成就的背景颜色是相同的。有可能最初是要用某个角色通过 头目车轮战 才能解锁 自杀之王 。 很有可能是 拉撒路 ，因为 成就/105 的背景颜色和其他挑战奖励的背景颜色是一样的。",
+    "effect": "使用后，角色立即死亡，随机生成10个物品。可能包括：\n心\n硬币\n炸弹\n钥匙\n电池\n箱子\n道具（当前房间道具池）\n饰品",
     "quality": null,
     "id": 836,
     "description": "Kills Isaac and spawns lots of Pickups, items, and/or Chests in the same room.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#7：自杀之王",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Queen of Hearts",
-    "name_cn": "红桃",
+    "name_cn": "红桃Q",
     "category": "card",
-    "effect": "用 堕化抹大拉 获得超级撒但通关标记。",
+    "effect": "随机生成1~20个红心。",
     "quality": null,
     "id": 837,
     "description": "Drops 1-20 fullRed Heartson the ground.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化抹大拉 击败 超级撒但",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Chaos Card",
     "name_cn": "混沌卡",
     "category": "card",
-    "effect": "该卡牌来源于《 万智牌 》中的卡牌： 混沌法球（Chaos Orb） 。其以怪异的效果而出名：从至少一英尺高度扔下混沌法球，如果至少完全翻转一次，则消灭碰到的所有卡牌及其本身。",
+    "effect": "角色朝移动方向发射1颗混沌卡泪弹，消灭所有碰到该泪弹的敌人，摧毁接触到的所有障碍物，打开任何接触的未上锁的门。",
     "quality": null,
     "id": 838,
     "description": "Throws the card in the direction Isaac is moving, which opens doors, breaks obstacles, and instantly kills any enemy in its path.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#9：拆迁办",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Huge Growth",
     "name_cn": "变巨术",
     "category": "card",
-    "effect": "使用后： 在当前房间中，获得以下效果： 伤害修正 +7.00 射程 +30.00 射程 +3.00 角色能够摧毁碰到的可摧毁的障碍物。 角色的体型变大（1.6倍）。 多个 变巨术 的该效果不叠加。",
+    "effect": "在当前房间中，获得以下效果：\n伤害修正 +7.00 \n\n角色能够摧毁碰到的可摧毁的障碍物。\n角色的体型变大（1.6倍）。\n多个变巨术的该效果不叠加。",
     "quality": null,
     "id": 839,
     "description": "For the current room, makes Isaac larger, allows him to crushobstacleshe walks on, and grants +7 flatDamageand +30Range.For the current room, makes Isaac larger, allows him to crushobstacleshe walks on, and grants +7 flatDamageand +3Range.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "卡牌变巨术 在一局游戏中，让 角色体型 达到3.00以上",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Ancient Recall",
     "name_cn": "先祖召唤",
     "category": "card",
-    "effect": "该卡牌来源于《 万智牌 》中的卡牌： 先人的召还（Ancestral Recall） ，效果为“目标牌手抓三张牌”。",
+    "effect": "生成3个卡牌。",
     "quality": null,
     "id": 840,
     "description": "Spawns 3 random cards.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "卡牌先祖召唤 使用卡牌20次",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Era Walk",
     "name_cn": "时空漫步",
     "category": "card",
-    "effect": "该卡牌的描述来源于万智牌中的另一张卡牌： 品味当下（Savor the Moment） ，与时间行走具有同一类效果，都是进行一个额外的回合。 与 变巨术 和 先祖召唤 不同， 时空漫步 没有使用时间行走在 第一版 的插画，而是使用了 特选大师 以及 2011年特选冠军赛赠卡 重印的插画。",
+    "effect": "在当前房间中，获得以下效果：\n移速 +0.50 \n弹速 -1.00 \n使当前房间中所有敌人减速。\n多个时空漫步的该效果不叠加。",
     "quality": null,
     "id": 841,
     "description": "For the current room, enemies are slowed, Isaac's speed is increased by 0.50, and his shot speed is decreased by 1.00.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "卡牌时空漫步 收集图鉴中的 怀表 和 损坏的怀表",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/speed] 移速",
+        "+0.50"
+      ],
+      [
+        "[img:stat/shot_speed] 弹速",
+        "-1.00"
+      ]
+    ]
   },
   {
     "name_en": "Credit Card",
     "name_cn": "信用卡",
     "category": "card",
-    "effect": "使用后： 将当前房间中的所有商店交易与恶魔交易物品变为可直接拾取的物品。",
+    "effect": "将当前房间中的所有商店交易与恶魔交易物品变为可直接拾取的物品。",
     "quality": null,
     "id": 842,
     "description": "Makes allpickupsanditemsthat cost money or health in the room free.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#10：诅咒！",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Rules Card",
     "name_cn": "规则卡",
     "category": "card",
-    "effect": "Displays a cryptic statement on the screen, similar to aFortune Telling Machine. These messages (often) provide hints on bosses, bonus areas, etc.",
+    "effect": "使用后，95%概率随机显示以下的一条规则。\n\n否则显示下面所列出来的种子:",
     "quality": null,
     "id": 843,
     "description": "Displays a cryptic statement on the screen, similar to aFortune Telling Machine. These messages (often) provide hints on bosses, bonus areas, etc.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#11：玻璃大炮",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "? Card",
     "name_cn": "？卡",
     "category": "card",
-    "effect": "When used, copies the effect of Isaac's currently heldactivated collectible.",
+    "effect": "触发一次当前角色拥有的主动道具的使用效果。",
     "quality": null,
     "id": 844,
     "description": "When used, copies the effect of Isaac's currently heldactivated collectible.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "A Card Against Humanity",
     "name_cn": "反人类卡",
     "category": "card",
-    "effect": "弥达斯之触 ：生成的大便有概率变为金大便。可覆盖前者。 当 幸运为0点时，概率为 11 % 。当 幸运为18点或以上时，概率达到 100% 。",
+    "effect": "在房间中随机生成一个大便，重复该效果，直到房间中没有空的格子。",
     "quality": null,
     "id": 845,
     "description": "Covers the entire room withPoop. The process is not instant, and the room will not get filled if Isaac leaves before it's done filling.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#12：当生活充满酸意",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Get out of Jail Free Card",
     "name_cn": "免费保释卡",
     "category": "card",
-    "effect": "使用后： 触发1次 爸爸的钥匙 的使用效果。",
+    "effect": "触发1次 爸爸的钥匙的使用效果。",
     "quality": null,
     "id": 846,
     "description": "Upon use, opens all doors in the current room, exactly likeDad's Key.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#22：快马加鞭！",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Holy Card",
     "name_cn": "神圣卡",
     "category": "card",
-    "effect": "不与 木十字架 的圣盾叠加。 木十字架 的圣盾存在时使用 神圣卡 ，可以在当前房间额外获得1层圣盾。如果未消耗圣盾离开房间则圣盾恢复为1层；如果消耗1层或者2层护盾则离开房间后失去护盾效果。 神圣卡 与 木十字架 的圣盾可以叠加。",
+    "effect": "有 25% 概率生成 1 张神圣卡，并显示“You feel blessed!”",
     "quality": null,
     "id": 847,
     "description": "Grants a shield that blocks the next hostile damage that would be taken in the currentroom. Has a chance to spawn another Holy Card on use.Grants a shield that blocks the next hostile damage that would be taken.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 游魂 击败 精神错乱",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Wild Card",
     "name_cn": "万用牌",
     "category": "card",
-    "effect": "若上一次使用的物品是 红钥匙 / 红钥匙碎片 ，则只有在拥有 红钥匙 / 红钥匙碎片 时才能触发效果。",
+    "effect": "触发角色上一次使用的主动道具、卡牌或胶囊的效果，若没有使用过则无效果。",
     "quality": null,
     "id": 848,
     "description": "When used, copies the effect of the most recently usedPill,Card, Rune, Soul Stone, oractivated item.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化伊甸 击败 超级撒但",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Rune of Hagalaz",
     "name_cn": "冰雹符文",
     "category": "card",
-    "effect": "Destroys all breakable objects in the room. Does not affect Key Blocks.",
+    "effect": "摧毁房间中的所有障碍物。\n摧毁房间中所有的石肥仔、石像头、刺块及其变种，以及其他岩石风格的敌人。\n摧毁房间中敌人的岩石护甲，如寄居骷髅、假面骑士、灰岩子虫和枯壳虫.\n摧毁骷髅头生成的寄居骷髅会直接变为血肉寄居骷髅。",
     "quality": null,
     "id": 849,
     "description": "Destroys all breakable objects in the room. Does not affect Key Blocks.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#1：漆黑一片",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Rune of Jera",
     "name_cn": "收获符文",
     "category": "card",
-    "effect": "Clones allpickupsandChestsin the room (includingShoppickups; the clones can then be picked up for free). Cloned chests will contain exactly the same type of items: if the original contains a pickup, so will the clone; the same is true forcollectibles. Cannot clone other Jera runes and trinkets.",
+    "effect": "复制房间中除收获符文外所有的非饰品类掉落物。\n包括商店出售的掉落物。",
     "quality": null,
     "id": 850,
     "description": "Clones allpickupsandChestsin the room (includingShoppickups; the clones can then be picked up for free). Cloned chests will contain exactly the same type of items: if the original contains a pickup, so will the clone; the same is true forcollectibles. Cannot clone other Jera runes and trinkets.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#2：格调高雅",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Rune of Ehwaz",
     "name_cn": "马骑符文",
     "category": "card",
-    "effect": "Creates a trapdoor leading to the next floor. Has an estimated 1/12 (8%) chance to create a trapdoor leading to aCrawl Spaceinstead.Guaranteed to create a trap door to aCrawl Spaceif used on floor tiles containing certain patterns. Will not create trapdoors if used on the end floor of a challenge.",
+    "effect": "生成 1 个活板门。\n如果当前楼层为尸宫II、教堂、阴间、玩具箱、暗室、???、虚空、家或回溯中的楼层（包括回溯开始前，通过奇怪的门进入的陵墓II），则不会生成活板门。",
     "quality": null,
     "id": 851,
     "description": "Creates a trapdoor leading to the next floor. Has an estimated 1/12 (8%) chance to create a trapdoor leading to aCrawl Spaceinstead.Guaranteed to create a trap door to aCrawl Spaceif used on floor tiles containing certain patterns. Will not create trapdoors if used on the end floor of a challenge.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#3：头部创伤",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Rune of Dagaz",
     "name_cn": "朝夕符文",
     "category": "card",
-    "effect": "Removes anyCursesfrom the current floor and grants aSoul Heart. (This will not removeCurse of the Labyrinth.)",
+    "effect": "获得。\n解除当前层的所有诅咒。",
     "quality": null,
     "id": 852,
     "description": "Removes anyCursesfrom the current floor and grants aSoul Heart. (This will not removeCurse of the Labyrinth.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#4：黑暗降临",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Rune of Ansuz",
     "name_cn": "诸神符文",
     "category": "card",
-    "effect": "Reveals the whole map, including theSecret Roomand theSuper Secret Room. (This will not removeCurse of the Lost.)Does not reveal theUltra Secret Room",
+    "effect": "使用后，在地图上显示当前层除究极隐藏房外的所有房间的图标和位置。",
     "quality": null,
     "id": 853,
     "description": "Reveals the whole map, including theSecret Roomand theSuper Secret Room. (This will not removeCurse of the Lost.)Does not reveal theUltra Secret Room",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#5：坦克",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Rune of Perthro",
     "name_cn": "签筒符文",
     "category": "card",
-    "effect": "Rerolls all item pedestals in the room (the same effect asThe D6).",
+    "effect": "使用后，将当前房间中的所有道具重置为该房间道具池中的其他道具。",
     "quality": null,
     "id": 854,
     "description": "Rerolls all item pedestals in the room (the same effect asThe D6).",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#6：太阳系",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Rune of Berkano",
     "name_cn": "桦木符文",
     "category": "card",
-    "effect": "Summons 3 friendlyBlue Fliesand 3 friendlyBlue Spiders.",
+    "effect": "生成 3 个蓝苍蝇和 3 个蓝蜘蛛。",
     "quality": null,
     "id": 855,
     "description": "Summons 3 friendlyBlue Fliesand 3 friendlyBlue Spiders.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#20：返璞归真",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Rune of Algiz",
     "name_cn": "保护符文",
     "category": "card",
-    "effect": "Grants ashieldwhich lasts for 30 seconds.Grants ashieldwhich lasts for 20 seconds.",
+    "effect": "获得一个免疫所有伤害的护盾，持续。",
     "quality": null,
     "id": 856,
     "description": "Grants ashieldwhich lasts for 30 seconds.Grants ashieldwhich lasts for 20 seconds.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#8：好奇害死猫",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Blank Rune",
     "name_cn": "空白符文",
     "category": "card",
-    "effect": "使用后，随机触发一个其他符文的效果， 25 % 概率掉落一个空白符文。 若会生成空白符文，则会首先生成空白符文再触发其他符文的效果。",
+    "effect": "使用后，随机触发一个其他符文的效果， 25 % 概率掉落一个空白符文。\n若会生成空白符文，则会首先生成空白符文再触发其他符文的效果。",
     "quality": null,
     "id": 857,
     "description": "Grants a random rune effectexcluding Black Rune. Has a 25% chance to drop another Blank Rune on the ground upon use.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#30：守护者",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Black Rune",
     "name_cn": "黑符文",
     "category": "card",
-    "effect": "使用后： 对房间中的所有敌人造成 40.00 点伤害（ 死灵之书 的使用效果）； 将房间中的所有掉落物随机变为蓝苍蝇或蓝蜘蛛； 当前房间内的掉落物过多的话，将只会转换一部分。 每吞噬一个道具，便会随机增加角色的两项属性： 移速 +0.20 射程 +0.50 射程 +2.50 射速 +0.50 射速修正 +0.50 弹速 +0.20 伤害修正 +1.00 幸运 +1.00 ",
+    "effect": "对房间中的所有敌人造成 40.00 点伤害（ 死灵之书的使用效果）；\n将房间中的所有掉落物随机变为蓝苍蝇或蓝蜘蛛；\n当前房间内的掉落物过多的话，将只会转换一部分。\n每吞噬一个道具，便会随机增加角色的两项属性：\n移速 +0.20 \n\n弹速 +0.20 \n伤害修正 +1.00 \n幸运 +1.00",
     "quality": null,
     "id": 858,
     "description": "Deals 40 damage to all enemies in the room. Consumes all pickups in the room and turns them into Blue Flies and Spiders. Consumes all pedestal items in the room and turns them into random stat upgrades.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 亚玻伦 击败困难贪婪模式",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/speed] 移速",
+        "+0.20"
+      ],
+      [
+        "[img:stat/shot_speed] 弹速",
+        "+0.20"
+      ],
+      [
+        "[img:stat/luck] 幸运",
+        "+1.00"
+      ]
+    ]
   },
   {
     "name_en": "Rune Shard",
     "name_cn": "符文碎片",
     "category": "card",
-    "effect": "使用后，随机触发一个弱化版的其他符文的效果。 冰雹符文 ：破坏一些石头。 收获符文 ：触发一次 一面骰 的效果。 马骑符文 ：生成一个 活板门 。 朝夕符文 ：获得半个魂心，不移除诅咒。 诸神符文 ：显示正方向三个房间远的地图，能在地图上显示 究极隐藏房 的位置。 签筒符文 ：重置房间内的一个道具，有50%概率将道具重置为 大便 。 桦木符文 ： 生成一只蓝苍蝇和一只蓝蜘蛛。 在当前房间中，生成1个 无底坑蝗虫 。 保护符文 ：获得持续3秒的护盾。",
+    "effect": "使用后，随机触发一个弱化版的其他符文的效果。\n 冰雹符文：破坏一些石头。\n 收获符文：触发一次 一面骰的效果。\n 马骑符文：生成一个活板门。\n 朝夕符文：获得半个魂心，不移除诅咒。\n 诸神符文：显示正方向三个房间远的地图，能在地图上显示究极隐藏房的位置。\n 签筒符文：重置房间内的一个道具，有50%概率将道具重置为 大便。\n 桦木符文：\n 保护符文：获得持续3秒的护盾。",
     "quality": null,
     "id": 859,
     "description": "Activates a random, weak rune effect: Algiz grants a 3 second shield, Ansuz reveals the map up to 3 rooms away (includingUltra Secret Room), Berkano gives 1 blue fly and spider, Dagaz gives half a Soul Heart, Ehwaz makes a trapdoor, Hagalaz destroys some rocks, Jera duplicates one pickup, and Perthro rerolls one item.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of Isaac",
     "name_cn": "以撒的魂石",
     "category": "card",
-    "effect": "使用后： 当前房间中的所有道具增加一个选项，每1秒切换一次，离开该房间仍然生效。 多次使用会为道具添加多个可选择的选择。",
+    "effect": "当前房间中的所有道具增加一个选项，每1秒切换一次，离开该房间仍然生效。\n多次使用会为道具添加多个可选择的选择。",
     "quality": null,
     "id": 860,
     "description": "Rerolls the items in the room likeThe D6, but they cycle back to their original form after one second, repeating. If more uses are stacked, an additional item per use will be cycled through.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化以撒 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of Magdalene",
     "name_cn": "抹大拉的魂石",
     "category": "card",
-    "effect": "使用后： 在当前房间中，每当敌人死亡时，生成一个半红心，2秒后消失。",
+    "effect": "在当前房间中，每当敌人死亡时，生成一个半红心，2秒后消失。",
     "quality": null,
     "id": 861,
     "description": "Surrounds Isaac with a bubbling red aura for the current room. All enemies killed dropHalf Red Heartsthat disappear in 2 seconds.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化抹大拉 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of Cain",
     "name_cn": "该隐的魂石",
     "category": "card",
-    "effect": "使用后： 触发1次 爸爸的钥匙 的使用效果。 在当前房间周围可以生成红色房间的位置生成红色房间，并打开这些红色房间的所有门。",
+    "effect": "触发1次 爸爸的钥匙的使用效果。\n在当前房间周围可以生成红色房间的位置生成红色房间，并打开这些红色房间的所有门。",
     "quality": null,
     "id": 862,
     "description": "Opens all doors in the room. Additionally, creates aRed Roomlike theRed Keyon all valid walls. This also destroys the mirror located inDownpour/DrossII.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化该隐 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of Judas",
     "name_cn": "犹大的魂石",
     "category": "card",
-    "effect": "使用后： 冻结所有实体与泪弹直到 犹大的魂石 使用完毕。 角色进入潜行状态（ dark arts ），持续3秒： 潜行状态下的角色获得 移速+1.00 潜行状态下的角色不会受到伤害，并且可以穿过敌人及其泪弹。 每当角色脱离潜行状态时： 本次潜行状态下，对于第 n 个静止状态的敌人或其泪弹： 如果是敌人，则对该敌人造成 d_n = 200 % 角色伤害 + 3.50 n 的伤害； 如果是敌人的泪弹，则阻挡该泪弹。 对角色周围的敌人造成 D = \\sumn=1^{N} d_n 的伤害。 使角色获得 4N 层 dark arts secondary 状态。 dark arts secondary 状态每30帧(每0.5秒)减少1层。 每有1层 dark arts secondary 状态，角色获得 伤害+0.25。",
+    "effect": "冻结所有实体与泪弹直到犹大的魂石使用完毕。\n角色进入潜行状态（dark arts），持续3秒：\n潜行状态下的角色获得移速+1.00\n潜行状态下的角色不会受到伤害，并且可以穿过敌人及其泪弹。\n每当角色脱离潜行状态时：\n本次潜行状态下，对于第 n 个静止状态的敌人或其泪弹：\n如果是敌人，则对该敌人造成 d_n = 200 % 角色伤害 + 3.50 n 的伤害；\n如果是敌人的泪弹，则阻挡该泪弹。\n对角色周围的敌人造成 D = \\sumn=1^{N} d_n 的伤害。\n使角色获得 4N 层dark arts secondary状态。\ndark arts secondary状态每30帧(每0.5秒)减少1层。\n每有1层dark arts secondary状态，角色获得伤害+0.25。",
     "quality": null,
     "id": 863,
     "description": "Increases Isaac'sspeedand makes him invulnerable for 3 seconds and allows him to pass through enemies. Damages all enemies and destroys all projectiles Isaac ran through when the effect ends, and grants a temporaryDamagebonus for each enemy and projectile hit.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化犹大 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/damage] 伤害",
+        "+0.25"
+      ],
+      [
+        "[img:stat/speed] 移速",
+        "+1.00"
+      ]
+    ]
   },
   {
     "name_en": "Soul of ???",
-    "name_cn": "亚玻伦的魂石",
+    "name_cn": "???的魂石",
     "category": "card",
-    "effect": "Causes 8poisonfarts that leave lingering browncreep, then plants a trail of 7Butt Bombsin quick succession. Standing on the creep gives +1.5Fire Rateand +1Damage.",
+    "effect": "角色连续释放8次毒屁并留下瓦斯（每团瓦斯生成间隔约 0.25 秒，与毒屁同时产生）。\n角色移动时留下黄色水迹。\n角色站在上方时，获得临时射速修正 +1.50 和伤害 +1.00 。\n上述效果产生完毕后，紧接着生成7个大便炸弹（每个炸弹生成间隔约 0.25 秒）。\n该炸弹继承角色的炸弹效果，而不是 屁股炸弹的效果。",
     "quality": null,
     "id": 864,
     "description": "Causes 8poisonfarts that leave lingering browncreep, then plants a trail of 7Butt Bombsin quick succession. Standing on the creep gives +1.5Fire Rateand +1Damage.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "???的魂石 使用 堕化??? 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/damage] 伤害",
+        "+1.00"
+      ]
+    ]
   },
   {
     "name_en": "Soul of Eve",
     "name_cn": "夏娃的魂石",
     "category": "card",
-    "effect": "使用后： 在当前房间中，生成15个 死鸟 跟班。 死鸟跟班会追逐敌人，对接触的敌人造成伤害。 如果当前房间中没有敌人，死鸟跟班会停留10秒后消失；否则会在消灭所有敌人后消失。",
+    "effect": "在当前房间中，生成15个死鸟跟班。\n死鸟跟班会追逐敌人，对接触的敌人造成伤害。\n如果当前房间中没有敌人，死鸟跟班会停留10秒后消失；否则会在消灭所有敌人后消失。",
     "quality": null,
     "id": 865,
     "description": "14Dead Birdfamiliars fly in and attack enemies. They leave after all enemies are dead or Isaac leaves the room.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化夏娃 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of Samson",
     "name_cn": "参孙的魂石",
     "category": "card",
-    "effect": "用 堕化参孙 获得Boss Rush和死寂通关标记。",
+    "effect": "角色触发 狂怒！的使用效果，持续10秒。",
     "quality": null,
     "id": 866,
     "description": "Isaac turns berserk for 10 seconds, replacing his tears with a melee bone club and gaining +0.4Speed, someTears, and +3 flatDamage.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化参孙 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of Azazel",
     "name_cn": "阿撒泻勒的魂石",
     "category": "card",
-    "effect": "用 堕化阿撒泻勒 获得Boss Rush和死寂通关标记。",
+    "effect": "触发 超级喷射的使用效果，持续7.5秒。",
     "quality": null,
     "id": 867,
     "description": "ActivatesMega Blastfor 7.5 seconds.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化阿撒泻勒 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of Lazarus",
     "name_cn": "拉撒路的魂石",
     "category": "card",
-    "effect": "如果人物拥有 新手牌组 / 多指畸形 等可以同时拥有两个消耗品的道具，即使 拉撒路的魂石 在副消耗品栏，在死亡时也会自动消耗并触发复活效果。",
+    "effect": "使用时：\n角色立即死亡，然后以半颗红心的血量复活。\n\n如果拥有时角色死亡，将自动消耗掉这张卡牌，并以半颗红心的血量复活。",
     "quality": null,
     "id": 868,
     "description": "Isaac dies, and is immediately revived at half a Heart in the same room, with some invincibility time. The soul stone is automatically used upon taking fatal damage. Has the highest priority of allRevival items.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化拉撒路 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of Eden",
     "name_cn": "伊甸的魂石",
     "category": "card",
-    "effect": "UsesThe D6andD20. The rerolled items use random pools, as ifChaoswere active.",
+    "effect": "在临时的 混沌效果下：\n触发一次 六面骰效果。\n触发一次 二十面骰效果。",
     "quality": null,
     "id": 869,
     "description": "UsesThe D6andD20. The rerolled items use random pools, as ifChaoswere active.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化伊甸 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of the Lost",
     "name_cn": "游魂的魂石",
     "category": "card",
-    "effect": "使用后： 在当前房间中，人物进入 游魂诅咒 状态并获得临时的 神圣屏障 效果。",
+    "effect": "在当前房间中，人物进入游魂诅咒状态并获得临时的 神圣屏障效果。",
     "quality": null,
     "id": 870,
     "description": "Isaac \"dies\" and turns into a ghost for the current room, with all ofThe Lost's benefits and weaknesses. TheHoly Mantleeffect gained from this can be stacked with multiple uses.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化游魂 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of Lilith",
     "name_cn": "莉莉丝的魂石",
     "category": "card",
-    "effect": "与生成道具不同，使用该卡牌会直接将道具置入角色的道具栏。 给予的道具可以发挥与正常道具相同的效果，包括获得 套装 进度。 给予的道具不会影响对应道具的权重。 因此可能给予角色重复的道具。 给予的道具无视生成道具的限制，如可以使 堕化游魂 获得 灵能苍蝇 。",
+    "effect": "获得1个宝宝商店道具池的道具（ 织布魔偶除外）。",
     "quality": null,
     "id": 871,
     "description": "Adds one permanentfamiliarfrom theBaby Shop pool, exceptStitches. Can give familiars that Isaac already has.Unique familiarscan be received only once.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化莉莉丝 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of the Keeper",
     "name_cn": "店主的魂石",
     "category": "card",
-    "effect": "Drops 1-25 randomCoinson the ground.",
+    "effect": "生成 1 ~ 25 个随机硬币。",
     "quality": null,
     "id": 872,
     "description": "Drops 1-25 randomCoinson the ground.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化店主 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of Apollyon",
     "name_cn": "亚玻伦的魂石",
     "category": "card",
-    "effect": "Spawns 15 randomlocusts.",
+    "effect": "随机生成 15 个蝗虫跟班，包括：\n 饥荒蝗虫对应的跟班\n 瘟疫蝗虫对应的跟班\n 战争蝗虫对应的跟班\n 死亡蝗虫对应的跟班\n 征服蝗虫对应的跟班",
     "quality": null,
     "id": 873,
     "description": "Spawns 15 randomlocusts.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化亚玻伦 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of the Forgotten",
     "name_cn": "遗骸的魂石",
     "category": "card",
-    "effect": "使用后： 生成 遗骸 作为临时副人物。 生成的 遗骸 只会挥击，造成 65.25 点伤害。",
+    "effect": "生成遗骸作为临时副人物。\n生成的遗骸只会挥击，造成 65.25 点伤害。",
     "quality": null,
     "id": 874,
     "description": "SpawnsThe Forgottenas a temporary secondary character, controlled at the same time as Isaac. He dies with no consequences if his health run out, and disappears when Isaac leaves the room. The bone swing deals high damage, and reflects tears.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化遗骸 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of Bethany",
     "name_cn": "伯大尼的魂石",
     "category": "card",
-    "effect": "使用后： 生成 6 个中圈的 魂火跟班 （类似于 美德之书 ）。",
+    "effect": "生成 6 个中圈的魂火跟班（类似于 美德之书）。",
     "quality": null,
     "id": 875,
     "description": "Spawns 6Book of Virtueswisps with random properties.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化伯大尼 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Soul of Jacob and Esau",
     "name_cn": "雅各与以扫的魂石",
     "category": "card",
-    "effect": "使用后： 生成 以扫 作为临时副人物。 以扫会获得随机与角色道具数量相同且道具池相同的被动道具，并触发这些道具的拾取效果， 同时根据这些道具的 生成降权 ，分别降低它们在道具池中的权重。 以扫的初始血量为 1 个心之容器和 1 个魂心。",
+    "effect": "生成以扫作为临时副人物。\n以扫会获得随机与角色道具数量相同且道具池相同的被动道具，并触发这些道具的拾取效果，同时根据这些道具的生成降权，分别降低它们在道具池中的权重。\n以扫的初始血量为 1 个心之容器和 1 个魂心。",
     "quality": null,
     "id": 876,
     "description": "SpawnsEsauas a temporary secondary character, controlled at the same time as Isaac. He dies with no consequences if his health runs out, and disappears when Isaac leaves the room. Esau has random items equal to the number of items Isaac has, each based on the pools of the items Isaac's were obtained from.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "使用 堕化雅各 击败 Boss Rush和死寂",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/soul_heart] 魂心",
+        "+1"
+      ]
+    ]
   },
   {
     "name_en": "Dice Shard",
     "name_cn": "骰子碎片",
     "category": "card",
-    "effect": "Upon use, invokes the effects ofThe D6and theD20at the same time, re-rolling all item pedestals and pickups in the room.",
+    "effect": "触发 六面骰和 二十面骰的使用效果。",
     "quality": null,
     "id": 877,
     "description": "Upon use, invokes the effects ofThe D6and theD20at the same time, re-rolling all item pedestals and pickups in the room.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Emergency Contact",
     "name_cn": "紧急联系电话",
     "category": "card",
-    "effect": "When used, will cause twoMom's Handsto come down and grab two random enemies, dealing damage and, if they have 40 or more HP, pinning them to the ground temporarily.",
+    "effect": "使用后，召唤两个妈妈的手抓住至多两个敌人：如果是怪物，则消灭它；如果是首领，则使其被定身 5 秒，期间无法做出任何动作。",
     "quality": null,
     "id": 878,
     "description": "When used, will cause twoMom's Handsto come down and grab two random enemies, dealing damage and, if they have 40 or more HP, pinning them to the ground temporarily.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {
     "name_en": "Cracked Key",
     "name_cn": "红钥匙碎片",
     "category": "card",
-    "effect": "红钥匙碎片 可以使角色在没有获得 红钥匙 的情况下在 家 中解锁堕化人物。 在解锁 红钥匙碎片 后，角色可在拾取 爸爸的便条 之前的任意一个 头目房 或 宝箱房 中（包括获得爸爸的便条的房间）丢弃饰品，从而在回溯中获得 红钥匙碎片 。 一局游戏中可能一个饰品都未生成。不过角色可以通过连续无伤通过三层来生成 满分考卷 从而避免这种情况的发生。 在角色拾取爸爸的便条并开始回溯后，之前丢弃的饰品会转化为 红钥匙碎片 。",
+    "effect": "触发 红钥匙的使用效果。",
     "quality": null,
     "id": 879,
     "description": "Creates a room adjacent to a viable wall, likeRed Key.",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "红钥匙 打开 妈妈的箱子",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/card_drop] 卡牌掉落"
+    ],
     "suitable_characters": null
   },
   {

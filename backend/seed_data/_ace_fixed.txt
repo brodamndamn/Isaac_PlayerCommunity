@@ -1,0 +1,12 @@
+ID 831 Ace of Clubs (梅花)
+  unlock: "帽子戏法！"：完成3连胜1次
+
+ID 832 Ace of Diamonds (方片)
+  unlock: "冲！"：在20分钟内击败 羔羊
+
+ID 833 Ace of Spades (黑桃)
+  unlock: "这就是钥匙"：在不拾取心、硬币和炸弹的情况下，击败 羔羊
+
+ID 834 Ace of Hearts (红桃)
+  unlock: "刀刃上生存"：在只拥有半颗心的情况下，完成一层（第一层除外）
+

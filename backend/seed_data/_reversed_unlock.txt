@@ -1,0 +1,66 @@
+ID 805 0 - The Fool? (愚者？)
+  unlock: 愚者 使用 堕化游魂 击败困难贪婪模式
+
+ID 806 I - The Magician? (魔术师？)
+  unlock: 魔术师 使用 堕化犹大 击败困难贪婪模式
+
+ID 807 II - The High Priestess? (女祭司？)
+  unlock: 女祭司 使用 堕化莉莉丝 击败困难贪婪模式
+
+ID 808 III - The Empress? (皇后？)
+  unlock: 皇后 使用 堕化夏娃 击败困难贪婪模式
+
+ID 809 IV - The Emperor? (皇帝？)
+  unlock: 皇帝 使用 堕化??? 击败困难贪婪模式
+
+ID 810 V - The Hierophant? (教皇？)
+  unlock: 教皇 使用 堕化伯大尼 击败困难贪婪模式
+
+ID 811 VI - The Lovers? (恋人？)
+  unlock: 恋人 使用 堕化抹大拉 击败困难贪婪模式
+
+ID 812 VII - The Chariot? (战车？)
+  unlock: 战车 通过 挑战#42：烫手山芋
+
+ID 813 VIII - Justice? (正义？)
+  unlock: 正义 通过 挑战#43：大量过牌！
+
+ID 814 IX - The Hermit? (隐者？)
+  unlock: 隐者 通过 挑战#44：赤键救赎
+
+ID 815 X - Wheel of Fortune? (命运之轮？)
+  unlock: 命运之轮 使用 堕化该隐 击败困难贪婪模式
+
+ID 816 XI - Strength? (力量？)
+  unlock: 力量 使用 堕化参孙 击败困难贪婪模式
+
+ID 817 XII - The Hanged Man? (倒吊人？)
+  unlock: 倒吊人 使用 堕化店主 击败困难贪婪模式
+
+ID 818 XIII - Death? (死亡？)
+  unlock: 死亡 使用 堕化遗骸 击败困难贪婪模式
+
+ID 819 XIV - Temperance? (节制？)
+  unlock: 节制 通过 挑战#45：
+
+ID 820 XV - The Devil? (恶魔？)
+  unlock: 恶魔 使用 堕化阿撒泻勒 击败困难贪婪模式
+
+ID 821 XVI - The Tower? (塔？)
+  unlock: 塔 使用 堕化亚玻伦 击败困难贪婪模式
+
+ID 822 XVII - The Stars? (星星？)
+  unlock: 星星 使用 堕化以撒 击败困难贪婪模式
+
+ID 823 XVIII - The Moon? (月亮？)
+  unlock: 太阳与月亮 使用 堕化雅各 击败困难贪婪模式
+
+ID 824 XIX - The Sun? (太阳？)
+  unlock: 太阳与月亮 使用 堕化雅各 击败困难贪婪模式
+
+ID 825 XX - Judgement? (审判？)
+  unlock: 审判 使用 堕化拉撒路 击败困难贪婪模式
+
+ID 826 XXI - The World? (世界？)
+  unlock: 世界 使用 堕化伊甸 击败困难贪婪模式
+

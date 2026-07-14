@@ -1,0 +1,10 @@
+ID 783 0 - The Fool:
+  pools: ['[img:pool/card_drop] 鍗＄墝鎺夎惤']
+ID 784 I - The Magician:
+  pools: ['[img:pool/card_drop] 鍗＄墝鎺夎惤']
+ID 796 XIII - Death:
+  pools: ['[img:pool/card_drop] 鍗＄墝鎺夎惤']
+ID 849 Rune of Hagalaz:
+  pools: ['[img:pool/card_drop] 鍗＄墝鎺夎惤']
+ID 835 Joker:
+  pools: ['[img:pool/card_drop] 鍗＄墝鎺夎惤']

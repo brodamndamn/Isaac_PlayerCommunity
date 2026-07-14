@@ -1,0 +1,388 @@
+ID 783: 0 - The Fool (愚者)
+  effect: 使用后（ 塔罗牌桌布 ）： 同上，没有额外效果。
+  desc: Teleports Isaac back to the starting room of the floor that he is currently on.
+
+ID 784: I - The Magician (魔术师)
+  effect: 使用后： 在当前房间中，获得 弯勺魔术 的效果。 射程 +3.00 多个 I-魔术师 的该效果不叠加。
+  desc: Grantshoming tearsfor the current room.Grantshoming tearsand +3Rangefor the current room.
+
+ID 785: II - The High Priestess (女祭司)
+  effect: Mom's dismembered leg stomps on the enemy with the most health, dealing 300 damage and destroying obstacles in the area. If used in an empty room or d
+  desc: Mom's dismembered leg stomps on the enemy with the most health, dealing 300 damage and destroying obstacles in the area. If used in an empty room or d
+
+ID 786: III - The Empress (皇后)
+  effect: Triggers theWhore of Babyloneffect (+1.5Damage, +0.3Speed) for the current room, regardless of Isaac's health total.
+  desc: Triggers theWhore of Babyloneffect (+1.5Damage, +0.3Speed) for the current room, regardless of Isaac's health total.
+
+ID 787: IV - The Emperor (皇帝)
+  effect: 使用后： 传送到当前层的 头目房 。 如果当前层有多个 头目房 ，则随机传送到其中一个。 如果当前层没有 头目房 ，则随机传送到一个房间。
+  desc: Teleports Isaac into theBoss Room.
+
+ID 788: V - The Hierophant (教皇)
+  effect: 使用后（ 塔罗牌桌布 ）： 生成3个 骨心 。
+  desc: Drops 2 fullSoul Heartson the ground.
+
+ID 789: VI - The Lovers (恋人)
+  effect: 使用后（ 塔罗牌桌布 ）： 生成 3 个 红心 。
+  desc: Drops 2 fullRed Heartson the ground.
+
+ID 790: VII - The Chariot (战车)
+  effect: 使用后（ 塔罗牌桌布 ）： 触发 2 次 VII-战车 的使用效果。
+  desc: Givesinvulnerabilityand +0.28speedfor six seconds, removing the ability to shoot tears and replacing it with the ability to deal contact damage to ene
+
+ID 791: VIII - Justice (正义)
+  effect: 使用后（ 塔罗牌桌布 ）： 生成 4 ~ 14 个 金箱子 。
+  desc: Drops a random type ofHeart,Key,Bomb, andCoinpickup on the ground.
+
+ID 792: IX - The Hermit (隐者)
+  effect: 使用后： 如果房间中没有下列物品，则生成1个 硬币 ；否则将所有下列物品根据种类转化为 n 个 硬币 ，其中 n 与物品种类有关： 道具： n=15 ； 永恒之心 、 金心 、 金钥匙 、 钥匙圈 、 充能钥匙 、 金炸弹 、 双炸弹 、 巨型炸弹 ： n=10 ； 福袋 ： n=7 ； 双红心 、
+  desc: Teleports Isaac to theShop.
+
+ID 793: X - Wheel of Fortune (命运之轮)
+  effect: 使用后（ 塔罗牌桌布 ）： 触发2次 X-命运之轮？ 的使用效果。
+  desc: Creates aSlot MachineorFortune Telling Machinenear Isaac.
+
+ID 794: XI - Strength (力量)
+  effect: Grants the effects ofMagic Mushroom(minus the health restoration) for one room. The addedRed Heart containeris not removed if doing so would kill Isaa
+  desc: Grants the effects ofMagic Mushroom(minus the health restoration) for one room. The addedRed Heart containeris not removed if doing so would kill Isaa
+
+ID 795: XII - The Hanged Man (倒吊人)
+  effect: 使用后： 获得以下效果，持续30秒： 角色的形象变为 店主 。 移速 -0.10 获得 内眼 的效果。 每当角色消灭敌人时，生成1个 硬币 。
+  desc: Grantsflightfor the duration of the room.
+
+ID 796: XIII - Death (死亡)
+  effect: Deals 40 damage to all enemies in the room.
+  desc: Deals 40 damage to all enemies in the room.
+
+ID 797: XIV - Temperance (节制)
+  effect: 使用后（ 塔罗牌桌布 ）： 触发2次 XIV-节制？ 的使用效果。
+  desc: Creates aBlood Donation Machinenear Isaac.Spawns aDevil Beggarinstead inGreed mode.
+
+ID 798: XV - The Devil (恶魔)
+  effect: Grants +2Damagefor the current room.
+  desc: Grants +2Damagefor the current room.
+
+ID 799: XVI - The Tower (塔)
+  effect: 使用后（ 塔罗牌桌布 ）： 触发 2 次 XVI-塔 的使用效果。
+  desc: Drops 6Troll Bombsrandomly around the room.
+
+ID 800: XVII - The Stars (星星)
+  effect: 使用后（ 塔罗牌桌布 ）： 传送到当前层的 宝箱房 。 如果是首次进入这个宝箱房，则这个宝箱房必定为有二选一道具的房间布局。 如果当前楼层有 星象房 ，则传送到当前层的星象房。
+  desc: Teleports Isaac to theTreasure Room. Randomly chooses a Treasure Room if there is an activeCurse of the Labyrinth.If there is aPlanetarium, teleports 
+
+ID 801: XVIII - The Moon (月亮)
+  effect: 角色被传送到 究极隐藏房 后，如果该究级隐藏房尚未有任何出口，会随机开启一个与其和一个普通房间都相邻的红色房间，以供角色离开。
+  desc: Teleports Isaac to theSecret Room. Opens one random wall inside the Secret Room, so Isaac can leave even if he doesn't have anyBombs. Randomly chooses
+
+ID 802: XIX - The Sun (太阳)
+  effect: 使用后（ 塔罗牌桌布 ）： 回复所有红心容器。 对当前房间中的所有敌人造成2次 200.00 点伤害。 在地图上显示除 超级隐藏房 与 究极隐藏房 以外所有的房间的图标和位置。 解除当前楼层的 黑暗诅咒！ 。
+  desc: Restores Isaac to fullhealth, deals 100 damage to all enemies in the room, and reveals the map for the current floor, except for theSuper Secret Rooma
+
+ID 803: XX - Judgement (审判)
+  effect: 使用后（ 塔罗牌桌布 ）： 触发2次 XX-审判？ 的使用效果。
+  desc: Spawns aBeggaror aDevil Beggarnear Isaac. Has a 2% chance to spawn aBattery Bum,Rotten Beggar,Key Master, orBomb Buminstead.
+
+ID 804: XXI - The World (世界)
+  effect: 使用后（ 塔罗牌桌布 ）： 同上，没有额外效果。
+  desc: Reveals the entire floor, except for theSuper Secret RoomandUltra Secret Room.
+
+ID 805: 0 - The Fool? (愚者？)
+  effect: 使用后（ 塔罗牌桌布 ）： 同上，没有额外效果。
+  desc: Drops allHeartsandpickupsIsaac currently possesses on the floor, leaving Isaac at half a heart. Pickups may be dropped as items such asA QuarterandBoo
+
+ID 806: I - The Magician? (魔术师？)
+  effect: 使用后： 在当前房间中，获得 弯勺魔术 的效果。 射程 +3.00 多个 I-魔术师 的该效果不叠加。
+  desc: Grants a repelling blue aura for one minute, likeThe Soulbut stronger and with a wider area of effect.
+
+ID 807: II - The High Priestess? (女祭司？)
+  effect: Mom's leg starts stomping down repeatedly (targeting Isaac, not the enemies) for one minute, like holdingBroken Shovel.
+  desc: Mom's leg starts stomping down repeatedly (targeting Isaac, not the enemies) for one minute, like holdingBroken Shovel.
+
+ID 808: III - The Empress? (皇后？)
+  effect: Grants 2 temporaryRed Heart Containers, +1.5Fire Rate, and -0.1Speedfor one minute, along withMagdalene's hairstyle. The effect does not stack with it
+  desc: Grants 2 temporaryRed Heart Containers, +1.5Fire Rate, and -0.1Speedfor one minute, along withMagdalene's hairstyle. The effect does not stack with it
+
+ID 809: IV - The Emperor? (皇帝？)
+  effect: 使用后： 传送到当前层的 头目房 。 如果当前层有多个 头目房 ，则随机传送到其中一个。 如果当前层没有 头目房 ，则随机传送到一个房间。
+  desc: Teleports Isaac into an extraBoss Roomfrom the boss pool two floors deeper than the current floor (but never a final boss). The boss will drop a rewar
+
+ID 810: V - The Hierophant? (教皇？)
+  effect: 使用后（ 塔罗牌桌布 ）： 生成3个 骨心 。
+  desc: Drops 2Bone Heartson the ground.
+
+ID 811: VI - The Lovers? (恋人？)
+  effect: 使用后（ 塔罗牌桌布 ）： 生成 3 个 红心 。
+  desc: Creates a random item from the current room's item pool. Turns oneRed Heart Containeror twoSoul Heartsinto aBroken Heart.
+
+ID 812: VII - The Chariot? (战车？)
+  effect: 使用后（ 塔罗牌桌布 ）： 触发 2 次 VII-战车 的使用效果。
+  desc: Isaac becomes an invincible statue with 4× fire rate for 10 seconds. The statue can be nudged slightly by moving and is affected by knockback.
+
+ID 813: VIII - Justice? (正义？)
+  effect: 使用后（ 塔罗牌桌布 ）： 生成 4 ~ 14 个 金箱子 。
+  desc: Creates 2 to 4Locked Chestsnear Isaac.
+
+ID 814: IX - The Hermit? (隐者？)
+  effect: 使用后： 如果房间中没有下列物品，则生成1个 硬币 ；否则将所有下列物品根据种类转化为 n 个 硬币 ，其中 n 与物品种类有关： 道具： n=15 ； 永恒之心 、 金心 、 金钥匙 、 钥匙圈 、 充能钥匙 、 金炸弹 、 双炸弹 、 巨型炸弹 ： n=10 ； 福袋 ： n=7 ； 双红心 、
+  desc: Turns items and pickups in the room intoCoins, matching their normal shop price. If there is nothing to sell, drops aPenny.
+
+ID 815: X - Wheel of Fortune? (命运之轮？)
+  effect: 使用后（ 塔罗牌桌布 ）： 触发2次 X-命运之轮？ 的使用效果。
+  desc: Invokes a randomDice Roomeffect.
+
+ID 816: XI - Strength? (力量？)
+  effect: All enemies in the room are weakened, becomingslowand taking double damage. The effect lasts up to one minute or until the room is left.
+  desc: All enemies in the room are weakened, becomingslowand taking double damage. The effect lasts up to one minute or until the room is left.
+
+ID 817: XII - The Hanged Man? (倒吊人？)
+  effect: 使用后： 获得以下效果，持续30秒： 角色的形象变为 店主 。 移速 -0.10 获得 内眼 的效果。 每当角色消灭敌人时，生成1个 硬币 。
+  desc: Isaac turns visually intoKeeperfor 30 seconds, with triple shot and -0.1Speed. Killed enemies drop randomCoins.
+
+ID 818: XIII - Death? (死亡？)
+  effect: Creates afriendlyBonyor temporary bone orbital for each enemy killed in the current room.
+  desc: Creates afriendlyBonyor temporary bone orbital for each enemy killed in the current room.
+
+ID 819: XIV - Temperance? (节制？)
+  effect: 使用后（ 塔罗牌桌布 ）： 触发2次 XIV-节制？ 的使用效果。
+  desc: Forces Isaac to eat 5 randomPillsin quick succession.
+
+ID 820: XV - The Devil? (恶魔？)
+  effect: InvokesThe Bible(which can killMom). GrantsFlightand spawns aSeraphimfamiliar for 30 seconds.
+  desc: InvokesThe Bible(which can killMom). GrantsFlightand spawns aSeraphimfamiliar for 30 seconds.
+
+ID 821: XVI - The Tower? (塔？)
+  effect: 使用后（ 塔罗牌桌布 ）： 触发 2 次 XVI-塔 的使用效果。
+  desc: Creates 7 clusters of randomrocksand other obstacles. Spawned clusters will often containtinted rocks, with the possibility of finding more than one i
+
+ID 822: XVII - The Stars? (星星？)
+  effect: 使用后（ 塔罗牌桌布 ）： 传送到当前层的 宝箱房 。 如果是首次进入这个宝箱房，则这个宝箱房必定为有二选一道具的房间布局。 如果当前楼层有 星象房 ，则传送到当前层的星象房。
+  desc: Removes Isaac's oldest passive item (ignoring starting items) and creates 2 random items from the current room's item pool. Does nothing if Isaac has 
+
+ID 823: XVIII - The Moon? (月亮？)
+  effect: 角色被传送到 究极隐藏房 后，如果该究级隐藏房尚未有任何出口，会随机开启一个与其和一个普通房间都相邻的红色房间，以供角色离开。
+  desc: Teleports Isaac to theUltra Secret Room. The pathway back to the normal rooms will be made ofRed Rooms.
+
+ID 824: XIX - The Sun? (太阳？)
+  effect: 使用后（ 塔罗牌桌布 ）： 回复所有红心容器。 对当前房间中的所有敌人造成2次 200.00 点伤害。 在地图上显示除 超级隐藏房 与 究极隐藏房 以外所有的房间的图标和位置。 解除当前楼层的 黑暗诅咒！ 。
+  desc: GainSpirit of the Nightand +1.5Damagefor the current floor. Turns Isaac's Red Hearts into Bone Hearts, but they revert once the effect ends. Also caus
+
+ID 825: XX - Judgement? (审判？)
+  effect: 使用后（ 塔罗牌桌布 ）： 触发2次 XX-审判？ 的使用效果。
+  desc: Creates aShop Restock Machinenear Isaac.
+
+ID 826: XXI - The World? (世界？)
+  effect: 使用后（ 塔罗牌桌布 ）： 同上，没有额外效果。
+  desc: Creates a trap door which always leads to aCrawl Space.
+
+ID 827: 2 of Clubs (梅花)
+  effect: Doubles Isaac'sBombs. If he has no bombs, gives him 2 instead.
+  desc: Doubles Isaac'sBombs. If he has no bombs, gives him 2 instead.
+
+ID 828: 2 of Diamonds (方片)
+  effect: 使用后： 如果角色有 硬币 ，则硬币个数 × 2 ；否则硬币个数 +2 
+  desc: Doubles Isaac'sPenny. If he has no coins, gives him 2 instead.
+
+ID 829: 2 of Spades (黑桃)
+  effect: Doubles Isaac'sKeys. If he has no keys, gives him 2 instead.
+  desc: Doubles Isaac'sKeys. If he has no keys, gives him 2 instead.
+
+ID 830: 2 of Hearts (红桃)
+  effect: Doubles Isaac's current number ofRed Hearts. Doesn't add new Red Heart containers, just fills empty ones. If Isaac has only empty Red Heart containers
+  desc: Doubles Isaac's current number ofRed Hearts. Doesn't add new Red Heart containers, just fills empty ones. If Isaac has only empty Red Heart containers
+
+ID 831: Ace of Clubs (梅花)
+  effect: Turns allPickups,Chests, andnon-boss enemies in the room into randomBombpickups, includingTroll Bombs.
+  desc: Turns allPickups,Chests, andnon-boss enemies in the room into randomBombpickups, includingTroll Bombs.
+
+ID 832: Ace of Diamonds (方片)
+  effect: 使用后： 将房间中的 所有 掉落物 所有 掉落物 和 怪物 变为 硬币 。
+  desc: Turns allPickups,Chests, andnon-boss enemies in the room into randomCoinpickups.
+
+ID 833: Ace of Spades (黑桃)
+  effect: 使用后： 将房间中的 所有 掉落物 所有 掉落物 和 怪物 变为 钥匙 。
+  desc: Turns allPickups,Chests, andnon-boss enemies in the room into randomKeypickups.
+
+ID 834: Ace of Hearts (红桃)
+  effect: 使用后： 将房间中的 所有 掉落物 所有 掉落物 和 怪物 变为 随机心 。
+  desc: Turns allPickups,Chests, andnon-boss enemies in the room into randomHearts.
+
+ID 835: Joker (鬼牌)
+  effect: Teleports Isaac to theDevil RoomorAngel Room.
+  desc: Teleports Isaac to theDevil RoomorAngel Room.
+
+ID 836: Suicide King (自杀之王)
+  effect: 解锁 自杀之王 的成就的背景颜色和用某个角色通过 头目车轮战 的成就的背景颜色是相同的。有可能最初是要用某个角色通过 头目车轮战 才能解锁 自杀之王 。 很有可能是 拉撒路 ，因为 成就/105 的背景颜色和其他挑战奖励的背景颜色是一样的。
+  desc: Kills Isaac and spawns lots of Pickups, items, and/or Chests in the same room.
+
+ID 837: Queen of Hearts (红桃)
+  effect: 用 堕化抹大拉 获得超级撒但通关标记。
+  desc: Drops 1-20 fullRed Heartson the ground.
+
+ID 838: Chaos Card (混沌卡)
+  effect: 该卡牌来源于《 万智牌 》中的卡牌： 混沌法球（Chaos Orb） 。其以怪异的效果而出名：从至少一英尺高度扔下混沌法球，如果至少完全翻转一次，则消灭碰到的所有卡牌及其本身。
+  desc: Throws the card in the direction Isaac is moving, which opens doors, breaks obstacles, and instantly kills any enemy in its path.
+
+ID 839: Huge Growth (变巨术)
+  effect: 使用后： 在当前房间中，获得以下效果： 伤害修正 +7.00 射程 +30.00 射程 +3.00 角色能够摧毁碰到的可摧毁的障碍物。 角色的体型变大（1.6倍）。 多个 变巨术 的该效果不叠加。
+  desc: For the current room, makes Isaac larger, allows him to crushobstacleshe walks on, and grants +7 flatDamageand +30Range.For the current room, makes Is
+
+ID 840: Ancient Recall (先祖召唤)
+  effect: 该卡牌来源于《 万智牌 》中的卡牌： 先人的召还（Ancestral Recall） ，效果为“目标牌手抓三张牌”。
+  desc: Spawns 3 random cards.
+
+ID 841: Era Walk (时空漫步)
+  effect: 该卡牌的描述来源于万智牌中的另一张卡牌： 品味当下（Savor the Moment） ，与时间行走具有同一类效果，都是进行一个额外的回合。 与 变巨术 和 先祖召唤 不同， 时空漫步 没有使用时间行走在 第一版 的插画，而是使用了 特选大师 以及 2011年特选冠军赛赠卡 重印的插画。
+  desc: For the current room, enemies are slowed, Isaac's speed is increased by 0.50, and his shot speed is decreased by 1.00.
+
+ID 842: Credit Card (信用卡)
+  effect: 使用后： 将当前房间中的所有商店交易与恶魔交易物品变为可直接拾取的物品。
+  desc: Makes allpickupsanditemsthat cost money or health in the room free.
+
+ID 843: Rules Card (规则卡)
+  effect: Displays a cryptic statement on the screen, similar to aFortune Telling Machine. These messages (often) provide hints on bosses, bonus areas, etc.
+  desc: Displays a cryptic statement on the screen, similar to aFortune Telling Machine. These messages (often) provide hints on bosses, bonus areas, etc.
+
+ID 844: ? Card (？卡)
+  effect: When used, copies the effect of Isaac's currently heldactivated collectible.
+  desc: When used, copies the effect of Isaac's currently heldactivated collectible.
+
+ID 845: A Card Against Humanity (反人类卡)
+  effect: 弥达斯之触 ：生成的大便有概率变为金大便。可覆盖前者。 当 幸运为0点时，概率为 11 % 。当 幸运为18点或以上时，概率达到 100% 。
+  desc: Covers the entire room withPoop. The process is not instant, and the room will not get filled if Isaac leaves before it's done filling.
+
+ID 846: Get out of Jail Free Card (免费保释卡)
+  effect: 使用后： 触发1次 爸爸的钥匙 的使用效果。
+  desc: Upon use, opens all doors in the current room, exactly likeDad's Key.
+
+ID 847: Holy Card (神圣卡)
+  effect: 不与 木十字架 的圣盾叠加。 木十字架 的圣盾存在时使用 神圣卡 ，可以在当前房间额外获得1层圣盾。如果未消耗圣盾离开房间则圣盾恢复为1层；如果消耗1层或者2层护盾则离开房间后失去护盾效果。 神圣卡 与 木十字架 的圣盾可以叠加。
+  desc: Grants a shield that blocks the next hostile damage that would be taken in the currentroom. Has a chance to spawn another Holy Card on use.Grants a sh
+
+ID 848: Wild Card (万用牌)
+  effect: 若上一次使用的物品是 红钥匙 / 红钥匙碎片 ，则只有在拥有 红钥匙 / 红钥匙碎片 时才能触发效果。
+  desc: When used, copies the effect of the most recently usedPill,Card, Rune, Soul Stone, oractivated item.
+
+ID 849: Rune of Hagalaz (冰雹符文)
+  effect: Destroys all breakable objects in the room. Does not affect Key Blocks.
+  desc: Destroys all breakable objects in the room. Does not affect Key Blocks.
+
+ID 850: Rune of Jera (收获符文)
+  effect: Clones allpickupsandChestsin the room (includingShoppickups; the clones can then be picked up for free). Cloned chests will contain exactly the same t
+  desc: Clones allpickupsandChestsin the room (includingShoppickups; the clones can then be picked up for free). Cloned chests will contain exactly the same t
+
+ID 851: Rune of Ehwaz (马骑符文)
+  effect: Creates a trapdoor leading to the next floor. Has an estimated 1/12 (8%) chance to create a trapdoor leading to aCrawl Spaceinstead.Guaranteed to crea
+  desc: Creates a trapdoor leading to the next floor. Has an estimated 1/12 (8%) chance to create a trapdoor leading to aCrawl Spaceinstead.Guaranteed to crea
+
+ID 852: Rune of Dagaz (朝夕符文)
+  effect: Removes anyCursesfrom the current floor and grants aSoul Heart. (This will not removeCurse of the Labyrinth.)
+  desc: Removes anyCursesfrom the current floor and grants aSoul Heart. (This will not removeCurse of the Labyrinth.)
+
+ID 853: Rune of Ansuz (诸神符文)
+  effect: Reveals the whole map, including theSecret Roomand theSuper Secret Room. (This will not removeCurse of the Lost.)Does not reveal theUltra Secret Room
+  desc: Reveals the whole map, including theSecret Roomand theSuper Secret Room. (This will not removeCurse of the Lost.)Does not reveal theUltra Secret Room
+
+ID 854: Rune of Perthro (签筒符文)
+  effect: Rerolls all item pedestals in the room (the same effect asThe D6).
+  desc: Rerolls all item pedestals in the room (the same effect asThe D6).
+
+ID 855: Rune of Berkano (桦木符文)
+  effect: Summons 3 friendlyBlue Fliesand 3 friendlyBlue Spiders.
+  desc: Summons 3 friendlyBlue Fliesand 3 friendlyBlue Spiders.
+
+ID 856: Rune of Algiz (保护符文)
+  effect: Grants ashieldwhich lasts for 30 seconds.Grants ashieldwhich lasts for 20 seconds.
+  desc: Grants ashieldwhich lasts for 30 seconds.Grants ashieldwhich lasts for 20 seconds.
+
+ID 857: Blank Rune (空白符文)
+  effect: 使用后，随机触发一个其他符文的效果， 25 % 概率掉落一个空白符文。 若会生成空白符文，则会首先生成空白符文再触发其他符文的效果。
+  desc: Grants a random rune effectexcluding Black Rune. Has a 25% chance to drop another Blank Rune on the ground upon use.
+
+ID 858: Black Rune (黑符文)
+  effect: 使用后： 对房间中的所有敌人造成 40.00 点伤害（ 死灵之书 的使用效果）； 将房间中的所有掉落物随机变为蓝苍蝇或蓝蜘蛛； 当前房间内的掉落物过多的话，将只会转换一部分。 每吞噬一个道具，便会随机增加角色的两项属性： 移速 +0.20 射程 +0.50 射程 +2.50 射速 +0.50 射速修
+  desc: Deals 40 damage to all enemies in the room. Consumes all pickups in the room and turns them into Blue Flies and Spiders. Consumes all pedestal items i
+
+ID 859: Rune Shard (符文碎片)
+  effect: 使用后，随机触发一个弱化版的其他符文的效果。 冰雹符文 ：破坏一些石头。 收获符文 ：触发一次 一面骰 的效果。 马骑符文 ：生成一个 活板门 。 朝夕符文 ：获得半个魂心，不移除诅咒。 诸神符文 ：显示正方向三个房间远的地图，能在地图上显示 究极隐藏房 的位置。 签筒符文 ：重置房间内的一个道具，
+  desc: Activates a random, weak rune effect: Algiz grants a 3 second shield, Ansuz reveals the map up to 3 rooms away (includingUltra Secret Room), Berkano g
+
+ID 860: Soul of Isaac (以撒的魂石)
+  effect: 使用后： 当前房间中的所有道具增加一个选项，每1秒切换一次，离开该房间仍然生效。 多次使用会为道具添加多个可选择的选择。
+  desc: Rerolls the items in the room likeThe D6, but they cycle back to their original form after one second, repeating. If more uses are stacked, an additio
+
+ID 861: Soul of Magdalene (抹大拉的魂石)
+  effect: 使用后： 在当前房间中，每当敌人死亡时，生成一个半红心，2秒后消失。
+  desc: Surrounds Isaac with a bubbling red aura for the current room. All enemies killed dropHalf Red Heartsthat disappear in 2 seconds.
+
+ID 862: Soul of Cain (该隐的魂石)
+  effect: 使用后： 触发1次 爸爸的钥匙 的使用效果。 在当前房间周围可以生成红色房间的位置生成红色房间，并打开这些红色房间的所有门。
+  desc: Opens all doors in the room. Additionally, creates aRed Roomlike theRed Keyon all valid walls. This also destroys the mirror located inDownpour/DrossI
+
+ID 863: Soul of Judas (犹大的魂石)
+  effect: 使用后： 冻结所有实体与泪弹直到 犹大的魂石 使用完毕。 角色进入潜行状态（ dark arts ），持续3秒： 潜行状态下的角色获得 移速+1.00 潜行状态下的角色不会受到伤害，并且可以穿过敌人及其泪弹。 每当角色脱离潜行状态时： 本次潜行状态下，对于第 n 个静止状态的敌人或其泪弹： 如果是敌
+  desc: Increases Isaac'sspeedand makes him invulnerable for 3 seconds and allows him to pass through enemies. Damages all enemies and destroys all projectile
+
+ID 864: Soul of ??? (亚玻伦的魂石)
+  effect: Causes 8poisonfarts that leave lingering browncreep, then plants a trail of 7Butt Bombsin quick succession. Standing on the creep gives +1.5Fire Ratea
+  desc: Causes 8poisonfarts that leave lingering browncreep, then plants a trail of 7Butt Bombsin quick succession. Standing on the creep gives +1.5Fire Ratea
+
+ID 865: Soul of Eve (夏娃的魂石)
+  effect: 使用后： 在当前房间中，生成15个 死鸟 跟班。 死鸟跟班会追逐敌人，对接触的敌人造成伤害。 如果当前房间中没有敌人，死鸟跟班会停留10秒后消失；否则会在消灭所有敌人后消失。
+  desc: 14Dead Birdfamiliars fly in and attack enemies. They leave after all enemies are dead or Isaac leaves the room.
+
+ID 866: Soul of Samson (参孙的魂石)
+  effect: 用 堕化参孙 获得Boss Rush和死寂通关标记。
+  desc: Isaac turns berserk for 10 seconds, replacing his tears with a melee bone club and gaining +0.4Speed, someTears, and +3 flatDamage.
+
+ID 867: Soul of Azazel (阿撒泻勒的魂石)
+  effect: 用 堕化阿撒泻勒 获得Boss Rush和死寂通关标记。
+  desc: ActivatesMega Blastfor 7.5 seconds.
+
+ID 868: Soul of Lazarus (拉撒路的魂石)
+  effect: 如果人物拥有 新手牌组 / 多指畸形 等可以同时拥有两个消耗品的道具，即使 拉撒路的魂石 在副消耗品栏，在死亡时也会自动消耗并触发复活效果。
+  desc: Isaac dies, and is immediately revived at half a Heart in the same room, with some invincibility time. The soul stone is automatically used upon takin
+
+ID 869: Soul of Eden (伊甸的魂石)
+  effect: UsesThe D6andD20. The rerolled items use random pools, as ifChaoswere active.
+  desc: UsesThe D6andD20. The rerolled items use random pools, as ifChaoswere active.
+
+ID 870: Soul of the Lost (游魂的魂石)
+  effect: 使用后： 在当前房间中，人物进入 游魂诅咒 状态并获得临时的 神圣屏障 效果。
+  desc: Isaac "dies" and turns into a ghost for the current room, with all ofThe Lost's benefits and weaknesses. TheHoly Mantleeffect gained from this can be 
+
+ID 871: Soul of Lilith (莉莉丝的魂石)
+  effect: 与生成道具不同，使用该卡牌会直接将道具置入角色的道具栏。 给予的道具可以发挥与正常道具相同的效果，包括获得 套装 进度。 给予的道具不会影响对应道具的权重。 因此可能给予角色重复的道具。 给予的道具无视生成道具的限制，如可以使 堕化游魂 获得 灵能苍蝇 。
+  desc: Adds one permanentfamiliarfrom theBaby Shop pool, exceptStitches. Can give familiars that Isaac already has.Unique familiarscan be received only once.
+
+ID 872: Soul of the Keeper (店主的魂石)
+  effect: Drops 1-25 randomCoinson the ground.
+  desc: Drops 1-25 randomCoinson the ground.
+
+ID 873: Soul of Apollyon (亚玻伦的魂石)
+  effect: Spawns 15 randomlocusts.
+  desc: Spawns 15 randomlocusts.
+
+ID 874: Soul of the Forgotten (遗骸的魂石)
+  effect: 使用后： 生成 遗骸 作为临时副人物。 生成的 遗骸 只会挥击，造成 65.25 点伤害。
+  desc: SpawnsThe Forgottenas a temporary secondary character, controlled at the same time as Isaac. He dies with no consequences if his health run out, and d
+
+ID 875: Soul of Bethany (伯大尼的魂石)
+  effect: 使用后： 生成 6 个中圈的 魂火跟班 （类似于 美德之书 ）。
+  desc: Spawns 6Book of Virtueswisps with random properties.
+
+ID 876: Soul of Jacob and Esau (雅各与以扫的魂石)
+  effect: 使用后： 生成 以扫 作为临时副人物。 以扫会获得随机与角色道具数量相同且道具池相同的被动道具，并触发这些道具的拾取效果， 同时根据这些道具的 生成降权 ，分别降低它们在道具池中的权重。 以扫的初始血量为 1 个心之容器和 1 个魂心。
+  desc: SpawnsEsauas a temporary secondary character, controlled at the same time as Isaac. He dies with no consequences if his health runs out, and disappear
+
+ID 877: Dice Shard (骰子碎片)
+  effect: Upon use, invokes the effects ofThe D6and theD20at the same time, re-rolling all item pedestals and pickups in the room.
+  desc: Upon use, invokes the effects ofThe D6and theD20at the same time, re-rolling all item pedestals and pickups in the room.
+
+ID 878: Emergency Contact (紧急联系电话)
+  effect: When used, will cause twoMom's Handsto come down and grab two random enemies, dealing damage and, if they have 40 or more HP, pinning them to the grou
+  desc: When used, will cause twoMom's Handsto come down and grab two random enemies, dealing damage and, if they have 40 or more HP, pinning them to the grou
+
+ID 879: Cracked Key (红钥匙碎片)
+  effect: 红钥匙碎片 可以使角色在没有获得 红钥匙 的情况下在 家 中解锁堕化人物。 在解锁 红钥匙碎片 后，角色可在拾取 爸爸的便条 之前的任意一个 头目房 或 宝箱房 中（包括获得爸爸的便条的房间）丢弃饰品，从而在回溯中获得 红钥匙碎片 。 一局游戏中可能一个饰品都未生成。不过角色可以通过连续无伤通过三层
+  desc: Creates a room adjacent to a viable wall, likeRed Key.
+
