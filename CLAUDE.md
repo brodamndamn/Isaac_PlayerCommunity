@@ -261,6 +261,85 @@
 - **备注**：已忽略 Python/Node/IDE/环境变量文件；`uploads/*` 保留目录但忽略内容
 
 
+### 2026-07-14 — Bug 修复 + 道具分类重做 + 卡牌药丸数据补充
+
+#### 1. ORM 类型修正
+
+3 个 model 文件的 5 处 JSON 字段类型从 `dict` 改为 `list`（实际存的是数组）：
+- `item.py`: `suitable_characters`, `item_pools`
+- `character.py`: `starting_items`, `suitable_items`
+- `ending.py`: `unlocks`
+
+#### 2. 后端统一异常处理
+
+`main.py` 加了 `exception_handler`，`HTTPException` 统一返回 `{code, message, data: null}`。
+
+#### 3. 前端返回/首页链接
+
+- 列表页（ItemsPage / CharactersPage / EndingsPage）：左上角 `返回首页` 纯文字链接 → `/`
+- 详情页（ItemDetailPage / CharacterDetailPage / EndingDetailPage）：左上角 `← 返回` 纯文字按钮 → `navigate(-1)`
+- CSS：`position: absolute` 浮在 `<main>` padding 区域上，不占内容空间
+- `<main>` 加了 `position: relative`
+
+#### 4. ItemsPage 实时搜索 + 翻页跳转
+
+- 搜索框改为 `onChange` 实时搜索（300ms 防抖），删光文字自动回到完整列表
+- 翻页栏加了页码输入框（`pageJump`），输入数字回车直接跳页
+
+#### 5. 道具分类重做（五轮修正）
+
+原始分类仅按 ID 区间映射，大量错误。改为按 effect 实际内容判断：
+
+| 轮次 | 内容 | 变化 |
+|---|---|---|
+| 第一轮 | 被动中 effect 含"使用后" → 主动 | passive 320→235, active 100→185 |
+| 第二轮 | 主动中 effect 不含"使用后" → 被动 | passive 235→309, active 185→111 |
+| 第三轮 | 饰品中 effect 含"使用后" → 主动 | trinket 99→81, active 111→129 |
+| 第四轮 | 卡牌分类：含"使用后"→主动，其余→被动 | card 100→0, passive→395, active→143 |
+| 第五轮 | 药丸分类：含"使用后"→主动，其余→被动 | pill 100→0, passive→470, active→168 |
+
+最终分类：passive 470 / active 168 / trinket 81 / card 0 / pill 0
+
+#### 6. 卡牌 + 药丸数据抓取
+
+- Fandom Wiki 的 `Cards and Runes` 页面（19 张 wikitable）→ 97 条卡牌
+- Fandom Wiki 的 `Pills` 页面（主 wikitable）→ 50 条药丸
+- 新文件：`seed_data/fetch_cards_pills.py`、`seed_data/cards_pills.json`
+- 卡牌含：塔罗牌 22、逆位塔罗 22、扑克牌、符文、灵魂石等
+- 药丸含：全部 50 种口袋药丸（Bad Gas、Balls of Steel 等）
+
+#### 7. 卡牌 + 药丸中文翻译
+
+- 灰机 wiki 的 K-page（卡牌）和 P-page（药丸）→ `displaytitle` 中文名 + 页面正文中文效果
+- 新文件：`seed_data/fetch_cn_cards_pills.py`
+- 覆盖：卡牌 81/97 中文名 + 66/97 中文效果；药丸 45/50 中文名 + 50/50 中文效果
+- 灰机 wiki 反爬（Cloudflare），但 K/P-page 的 `action=parse` 接口可用
+
+#### 8. HomePage 图片（2.5.1）
+
+- 三张卡片 emoji 替换为游戏图片：妈刀（道具）、以撒（角色）、妈心（Boss）
+- 图片来自 Fandom Wiki，存于 `frontend/public/images/`
+- 用户反馈妈刀和以撒图片不合适，等 2.5.2/2.5.3 完成后再替换
+
+#### 9. 道具图片下载（2.5.2 部分）
+
+- 脚本：`seed_data/fetch_item_images.py`
+- 从 Fandom Wiki 下载 604 张道具精灵图至 `frontend/public/images/items/<id>.png`
+- 图片命名格式：`Collectible_<name>_icon.png`（空格保留，不要下划线）
+- 数据库 `items.image_url` 已批量更新
+- 前端 ItemCard + ItemDetailPage 已改为显示图片
+- 约 115 张缺失（特殊字符名匹配不到 + 网络超时，需翻墙重试）
+- 用户标记部分图片为非像素风（错误图片），暂未修复
+
+#### 10. ItemCard 分类色
+
+五个分类各不同左边框色（CSS Module）：
+- passive 蓝 `#1565c0` / active 金 `#f9a825` / trinket 紫 `#7b1fa2` / card 红 `#d32f2f` / pill 青 `#00897b`
+
+#### 当前数据总量
+
+866 条道具（719 原 + 147 卡牌药丸新）
+
 ---
 
 ## 项目架构与代码逻辑
@@ -329,22 +408,34 @@ ISAAC/
 
 ## 当前状态速览
 
-### 已完成（17/32）
+### 已完成
 
 | 模块 | 完成项 |
 |---|---|
-| 项目初始化 (0.x) | 前端脚手架、后端脚手架、数据库连接、Git |
-| 道具系统 (1.x) | 数据模型、种子数据(719条)、列表API、详情API、前端页面 |
-| 角色系统 (2.x) | 数据模型、种子数据(34个)、列表API、详情API、前端页面 |
-| 结局系统 (3.x) | 数据模型、种子数据(22个)、列表API、详情API、前端页面 |
+| 项目初始化 (0.x) | 脚手架、数据库、Git |
+| 道具系统 (1.x) | 模型、种子(719)、API、前端页面 |
+| 角色系统 (2.x) | 模型、种子(34)、API、前端页面 |
+| 结局系统 (3.x) | 模型、种子(22)、API、前端页面 |
+| 道具分类重做 | passive 470 / active 168 / trinket 81 / card 97 / pill 50 = 866 条 |
+| 卡牌药丸数据 | 从 Wiki 抓取 147 条 + 灰机 wiki 中文名/效果 |
+| 前端优化 | 实时搜索、翻页跳转、返回按钮、道具分色边框 |
 
-### 即将做
+### 进行中
 
 | 顺序 | 模块 |
 |---|---|
-| 2.5.1~2.5.4 | 图片资源（首页/道具/角色/结局全部配图） |
+| 2.5.1 | 首页配图（妈刀和以撒图片不合适，待换） |
+| 2.5.2 | 道具配图（604 张已下载，~115 张缺失 + 部分错误待修正） |
+| 2.5.3 | 角色配图（⬜ 未开始） |
+| 2.5.4 | 结局配图（⬜ 未开始） |
+
+### 待做
+
+| 顺序 | 模块 |
+|---|---|
 | 4.1~4.6 | 用户系统（注册登录 + JWT） |
 | 5.1~5.6 | 社区功能（攻略发帖 + 收藏） |
+| 6.1~6.2 | 部署 |
 | 6.1~6.2 | 部署 |
 
 ---
