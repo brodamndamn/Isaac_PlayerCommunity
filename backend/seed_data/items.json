@@ -382,7 +382,7 @@
     "description": "Turns all non-bossmonstersin theroomintoPoop.Instantly kills poop-themed bosses. Floods the current room.",
     "quality": 1,
     "category": "active",
-    "name_cn": "冲水",
+    "name_cn": "冲水！",
     "effect": "使用后，将所有怪物变为大便。\n消灭大便类型的敌人，包括：\n粪滴\n玉米粪滴\n布朗尼玉米粪滴\n粪团\n阴湿粪团\n粪堆\n玉米粒地雷\n坨坨（因冲水！死亡后会生成6个粪滴）\n滑坨坨（因冲水！死亡后会生成6个玉米粪滴）\n布朗尼（因冲水！死亡后会生成6个布朗尼玉米粪滴）\n大玉米粪滴\n粪球\n浮粪团\n便便肉团\n拦路屎\n粪山幼崽（因冲水！死亡后会生成6个粪滴）\n使房间积水。\n熄灭所有可通过泪弹熄灭的火堆。",
     "item_pools": [
       "[img:pool/treasure_room] 宝库房"
@@ -509,7 +509,7 @@
     "description": "Creates an explosion around Isaac, damaging him and nearby enemies as well as destroyingobstacles.",
     "quality": 0,
     "category": "active",
-    "name_cn": "神风",
+    "name_cn": "神风！",
     "effect": "使用后：\n在角色的位置产生一次爆炸，爆炸范围与大爆弹先生相同。\n爆炸对敌人造成",
     "item_pools": [
       "[img:pool/ultra_secret_room] 超隐藏房",
@@ -909,7 +909,7 @@
     "description": "Teleports Isaac to a randomroomon the currentfloor.",
     "quality": 0,
     "category": "active",
-    "name_cn": "传送",
+    "name_cn": "传送！",
     "effect": "使用后：\n传送到当前层的一个随机房间，所有房间的传送概率相同。",
     "item_pools": [
       "[img:pool/crane_game] 抓娃娃机",
@@ -1201,7 +1201,7 @@
     "description": "Creates a trapdoor to go to the nextfloor.Once per floor, using it on tiles with special graphics will instead create aCrawl Space.",
     "quality": 2,
     "category": "active",
-    "name_cn": "我们需要深入挖掘",
+    "name_cn": "我们需要深入挖掘！",
     "effect": "使用后：\n在角色所处的位置生成1个活板门。\n如果当前楼层为尸宫II、教堂、阴间、玩具箱、暗室、???、虚空、家或回溯中的楼层（包括回溯开始前，通过奇怪的门进入的陵墓II），则不会生成活板门。",
     "item_pools": [
       "[img:pool/devil_room] 恶魔房",
@@ -1513,7 +1513,7 @@
     "description": "Teleports Isaac to a room that has not been explored yet. Normal rooms are prioritized over special rooms, and common special rooms take priority over rarer ones.",
     "quality": 3,
     "category": "active",
-    "name_cn": "传送",
+    "name_cn": "传送2.0",
     "effect": "使用后：\n将角色随机传送到一个未进入过或未被清理的房间。\n如果当前房间未清理且有敌人存在，则会重新传送到当前房间。\n传送到的房间按以下顺序选择，优先选择靠前的未进入过的房间。\n墓室/镜子房/矿车房\n普通房间\n红色房间\n头目房\n超级隐藏房\n商店\n宝箱房\n星象房\n献祭房/骰子房\n图书馆\n诅咒房\n小头目房\n挑战房/头目挑战房\n赌博房/宝库\n以撒的卧室\n隐藏房\n究极隐藏房（仅在镜像世界）\n恶魔房/天使房\n错误房\n如果以上房间都曾进入过，则会固定传送到错误房。",
     "item_pools": [
       "[img:pool/crane_game] 抓娃娃机",
@@ -1783,7 +1783,7 @@
     "description": "Damages allenemiesand destroys allobstacles. The effect occurs every time a new room is entered for the rest of the floor. Opens the doors to the floor'sSecret RoomsandSuper Secret Rooms.",
     "quality": 3,
     "category": "active",
-    "name_cn": "妈咪炸弹",
+    "name_cn": "妈咪炸弹！",
     "effect": "使用后：\n在当前楼层中，每当角色时，生成妈咪炸弹爆炸，对所有敌人造成200.00点伤害，摧毁所有可被炸弹摧毁的障碍物，炸开所有普通房间的门（包括隐藏房和超级隐藏房）。\n同时摧毁所有可互动实体（包括炸弹乞丐）、商店店主以及火堆。\n无视时限打开通往头目车轮战/???的入口。",
     "item_pools": [
       "[img:pool/bomb_bum] 炸弹乞丐",
@@ -1844,7 +1844,7 @@
     "description": "Summons a controllable ghost that can perform various tasks depending on what it targets.",
     "quality": 3,
     "category": "active",
-    "name_cn": "自我先生",
+    "name_cn": "自我先生！",
     "effect": "使用后：\n生成1个自我先生！和1个蓝色光标。蓝色光标可以用射击键控制。光标消失后，“我”会向蓝色光标处移动，并根据沿途碰到的实体做出某种行为：\n道具/掉落物/饰品/箱子/红箱子/刺箱子：将其带到角色身边。\n在商店、恶魔交易、黑市中使用可以使交易免费，但是有50%的概率失败。失败时会发出蜂鸣器的声音同时“我”消失。\n金箱子/永恒箱子/石箱子：免费打开箱子。\n按钮：按下按钮。\n敌人：攻击该敌人直至敌人死亡或者由于种种原因使其无法被追踪。“我”会对接触的敌人造成每秒9.00点的伤害。\n门：打开门（即使该门是上锁的），包括进入超级撒但房间的门、离开死寂的门、离开头目车轮战的门。\n隐藏房/超级隐藏房入口：爆炸后打开入口。\n可摧毁的障碍物/商店店主/可互动实体：爆炸并将其摧毁。",
     "item_pools": [
       "[img:pool/crane_game] 抓娃娃机",
@@ -1895,7 +1895,7 @@
     "description": "Kills all enemies in the room, then kills Isaac three seconds later.",
     "quality": 0,
     "category": "active",
-    "name_cn": "计划",
+    "name_cn": "计划C",
     "effect": "使用后：\n对房间内所有敌人造成9999999.00点伤害。\n3秒后消灭角色。\n若位于精神错乱的房间，10秒后消灭角色；若位于母亲的房间，11.5秒后消灭角色。",
     "item_pools": [
       "[img:pool/ultra_secret_room] 超隐藏房",
@@ -2129,7 +2129,7 @@
     "description": "Isaac goes berserk for 5 seconds, greatly increasing hisspeed,tears, anddamage, but restricting him to using a melee weapon instead of his tears. This item charges by dealing damage to enemies instead of clearing rooms.",
     "quality": 1,
     "category": "active",
-    "name_cn": "狂怒",
+    "name_cn": "狂怒！",
     "effect": "每当角色对敌人造成伤害时，为狂怒！增加与角色造成伤害相同点数的充能。\n满充能需要总计80.00+40.00n点伤害。\nn为当前楼层数。\n无法通过清理房间和拾取电池来充能。\n\n使用后：\n角色进入狂暴状态，持续5秒。\n狂暴状态下的角色会获得以下效果：\n角色的攻击方式挥动和扔出驴腮骨（类似遗骸）。\n移速+0.40\n射速修正 × 50 % + 2.00 \n伤害+3.00\n挥动驴腮骨可以反弹敌方泪弹。\n角色在砍中敌人后会获得短暂的无敌时间。\n每当角色消灭敌人时，狂暴状态的持续时间延长1秒，且移速+0.40。\n重复进入狂暴状态会叠加持续时间，且移速加成会叠加，而其他属性加成不叠加。\n角色不会进行死亡结算，即状态期间即使血量耗尽，角色也不会死亡。",
     "item_pools": [
       "[img:pool/devil_room] 恶魔房",
@@ -2203,7 +2203,7 @@
     "quality": 1,
     "category": "active",
     "name_cn": "暗仪刺刀",
-    "effect": "使用后：\n角色进入潜行状态（dark arts），持续1秒：\n潜行状态下的角色获得移速+1.00\n潜行状态下的角色不会受到伤害，并且可以穿过敌人和敌方泪弹。\n每当潜行状态下的角色接触到敌人或敌方泪弹时，使其进入静止状态，但无法触发其他接触效果。\n每当角色脱离潜行状态时：\n角色获得短暂的无敌效果。\n本次潜行状态下，对于第n个静止状态的敌人或敌方泪弹：\n如果是敌人，则对该敌人造成d_n = 200 % 角色伤害 + 3.50 n的伤害；\n如果是敌人的泪弹，则阻挡该泪弹。\n对角色周围的敌人造成D = \\sumn=1^{N} d_n的伤害，其中N为本次潜行状态中使敌人或敌方泪弹进入静止状态的总次数。\n特别地，当人物为犹大之影或堕化犹大时，则额外使角色获得4N层暗仪刺刀状态。\n暗仪刺刀状态每30帧（每0.5秒）减少1层。\n每有1层暗仪刺刀状态，角色获得伤害+0.25",
+    "effect": "使用后：\n角色进入潜行状态，持续1秒：\n潜行状态下的角色获得移速+1.00\n潜行状态下的角色不会受到伤害，并且可以穿过敌人和敌方泪弹。\n每当潜行状态下的角色接触到敌人或敌方泪弹时，使其进入静止状态，但无法触发其他接触效果。\n每当角色脱离潜行状态时：\n角色获得短暂的无敌效果。\n本次潜行状态下，对于第n个静止状态的敌人或敌方泪弹：\n如果是敌人，则对该敌人造成200%角色伤害+3.50×n的伤害；\n如果是敌人的泪弹，则阻挡该泪弹。\n对角色周围的敌人造成累计伤害D=所有单次伤害之和的伤害，其中N为本次潜行状态中使敌人或敌方泪弹进入静止状态的总次数。\n特别地，当人物为犹大之影或堕化犹大时，则额外使角色获得4N层暗仪刺刀状态。\n暗仪刺刀状态每30帧（每0.5秒）减少1层。\n每有1层暗仪刺刀状态，角色获得伤害+0.25",
     "item_pools": [
       "[img:pool/devil_room] 恶魔房",
       "[img:pool/ultra_secret_room] 超隐藏房"
@@ -2621,7 +2621,7 @@
     "description": "Brings Isaac back to the first floor of a new run, retaining all of his items.",
     "quality": 4,
     "category": "active",
-    "name_cn": "键",
+    "name_cn": "R键",
     "effect": "使用后：\n角色被传送到初始楼层，保留所有属性和道具。（相当于重开一局，但保留身上物品）\n不同于跑圈，天使房转换率将被重置。即使角色在使用R键前进行过恶魔交易，天使房仍然可能出现。",
     "item_pools": [
       "[img:pool/secret_room] 隐藏房",
@@ -2771,7 +2771,7 @@
     "description": "Isaac dashes forward and picks up the first enemy hit. After a moment, he slams them into the ground to deal damage and create a circular rock wave.",
     "quality": 1,
     "category": "active",
-    "name_cn": "背摔",
+    "name_cn": "背摔！",
     "effect": "使用后：\n角色向前冲撞一小段距离。\n冲撞过程和举起敌人的过程中角色不会受到伤害。\n如果角色在冲撞过程中碰到了敌人，则会生成一个可以用射击键控制位置的光标。1秒后，角色将自己连同敌人一起砸向光标处，对其与附近的敌人造成伤害。并生成圆形石刃波，石刃波造成10.00伤害。\n在默认体型下落地造成50.00和3圈石刃波，实际落地伤害和石刃波范围与角色体型正相关。\n 超级蘑菇、 怪异蘑菇、 怪异蘑菇虽然会造成形象上尺寸和碰撞箱的改变，但均不改变角色体型，也就意味着并不会影响背摔的落地伤害。\n落地伤害最低为40.00，石刃波最低范围为2圈。",
     "item_pools": [
       "[img:pool/crane_game] 抓娃娃机",
@@ -3055,7 +3055,7 @@
     "quality": 2,
     "category": "passive",
     "effect": "角色获得一次额外的生命。死亡后，角色在上一个房间复活，保留心之容器并回满红心。\n如果角色没有心之容器，则会以半颗魂心复活。\n生成1个1UP!，在使用1UP!复活后消失。\n1UP!跟随着角色。",
-    "name_cn": "!",
+    "name_cn": "1UP!",
     "item_pools": [
       "[img:pool/secret_room] 隐藏房",
       "[img:pool/boss] Boss房",
@@ -3144,7 +3144,7 @@
     "quality": 2,
     "category": "passive",
     "effect": "拾取后：\n获得1个心之容器。\n回复所有红心。",
-    "name_cn": "<3",
+    "name_cn": "lt",
     "item_pools": [
       "[img:pool/boss] Boss房",
       "[img:pool/ultra_secret_room] 超隐藏房",
@@ -3227,7 +3227,7 @@
     "description": "Grants 10Bombs.",
     "quality": 0,
     "category": "passive",
-    "name_cn": "轰",
+    "name_cn": "轰！",
     "effect": "拾取后：\n获得10个炸弹。",
     "item_pools": [
       "[img:pool/bomb_bum] 炸弹乞丐",
@@ -3710,7 +3710,7 @@
     "description": "Reduces all Shop prices by 50%, rounded down to 7 coins for an item, rounded up to 2-3 coins for a pickup.",
     "quality": 2,
     "category": "passive",
-    "name_cn": "大促",
+    "name_cn": "Steam大促",
     "effect": "硬币交易商品变为半价。",
     "item_pools": [
       "[img:pool/shop] 商店",
@@ -3859,7 +3859,7 @@
     "description": "Gives Isaac 25coins.",
     "quality": 0,
     "category": "passive",
-    "name_cn": "美分",
+    "name_cn": "25美分",
     "effect": "拾取后：\n获得25个硬币。",
     "item_pools": [
       "[img:pool/secret_room] 隐藏房",
@@ -3897,7 +3897,7 @@
     "description": "Reveals and opens allSecret RoomandSuper Secret Roomentrances.",
     "quality": 2,
     "category": "passive",
-    "name_cn": "光透视",
+    "name_cn": "X光透视",
     "effect": "当角色进入一个房间时，打开所有与该房间相邻的隐藏房或超级隐藏房的门。\n该效果与 我能永远看清！一致。",
     "item_pools": [
       "[img:pool/treasure_room] 宝库房",
@@ -4428,7 +4428,7 @@
     "description": "Reduces the charge of anyactivated itemby 1. Any 1 charge items instead have timed recharges.",
     "quality": 2,
     "category": "passive",
-    "name_cn": "伏特",
+    "name_cn": "9伏特",
     "effect": "拾取后：\n为角色的主动道具充能到满格。\n\n每当角色使用2格或以上的主动道具后，会获得1格充能。\n当房间中有敌人或9伏特给予的充能未满时，1格的主动道具会缓慢充能，15秒充满。\n如果主动道具是按时间充能，则",
     "item_pools": [
       "[img:pool/battery_bum] Battery Bum",
@@ -4880,7 +4880,7 @@
     "description": "Replaces the tears fired from Isaac's right eye with a rapid-firing low damagepiercinglaser.Damagedown.",
     "quality": 2,
     "category": "passive",
-    "name_cn": "科技",
+    "name_cn": "科技II",
     "effect": "伤害修正× 65 %\n射速修正× 2/3 \n角色只会从左眼发射泪弹。\n角色的右眼会持续发射激光（实体ID：7.2）。\n激光会穿过敌人，具有无限射程。\n只要按住射击键，激光便会持续存在。\n激光对接触的敌人造成每4帧（每秒15次）角色伤害。\n多个科技II的该效果不叠加。",
     "item_pools": [
       "[img:pool/crane_game] 抓娃娃机",
@@ -5420,7 +5420,7 @@
     "description": "Gives Isaac a random tear effect every room.Gives Isaac a random tear effect every few seconds.",
     "quality": 2,
     "category": "passive",
-    "name_cn": "美元纸币",
+    "name_cn": "3美元纸币",
     "effect": "在每个房间中，角色随机获得以下泪弹效果中的1种。\n角色随机获得以下泪弹效果中的两种，每隔2~3秒切换一次，两种特效切换时机错开。\n\n除了以上的泪弹效果，3美元纸币也有概率触发道具 幸运脚和 万磁王的效果。",
     "item_pools": [
       "[img:pool/treasure_room] 宝库房"
@@ -5434,7 +5434,7 @@
     "description": "Grants one full RedHeart container, +0.3damage.Heals 1 additionalRed Heart",
     "quality": 2,
     "category": "passive",
-    "name_cn": "生肉",
+    "name_cn": "生肉！",
     "effect": "拾取后：\n获得1个心之容器。\n回复1颗红心。\n\n伤害+0.30",
     "item_pools": [
       "[img:pool/ultra_secret_room] 超隐藏房",
@@ -6183,7 +6183,7 @@
     "description": "Spawns alliedBlue Spidersfrom killed enemies.",
     "quality": 3,
     "category": "passive",
-    "name_cn": "害虫横行",
+    "name_cn": "害虫横行II",
     "effect": "每当敌人死亡时，在该敌人的位置上生成1只蓝蜘蛛。",
     "item_pools": [
       "[img:pool/treasure_room] 宝库房"
@@ -6236,7 +6236,7 @@
     "description": "Combined withKey Piece 2, unlocks the golden gate in the startingroomofChestandDark Roomto fightMega Satan.",
     "quality": 0,
     "category": "passive",
-    "name_cn": "钥匙碎片",
+    "name_cn": "钥匙碎片1",
     "effect": "天使房转换率+25%\n永恒之心的转化率+2.5%，详情请见心的生成概率。\n生成1个钥匙碎片1。\n钥匙碎片1跟随着角色。当角色同时拥有钥匙碎片1和 钥匙碎片2时，两个跟班会合体，变为完整钥匙。\n完整钥匙允许角色进入玩具箱或暗室的金色大门，挑战超级撒但。",
     "item_pools": [
       "[img:pool/angel_room] 天使房"
@@ -6250,7 +6250,7 @@
     "description": "Combined withKey Piece 1, unlocks the golden gate in the startingroomofChestandDark Roomto fightMega Satan.",
     "quality": 0,
     "category": "passive",
-    "name_cn": "钥匙碎片",
+    "name_cn": "钥匙碎片2",
     "effect": "天使房转换率+25%\n永恒之心的转化率+2.5%，详情请见心的生成概率。\n生成1个钥匙碎片2。\n钥匙碎片2跟随着角色。当角色同时拥有 钥匙碎片1和钥匙碎片2时，两个跟班会合体，变为完整钥匙。\n完整钥匙允许角色进入玩具箱或暗室的金色大门，挑战超级撒但。",
     "item_pools": [
       "[img:pool/angel_room] 天使房"
@@ -6326,7 +6326,7 @@
     "description": "Isaac occasionally fires an unlimited rangepiercinglaser alongside his normal tears. The laser can glitch, mimicking the effects of certain items and trinkets.",
     "quality": 3,
     "category": "passive",
-    "name_cn": "科技",
+    "name_cn": "科技0.5",
     "effect": "每当角色按下射击键时，每16帧（每秒3.75次）有 2/3 概率从角色额头额外发出一道具有穿刺效果的激光，造成100%角色伤害。\n科技0.5有5%概率带有 水果蛋糕的效果。[需要确认概率]\n多个科技0.5的该效果不叠加。",
     "item_pools": [
       "[img:pool/crane_game] 抓娃娃机",
@@ -6371,7 +6371,7 @@
     "description": "Increases the size and effectiveness of mostfamiliars.",
     "quality": 2,
     "category": "passive",
-    "name_cn": "好朋友一辈子",
+    "name_cn": "好朋友一辈子！",
     "effect": "角色的所有跟班的尺寸增大25%、提高大部分跟班的效果：\n造成固定伤害的跟班伤害翻倍。伤害和角色伤害相关的跟班大多不受影响，跟班的生成水迹伤害不受影响。\n按固定房间数生成掉落物的跟班房间数生成需求更低，按概率生成掉落物的跟班生成概率变高。按照一定公式等价交换的跟班（如 黑暗乞丐）不受影响。\n某些跟班有独特协同效应。\n多个好朋友一辈子！的该效果不叠加。",
     "item_pools": [
       "[img:pool/ultra_secret_room] 超隐藏房",
@@ -6639,7 +6639,7 @@
     "description": "Grants oneBlack Heart. Upon taking damage that reduces Isaac'shealthto one heart or less, deals damage to all enemies in the room.Increases the damage ofBlack HeartsandThe Necronomicon-like effects by 40.",
     "quality": 0,
     "category": "passive",
-    "name_cn": "遗失的书页",
+    "name_cn": "遗失的书页2",
     "effect": "拾取后：\n获得。\n\n每当角色受到伤害时，如果角色只有一颗心或以下，触发 死灵之书的效果。\n每当角色使用类似 死灵之书的效果时，使其造成的伤害+40.00。\n包括使用 死灵之书、使用 血之权利、使用 XIII-死亡、使用 黑符文、触发 底片、触发 枯骨宝宝、触发 遗失的书页、触发遗失的书页2、失去黑心等。\n不含 XIX-太阳和 魔术手指。\n多个该道具效果可以叠加。\n角色同时拥有 死灵之书、 遗失的书页2和 遗失的书页时，将获得死灵法师套装。",
     "item_pools": [
       "[img:pool/devil_beggar] 恶魔乞丐",
@@ -6708,7 +6708,7 @@
     "description": "Spawns afamiliarthat fires lasers at any enemy in its line of sight and moves based on the direction Isaac is firing tears.",
     "quality": 1,
     "category": "passive",
-    "name_cn": "机器宝宝",
+    "name_cn": "机器宝宝2.0",
     "effect": "生成1个机器宝宝2.0跟班。\n机器宝宝2.0跟班用射击键控制其移动，每20帧（每秒3次）自动对经过其正方向的敌人发射激光，造成3.50点伤害。",
     "item_pools": [
       "[img:pool/baby_shop] Baby Shop",
@@ -7332,7 +7332,7 @@
     "description": "Spawns a controllablefamiliarthat deals 37.5 damage per second on touch. It can be moved using the shooting directional keys",
     "quality": 1,
     "category": "passive",
-    "name_cn": "唯一的朋友",
+    "name_cn": "???唯一的朋友",
     "effect": "生成1个???唯一的朋友。\n???唯一的朋友跟班用射击键控制移动，对敌人造成的接触伤害。",
     "item_pools": [
       "[img:pool/baby_shop] Baby Shop",
@@ -8427,8 +8427,8 @@
     "description": "Tears are replaced with laser rings that pierce through enemies and deal damage to enemies within them. Can be charged to increase the effectiveness of the ring.",
     "quality": 4,
     "category": "passive",
-    "name_cn": "科技",
-    "effect": "角色的攻击方式改为蓄力发射1个激光环。\n激光环的大小与蓄力时间成正比。\n激光环具有无限射程，可以飞过障碍物并穿透敌人，\n蓄力时间n的取值范围是0到 nmax-2 的整数。单位为 1/30 秒。n输入n=max(0,min(n输入,nmax-2))。\n其中，nmax = 80/t 。单位为 1/30 秒。\nt为角色射速，下同。\n当n < 1/4 nmax 时，不会发射激光环。\n如果t ≥ 30.00，则发射激光环不再需要蓄力。\n激光环对接触的敌人每4帧（每秒15次）造成角色伤害。\n$$d=\\begin{cases}\nn/nmax & t<30 \\\\\nt-10/80 & 30 ≤ t ≤ 90 \\\\\n100% & t>90 \\\\\n\\end{cases}$$\n\n每拾取1个额外的科技X会使角色每次同时发射的激光环个数+1，上限为一次同时发射16个激光环。",
+    "name_cn": "科技X",
+    "effect": "角色的攻击方式改为蓄力发射1个激光环。\n激光环的大小与蓄力时间成正比。\n激光环具有无限射程，可以飞过障碍物并穿透敌人，\n蓄力时间n的取值范围是0到 nmax-2 的整数。单位为 1/30 秒。n输入n=max(0,min(n输入,nmax-2))。\n其中，nmax = 80/t 。单位为 1/30 秒。\nt为角色射速，下同。\n当n < 1/4 nmax 时，不会发射激光环。\n如果t ≥ 30.00，则发射激光环不再需要蓄力。\n激光环对接触的敌人每4帧（每秒15次）造成角色伤害。\n(伤害计算公式略)\n\n每拾取1个额外的科技X会使角色每次同时发射的激光环个数+1，上限为一次同时发射16个激光环。",
     "item_pools": [
       "[img:pool/crane_game] 抓娃娃机",
       "[img:pool/treasure_room] 宝库房"
@@ -8990,7 +8990,7 @@
     "description": "Spawns a glassfamiliarthat spills on the floor upon taking damage.After the milk spills, Isaac'stear delayis decreased by 2 for the currentroom.After the milk spills, Isaac'sfire rateis increased by 1 for the currentroom.",
     "quality": 1,
     "category": "passive",
-    "name_cn": "牛奶",
+    "name_cn": "牛奶！",
     "effect": "生成1个牛奶！\n每当角色受到伤害时，在当前房间内，获得：\n射速修正+ 1.00\n每个房间只能触发一次。\n牛奶跟班跟随着角色，可以抵挡敌方泪弹。在受到有效攻击10次后会破碎，并在当前楼层内，给予角色：\n射速修正+ 1.00\n多个 牛奶！效果可以叠加。",
     "item_pools": [
       "[img:pool/treasure_room] 宝库房"
@@ -9075,7 +9075,7 @@
     "description": "+0.3tears. Adds a chance to fire a razor blade that deals 4× Isaac'sdamage.",
     "quality": 3,
     "category": "passive",
-    "name_cn": "苹果",
+    "name_cn": "苹果！",
     "effect": "射速+0.30\n设角色幸运为P幸运，角色以概率1/max(1,15- P幸运) 发射1颗刀片泪弹，造成400%的角色伤害。",
     "item_pools": [
       "[img:pool/ultra_secret_room] 超隐藏房",
@@ -9489,7 +9489,7 @@
     "description": "Spawns a fingerfamiliarthat faces in the same direction as Isaac, rapidly damaging enemies it points at for 10% of Isaac's damage.",
     "quality": 1,
     "category": "passive",
-    "name_cn": "手指",
+    "name_cn": "手指！",
     "effect": "生成1个手指跟班。\n手指跟班漂浮在角色周围并持续发射隐形的灵体激光，其射击方向受射击键控制。该激光可造成每6帧（每秒10次）10%的角色伤害，并且与角色射速无关。\n手指跟班指向角色面朝的方向。\n激光适用所有对敌的泪弹效果。",
     "item_pools": [
       "[img:pool/treasure_room] 宝库房"
@@ -9826,7 +9826,7 @@
     "description": "Upon entering a room with enemies in it, has a chance to spawn a randomfriendlyenemy that persists across rooms.",
     "quality": 2,
     "category": "passive",
-    "name_cn": "宝可",
+    "name_cn": "宝可GO",
     "effect": "每当角色进入一个有敌人的房间时，有20%概率生成1个随机友好敌人。\n友好敌人包括：\n皱眉裂口尸\n狙击蝇\n红苍蝇\n开膛怪\n独牙蝙蝠\n胖蝙蝠\n友好敌人会跟着角色进入新房间或楼层，并且不会对角色造成伤害。\n友好敌人生成的敌人也是友好状态。\n友好敌人不会是精英。",
     "item_pools": [
       "[img:pool/crane_game] 抓娃娃机",
@@ -10061,7 +10061,7 @@
     "description": "Replaces Isaac's tears with eyeballs that can bounce off of each other. The eyeballs are not limited byrange, and will instead dissipate when they stop moving or when hitting an enemy or obstacle.",
     "quality": 1,
     "category": "passive",
-    "name_cn": "噗",
+    "name_cn": "噗！",
     "effect": "角色发射眼球泪弹。\n眼球泪弹会互相弹开。\n眼球泪弹不会因到达最远射程而坠落，而是在泪弹停止移动时坠落。\n泪弹会在和其他泪弹碰撞8次后掉落地面。",
     "item_pools": [
       "[img:pool/treasure_room] 宝库房"
@@ -10430,7 +10430,7 @@
     "description": "Repeatedly zaps enemies that are close to Isaac.",
     "quality": 2,
     "category": "passive",
-    "name_cn": "伏",
+    "name_cn": "220伏",
     "effect": "每当敌人与角色很近时，会生成一道闪电，对该敌人及附近一定范围内的敌人造成伤害。\n每秒可电击5次，每次电击造成75 %角色伤害。\n触发范围约为两个格子，可以隔着一块石头电击到另一侧的敌人。\n具有短暂的索敌延迟，这意味着敌人可以在被电击之前接近并触碰角色。\n如果被电击的敌人附近有其他敌人，将会在敌人之间形成闪电链。这会使该道具的作用范围大大提升。\n在有水的房间内，连锁距离会大大提升，触发距离不变。",
     "item_pools": [
       "[img:pool/battery_bum] Battery Bum",
@@ -11311,7 +11311,7 @@
     "description": "Combined withKnife Piece 2, creates a knifefamiliarthat damages enemies and can open the door to theCorpse.",
     "quality": 0,
     "category": "passive",
-    "name_cn": "菜刀碎片",
+    "name_cn": "菜刀碎片1",
     "effect": "生成1个菜刀碎片1。\n菜刀碎片1跟随着角色。当角色同时拥有菜刀碎片1和 菜刀碎片2时，两个跟班会合体，结合成完整菜刀。\n完整菜刀会沿角色的攻击方向射出，对沿途上的所有敌人造成每20帧(每秒3次)25.00点伤害，碰到并插进墙壁后收回。\n完整菜刀允许角色打开红色肉门，挑战被强化后的妈妈的心脏。此后完整菜刀便不复存在。\n会在矿洞II或灰坑II中生成一个特殊的1×2房间，用于获取 菜刀碎片2。",
     "item_pools": [
       "[img:pool/story] 剧情获取"
@@ -11325,7 +11325,7 @@
     "description": "Combined withKnife Piece 1, creates a knifefamiliarthat damages enemies and can open the door to theCorpse.",
     "quality": 0,
     "category": "passive",
-    "name_cn": "菜刀碎片",
+    "name_cn": "菜刀碎片2",
     "effect": "生成1个菜刀碎片2。\n菜刀碎片2跟随着角色。当角色同时拥有 菜刀碎片1和菜刀碎片2时，两个跟班会合体，结合成完整菜刀。\n完整菜刀会沿角色的攻击方向射出，对沿途上的所有敌人造成25.00点伤害，碰到并插进墙壁后收回。\n完整菜刀允许角色打开红色肉门，挑战被强化后的妈妈的心脏。此后完整菜刀便不复存在。",
     "item_pools": [
       "[img:pool/story] 剧情获取"
@@ -11516,7 +11516,7 @@
     "description": "Active items don't charge when clearing rooms. Instead, they're charged by dealing damage to enemies.",
     "quality": 2,
     "category": "passive",
-    "name_cn": "伏特",
+    "name_cn": "4.5伏特",
     "effect": "清理房间不再会为主动道具充能。\n房间内的敌人每受到40.00+20.00n点伤害，会为主动道具增加1格充能。\nn为当前层数。\n拾取多个4.5伏特效果不会叠加。",
     "item_pools": [
       "[img:pool/battery_bum] Battery Bum",
@@ -11822,7 +11822,7 @@
     "description": "If a room gives a reward when cleared, there will be two different rewards to chose from. Taking one causes the other to disappear.",
     "quality": 2,
     "category": "passive",
-    "name_cn": "选择",
+    "name_cn": "选择？",
     "effect": "每当角色清理房间后，如果有奖励，则会生成两个奖励，拾取其中一个后另一个会消失。",
     "item_pools": [
       "[img:pool/shop] 商店"
@@ -12973,7 +12973,7 @@
   },
   {
     "name_en": "48 Hour Energy",
-    "name_cn": "小时能量",
+    "name_cn": "48小时能量！",
     "category": "pill",
     "polarity": "+",
     "class": "2",
@@ -13024,7 +13024,7 @@
   },
   {
     "name_en": "I can see forever!",
-    "name_cn": "我能永远看清",
+    "name_cn": "我能永远看清！",
     "category": "pill",
     "polarity": "+",
     "class": "2",
@@ -13109,7 +13109,7 @@
   },
   {
     "name_en": "Percs!",
-    "name_cn": "止痛药",
+    "name_cn": "止痛药！",
     "category": "pill",
     "polarity": "+",
     "class": "1",
@@ -13126,7 +13126,7 @@
   },
   {
     "name_en": "Addicted!",
-    "name_cn": "上瘾",
+    "name_cn": "上瘾！",
     "category": "pill",
     "polarity": "-",
     "class": "1",
@@ -13211,7 +13211,7 @@
   },
   {
     "name_en": "Infested!",
-    "name_cn": "大量滋生",
+    "name_cn": "大量滋生！",
     "category": "pill",
     "polarity": "+",
     "class": "1",
@@ -13228,7 +13228,7 @@
   },
   {
     "name_en": "Infested?",
-    "name_cn": "大量滋生",
+    "name_cn": "大量滋生？",
     "category": "pill",
     "polarity": "+",
     "class": "1",
@@ -13245,7 +13245,7 @@
   },
   {
     "name_en": "Power Pill!",
-    "name_cn": "大力丸",
+    "name_cn": "大力丸！",
     "category": "pill",
     "polarity": "+",
     "class": "1",
@@ -13279,7 +13279,7 @@
   },
   {
     "name_en": "Friends Till The End!",
-    "name_cn": "好朋友一辈子",
+    "name_cn": "好朋友一辈子！",
     "category": "pill",
     "polarity": "+",
     "class": "1",
@@ -13347,7 +13347,7 @@
   },
   {
     "name_en": "I'm Excited!!!",
-    "name_cn": "好兴奋",
+    "name_cn": "好兴奋！！！",
     "category": "pill",
     "polarity": "N",
     "class": "1",
@@ -13381,7 +13381,7 @@
   },
   {
     "name_en": "Horf!",
-    "name_cn": "呕",
+    "name_cn": "呕！",
     "category": "pill",
     "polarity": "N",
     "class": "0",
@@ -13398,7 +13398,7 @@
   },
   {
     "name_en": "Feels like I'm walking on sunshine!",
-    "name_cn": "感觉像漫步在阳光下",
+    "name_cn": "感觉像漫步在阳光下！",
     "category": "pill",
     "polarity": "+",
     "class": "1",
@@ -13415,7 +13415,7 @@
   },
   {
     "name_en": "Vurp!",
-    "name_cn": "嗝",
+    "name_cn": "嗝！",
     "category": "pill",
     "polarity": "+",
     "class": "2",
@@ -14931,7 +14931,7 @@
     "name_en": "Soul of Judas",
     "name_cn": "犹大的魂石",
     "category": "card",
-    "effect": "冻结所有实体与泪弹直到犹大的魂石使用完毕。\n角色进入潜行状态（dark arts），持续3秒：\n潜行状态下的角色获得移速+1.00\n潜行状态下的角色不会受到伤害，并且可以穿过敌人及其泪弹。\n每当角色脱离潜行状态时：\n本次潜行状态下，对于第 n 个静止状态的敌人或其泪弹：\n如果是敌人，则对该敌人造成 d_n = 200 % 角色伤害 + 3.50 n 的伤害；\n如果是敌人的泪弹，则阻挡该泪弹。\n对角色周围的敌人造成 D = \\sumn=1^{N} d_n 的伤害。\n使角色获得 4N 层dark arts secondary状态。\ndark arts secondary状态每30帧(每0.5秒)减少1层。\n每有1层dark arts secondary状态，角色获得伤害+0.25。",
+    "effect": "冻结所有实体与泪弹直到犹大的魂石使用完毕。\n角色进入潜行状态，持续3秒：\n潜行状态下的角色获得移速+1.00\n潜行状态下的角色不会受到伤害，并且可以穿过敌人及其泪弹。\n每当角色脱离潜行状态时：\n本次潜行状态下，对于第 n 个静止状态的敌人或其泪弹：\n如果是敌人，则对该敌人造成 200%角色伤害+3.50×n 的伤害；\n如果是敌人的泪弹，则阻挡该泪弹。\n对角色周围的敌人造成的累计伤害D等于所有单次伤害之和。\n使角色获得 4N 层暗仪刺刀状态。\n暗仪刺刀状态每30帧(每0.5秒)减少1层。\n每有1层暗仪刺刀状态，角色获得伤害+0.25。",
     "quality": null,
     "id": 863,
     "description": "Increases Isaac'sspeedand makes him invulnerable for 3 seconds and allows him to pass through enemies. Damages all enemies and destroys all projectiles Isaac ran through when the effect ends, and grants a temporaryDamagebonus for each enemy and projectile hit.",

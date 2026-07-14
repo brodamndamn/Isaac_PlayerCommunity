@@ -1,0 +1,13 @@
+Items with English terms: 3
+
+active ID 705: Dark Arts
+  dark arts
+
+card ID 847: Holy Card
+  You feel blessed
+
+card ID 863: Soul of Judas
+  dark arts
+  dark arts secondary
+  dark arts secondary
+

@@ -1,0 +1,2 @@
+ID 847 Holy Card:
+有 25% 概率生成 1 张神圣卡，并显示“You feel blessed!”
