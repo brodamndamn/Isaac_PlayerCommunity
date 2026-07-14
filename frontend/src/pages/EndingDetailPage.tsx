@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getEndingById } from "../api/endings";
 import type { Ending } from "../types/ending";
 import styles from "./EndingDetailPage.module.css";
 
 export default function EndingDetailPage() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [ending, setEnding] = useState<Ending | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -25,8 +26,7 @@ export default function EndingDetailPage() {
 
   return (
     <div className={styles.container}>
-      <Link to="/endings" className={styles.back}>&larr; 返回结局列表</Link>
-
+      <button onClick={() => navigate(-1)} className={styles.back}>&larr; 返回</button>
       <h1 className={styles.title}>
         {ending.name_cn}
         <span className={styles.num}> #{ending.ending_number}</span>

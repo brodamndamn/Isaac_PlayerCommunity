@@ -1,3 +1,22 @@
+.homeBtn {
+  position: absolute;
+  top: 8px;
+  left: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #5c4033;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: color 0.15s;
+}
+
+.homeBtn:hover {
+  color: #c0392b;
+}
+
 .title {
   font-size: 24px;
   margin-bottom: 16px;
@@ -82,4 +101,26 @@
 .pagination button:disabled {
   opacity: 0.4;
   cursor: default;
+}
+
+.pageJump {
+  width: 52px;
+  padding: 5px 6px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  text-align: center;
+  font-family: inherit;
+}
+
+.pageJump:focus {
+  outline: none;
+  border-color: #6b3a2a;
+}
+
+/* 隐藏 number input 的上下箭头 */
+.pageJump::-webkit-inner-spin-button,
+.pageJump::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

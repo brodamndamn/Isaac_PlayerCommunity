@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getCharacterById } from "../api/characters";
 import type { Character } from "../types/character";
 import HealthHearts from "../components/HealthHearts";
@@ -7,6 +7,7 @@ import styles from "./CharacterDetailPage.module.css";
 
 export default function CharacterDetailPage() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [char, setChar] = useState<Character | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -26,8 +27,7 @@ export default function CharacterDetailPage() {
 
   return (
     <div className={styles.container}>
-      <Link to="/characters" className={styles.back}>&larr; 返回角色列表</Link>
-
+      <button onClick={() => navigate(-1)} className={styles.back}>&larr; 返回</button>
       <div className={styles.titleRow}>
         <div className={styles.imagePlaceholder}><span>立绘</span></div>
         <div>

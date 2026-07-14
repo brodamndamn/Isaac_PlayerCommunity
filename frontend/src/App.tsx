@@ -35,7 +35,7 @@ export default function App() {
             结局
           </a>
         </header>
-        <main style={{ maxWidth: 960, margin: "0 auto", padding: 24 }}>
+        <main style={{ maxWidth: 960, margin: "0 auto", padding: 24, position: "relative" }}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/items" element={<ItemsPage />} />

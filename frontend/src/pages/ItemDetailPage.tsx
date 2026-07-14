@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getItemById } from "../api/items";
 import type { Item } from "../types/item";
 import styles from "./ItemDetailPage.module.css";
@@ -27,6 +27,7 @@ const POOL_LABELS: Record<string, string> = {
 
 export default function ItemDetailPage() {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [item, setItem] = useState<Item | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -50,8 +51,7 @@ export default function ItemDetailPage() {
 
   return (
     <div className={styles.container}>
-      <Link to="/items" className={styles.back}>&larr; 返回道具列表</Link>
-
+      <button onClick={() => navigate(-1)} className={styles.back}>&larr; 返回</button>
       {/* 标题区域 */}
       <div className={styles.titleRow}>
         <div className={styles.imagePlaceholder}>

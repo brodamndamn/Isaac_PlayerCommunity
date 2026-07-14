@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getCharacters } from "../api/characters";
 import CharacterCard from "../components/CharacterCard";
 import type { Character } from "../types/character";
 import styles from "./CharactersPage.module.css";
 
 export default function CharactersPage() {
+  const navigate = useNavigate();
   const [characters, setCharacters] = useState<Character[]>([]);
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState<"all" | "normal" | "tainted">("all");
@@ -25,6 +27,7 @@ export default function CharactersPage() {
 
   return (
     <div>
+      <a href="/" className={styles.homeBtn}>返回首页</a>
       <h1 className={styles.title}>角色资料</h1>
 
       <div className={styles.filters}>

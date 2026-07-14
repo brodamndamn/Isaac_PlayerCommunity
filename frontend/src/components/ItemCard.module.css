@@ -33,10 +33,19 @@
   font-weight: 500;
 }
 
-.passive { background: #e3f2fd; color: #1565c0; }
-.active { background: #fff3e0; color: #e65100; }
-.trinket { background: #f3e5f5; color: #7b1fa2; }
-.card, .pill { background: #e8f5e9; color: #2e7d32; }
+/* 分类标签底色 */
+.passive { background: #e3f2fd; color: #1565c0; }   /* 蓝 */
+.active  { background: #fff8e1; color: #f57f17; }   /* 金 */
+.trinket { background: #f3e5f5; color: #7b1fa2; }   /* 紫 */
+.catCard { background: #ffebee; color: #d32f2f; }   /* 红 */
+.pill    { background: #e0f2f1; color: #00695c; }   /* 青 */
+
+/* 卡片左边框色 */
+.bPassive { border-left: 4px solid #1565c0; }  /* 蓝 */
+.bActive  { border-left: 4px solid #f9a825; }  /* 金 */
+.bTrinket { border-left: 4px solid #7b1fa2; }  /* 紫 */
+.bCard    { border-left: 4px solid #d32f2f; }  /* 红 */
+.bPill    { border-left: 4px solid #00897b; }  /* 青 */
 
 .name {
   font-size: 16px;

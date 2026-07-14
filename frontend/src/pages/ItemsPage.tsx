@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { getItems } from "../api/items";
 import ItemCard from "../components/ItemCard";
 import type { Item } from "../types/item";
@@ -16,14 +16,19 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 export default function ItemsPage() {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [items, setItems] = useState<Item[]>([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const page = Number(searchParams.get("page")) || 1;
   const search = searchParams.get("search") || "";
   const category = searchParams.get("category") || "";
+
+  // 本地搜索输入（实时更新），初始值从 URL 读取
+  const [searchInput, setSearchInput] = useState(search);
 
   const fetchItems = useCallback(async () => {
     setLoading(true);
@@ -53,20 +58,35 @@ export default function ItemsPage() {
     setSearchParams(params);
   };
 
+  // 实时搜索：每次输入变化，本地立即更新 + 300ms 防抖更新 URL
+  const handleSearchChange = (value: string) => {
+    setSearchInput(value);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      updateParam("search", value);
+    }, 300);
+  };
+
+  const handlePageJump = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key !== "Enter") return;
+    const n = parseInt((e.target as HTMLInputElement).value, 10);
+    if (n >= 1 && n <= totalPages) {
+      updateParam("page", String(n));
+      (e.target as HTMLInputElement).value = "";
+    }
+  };
+
   return (
     <div>
+      <a href="/" className={styles.homeBtn}>返回首页</a>
       <h1 className={styles.title}>道具图鉴</h1>
 
       <div className={styles.filters}>
         <input
           type="text"
-          placeholder="搜索道具名称或描述..."
-          defaultValue={search}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              updateParam("search", (e.target as HTMLInputElement).value);
-            }
-          }}
+          placeholder="实时搜索道具名称或描述..."
+          value={searchInput}
+          onChange={(e) => handleSearchChange(e.target.value)}
           className={styles.search}
         />
         <div className={styles.categories}>
@@ -101,6 +121,14 @@ export default function ItemsPage() {
                 上一页
               </button>
               <span>{page} / {totalPages}</span>
+              <input
+                type="number"
+                min={1}
+                max={totalPages}
+                placeholder="跳转"
+                onKeyDown={handlePageJump}
+                className={styles.pageJump}
+              />
               <button
                 disabled={page >= totalPages}
                 onClick={() => updateParam("page", String(page + 1))}

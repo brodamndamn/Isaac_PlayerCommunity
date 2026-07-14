@@ -14,12 +14,28 @@ const CATEGORY_LABELS: Record<string, string> = {
   pill: "药丸",
 };
 
+// CSS 类名映射 — 避免 .card 容器同名冲突
+const TAG_CLASS: Record<string, string> = {
+  passive: "passive",
+  active: "active",
+  trinket: "trinket",
+  card: "catCard",
+  pill: "pill",
+};
+const BORDER_CLASS: Record<string, string> = {
+  passive: "bPassive",
+  active: "bActive",
+  trinket: "bTrinket",
+  card: "bCard",
+  pill: "bPill",
+};
+
 export default function ItemCard({ item }: ItemCardProps) {
   return (
-    <Link to={`/items/${item.id}`} className={styles.card}>
+    <Link to={`/items/${item.id}`} className={`${styles.card} ${styles[BORDER_CLASS[item.category]] || ""}`}>
       <div className={styles.header}>
         <span className={styles.id}>#{item.id}</span>
-        <span className={`${styles.category} ${styles[item.category]}`}>
+        <span className={`${styles.category} ${styles[TAG_CLASS[item.category]] || ""}`}>
           {CATEGORY_LABELS[item.category] || item.category}
         </span>
       </div>
