@@ -1,0 +1,200 @@
+ID 733: Bad Gas (剧毒臭屁)
+  has_cn: True
+  effect: 使用控制台的 giveitem 指令给予角色不合语法的物品时，会改为给予角色一个 剧毒臭屁 。
+
+ID 734: Bad Trip (过激幻觉)
+  has_cn: False
+  effect: Deals a full heart of damage to Isaac. Using a Bad Trip pill while Isaac only has a single heart left or less turns it into a Full Health pill.This doesn't count as damage for the purposes ofDevil Roo
+
+ID 735: Balls of Steel (钢铁双蛋)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 获得 。
+
+ID 736: Bombs Are Key (炸弹变钥匙)
+  has_cn: True
+  effect: Swaps the values of Isaac'sBombsandKeys.The effects ofGolden BombsandGolden Keysare also swapped. (马药丸: The number of bombs and keys is increased by 50% while swapping.)
+
+ID 737: Explosive Diarrhea (爆炸性腹泻)
+  has_cn: True
+  effect: 腹泻 （俗称拉肚子，英语：diarrhea）的定义是在一天之内有软便或水便的状况而且排便三次以上，症状常持续好几天而且可能因为体液流失的关系而产生脱水现象。脱水的初期表现是皮肤失去弹性，而且人格出现变化。如果脱水的情形继续恶化，接下来可能会出现排尿量减少、肤色苍白、心跳过速、或者对外界刺激反应不佳。另外，对以母乳喂养的婴儿来说，软便可能是正常的现象。
+
+ID 738: Full Health (体力回满)
+  has_cn: True
+  effect: 当角色血量小于等于1颗心时， 过激幻觉 会变为 体力回满 。
+
+ID 739: Health Down (体力下降)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 失去2个心之容器。 若角色只有两个心之容器，失去心之容器后会获得半个魂心。 心之容器小于等于1个时，改为获得2个空的心之容器。
+
+ID 740: Health Up (体力上升)
+  has_cn: True
+  effect: Adds one empty red heart container. (马药丸: Adds two empty red heart containers.)
+
+ID 741: I Found Pills (我找到枚怪药)
+  has_cn: True
+  effect: 使用后： 改变角色的外貌。 该效果在离开当前房间后消失。
+
+ID 742: Puberty (青春期)
+  has_cn: False
+  effect: Causes Isaac to grow four hairs from the top of his head and zits on his face. This pill is cosmetic only and will stay for the rest of the run.Consuming three puberty pills will grant theAdulttransfo
+
+ID 743: Pretty Fly (漂亮苍蝇)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 生成1个 大粉丝 。 大粉丝环绕着角色，阻挡敌方泪弹，并对接触的敌人造成每14帧（每秒 30/7 次）2.00点的伤害。
+
+ID 744: Range Down (射程下降)
+  has_cn: True
+  effect: 使用后： 射程-2.00。 射程-1.00。
+
+ID 745: Range Up (射程上升)
+  has_cn: True
+  effect: 使用后： 射程+2.50。 射程+1.25。
+
+ID 746: Speed Down (移速下降)
+  has_cn: True
+  effect: -0.12speed. (马药丸: -0.24 speed.)
+
+ID 747: Speed Up (移速上升)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 移速+0.30。
+
+ID 748: Tears Down (射速下降)
+  has_cn: True
+  effect: 使用后 大胶囊 ： 射速-0.56。
+
+ID 749: Tears Up (射速上升)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 射速 +0.70 
+
+ID 750: Luck Down (运气下降)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 幸运-2.00
+
+ID 751: Luck Up (运气上升)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 幸运+2.00
+
+ID 752: Telepills (传送胶囊)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 随机传送到以下房间，优先传送到未进入的房间： 宝箱房 商店 隐藏房 超级隐藏房 星象房 献祭房 挑战房 头目挑战房 赌博房 图书馆 宝库
+
+ID 753: 48 Hour Energy (48小时能量！)
+  has_cn: True
+  effect: Drops one to twoLil' Batteriesand fully charges thespacebar item.Can be used withPlaceboorD1to generate infinite batteries. (马药丸: Spawns 3-4 batteries.)
+
+ID 754: Hematemesis (呕血)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 将角色的红心变为1颗。 随机生成4~7个红心。
+
+ID 755: Paralysis (麻痹)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 角色变为白色，在4秒内无法移动。
+
+ID 756: I can see forever! (我能永远看清！)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 在当前楼层中，获得 思想 的效果。 其余效果同上。
+
+ID 757: Pheromones (信息素)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 将当前房间中的所有敌人变为 友好 状态。
+
+ID 758: Amnesia (失忆症)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 清除已记录的所有胶囊效果（使用过的胶囊将重新显示为???）。
+
+ID 759: Lemon Party (柠檬派对)
+  has_cn: True
+  effect: Spawnsa large yellow pool(similar toLemon Mishap) around Isaac. Greatly damages any enemy that steps on it, for 22 damage per tick or 66 damage per second. (马药丸: The puddle is larger, covering nearly 
+
+ID 760: R U a Wizard? (你是巫师吗？)
+  has_cn: True
+  effect: Tears are shot diagonally outwards for 30 seconds, making it much harder to aim. This effect will persist between rooms until it wears off. (马药丸: The effect lasts for 60 seconds.)
+
+ID 761: Percs! (止痛药！)
+  has_cn: True
+  effect: 使用后： 在当前房间中角色受到的所有伤害减半，但伤害不会降到半颗心以下。 大体型变种与骷髅变种的精英怪物造成的伤害会被降至一颗心。
+
+ID 762: Addicted! (上瘾！)
+  has_cn: True
+  effect: 使用后： 在当前房间中，角色受到所有低于 1 颗心的伤害全部变为 1 颗心。
+
+ID 763: Re-Lax (放)
+  has_cn: True
+  effect: 使用后： 角色经过的地方会生成 大便 ，持续1秒。
+
+ID 764: ??? (???)
+  has_cn: False
+  effect: Gives the Curse of the Maze effect for the remainder of the floor. The effect can stack with othercurses. If no othercursesare active for the floor, Curse of the Maze will appear under the level name 
+
+ID 765: One makes you larger (变大胶囊)
+  has_cn: False
+  effect: Increases Isaac's size and decreases the pitch of his voice. This effect does not increase the size of Isaac's hitbox, but increases the size ofThe Forgotten's bone club.These pills contribute to theS
+
+ID 766: One makes you small (变小胶囊)
+  has_cn: True
+  effect: Decreases Isaac's size and increases the pitch of his voice. This effect decreases the size of Isaac's hitbox; a small enough hitbox allows Isaac to walk "under" certain projectiles to avoid them. (马药
+
+ID 767: Infested! (大量滋生！)
+  has_cn: True
+  effect: 使用后： 生成等同于当前房间中敌人数量的 蓝蜘蛛 。 如果当前房间中没有敌人，改为生成1~3只蓝蜘蛛。
+
+ID 768: Infested? (大量滋生？)
+  has_cn: True
+  effect: 使用后： 生成等同于当前房间中敌人数量的 蓝蜘蛛 。 如果当前房间中没有敌人，改为生成1~3只蓝蜘蛛。
+
+ID 769: Power Pill! (大力丸！)
+  has_cn: False
+  effect: Temporarily grantsinvulnerability, inflictsfearon enemies in the room, lets Isaac deal contact damage, and has a chance to replenish aHalf Red Heartevery time an enemy is killed, similar toThe Gamekid
+
+ID 770: Retro Vision (复古视野)
+  has_cn: True
+  effect: 使用后： 屏幕会加上模糊的马赛克滤镜。几秒后消失，30秒内一共会出现3次，到下一层也会存在。 屏幕会加上16位游戏机的像素滤镜，持续30秒。
+
+ID 771: Friends Till The End! (好朋友一辈子！)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 生成12只 蓝苍蝇 。
+
+ID 772: X-Lax (泻药)
+  has_cn: True
+  effect: 使用后： 在角色脚下生成一大片棕色水迹，角色踩在上面会打滑。 棕色水迹持续5秒。
+
+ID 773: Something's wrong... (哪里不对)
+  has_cn: True
+  effect: Creates a pool ofblack creepbeneath Isaac that slows enemies. (马药丸: The pool lasts much longer.)
+
+ID 774: I'm Drowsy... (好困)
+  has_cn: True
+  effect: 使用后： 当前房间中所有敌人和 角色本身获得 减速 效果。 减速效果持续至离开当前房间。 背景音乐变慢。
+
+ID 775: I'm Excited!!! (好兴奋！！！)
+  has_cn: True
+  effect: 在与 妈妈 及其精英变种的战斗中触发 好兴奋！！！ 的效果时，妈妈不再会使用践踏和生成怪物的攻击方式，这将使得角色很难有机会攻击到她。
+
+ID 776: Gulp! (咕噜！)
+  has_cn: True
+  effect: Destroys anytrinketsheld by Isaac and grants their effects permanently.Unlocked by:Complete aVictory Lapby defeatingThe Lamb. (马药丸: Heals one red heart per gulped trinket (Up to 2 at the same time wit
+
+ID 777: Horf! (呕！)
+  has_cn: False
+  effect: Isaac shoots an explosive tear with theIpecaceffect that always deals 200 damage.Unlocked by:Participate in 31Daily Challenges(they don't have to be consecutive; it will still count if Isaac dies in t
+
+ID 778: Feels like I'm walking on sunshine! (感觉像漫步在阳光下！)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 触发 游戏掌机 的使用效果。
+
+ID 779: Vurp! (嗝！)
+  has_cn: True
+  effect: 使用后： 生成1个上次使用的胶囊。 如果这是角色使用的第1个胶囊，则生成1个 嗝！ 。
+
+ID 780: Shot Speed Down (弹速下降)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 弹速-0.30
+
+ID 781: Shot Speed Up (弹速上升)
+  has_cn: True
+  effect: 使用后（ 大胶囊 ）： 弹速+0.30
+
+ID 782: Experimental Pill (实验性胶囊)
+  has_cn: True
+  effect: 使用后： 获得随机一项属性上升和一项属性下降，影响的数值和其他胶囊一致。 和其他胶囊不同，造成的属性上升和下降总是随机的。
+

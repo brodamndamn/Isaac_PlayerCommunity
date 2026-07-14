@@ -12637,15 +12637,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "1",
-    "effect": "使用控制台的 giveitem 指令给予角色不合语法的物品时，会改为给予角色一个 剧毒臭屁 。",
+    "effect": "角色释放出绿色毒屁，击退附近的敌人，并使它们中毒。",
     "quality": null,
     "id": 733,
     "description": "Isaac farts, dealing 5 damage andpoisoningenemies around him. (马药丸: The poison affects all enemies in the room.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -12654,15 +12656,17 @@
     "category": "pill",
     "polarity": "-",
     "class": "2",
-    "effect": "Deals a full heart of damage to Isaac. Using a Bad Trip pill while Isaac only has a single heart left or less turns it into a Full Health pill.This doesn't count as damage for the purposes ofDevil Room/Angel Roomgeneration odds or score reduction. (马药丸: Deals two hearts of damage. If Isaac would not survive, the pill becomes Full Health.)",
+    "effect": "对角色造成1颗心的伤害。\n如果角色的心小于等于1颗，该胶囊变为 体力回满。",
     "quality": null,
     "id": 734,
     "description": "Deals a full heart of damage to Isaac. Using a Bad Trip pill while Isaac only has a single heart left or less turns it into a Full Health pill.This doesn't count as damage for the purposes ofDevil Room/Angel Roomgeneration odds or score reduction. (马药丸: Deals two hearts of damage. If Isaac would not survive, the pill becomes Full Health.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -12671,16 +12675,24 @@
     "category": "pill",
     "polarity": "+",
     "class": "2",
-    "effect": "使用后（ 大胶囊 ）： 获得 。",
+    "effect": "获得2个魂心。",
     "quality": null,
     "id": 735,
     "description": "Grants Isaac two soul hearts. (马药丸: Grants four soul hearts.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/soul_heart] 魂心",
+        "+2"
+      ]
+    ]
   },
   {
     "name_en": "Bombs Are Key",
@@ -12688,15 +12700,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "2",
-    "effect": "Swaps the values of Isaac'sBombsandKeys.The effects ofGolden BombsandGolden Keysare also swapped. (马药丸: The number of bombs and keys is increased by 50% while swapping.)",
+    "effect": "角色的炸弹和钥匙数量互换。\n金炸弹和金钥匙的效果会相互转移。",
     "quality": null,
     "id": 736,
     "description": "Swaps the values of Isaac'sBombsandKeys.The effects ofGolden BombsandGolden Keysare also swapped. (马药丸: The number of bombs and keys is increased by 50% while swapping.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -12705,16 +12719,24 @@
     "category": "pill",
     "polarity": "N",
     "class": "1",
-    "effect": "腹泻 （俗称拉肚子，英语：diarrhea）的定义是在一天之内有软便或水便的状况而且排便三次以上，症状常持续好几天而且可能因为体液流失的关系而产生脱水现象。脱水的初期表现是皮肤失去弹性，而且人格出现变化。如果脱水的情形继续恶化，接下来可能会出现排尿量减少、肤色苍白、心跳过速、或者对外界刺激反应不佳。另外，对以母乳喂养的婴儿来说，软便可能是正常的现象。",
+    "effect": "角色发出放屁的音效，然后连续放置5个炸弹，每个炸弹间隔约0.3秒。",
     "quality": null,
     "id": 737,
     "description": "Spawns a lit bomb behind Isaac every second for five seconds. (马药丸: Spawns more bombs with the effects ofMr. MegaandBobby-Bomb.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/bomb] 炸弹",
+        "+5"
+      ]
+    ]
   },
   {
     "name_en": "Full Health",
@@ -12722,15 +12744,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "2",
-    "effect": "当角色血量小于等于1颗心时， 过激幻觉 会变为 体力回满 。",
+    "effect": "回复所有红心。",
     "quality": null,
     "id": 738,
     "description": "Refills every emptyred heartcontainer. (马药丸: Fully heals and grants 3 soul hearts.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -12739,15 +12763,17 @@
     "category": "pill",
     "polarity": "-",
     "class": "3",
-    "effect": "使用后（ 大胶囊 ）： 失去2个心之容器。 若角色只有两个心之容器，失去心之容器后会获得半个魂心。 心之容器小于等于1个时，改为获得2个空的心之容器。",
+    "effect": "失去1个心之容器。\n心之容器小于等于1个时，改为获得1个空的心之容器。",
     "quality": null,
     "id": 739,
     "description": "Removes one red heart container. Acts as aHealth Uppill if Isaac has one or fewer red heart containers. Characters who cannot have red heart containers will lose one heart. (马药丸: Removes two heart containers. if Isaac has 0 or 1 heart containers, the pill becomes Health Up and if he has 2 with no other types of health, they are removed and he is given half a soul heart.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -12761,10 +12787,12 @@
     "id": 740,
     "description": "Adds one empty red heart container. (马药丸: Adds two empty red heart containers.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -12773,15 +12801,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "0",
-    "effect": "使用后： 改变角色的外貌。 该效果在离开当前房间后消失。",
+    "effect": "改变角色的外貌。\n该效果在离开当前房间后消失。",
     "quality": null,
     "id": 741,
     "description": "Changes the appearance of Isaac's face. This pill is cosmetic only,and the effect disappears when Isaac leaves the room. (马药丸: Isaac's face gets a permanent, very exaggerated expression resembling a horse.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -12790,15 +12820,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "0",
-    "effect": "Causes Isaac to grow four hairs from the top of his head and zits on his face. This pill is cosmetic only and will stay for the rest of the run.Consuming three puberty pills will grant theAdulttransformation, granting one red heart container and making Isaac's voice slightly deeper (one time effect). (马药丸: Isaac gains very fluffy hair covering his entire head and even face.)",
+    "effect": "改变角色的外貌。",
     "quality": null,
     "id": 742,
     "description": "Causes Isaac to grow four hairs from the top of his head and zits on his face. This pill is cosmetic only and will stay for the rest of the run.Consuming three puberty pills will grant theAdulttransformation, granting one red heart container and making Isaac's voice slightly deeper (one time effect). (马药丸: Isaac gains very fluffy hair covering his entire head and even face.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -12807,15 +12839,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "2",
-    "effect": "使用后（ 大胶囊 ）： 生成1个 大粉丝 。 大粉丝环绕着角色，阻挡敌方泪弹，并对接触的敌人造成每14帧（每秒 30/7 次）2.00点的伤害。",
+    "effect": "生成1个苍蝇环绕物。\n苍蝇环绕物环绕着角色，会消灭接触的苍蝇类敌人，可以阻挡敌方泪弹。",
     "quality": null,
     "id": 743,
     "description": "Grants a fly orbital, up to 3 maximum, that circles the player, blocking projectiles and damagingfly-typeenemies on touch. (马药丸: Spawns aBig Fan. There is no upper limit. These Big Fans do not contribute towards theBeelzebubtransformation.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -12824,16 +12858,24 @@
     "category": "pill",
     "polarity": "-",
     "class": "3",
-    "effect": "使用后： 射程-2.00。 射程-1.00。",
+    "effect": "射程-2.00。",
     "quality": null,
     "id": 744,
     "description": "-2.00range.-1.00 range. (马药丸: -2.00 range.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/range] 射程",
+        "-2.00"
+      ]
+    ]
   },
   {
     "name_en": "Range Up",
@@ -12841,16 +12883,24 @@
     "category": "pill",
     "polarity": "+",
     "class": "3",
-    "effect": "使用后： 射程+2.50。 射程+1.25。",
+    "effect": "射程+2.50。",
     "quality": null,
     "id": 745,
     "description": "+2.50 range.+1.25 range. (马药丸: +2.50 range.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/range] 射程",
+        "+2.50"
+      ]
+    ]
   },
   {
     "name_en": "Speed Down",
@@ -12858,16 +12908,24 @@
     "category": "pill",
     "polarity": "-",
     "class": "3",
-    "effect": "-0.12speed. (马药丸: -0.24 speed.)",
+    "effect": "移速-0.12。",
     "quality": null,
     "id": 746,
     "description": "-0.12speed. (马药丸: -0.24 speed.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/speed] 移速",
+        "-0.12"
+      ]
+    ]
   },
   {
     "name_en": "Speed Up",
@@ -12875,16 +12933,24 @@
     "category": "pill",
     "polarity": "+",
     "class": "3",
-    "effect": "使用后（ 大胶囊 ）： 移速+0.30。",
+    "effect": "移速+0.15。",
     "quality": null,
     "id": 747,
     "description": "+0.15 speed. (马药丸: +0.30 speed.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/speed] 移速",
+        "+0.15"
+      ]
+    ]
   },
   {
     "name_en": "Tears Down",
@@ -12892,16 +12958,24 @@
     "category": "pill",
     "polarity": "-",
     "class": "3",
-    "effect": "使用后 大胶囊 ： 射速-0.56。",
+    "effect": "射速-0.28。",
     "quality": null,
     "id": 748,
     "description": "-0.28tears. (马药丸: -0.56 tears.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/tears] 射速",
+        "-0.28"
+      ]
+    ]
   },
   {
     "name_en": "Tears Up",
@@ -12909,16 +12983,24 @@
     "category": "pill",
     "polarity": "+",
     "class": "3",
-    "effect": "使用后（ 大胶囊 ）： 射速 +0.70 ",
+    "effect": "射速 +0.35",
     "quality": null,
     "id": 749,
     "description": "+0.35 tears. (马药丸: +0.70 tears.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/tears] 射速",
+        "+0.35"
+      ]
+    ]
   },
   {
     "name_en": "Luck Down",
@@ -12926,16 +13008,24 @@
     "category": "pill",
     "polarity": "-",
     "class": "3",
-    "effect": "使用后（ 大胶囊 ）： 幸运-2.00",
+    "effect": "幸运-1.00",
     "quality": null,
     "id": 750,
     "description": "-1luck. (马药丸: -2 luck.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/luck] 幸运",
+        "-1.00"
+      ]
+    ]
   },
   {
     "name_en": "Luck Up",
@@ -12943,16 +13033,24 @@
     "category": "pill",
     "polarity": "+",
     "class": "3",
-    "effect": "使用后（ 大胶囊 ）： 幸运+2.00",
+    "effect": "幸运+1.00",
     "quality": null,
     "id": 751,
     "description": "+1 luck. (马药丸: +2 luck.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/luck] 幸运",
+        "+1.00"
+      ]
+    ]
   },
   {
     "name_en": "Telepills",
@@ -12960,15 +13058,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "1",
-    "effect": "使用后（ 大胶囊 ）： 随机传送到以下房间，优先传送到未进入的房间： 宝箱房 商店 隐藏房 超级隐藏房 星象房 献祭房 挑战房 头目挑战房 赌博房 图书馆 宝库",
+    "effect": "传送到当前层的一个随机房间，所有房间的传送概率相同。",
     "quality": null,
     "id": 752,
     "description": "Teleports Isaac to a randomroom. Has a small chance to teleport Isaac to theI AM ERRORroom, and an extremely small chance to teleport him to theBlack Market, likeUndefined.Unobtainable inGreed Mode.Using a Telepills in the mirrored version ofDownpour/DrossII has a chance to teleport Isaac to anUltra Secret Room. (马药丸: No difference.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -12977,15 +13077,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "2",
-    "effect": "Drops one to twoLil' Batteriesand fully charges thespacebar item.Can be used withPlaceboorD1to generate infinite batteries. (马药丸: Spawns 3-4 batteries.)",
+    "effect": "充满角色主动道具的充能。\n只能给予 超级喷射格充能。\n生成1~2个小电池。",
     "quality": null,
     "id": 753,
     "description": "Drops one to twoLil' Batteriesand fully charges thespacebar item.Can be used withPlaceboorD1to generate infinite batteries. (马药丸: Spawns 3-4 batteries.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -12994,15 +13096,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "2",
-    "effect": "使用后（ 大胶囊 ）： 将角色的红心变为1颗。 随机生成4~7个红心。",
+    "effect": "将角色的红心变为1颗。\n随机生成1~4个红心。",
     "quality": null,
     "id": 754,
     "description": "Sets Isaac's red heart health to 1, then spawns 1-4Red Hearts. This fills Isaac's first red heart container (even if Isaac's red health is less than 1) and empties the rest, includingBone Hearts. This effect does not count as damage. If used without any red heart containers, no health will be deducted, but red hearts will still spawn. If used in aSuper Secret Roomcontaining aBlack HeartorEternal Heart, it will spawn those types of hearts instead. (马药丸: Spawns 4-7 hearts.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13011,15 +13115,17 @@
     "category": "pill",
     "polarity": "-",
     "class": "1",
-    "effect": "使用后（ 大胶囊 ）： 角色变为白色，在4秒内无法移动。",
+    "effect": "角色变为白色，在2秒内无法移动。",
     "quality": null,
     "id": 755,
     "description": "Prevents Isaac from moving and shooting for 2 seconds. (马药丸: The effect lasts 4 seconds.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13028,15 +13134,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "2",
-    "effect": "使用后（ 大胶囊 ）： 在当前楼层中，获得 思想 的效果。 其余效果同上。",
+    "effect": "打开当前层的隐藏房和超级隐藏房的门。",
     "quality": null,
     "id": 756,
     "description": "Opens all entrances to theSecret RoomandSuper Secret Roomfor the current floor. (马药丸: In addition to the normal effect, fully reveals the map likeThe Mind.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13045,15 +13153,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "1",
-    "effect": "使用后（ 大胶囊 ）： 将当前房间中的所有敌人变为 友好 状态。",
+    "effect": "魅惑当前房间中的所有敌人，持续数秒。",
     "quality": null,
     "id": 757,
     "description": "Charmsall enemies in the room for a short period of time. (马药丸: The charm is permanent, turning the enemiesfriendly.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13062,15 +13172,17 @@
     "category": "pill",
     "polarity": "-",
     "class": "2",
-    "effect": "使用后（ 大胶囊 ）： 清除已记录的所有胶囊效果（使用过的胶囊将重新显示为???）。",
+    "effect": "获得迷途诅咒！。",
     "quality": null,
     "id": 758,
     "description": "Replacesthe floor mapwith a ? for the rest of the floor, identical to the effect of Curse of the Lost. If no othercursesare active for the floor, the Curse of the Lost will appear under the level name when the map key is held. This effect can be negated by picking upBlack Candle, but will not prevent future uses of the Amnesia pill from giving the Curse of the Lost effect.Also the only pill to have its flavor text appear on a piece of paper as curses do. (马药丸: No difference.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13079,15 +13191,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "3",
-    "effect": "Spawnsa large yellow pool(similar toLemon Mishap) around Isaac. Greatly damages any enemy that steps on it, for 22 damage per tick or 66 damage per second. (马药丸: The puddle is larger, covering nearly the entire room if used near the center.)",
+    "effect": "在地上生成一摊黄色水迹。\n黄色水迹对踩在上面的敌人造成每20帧（每秒3次）8.00点伤害。",
     "quality": null,
     "id": 759,
     "description": "Spawnsa large yellow pool(similar toLemon Mishap) around Isaac. Greatly damages any enemy that steps on it, for 22 damage per tick or 66 damage per second. (马药丸: The puddle is larger, covering nearly the entire room if used near the center.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13096,15 +13210,17 @@
     "category": "pill",
     "polarity": "-",
     "class": "1",
-    "effect": "Tears are shot diagonally outwards for 30 seconds, making it much harder to aim. This effect will persist between rooms until it wears off. (马药丸: The effect lasts for 60 seconds.)",
+    "effect": "交替向两个斜前方45º方向发射泪弹，持续30秒。",
     "quality": null,
     "id": 760,
     "description": "Tears are shot diagonally outwards for 30 seconds, making it much harder to aim. This effect will persist between rooms until it wears off. (马药丸: The effect lasts for 60 seconds.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13113,15 +13229,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "1",
-    "effect": "使用后： 在当前房间中角色受到的所有伤害减半，但伤害不会降到半颗心以下。 大体型变种与骷髅变种的精英怪物造成的伤害会被降至一颗心。",
+    "effect": "在当前房间中角色受到的所有伤害减半，但伤害不会降到半颗心以下。\n大体型变种与骷髅变种的精英怪物造成的伤害会被降至一颗心。",
     "quality": null,
     "id": 761,
     "description": "For the duration of the room, taking damage only removes a half-heart from Isaac's HP, regardless of the source of the damage. (Similar effect toThe Wafer's)Unlocked by:CompletePAY TO PLAY (challenge #24). (马药丸: No difference.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#24：充钱游戏",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13130,15 +13248,17 @@
     "category": "pill",
     "polarity": "-",
     "class": "1",
-    "effect": "使用后： 在当前房间中，角色受到所有低于 1 颗心的伤害全部变为 1 颗心。",
+    "effect": "在当前房间中，角色受到所有低于 1 颗心的伤害全部变为 1 颗心。",
     "quality": null,
     "id": 762,
     "description": "For the duration of the room, taking damage removes a full heart from Isaac's HP, regardless of the source of the damage. Also changes Isaac's appearance for the room.Unlocked by:CompletePAY TO PLAY (challenge #24). (马药丸: No difference.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#24：充钱游戏",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13147,15 +13267,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "0",
-    "effect": "使用后： 角色经过的地方会生成 大便 ，持续1秒。",
+    "effect": "角色经过的地方会生成大便，持续1秒。",
     "quality": null,
     "id": 763,
     "description": "SpawnsPoopat Isaac's position for a few seconds. A higher speed stat means Isaac can cover more tiles in poop in the same time. A pun on laxatives.Unlocked by:CompleteHave a Heart (challenge #25). (马药丸: The effect lasts much longer.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#25：没心没肺",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13164,15 +13286,17 @@
     "category": "pill",
     "polarity": "-",
     "class": "1",
-    "effect": "Gives the Curse of the Maze effect for the remainder of the floor. The effect can stack with othercurses. If no othercursesare active for the floor, Curse of the Maze will appear under the level name when Tab is held. This effect can be negated by picking upBlack Candle, but will not prevent future uses of the ??? pill from giving the Curse of the Maze effect. As the pill's name is \"???\", the same as what unidentified pills are referred to, it is easy to accidentally use it more than once per run. It is recommended to memorize its color upon first using it.Unlocked by:CompleteHave a Heart (challenge #25). (马药丸: No difference.)",
+    "effect": "获得混乱诅咒！。",
     "quality": null,
     "id": 764,
     "description": "Gives the Curse of the Maze effect for the remainder of the floor. The effect can stack with othercurses. If no othercursesare active for the floor, Curse of the Maze will appear under the level name when Tab is held. This effect can be negated by picking upBlack Candle, but will not prevent future uses of the ??? pill from giving the Curse of the Maze effect. As the pill's name is \"???\", the same as what unidentified pills are referred to, it is easy to accidentally use it more than once per run. It is recommended to memorize its color upon first using it.Unlocked by:CompleteHave a Heart (challenge #25). (马药丸: No difference.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "通过 挑战#25：没心没肺",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13181,15 +13305,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "1",
-    "effect": "Increases Isaac's size and decreases the pitch of his voice. This effect does not increase the size of Isaac's hitbox, but increases the size ofThe Forgotten's bone club.These pills contribute to theStompytransformation. (马药丸: Size increases by two steps.)",
+    "effect": "角色的体型变大（1.25倍）。",
     "quality": null,
     "id": 765,
     "description": "Increases Isaac's size and decreases the pitch of his voice. This effect does not increase the size of Isaac's hitbox, but increases the size ofThe Forgotten's bone club.These pills contribute to theStompytransformation. (马药丸: Size increases by two steps.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13198,15 +13324,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "1",
-    "effect": "Decreases Isaac's size and increases the pitch of his voice. This effect decreases the size of Isaac's hitbox; a small enough hitbox allows Isaac to walk \"under\" certain projectiles to avoid them. (马药丸: Size decreases by two steps.)",
+    "effect": "角色的体型变小（0.8倍）。",
     "quality": null,
     "id": 766,
     "description": "Decreases Isaac's size and increases the pitch of his voice. This effect decreases the size of Isaac's hitbox; a small enough hitbox allows Isaac to walk \"under\" certain projectiles to avoid them. (马药丸: Size decreases by two steps.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13215,15 +13343,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "1",
-    "effect": "使用后： 生成等同于当前房间中敌人数量的 蓝蜘蛛 。 如果当前房间中没有敌人，改为生成1~3只蓝蜘蛛。",
+    "effect": "摧毁房间中的所有大便，每摧毁1个大便，就生成1只蓝蜘蛛。\n如果房间中没有大便，则在角色当前位置生成1~2只蓝蜘蛛。",
     "quality": null,
     "id": 767,
     "description": "Destroys all poop in the room and spawns a singleblue spiderunder Isaac and on each destroyed poop. (马药丸: Double the number of spiders spawned.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13232,15 +13362,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "1",
-    "effect": "使用后： 生成等同于当前房间中敌人数量的 蓝蜘蛛 。 如果当前房间中没有敌人，改为生成1~3只蓝蜘蛛。",
+    "effect": "生成等同于当前房间中敌人数量的蓝蜘蛛。\n如果当前房间中没有敌人，改为生成1~3只蓝蜘蛛。",
     "quality": null,
     "id": 768,
     "description": "Spawnsblue spidersequal to the number of enemies in the room. If there are no enemies in the room, spawns 1-3 Blue Spiders. (马药丸: Double the number of spiders spawned.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13249,15 +13381,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "1",
-    "effect": "Temporarily grantsinvulnerability, inflictsfearon enemies in the room, lets Isaac deal contact damage, and has a chance to replenish aHalf Red Heartevery time an enemy is killed, similar toThe Gamekid. (马药丸: In addition to the normal effect, grantsHuge Growthfor +7 flat damage and +3 range. The Huge Growth bonus persists after the Gamekid wears off.)",
+    "effect": "触发 游戏掌机的使用效果。",
     "quality": null,
     "id": 769,
     "description": "Temporarily grantsinvulnerability, inflictsfearon enemies in the room, lets Isaac deal contact damage, and has a chance to replenish aHalf Red Heartevery time an enemy is killed, similar toThe Gamekid. (马药丸: In addition to the normal effect, grantsHuge Growthfor +7 flat damage and +3 range. The Huge Growth bonus persists after the Gamekid wears off.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13266,15 +13400,17 @@
     "category": "pill",
     "polarity": "-",
     "class": "1",
-    "effect": "使用后： 屏幕会加上模糊的马赛克滤镜。几秒后消失，30秒内一共会出现3次，到下一层也会存在。 屏幕会加上16位游戏机的像素滤镜，持续30秒。",
+    "effect": "屏幕扭曲效果，持续30秒。",
     "quality": null,
     "id": 770,
     "description": "Applies a pixelating filter on the screen 3 times over 30 seconds. The effect continues between floors.Pixelates the screen and degrades colors for 30 seconds. (马药丸: The effect lasts 90 seconds, with no breaks.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13283,15 +13419,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "1",
-    "effect": "使用后（ 大胶囊 ）： 生成12只 蓝苍蝇 。",
+    "effect": "生成3只蓝苍蝇。",
     "quality": null,
     "id": 771,
     "description": "Spawns threeblue flies. (马药丸: Spawns 12 blue flies.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13300,15 +13438,17 @@
     "category": "pill",
     "polarity": "-",
     "class": "0",
-    "effect": "使用后： 在角色脚下生成一大片棕色水迹，角色踩在上面会打滑。 棕色水迹持续5秒。",
+    "effect": "在角色脚下生成一大片棕色水迹，角色踩在上面会打滑。\n棕色水迹持续5秒。",
     "quality": null,
     "id": 772,
     "description": "Creates a pool of slipperybrown creepunderneath Isaac. (马药丸: The pool lasts much longer.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13317,15 +13457,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "0",
-    "effect": "Creates a pool ofblack creepbeneath Isaac that slows enemies. (马药丸: The pool lasts much longer.)",
+    "effect": "在角色脚下生成一大片黑色水迹，敌人踩在水迹上会减速。\n黑色水迹持续5秒。",
     "quality": null,
     "id": 773,
     "description": "Creates a pool ofblack creepbeneath Isaac that slows enemies. (马药丸: The pool lasts much longer.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13334,15 +13476,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "1",
-    "effect": "使用后： 当前房间中所有敌人和 角色本身获得 减速 效果。 减速效果持续至离开当前房间。 背景音乐变慢。",
+    "effect": "当前房间中所有敌人和角色本身获得减速效果。\n减速效果持续至离开当前房间。\n背景音乐变慢。",
     "quality": null,
     "id": 774,
     "description": "Slows all enemies for the duration of the room.Applies theStop Watcheffect, slowing all enemies, Isaac, and the background music as well as additionally applying the Slowness status effect on every enemy for the duration of the room. (马药丸: Applies theStop Watcheffect for the rest of the floor.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13351,15 +13495,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "1",
-    "effect": "在与 妈妈 及其精英变种的战斗中触发 好兴奋！！！ 的效果时，妈妈不再会使用践踏和生成怪物的攻击方式，这将使得角色很难有机会攻击到她。",
+    "effect": "房间内的所有敌人加速，直到角色离开房间。30秒后以及60秒后再次触发该效果。\n此效果亦作用于角色本身和背景音乐。",
     "quality": null,
     "id": 775,
     "description": "Increases the speed of all enemies for the duration of the room.Increases the speed of all enemies, Isaac, and the background music for the duration of the room.The effect triggers again three additional times. (马药丸: No difference.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13368,15 +13514,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "2",
-    "effect": "Destroys anytrinketsheld by Isaac and grants their effects permanently.Unlocked by:Complete aVictory Lapby defeatingThe Lamb. (马药丸: Heals one red heart per gulped trinket (Up to 2 at the same time withMom's Purse). No effect for characters who cannot have red hearts. This counts for two gulp pills toward theMarblesachievement.)",
+    "effect": "触发 熔炉的使用效果。",
     "quality": null,
     "id": 776,
     "description": "Destroys anytrinketsheld by Isaac and grants their effects permanently.Unlocked by:Complete aVictory Lapby defeatingThe Lamb. (马药丸: Heals one red heart per gulped trinket (Up to 2 at the same time withMom's Purse). No effect for characters who cannot have red hearts. This counts for two gulp pills toward theMarblesachievement.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "再次心动！ 完成跑圈1次",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13385,15 +13533,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "0",
-    "effect": "Isaac shoots an explosive tear with theIpecaceffect that always deals 200 damage.Unlocked by:Participate in 31Daily Challenges(they don't have to be consecutive; it will still count if Isaac dies in the first room). (马药丸: Isaac shoots a cluster of 6 Horf! tears with 150-400 damage per tear, resulting in an average of 1650 damage if all tears or their explosions hit.)",
+    "effect": "向前方抛射1颗 吐根酊的爆炸泪弹，对爆炸范围内的敌人造成 200.00 点伤害，并使它们中毒。\n中毒的敌人受到次每次 100% 角色伤害修正的伤害。",
     "quality": null,
     "id": 777,
     "description": "Isaac shoots an explosive tear with theIpecaceffect that always deals 200 damage.Unlocked by:Participate in 31Daily Challenges(they don't have to be consecutive; it will still count if Isaac dies in the first room). (马药丸: Isaac shoots a cluster of 6 Horf! tears with 150-400 damage per tear, resulting in an average of 1650 damage if all tears or their explosions hit.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "献身 累计参加31天的 每日挑战",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13402,15 +13552,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "1",
-    "effect": "使用后（ 大胶囊 ）： 触发 游戏掌机 的使用效果。",
+    "effect": "触发 独角兽的残角的使用效果。",
     "quality": null,
     "id": 778,
     "description": "Temporarily makes Isaac invincible, similar toUnicorn Stump.Unlocked by:Collect every entry in theBestiary(bugged v190 - Mobs that don't exist in the bestiary are being counted. This allows Sin Collector to be unlocked without a complete bestiary). (马药丸: The effect is upgraded toThe Gamekid's.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "罪恶收藏家 探索怪物图鉴中的所有怪物",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13419,15 +13571,17 @@
     "category": "pill",
     "polarity": "+",
     "class": "2",
-    "effect": "使用后： 生成1个上次使用的胶囊。 如果这是角色使用的第1个胶囊，则生成1个 嗝！ 。",
+    "effect": "生成1个上次使用的胶囊。\n如果这是角色使用的第1个胶囊，则生成1个嗝！。",
     "quality": null,
     "id": 779,
     "description": "Spawns the last pill used. Will spawn itself if no other pills were taken beforehand, or if Vurp! was the last pill used.Unlocked by:Obtain 50 items in a run (duplicate passive items/familiars count towards the total, e.g., multipleBreakfast). (马药丸: If the last pill was a normal pill, it becomes a horse pill. No further difference on horse pills themselves.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "你弄坏了！ 在一局游戏中，拥有50个以上的道具",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {
@@ -13436,16 +13590,24 @@
     "category": "pill",
     "polarity": "-",
     "class": "1",
-    "effect": "使用后（ 大胶囊 ）： 弹速-0.30",
+    "effect": "弹速-0.15",
     "quality": null,
     "id": 780,
     "description": "-0.15shot speed. (马药丸: -0.30 shot speed.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/shot_speed] 弹速",
+        "-0.15"
+      ]
+    ]
   },
   {
     "name_en": "Shot Speed Up",
@@ -13453,16 +13615,24 @@
     "category": "pill",
     "polarity": "+",
     "class": "1",
-    "effect": "使用后（ 大胶囊 ）： 弹速+0.30",
+    "effect": "弹速+0.15",
     "quality": null,
     "id": 781,
     "description": "+0.15 shot speed. (马药丸: +0.30 shot speed.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
-    "suitable_characters": null
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
+    "suitable_characters": null,
+    "stat_changes": [
+      [
+        "[img:stat/shot_speed] 弹速",
+        "+0.15"
+      ]
+    ]
   },
   {
     "name_en": "Experimental Pill",
@@ -13470,15 +13640,17 @@
     "category": "pill",
     "polarity": "N",
     "class": "3",
-    "effect": "使用后： 获得随机一项属性上升和一项属性下降，影响的数值和其他胶囊一致。 和其他胶囊不同，造成的属性上升和下降总是随机的。",
+    "effect": "获得随机一项属性上升和一项属性下降，影响的数值和其他胶囊一致。\n和其他胶囊不同，造成的属性上升和下降总是随机的。",
     "quality": null,
     "id": 782,
     "description": "Increases oneattributeand decreases another randomly, with the same power as normal attribute up/down pills. Will not reduce any attributes if taken withLucky Foot,PHDorVirgo. Will not increase any attribute if taken withFalse PHD. If a pill-improving item is combined with False PHD, the pill gives an attribute increase, a decrease and a damage up. (马药丸: The two effects are doubled in power.)",
     "image_url": null,
-    "unlock_method": null,
+    "unlock_method": "初始即可获得",
     "pick_up_text": null,
     "recharge_time": null,
-    "item_pools": null,
+    "item_pools": [
+      "[img:pool/pill_pool] 胶囊池（每局随机13种不同的效果，对应13种不同的胶囊外观，本局中只会出现这13种胶囊）"
+    ],
     "suitable_characters": null
   },
   {

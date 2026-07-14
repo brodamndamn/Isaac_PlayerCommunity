@@ -1,0 +1,25 @@
+ID 733 Bad Gas (剧毒臭屁):
+  pools: ['[img:pool/pill_drop] 药丸掉落']
+  unlock: 初始即可获得
+  stats: None
+
+ID 739 Health Down (体力下降):
+  pools: ['[img:pool/pill_drop] 药丸掉落']
+  unlock: 初始即可获得
+  stats: None
+
+ID 744 Range Down (射程下降):
+  pools: ['[img:pool/pill_drop] 药丸掉落']
+  unlock: 初始即可获得
+  stats: [['[img:stat/range] 射程', '-2.00']]
+
+ID 749 Tears Up (射速上升):
+  pools: ['[img:pool/pill_drop] 药丸掉落']
+  unlock: 初始即可获得
+  stats: [['[img:stat/tears] 射速', '+0.35']]
+
+ID 756 I can see forever! (我能永远看清！):
+  pools: ['[img:pool/pill_drop] 药丸掉落']
+  unlock: 初始即可获得
+  stats: None
+
