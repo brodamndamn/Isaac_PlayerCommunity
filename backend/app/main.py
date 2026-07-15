@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from sqlalchemy import text
 
-from app.api import characters, endings, items
+from app.api import characters, endings, items, transformations
 from app.core.config import settings
 from app.core.database import SessionLocal
 
@@ -62,6 +62,7 @@ async def general_exception_handler(request: Request, exc: Exception):
 app.include_router(characters.router)
 app.include_router(endings.router)
 app.include_router(items.router)
+app.include_router(transformations.router)
 
 
 @app.get("/api/v1/health")

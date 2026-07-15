@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { getItems } from "../api/items";
+import { getTransformations } from "../api/transformations";
 import ItemCard from "../components/ItemCard";
+import TransformationCard from "../components/TransformationCard";
 import type { Item } from "../types/item";
+import type { Transformation } from "../types/transformation";
 import styles from "./ItemsPage.module.css";
 
-const CATEGORIES = ["", "passive", "active", "trinket", "card", "pill"];
+const CATEGORIES = ["", "passive", "active", "trinket", "card", "pill", "transformation"];
 const CATEGORY_LABELS: Record<string, string> = {
   "": "全部",
   passive: "被动",
@@ -13,12 +16,13 @@ const CATEGORY_LABELS: Record<string, string> = {
   trinket: "饰品",
   card: "卡牌",
   pill: "胶囊",
+  transformation: "套装",
 };
 
 export default function ItemsPage() {
-  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [items, setItems] = useState<Item[]>([]);
+  const [transformations, setTransformations] = useState<Transformation[]>([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -26,20 +30,32 @@ export default function ItemsPage() {
   const page = Number(searchParams.get("page")) || 1;
   const search = searchParams.get("search") || "";
   const category = searchParams.get("category") || "";
+  const isTransformation = category === "transformation";
 
-  // 本地搜索输入（实时更新），初始值从 URL 读取
   const [searchInput, setSearchInput] = useState(search);
+  const [pageInput, setPageInput] = useState("");
 
   const fetchItems = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await getItems({ page, page_size: 20, search: search || undefined, category: category || undefined });
-      setItems(res.data!.items);
-      setTotal(res.data!.total);
+      if (isTransformation) {
+        const res = await getTransformations();
+        setTransformations(res.data.items);
+        setTotal(res.data.total);
+      } else {
+        const res = await getItems({
+          page,
+          page_size: 20,
+          search: search || undefined,
+          category: category || undefined,
+        });
+        setItems(res.data!.items);
+        setTotal(res.data!.total);
+      }
     } finally {
       setLoading(false);
     }
-  }, [page, search, category]);
+  }, [page, search, category, isTransformation]);
 
   useEffect(() => {
     fetchItems();
@@ -58,7 +74,6 @@ export default function ItemsPage() {
     setSearchParams(params);
   };
 
-  // 实时搜索：每次输入变化，本地立即更新 + 300ms 防抖更新 URL
   const handleSearchChange = (value: string) => {
     setSearchInput(value);
     if (timerRef.current) clearTimeout(timerRef.current);
@@ -66,9 +81,6 @@ export default function ItemsPage() {
       updateParam("search", value);
     }, 300);
   };
-
-  // 页码跳转的输入值
-  const [pageInput, setPageInput] = useState("");
 
   const doSearch = () => {
     if (timerRef.current) clearTimeout(timerRef.current);
@@ -91,6 +103,13 @@ export default function ItemsPage() {
     if (e.key === "Enter") doPageJump();
   };
 
+  // 套装搜索过滤
+  const filteredTransformations = transformations.filter((t) => {
+    if (!search) return true;
+    const s = search.toLowerCase();
+    return t.name_cn.includes(s) || t.name_en.toLowerCase().includes(s);
+  });
+
   return (
     <div>
       <a href="/" className={styles.homeBtn}>返回首页</a>
@@ -100,7 +119,7 @@ export default function ItemsPage() {
         <div className={styles.searchRow}>
           <input
             type="text"
-            placeholder="搜索道具名称或描述..."
+            placeholder={isTransformation ? "搜索套装名称..." : "搜索道具名称或描述..."}
             value={searchInput}
             onChange={(e) => handleSearchChange(e.target.value)}
             onKeyDown={handleSearchKeyDown}
@@ -123,9 +142,18 @@ export default function ItemsPage() {
 
       {loading ? (
         <p className={styles.loading}>加载中...</p>
+      ) : isTransformation ? (
+        <>
+          <p className={styles.count}>共 {filteredTransformations.length} 个</p>
+          <div className={styles.grid}>
+            {filteredTransformations.map((t) => (
+              <TransformationCard key={t.id} transformation={t} />
+            ))}
+          </div>
+        </>
       ) : (
         <>
-          <p className={styles.count}>共 {total} 个道具</p>
+          <p className={styles.count}>共 {total} 个</p>
           <div className={styles.grid}>
             {items.map((item) => (
               <ItemCard key={item.id} item={item} />
@@ -133,10 +161,7 @@ export default function ItemsPage() {
           </div>
           {totalPages > 1 && (
             <div className={styles.pagination}>
-              <button
-                disabled={page <= 1}
-                onClick={() => updateParam("page", String(page - 1))}
-              >
+              <button disabled={page <= 1} onClick={() => updateParam("page", String(page - 1))}>
                 上一页
               </button>
               <span>{page} / {totalPages}</span>
@@ -151,10 +176,7 @@ export default function ItemsPage() {
                 className={styles.pageJump}
               />
               <button onClick={doPageJump} className={styles.goBtn}>Go</button>
-              <button
-                disabled={page >= totalPages}
-                onClick={() => updateParam("page", String(page + 1))}
-              >
+              <button disabled={page >= totalPages} onClick={() => updateParam("page", String(page + 1))}>
                 下一页
               </button>
             </div>

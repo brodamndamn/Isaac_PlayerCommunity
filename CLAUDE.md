@@ -521,6 +521,30 @@ ISAAC/
 
 ---
 
+## 图片占位符约定
+
+项目中图片占位符统一使用 HTML `data-item-id` 属性标记道具 ID，方便后续识图模型根据 ID 查找对应图片进行替换。
+
+**样式占位符**（没有图片时）：
+```html
+<span class="xxxPlaceholder" data-item-id="道具ID" />
+```
+
+**图片标签**（有图片时）：
+```html
+<img src="/images/items/道具ID.png" data-item-id="道具ID" />
+```
+
+**套装效果列表页**：每个套装卡片的占位符 `data-item-id` 为所需第一个道具的 ID（来自 `first_item_id` 字段）。
+
+**套装效果详情页**：每个所需道具的占位符 `data-item-id` 为该道具的实际 ID。
+
+**道具池图片**：路径格式 `/images/pool/pool_key.png`。
+
+**属性图片**：路径格式 `/images/stat/stat_key.png`。
+
+---
+
 ## 环境信息
 
 - 项目路径：`d:\暑假task\ISAAC`

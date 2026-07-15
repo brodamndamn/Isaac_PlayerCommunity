@@ -6,6 +6,7 @@ import EndingsPage from "./pages/EndingsPage";
 import HomePage from "./pages/HomePage";
 import ItemDetailPage from "./pages/ItemDetailPage";
 import ItemsPage from "./pages/ItemsPage";
+import TransformationDetailPage from "./pages/TransformationDetailPage";
 
 export default function App() {
   return (
@@ -44,6 +45,7 @@ export default function App() {
             <Route path="/characters/:id" element={<CharacterDetailPage />} />
             <Route path="/endings" element={<EndingsPage />} />
             <Route path="/endings/:id" element={<EndingDetailPage />} />
+            <Route path="/transformations/:id" element={<TransformationDetailPage />} />
           </Routes>
         </main>
         <footer style={{ textAlign: "center", padding: 16, fontSize: 13, color: "#999", borderTop: "1px solid #eee" }}>
