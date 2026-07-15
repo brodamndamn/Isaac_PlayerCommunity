@@ -1,6 +1,6 @@
 # ISAAC 项目图片任务进度
 
-最后更新：2026-07-15 16:40
+最后更新：2026-07-15 17:05
 
 ## 已完成
 
@@ -12,13 +12,13 @@
 - **验证**：`/items` 列表页和 `/items/:id` 详情页图片正常显示
 
 ### ✅ 角色图片 (2.5.3)
-- **数量**：32/34 角色有图片
+- **数量**：34/34 角色全部有图片 ✅
 - **文件位置**：`frontend/public/images/characters/<id>.png`
-- **数据库**：`characters.image_url` 已更新
+- **数据库**：`characters.image_url` 已全部更新
 - **前端**：CharacterCard + CharacterDetailPage 已显示图片
-- **缺失**：
-  - ID 5: ??? (小蓝人) — Wiki 无立绘图片
-  - ID 17: Jacob & Esau (雅各与以扫) — Wiki 无立绘图片
+- **补充**：
+  - ID 5: ??? (小蓝人) — Fandom Wiki `Character_???_Rebirth_appearance.png`（28×33 Rebirth 立绘）
+  - ID 17: Jacob & Esau (雅各与以扫) — Fandom Wiki `Character_Jacob_appearance.png`（30×36 Jacob 立绘）
 
 ### ✅ 结局图片 (2.5.4)
 - **数量**：22/22 结局有图片
@@ -54,12 +54,21 @@
 - **数据来源**：API 返回 `first_item_id`（第一个所需道具的 ID）
 - **图片已有**：所有道具图片（1-732）已在磁盘上
 
+### ✅ 角色卡片样式优化
+- **修改文件**：`frontend/src/components/CharacterCard.module.css`
+- **改动**：
+  - 图片尺寸从 64×64 改为 80×96（介于列表 64 和详情 100×120 之间）
+  - 加了 `object-fit: contain` 保持比例
+- **修改文件**：`frontend/src/pages/CharactersPage.module.css`
+- **改动**：卡片最小宽度从 220px 增加到 320px，给标题列更多空间
+- **目的**：解决"雅各与以扫"等长名字截断问题
+
 ## 图片文件统计
 
 | 目录 | 文件数 | 说明 |
 |---|---|---|
 | `public/images/items/` | 1054 | 道具+饰品精灵图（含 `_shared/` 子目录） |
-| `public/images/characters/` | 32 | 角色立绘 |
+| `public/images/characters/` | 34 | 角色立绘（含 ID 5, 17 补充） |
 | `public/images/endings/` | 22 | Boss 头像 |
 | `public/images/heart/` | 7 | 生命类型图标 |
 | `public/images/stat/` | 7 | 角色属性图标 |
@@ -74,9 +83,10 @@
 - CLAUDE.md 约定了 pool_key 列表（treasure_room, devil_room 等）
 - 需要从 Wiki 下载对应图片到 `frontend/public/images/pool/`
 
-### 缺失图片
-- ID 5 (???) 角色立绘 — Wiki 无图
-- ID 17 (Jacob & Esau) 角色立绘 — Wiki 无图
+### 角色卡片布局微调
+- 用户反馈"雅各与以扫"卡片的生命值/攻击力位置需要调整
+- 目前布局：第1行中文名+生命值，第2行英文名+攻击力
+- 可能需要进一步优化间距或对齐
 
 ## 关键发现
 
@@ -93,4 +103,11 @@
 | `update_item_images.py` | 同步磁盘道具图片到数据库 |
 | `download_missing_character_images.py` | 下载缺失角色图片 |
 | `download_character_images.py` | 批量下载角色图片（已用过） |
+| `fetch_trinket_images.py` | 下载 187 个饰品精灵图 |
 | `create_ui_icons.py` | 创建 UI 图标（已废弃，改用 Wiki 下载） |
+
+## 关键发现（补充）
+
+6. **角色 Wiki 页面**：角色立绘文件名格式为 `Character_<Name>_appearance.png`（Rebirth 版）或 `Character_<Name>_(Character)_icon.png`（图标）
+7. **双人角色**：Jacob & Esau 没有合体立绘，只能用单人立绘或组合图标
+8. **卡片宽度**：角色卡片最小宽度需要 320px 才能容纳长名字+属性值
