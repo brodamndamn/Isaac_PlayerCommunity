@@ -11,7 +11,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   active: "主动",
   trinket: "饰品",
   card: "卡牌",
-  pill: "药丸",
+  pill: "胶囊",
 };
 
 // CSS 类名映射 — 避免 .card 容器同名冲突

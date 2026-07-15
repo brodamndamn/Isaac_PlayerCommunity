@@ -9,7 +9,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   active: "主动道具",
   trinket: "饰品",
   card: "卡牌",
-  pill: "药丸",
+  pill: "胶囊",
 };
 
 // 解析道具池文字中的图片占位符 [img:pool/xxx]

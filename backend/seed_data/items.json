@@ -12782,7 +12782,7 @@
     "category": "pill",
     "polarity": "+",
     "class": "3",
-    "effect": "Adds one empty red heart container. (马药丸: Adds two empty red heart containers.)",
+    "effect": "获得1个空的心之容器。",
     "quality": null,
     "id": 740,
     "description": "Adds one empty red heart container. (马药丸: Adds two empty red heart containers.)",

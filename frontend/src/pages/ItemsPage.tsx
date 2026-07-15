@@ -12,7 +12,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   active: "主动",
   trinket: "饰品",
   card: "卡牌",
-  pill: "药丸",
+  pill: "胶囊",
 };
 
 export default function ItemsPage() {
