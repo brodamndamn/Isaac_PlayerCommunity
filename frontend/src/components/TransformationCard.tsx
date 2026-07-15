@@ -10,7 +10,16 @@ export default function TransformationCard({ transformation }: Props) {
   return (
     <Link to={`/transformations/${transformation.id}`} className={styles.card}>
       <div className={styles.topRow}>
-        <div className={styles.thumbPlaceholder} data-item-id={transformation.first_item_id ?? undefined} />
+        {transformation.first_item_id ? (
+          <img
+            className={styles.thumb}
+            src={`/images/items/${transformation.first_item_id}.png`}
+            alt={transformation.name_cn || transformation.name_en}
+            data-item-id={transformation.first_item_id}
+          />
+        ) : (
+          <div className={styles.thumbPlaceholder} />
+        )}
         <div className={styles.titleCol}>
           <div className={styles.headerRow}>
             <span className={styles.id}>#{transformation.id}</span>
