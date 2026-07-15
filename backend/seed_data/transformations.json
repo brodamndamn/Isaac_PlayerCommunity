@@ -1,173 +1,308 @@
 [
   {
-    "id": 1,
     "name_en": "Guppy",
     "name_cn": "嗝屁猫！",
     "items_needed": 3,
-    "required_items": ["Dead Cat", "Guppy's Tail", "Guppy's Head", "Guppy's Paw", "Guppy's Hairball", "Guppy's Collar"],
-    "effect": "获得飞行效果。每当角色消灭敌人时，有50%概率生成1个蓝苍蝇。角色外观变为嗝屁猫。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
+    "required_items": [
+      "Dead Cat",
+      "Guppy's Collar",
+      "Guppy's Tail",
+      "Guppy's Hairball",
+      "Guppy's Eye",
+      "Guppy's Head",
+      "Guppy's Paw",
+      "Kid's Drawing"
+    ],
+    "effect": "角色获得飞行效果。每当角色对敌人造成伤害时，有概率生成蓝苍蝇。角色外观变为嗝屁猫。"
   },
   {
-    "id": 2,
     "name_en": "Beelzebub",
     "name_cn": "别西卜！",
     "items_needed": 3,
-    "required_items": ["The Mulligan", "Hive Mind", "Infestation", "Infestation 2", "BFFS!", "Rotten Baby", "Smart Fly", "Juicy Sack", "Buddy in a Box", "GB Bug", "Spiderbaby", "Lost Fly", "Psy Fly", "Bot Fly"],
-    "effect": "获得飞行效果。将所有蓝苍蝇和蓝蜘蛛升级为更强版本。角色外观变为别西卜。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
+    "required_items": [
+      "Skatole",
+      "Jar of Flies",
+      "???'s Only Friend",
+      "Angry Fly",
+      "BBF",
+      "Best Bud",
+      "Big Fan",
+      "Distant Admiration",
+      "Forever alone",
+      "Friend Zone",
+      "Halo of Flies",
+      "Hive Mind",
+      "Infestation",
+      "Lost Fly",
+      "The Mulligan",
+      "Obsessed Fan",
+      "Papa Fly",
+      "Parasitoid",
+      "Plum Flute",
+      "Smart Fly",
+      "Bot Fly",
+      "Psy Fly",
+      "The Swarm",
+      "Fruity Plum",
+      "YO LISTEN!"
+    ],
+    "effect": "角色获得飞行效果。大部分小型苍蝇类型的敌人会变为蓝苍蝇。大型苍蝇变为友好状态并跟随角色在房间之间移动。"
   },
   {
-    "id": 3,
-    "name_en": "Bob",
-    "name_cn": "鲍勃套装",
-    "items_needed": 3,
-    "required_items": ["Bob's Rotten Head", "Bob's Curse", "Bob's Brain", "Ipecac", "Fire Mind", "Hot Bombs", "Scatter Bombs", "Glitter Bombs"],
-    "effect": "角色行走时留下绿色毒液。获得免疫中毒效果。角色外观变为鲍勃。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
-  },
-  {
-    "id": 4,
-    "name_en": "Bookworm",
-    "name_cn": "书套装",
-    "items_needed": 3,
-    "required_items": ["The Bible", "The Book of Belial", "The Necronomicon", "Book of Revelations", "Book of Secrets", "The Book of Sin", "Book of Shadows", "Anarchist Cookbook", "How to Jump", "Satanic Bible", "Telepathy For Dummies", "Book of Virtues", "Lemegeton"],
-    "effect": "射击时偶尔额外发射一颗泪弹。角色外观变为书虫。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
-  },
-  {
-    "id": 5,
-    "name_en": "Conjoined",
-    "name_cn": "宝宝套装",
-    "items_needed": 3,
-    "required_items": ["Brother Bobby", "Sister Maggy", "Little Steven", "Robo-Baby", "Robo-Baby 2.0", "Harlequin Baby", "Little Gish", "Little C.H.A.D.", "Rainbow Baby", "Abel", "Ghost Baby", "Mongo Baby", "King Baby", "Buddy in a Box", "Lil Loki", "Lil Delirium"],
-    "effect": "角色发射三股泪弹，伤害降低。角色外观变为连体婴。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
-  },
-  {
-    "id": 6,
     "name_en": "Fun Guy",
-    "name_cn": "蘑菇套装",
+    "name_cn": "蘑菇头！",
     "items_needed": 3,
-    "required_items": ["Magic Mushroom", "Mini Mush", "Odd Mushroom (Thin)", "Odd Mushroom (Large)", "Wavy Cap", "Blue Cap"],
-    "effect": "每受到一次伤害，生成一个短暂的毒气云。角色获得1个心之容器。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
+    "required_items": [
+      "1up!",
+      "Blue Cap",
+      "God's Flesh",
+      "Magic Mushroom",
+      "Mega Mush",
+      "Mini Mush",
+      "Mucormycosis",
+      "Odd Mushroom (Large)",
+      "Odd Mushroom (Thin)",
+      "Wavy Cap"
+    ],
+    "effect": "获得1个心之容器。角色外观变为蘑菇人。"
   },
   {
-    "id": 7,
+    "name_en": "Bob",
+    "name_cn": "鲍勃！",
+    "items_needed": 3,
+    "required_items": [
+      "Bob's Rotten Head",
+      "Bob's Brain",
+      "Bob's Curse",
+      "Ipecac",
+      "Bob's Bladder"
+    ],
+    "effect": "角色会在脚下留下有毒性伤害的绿色水迹，每秒造成6点伤害。角色外观变为鲍勃。"
+  },
+  {
+    "name_en": "Bookworm",
+    "name_cn": "书虫！",
+    "items_needed": 3,
+    "required_items": [
+      "Anarchist Cookbook",
+      "The Bible",
+      "The Book of Belial",
+      "Book of Revelations",
+      "Book of Secrets",
+      "Book of Shadows",
+      "The Book of Sin",
+      "Book of the Dead",
+      "How to Jump",
+      "The Necronomicon",
+      "Monster Manual",
+      "Satanic Bible",
+      "Telepathy For Dummies",
+      "Lemegeton",
+      "Book of Virtues"
+    ],
+    "effect": "角色有25%概率同时发射2颗泪弹。该效果可以与20/20、内眼、突变蜘蛛等道具叠加。角色外观变为书虫。"
+  },
+  {
+    "name_en": "Conjoined",
+    "name_cn": "连体！",
+    "items_needed": 3,
+    "required_items": [
+      "Brother Bobby",
+      "Harlequin Baby",
+      "Headless Baby",
+      "Little Steven",
+      "Mongo Baby",
+      "Rotten Baby",
+      "Sister Maggy",
+      "Abel",
+      "Acid Baby",
+      "Boiled Baby",
+      "Buddy in a Box",
+      "Cube Baby",
+      "Demon Baby",
+      "Dry Baby",
+      "Farting Baby",
+      "Freezer Baby",
+      "Ghost Baby",
+      "Guardian Angel",
+      "Incubus",
+      "King Baby",
+      "Lil Abaddon",
+      "Lil Brimstone",
+      "Lil Loki",
+      "Multidimensional Baby",
+      "Quints",
+      "Rainbow Baby",
+      "Robo-Baby",
+      "Robo-Baby 2.0",
+      "Seraphim",
+      "Sworn Protector",
+      "Twisted Pair"
+    ],
+    "effect": "角色向两个斜前方45°发射额外的泪弹。伤害降低0.3，射速降低0.3。角色外观变为连体婴。"
+  },
+  {
+    "name_en": "Yes Mother?",
+    "name_cn": "好的妈妈？！",
+    "items_needed": 3,
+    "required_items": [
+      "Mom's Heels",
+      "Mom's Bottle of Pills",
+      "Mom's Bra",
+      "Mom's Pad",
+      "Mom's Shovel",
+      "Mom's Box",
+      "Mom's Bracelet",
+      "Mom's Coin Purse",
+      "Mom's Contacts",
+      "Mom's Eye",
+      "Mom's Eyeshadow",
+      "Mom's Key",
+      "Mom's Knife",
+      "Mom's Lipstick",
+      "Mom's Pearls",
+      "Mom's Perfume",
+      "Mom's Purse",
+      "Mom's Razor",
+      "Mom's Ring",
+      "Mom's Underwear",
+      "Mom's Wig"
+    ],
+    "effect": "角色获得一把静止的刀刃，刀刃会跟随在角色身后。刀刃可以像妈妈的刀一样与道具产生联动效果。角色外观变为妈妈。"
+  },
+  {
     "name_en": "Leviathan",
-    "name_cn": "恶魔套装",
+    "name_cn": "利维坦！",
     "items_needed": 3,
-    "required_items": ["Brimstone", "The Mark", "The Pact", "Abaddon", "Maw of the Void", "Demon Baby", "Lord of the Pit", "Spirit of the Night", "Whore of Babylon", "Dark Matter", "Ceremonial Robes", "Goat Head", "Satanic Bible"],
-    "effect": "获得飞行效果。获得2个黑心。角色外观变为利维坦。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
+    "required_items": [
+      "Brimstone",
+      "The Nail",
+      "Abaddon",
+      "The Mark",
+      "Maw Of The Void",
+      "The Pact",
+      "Pentagram",
+      "Spirit of the Night",
+      "Eye of the Occult",
+      "Lord of the Pit",
+      "Sulfur"
+    ],
+    "effect": "获得两颗黑心。角色获得飞行效果。角色外观变为利维坦。"
   },
   {
-    "id": 8,
-    "name_en": "Lord of the Flies",
-    "name_cn": "苍蝇套装",
-    "items_needed": 3,
-    "required_items": ["Halo of Flies", "Forever Alone", "Distant Admiration", "Best Bud", "Smart Fly", "Angry Fly", "Friend Zone", "Lost Fly", "Papa Fly", "Obsessed Fan", "Psy Fly", "Bot Fly"],
-    "effect": "将蓝苍蝇和蓝蜘蛛升级为更强版本。角色消灭敌人时有概率生成蓝苍蝇。角色外观变为苍蝇王。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
-  },
-  {
-    "id": 9,
-    "name_en": "Mom",
-    "name_cn": "妈妈套装",
-    "items_needed": 3,
-    "required_items": ["Mom's Heels", "Mom's Lipstick", "Mom's Underwear", "Mom's Bra", "Mom's Pad", "Mom's Eyeshadow", "Mom's Perfume", "Mom's Purse", "Mom's Coin Purse", "Mom's Contacts", "Mom's Wig", "Mom's Pearls", "Mom's Knife", "Mom's Razor", "Mom's Ring", "Mom's Bracelet"],
-    "effect": "生成一个静止的妈刀跟班，对接触的敌人造成伤害。角色外观变为妈妈。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
-  },
-  {
-    "id": 10,
     "name_en": "Oh Crap",
-    "name_cn": "大便套装",
+    "name_cn": "拉了！",
     "items_needed": 3,
-    "required_items": ["The Poop", "Flush!", "Butt Bombs", "No. 2", "Brown Nugget", "E. Coli", "Mystery Sack", "Dirty Mind", "Lil Dumpy"],
-    "effect": "角色行走时偶尔掉落便便。便便在受到伤害时会治疗角色。角色外观变为便便。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
+    "required_items": [
+      "The Poop",
+      "Flush!",
+      "E. Coli",
+      "Brown Nugget",
+      "Butt Bombs",
+      "Dirty Mind",
+      "Hallowed Ground",
+      "Montezuma's Revenge",
+      "No. 2",
+      "Skatole"
+    ],
+    "effect": "每当角色摧毁1个大便时，回复半颗红心。角色外观变为大便。"
   },
   {
-    "id": 11,
     "name_en": "Seraphim",
-    "name_cn": "天使套装",
+    "name_cn": "撒拉弗！",
     "items_needed": 3,
-    "required_items": ["The Bible", "Rosary", "Holy Grail", "Dead Dove", "Holy Water", "Mitre", "Celtic Cross", "Guardian Angel", "Scapular", "Holy Mantle", "Holy Light", "Trinity Shield", "Godhead", "The Halo", "Immaculate Heart", "Circle of Protection", "Censer", "Holy Card", "Hallowed Ground", "Monstrance", "Divine Intervention", "Salvation"],
-    "effect": "获得飞行效果。获得3个魂心。角色外观变为天使。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
+    "required_items": [
+      "Holy Mantle",
+      "The Bible",
+      "Dead Dove",
+      "Guardian Angel",
+      "The Halo",
+      "Holy Grail",
+      "Mitre",
+      "Rosary",
+      "Sworn Protector",
+      "Celtic Cross",
+      "Divine Intervention",
+      "Godhead",
+      "Holy Light",
+      "Immaculate Heart",
+      "Revelation",
+      "Sacred Heart",
+      "Salvation",
+      "Sacred Orb",
+      "Scapular"
+    ],
+    "effect": "生成一个天使跟班，天使跟班会发射追踪泪弹，造成10点伤害，弹速为75%。角色外观变为天使。"
   },
   {
-    "id": 12,
     "name_en": "Spun",
-    "name_cn": "针套装",
+    "name_cn": "嗑药！",
     "items_needed": 3,
-    "required_items": ["Growth Hormones", "Roid Rage", "Speed Ball", "The Virus", "Experimental Treatment", "Synthoil", "Adrenaline", "Caffeine Pill"],
-    "effect": "伤害+2.00，移速+0.15。角色外观变为注射器针头。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
+    "required_items": [
+      "Adrenaline",
+      "Euthanasia",
+      "Experimental Treatment",
+      "Growth Hormones",
+      "Roid Rage",
+      "Speed Ball",
+      "Synthoil",
+      "The Virus"
+    ],
+    "effect": "伤害+2.00，移速+0.15。获得时生成1个胶囊。角色外观变为注射器针头。"
   },
   {
-    "id": 13,
     "name_en": "Super Bum",
     "name_cn": "乞丐套装",
     "items_needed": 3,
-    "required_items": ["Bum Friend", "Dark Bum", "Key Bum", "Bumbo", "Rune Bag", "Sack of Pennies", "Little C.H.A.D.", "Sack Head", "Guppy's Tail"],
-    "effect": "生成一个超级乞丐跟班，自动收集所有掉落物并生成对应奖励。角色外观变为超级乞丐。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
+    "required_items": [
+      "Bum Friend",
+      "Dark Bum",
+      "Key Bum"
+    ],
+    "effect": "乞丐朋友跟班、黑暗乞丐跟班、钥匙乞丐跟班消失。生成一个超级乞丐跟班，自动拾取红心、硬币和钥匙，并掉落等同于双倍的掉落物。"
   },
   {
-    "id": 14,
-    "name_en": "Yes Mother?",
-    "name_cn": "妈妈套装？",
-    "items_needed": 3,
-    "required_items": ["Mom's Heels", "Mom's Lipstick", "Mom's Underwear", "Mom's Bra", "Mom's Pad"],
-    "effect": "每次使用主动道具时，获得+0.5伤害（持续当前房间）。角色外观变装。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
-  },
-  {
-    "id": 15,
-    "name_en": "Spider Baby",
-    "name_cn": "蜘蛛套装",
-    "items_needed": 3,
-    "required_items": ["Spiderbaby", "Spider Bite", "Infestation 2", "Mutant Spider", "Box of Spiders", "Juicy Sack", "Parasitoid", "Compound Fracture", "Sissy Longlegs", "Bursting Sack"],
-    "effect": "受到伤害时生成蓝蜘蛛。角色消灭敌人时有概率生成蓝蜘蛛。角色外观变为蜘蛛。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
-  },
-  {
-    "id": 16,
     "name_en": "Stompy",
     "name_cn": "肆意践踏！",
     "items_needed": 3,
-    "required_items": ["Leo", "Thunder Thighs", "Taurus", "Aries", "Capricorn", "Sagittarius", "Mars"],
-    "effect": "角色行走时产生震动效果，可以使敌人减速并破坏障碍物。角色外观变大。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
+    "required_items": [
+      "Leo",
+      "Magic Mushroom",
+      "One makes you larger"
+    ],
+    "effect": "角色移动时会产生尘土。角色受伤时有概率产生向外扩大的石刃波。角色可以摧毁触碰的可摧毁障碍物。角色外观变大。"
   },
   {
-    "id": 17,
     "name_en": "Adult",
-    "name_cn": "成人套装",
+    "name_cn": "成人！",
     "items_needed": 3,
-    "required_items": ["Breakfast", "Dinner", "Dessert", "Lunch", "A Snack", "Midnight Snack", "Rotten Meat", "Super Bandage", "Bucket of Lard", "Magic Mushroom"],
-    "effect": "获得1个心之容器。角色外观长大。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
+    "required_items": [
+      "Puberty"
+    ],
+    "effect": "获得1个心之容器。角色受伤和死亡的声音变低沉。角色外观变为成人。"
   },
   {
-    "id": 18,
-    "name_en": "Angel",
-    "name_cn": "天使套装",
+    "name_en": "Spider Baby",
+    "name_cn": "蜘蛛宝宝！",
     "items_needed": 3,
-    "required_items": ["The Halo", "Holy Mantle", "Dead Dove", "The Soul", "Godhead", "Sacred Heart", "Holy Grail", "Immaculate Heart", "Immaculate Conception", "Celtic Cross", "Guardian Angel", "Trinity Shield"],
-    "effect": "获得飞行效果和神圣光环，对周围敌人造成伤害。角色外观变为天使。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
-  },
-  {
-    "id": 19,
-    "name_en": "Planetarium",
-    "name_cn": "星象套装",
-    "items_needed": 3,
-    "required_items": ["Luna", "Sol", "Mars", "Jupiter", "Saturnus", "Uranus", "Neptunus", "Pluto", "Venus", "Mercurius", "Terra"],
-    "effect": "获得1个魂心。解锁星象房相关效果。角色获得星象房主题外观。",
-    "item_pools": ["[img:pool/transformation] 套装效果"]
+    "required_items": [
+      "Box of Spiders",
+      "Spider Butt",
+      "Mutant Spider",
+      "Spiderbaby",
+      "Spider Bite",
+      "Spider Mod",
+      "Bursting Sack",
+      "Daddy Longlegs",
+      "Hive Mind",
+      "Infestation 2",
+      "The Intruder",
+      "Juicy Sack",
+      "Keeper's Kin",
+      "Parasitoid",
+      "Sissy Longlegs",
+      "Sticky Bombs"
+    ],
+    "effect": "角色受伤时生成1-2只蓝蜘蛛。角色外观变为蜘蛛。"
   }
 ]

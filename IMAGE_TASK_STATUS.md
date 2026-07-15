@@ -1,113 +1,148 @@
-# ISAAC 项目图片任务进度
+# 图片 & 数据修正任务状态
 
-最后更新：2026-07-15 17:05
+## 最后更新：2026-07-15
 
-## 已完成
+---
 
-### ✅ 道具图片 (2.5.2)
-- **数量**：866/866 道具有 image_url
-- **文件位置**：`frontend/public/images/items/<id>.png`（867 个文件）
-- **数据库**：`items.image_url` 已全部同步
-- **前端**：ItemCard + ItemDetailPage 已显示图片
-- **验证**：`/items` 列表页和 `/items/:id` 详情页图片正常显示
+## 一、已完成
 
-### ✅ 角色图片 (2.5.3)
-- **数量**：34/34 角色全部有图片 ✅
-- **文件位置**：`frontend/public/images/characters/<id>.png`
-- **数据库**：`characters.image_url` 已全部更新
-- **前端**：CharacterCard + CharacterDetailPage 已显示图片
-- **补充**：
-  - ID 5: ??? (小蓝人) — Fandom Wiki `Character_???_Rebirth_appearance.png`（28×33 Rebirth 立绘）
-  - ID 17: Jacob & Esau (雅各与以扫) — Fandom Wiki `Character_Jacob_appearance.png`（30×36 Jacob 立绘）
+### 2026-07-14 — 图片系统完整重构 ✅
+- 866/866 item 全部 image_url 可用
+- 列表页/详情页都显示像素精灵图
+- 列表页左图右文字布局，详情页 128×128
 
-### ✅ 结局图片 (2.5.4)
-- **数量**：22/22 结局有图片
-- **文件位置**：`frontend/public/images/endings/<id>.png`
-- **数据库**：`endings.image_url` 已全部更新
-- **前端**：EndingCard + EndingDetailPage 已显示图片
+### 2026-07-14 — 卡牌药丸翻译补全 ✅
+- 卡牌 97/97 中文名+效果
+- 药丸 49/50 中文名 + 50/50 中文效果
 
-### ✅ 生命类型图片
-- **数量**：7/7 类型
-- **文件位置**：`frontend/public/images/heart/<type>.png`
-- **类型**：red, soul, black, eternal, gold, bone, rotten
-- **来源**：Fandom Wiki (Hearts 页面)
-- **用途**：角色详情页生命值显示、角色卡片生命值显示
+### 2026-07-14 — 结局界面图片 ✅
+- Boss 图片列表页 96×96，详情页 128×128
+- ID 16 超级撒但换图（ingame sprite）
+- ID 19 究极大贪婪换图（ingame sprite）
+- 详情页"完成后解锁"显示道具/角色图片（15 个 enrich）
+- D6 别名修复：`_ALIAS_ITEM = {'D6': '六面骰'}`
 
-### ✅ 角色属性图片
-- **数量**：7/7 属性
-- **文件位置**：`frontend/public/images/stat/<key>.png`
-- **属性**：health, damage, tears, speed, range, shot_speed, luck
-- **来源**：Fandom Wiki (Attributes 页面)
-- **用途**：角色详情页属性表格、道具详情页属性变化表
+### 2026-07-14 — 套装详情页图片 ✅
+- 详情页标题区显示第一个所需道具的图片
+- `_enrich` 函数增加 `first_item_id` 查找
 
-### ✅ 饰品图片 (2.5.2 补充)
-- **数量**：187/187 饰品全部有图片 ✅
-- **文件位置**：`frontend/public/images/items/<id>.png`（ID 880-1067）
-- **数据库**：`items.image_url` 已全部更新
-- **下载脚本**：`backend/seed_data/fetch_trinket_images.py`
-- **命名格式**：`Trinket <Name> icon.png`（Fandom Wiki）
-- **ID 880 补充**：`Trinket_Blue_Baby's_Soul_icon.png`（Fandom Wiki 页面图片）
+### 2026-07-15 — 套装数据修正 ✅
 
-### ✅ 套装卡片图片
-- **修改文件**：`frontend/src/components/TransformationCard.tsx` + `.module.css`
-- **改动**：空白 `<div>` 占位符 → `<img src="/images/items/{first_item_id}.png">`
-- **数据来源**：API 返回 `first_item_id`（第一个所需道具的 ID）
-- **图片已有**：所有道具图片（1-732）已在磁盘上
+**状态**：✅ 已完成（两轮修正）
 
-### ✅ 角色卡片样式优化
-- **修改文件**：`frontend/src/components/CharacterCard.module.css`
-- **改动**：
-  - 图片尺寸从 64×64 改为 80×96（介于列表 64 和详情 100×120 之间）
-  - 加了 `object-fit: contain` 保持比例
-- **修改文件**：`frontend/src/pages/CharactersPage.module.css`
-- **改动**：卡片最小宽度从 220px 增加到 320px，给标题列更多空间
-- **目的**：解决"雅各与以扫"等长名字截断问题
+**数据来源**：Fandom wiki（英文 required_items）+ 灰机 wiki（中文名称和效果）
 
-## 图片文件统计
+**第一轮修正**：
+- 数据库从 19 个套装修正为 **15 个**（删除 Mom/Angel/Planetarium + 重编号）
+- 所有 15 个套装的 `required_items` 按 wiki collectible table 完全对齐
+- 中文名统一为灰机 wiki 标准
 
-| 目录 | 文件数 | 说明 |
+**第二轮修正**（名称匹配 + 前端去英文）：
+- 7 个套装修正了道具名称大小写/格式不匹配问题
+- 前端移除所有英文名显示
+
+**删除的套装**：
+| 旧 ID | 名称 | 原因 |
 |---|---|---|
-| `public/images/items/` | 1054 | 道具+饰品精灵图（含 `_shared/` 子目录） |
-| `public/images/characters/` | 34 | 角色立绘（含 ID 5, 17 补充） |
-| `public/images/endings/` | 22 | Boss 头像 |
-| `public/images/heart/` | 7 | 生命类型图标 |
-| `public/images/stat/` | 7 | 角色属性图标 |
-| `public/images/` (根) | 3 | 首页配图（妈刀/以撒/妈心） |
+| #9 | Mom | Wiki 不存在，是 Yes Mother? 的旧版 |
+| #16 | Stompy (旧) | 重编号为 #13 |
+| #17 | Adult (旧) | 重编号为 #14 |
+| #18 | Angel | Wiki 不存在，是 Seraphim 的旧版 |
+| #19 | Planetarium | Wiki 不存在 |
 
-## 待做
+**第二轮名称修正**：
+| 套装 | 修正前 | 修正后 | 原因 |
+|---|---|---|---|
+| 嗝屁猫！ | 缺 Kid's Drawing | +Kid's Drawing | Fandom wiki 遗漏（饰品） |
+| 别西卜！ | Forever Alone | Forever alone | DB 大小写不匹配 |
+| 利维坦！ | 缺 Sulfur | +Sulfur | Fandom wiki 遗漏 |
+| 利维坦！ | Maw of the Void | Maw Of The Void | DB 大小写不匹配 |
+| 拉了！ | Number Two | No. 2 | 游戏内实际名称 |
+| 肆意践踏！ | One Makes You Larger pill | One makes you larger | 去掉 pill 后缀 |
+| 成人！ | Puberty pill | Puberty | 去掉 pill 后缀 |
+| 蜘蛛宝宝！ | Spider Baby (重复) | Spiderbaby | 去空格 + 去重 (17→16) |
 
-### 首页配图 (2.5.1)
+**最终 15 个套装**：
+
+| ID | 中文名 | 英文名 | 道具数 |
+|---|---|---|---|
+| 1 | 嗝屁猫！ | Guppy | 8 |
+| 2 | 别西卜！ | Beelzebub | 25 |
+| 3 | 蘑菇头！ | Fun Guy | 10 |
+| 4 | 鲍勃！ | Bob | 5 |
+| 5 | 书虫！ | Bookworm | 15 |
+| 6 | 连体！ | Conjoined | 31 |
+| 7 | 好的妈妈？！ | Yes Mother? | 21 |
+| 8 | 利维坦！ | Leviathan | 11 |
+| 9 | 拉了！ | Oh Crap | 10 |
+| 10 | 撒拉弗！ | Seraphim | 19 |
+| 11 | 嗑药！ | Spun | 8 |
+| 12 | 乞丐套装 | Super Bum | 3 |
+| 13 | 肆意践踏！ | Stompy | 3 |
+| 14 | 成人！ | Adult | 1 |
+| 15 | 蜘蛛宝宝！ | Spider Baby | 16 |
+
+**涉及文件**：
+- `backend/seed_data/transformations.json` — 修正后的种子数据
+- `frontend/src/pages/TransformationDetailPage.tsx` — 移除英文名显示
+- `frontend/src/components/TransformationCard.tsx` — 移除英文名显示
+- 数据库 `transformations` 表 — 直接 UPDATE
+
+**验证**：
+- 所有 15 个套装的 required_items 都能在 items 表中找到对应中文名
+- 前端页面不再显示英文文本
+- `npx tsc --noEmit` + `npx vite build` 通过
+
+**注意事项**：
+- 灰机 wiki 有 16 个套装（多一个"死灵法师！Necromancer"，来自忏悔+ DLC），但 Fandom wiki 暂无此数据，未加入数据库
+- `transformations.json` 中 `items_needed` 全部为3（Stompy 和 Adult 虽然是药丸触发，但也需要3次）
+
+---
+
+## 二、进行中
+
+（无）
+
+---
+
+## 三、待做（图片相关）
+
+### 2.5.1 首页卡片配图
 - 妈刀和以撒图片不合适，待用户确认替换方案
+- 妈心图片 OK
 
-### 道具池图片
-- CLAUDE.md 约定了 pool_key 列表（treasure_room, devil_room 等）
-- 需要从 Wiki 下载对应图片到 `frontend/public/images/pool/`
+### 2.5.2 道具图鉴配图
+- 列表页 866 张卡片 ✅
+- 详情页道具图 ✅
+- 详情页效果图 ⬜（大部分道具没有效果图）
 
-### 角色卡片布局微调
-- 用户反馈"雅各与以扫"卡片的生命值/攻击力位置需要调整
-- 目前布局：第1行中文名+生命值，第2行英文名+攻击力
-- 可能需要进一步优化间距或对齐
+### 2.5.2-a ? Card (ID 844)
+- 缺独立 sprite，目前 fallback 到 tarot_normal
+- 待用户决定 fallback 方案
 
-## 关键发现
+### 2.5.3 角色资料配图 ⬜
+- 列表页 34 张卡片（64×64 立绘）
+- 详情页角色立绘（需按表/里角色区分）
+- 需要从 wiki 下载角色图片
 
-1. **道具图片同步**：磁盘有 867 个图片文件，但数据库 image_url 全为 NULL，需运行 `update_item_images.py` 同步
-2. **角色图片 Wiki 格式**：Fandom Wiki 角色页面标题就是英文名（如 "Isaac"），不需要加 "(Character)" 后缀
-3. **图片格式**：Wiki 返回 WebP 格式（不是 PNG），但以 .png 扩展名保存，浏览器能识别
-4. **Lazy loading**：Wiki 页面图片在 `data-src` 属性中，`src` 包含 base64 占位符
-5. **心形/属性图标**：从 Hearts 和 Attributes 页面提取，文件名格式为 `XXX_Stat_Icon.png`
+### 2.5.4 结局一览配图 ✅
+- 列表页 22 张 Boss 图（96×96）✅
+- 详情页 Boss 图（128×128）✅
+- 详情页解锁道具/角色图 ✅
 
-## 使用的脚本
+### 道具池图片下载 ⬜
+- pool 图标（treasure_room, devil_room 等）到 `frontend/public/images/pool/`
+- stat 图标（damage, tears, speed 等）到 `frontend/public/images/stat/`
 
-| 脚本 | 用途 |
-|---|---|
-| `update_item_images.py` | 同步磁盘道具图片到数据库 |
-| `download_missing_character_images.py` | 下载缺失角色图片 |
-| `download_character_images.py` | 批量下载角色图片（已用过） |
-| `fetch_trinket_images.py` | 下载 187 个饰品精灵图 |
-| `create_ui_icons.py` | 创建 UI 图标（已废弃，改用 Wiki 下载） |
+---
 
-## 关键发现（补充）
+## 四、待做（非图片）
 
-6. **角色 Wiki 页面**：角色立绘文件名格式为 `Character_<Name>_appearance.png`（Rebirth 版）或 `Character_<Name>_(Character)_icon.png`（图标）
-7. **双人角色**：Jacob & Esau 没有合体立绘，只能用单人立绘或组合图标
-8. **卡片宽度**：角色卡片最小宽度需要 320px 才能容纳长名字+属性值
+### 用户系统（阶段三）
+- 4.1~4.6：注册登录 + JWT
+
+### 社区功能（阶段四）
+- 5.1~5.6：攻略发帖 + 收藏
+
+### 部署（阶段五）
+- 6.1~6.2：Nginx + Uvicorn 生产配置

@@ -55,7 +55,10 @@ export default function TransformationDetailPage() {
           </tr>
           <tr>
             <td className={styles.label}>需要道具数</td>
-            <td>任意 {item.items_needed} 个道具即可触发</td>
+            <td>{(item.required_items_enriched || []).length > 1
+              ? `任意 ${item.items_needed} 个道具即可触发`
+              : `需要 ${item.items_needed} 个${item.required_items_enriched?.[0]?.name_cn || ''}`
+            }</td>
           </tr>
         </tbody>
       </table>
