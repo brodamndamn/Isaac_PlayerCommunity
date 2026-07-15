@@ -29,12 +29,34 @@
   margin-bottom: 20px;
 }
 
+.searchRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 .search {
   padding: 8px 12px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
   max-width: 320px;
+  flex: 1;
+}
+
+.searchBtn {
+  padding: 8px 16px;
+  border: 1px solid #1a1a2e;
+  border-radius: 6px;
+  background: #1a1a2e;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.searchBtn:hover {
+  background: #333;
 }
 
 .categories {
@@ -116,6 +138,19 @@
 .pageJump:focus {
   outline: none;
   border-color: #6b3a2a;
+}
+
+.goBtn {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.goBtn:hover {
+  background: #f0f0f0;
 }
 
 /* 隐藏 number input 的上下箭头 */

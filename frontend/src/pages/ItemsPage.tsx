@@ -67,13 +67,28 @@ export default function ItemsPage() {
     }, 300);
   };
 
-  const handlePageJump = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key !== "Enter") return;
-    const n = parseInt((e.target as HTMLInputElement).value, 10);
+  // 页码跳转的输入值
+  const [pageInput, setPageInput] = useState("");
+
+  const doSearch = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    updateParam("search", searchInput);
+  };
+
+  const handleSearchKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") doSearch();
+  };
+
+  const doPageJump = () => {
+    const n = parseInt(pageInput, 10);
     if (n >= 1 && n <= totalPages) {
       updateParam("page", String(n));
-      (e.target as HTMLInputElement).value = "";
+      setPageInput("");
     }
+  };
+
+  const handlePageJumpKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") doPageJump();
   };
 
   return (
@@ -82,13 +97,17 @@ export default function ItemsPage() {
       <h1 className={styles.title}>道具图鉴</h1>
 
       <div className={styles.filters}>
-        <input
-          type="text"
-          placeholder="实时搜索道具名称或描述..."
-          value={searchInput}
-          onChange={(e) => handleSearchChange(e.target.value)}
-          className={styles.search}
-        />
+        <div className={styles.searchRow}>
+          <input
+            type="text"
+            placeholder="搜索道具名称或描述..."
+            value={searchInput}
+            onChange={(e) => handleSearchChange(e.target.value)}
+            onKeyDown={handleSearchKeyDown}
+            className={styles.search}
+          />
+          <button onClick={doSearch} className={styles.searchBtn}>搜索</button>
+        </div>
         <div className={styles.categories}>
           {CATEGORIES.map((cat) => (
             <button
@@ -126,9 +145,12 @@ export default function ItemsPage() {
                 min={1}
                 max={totalPages}
                 placeholder="跳转"
-                onKeyDown={handlePageJump}
+                value={pageInput}
+                onChange={(e) => setPageInput(e.target.value)}
+                onKeyDown={handlePageJumpKeyDown}
                 className={styles.pageJump}
               />
+              <button onClick={doPageJump} className={styles.goBtn}>Go</button>
               <button
                 disabled={page >= totalPages}
                 onClick={() => updateParam("page", String(page + 1))}
