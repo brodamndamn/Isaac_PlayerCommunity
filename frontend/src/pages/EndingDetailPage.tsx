@@ -27,10 +27,22 @@ export default function EndingDetailPage() {
   return (
     <div className={styles.container}>
       <button onClick={() => navigate(-1)} className={styles.back}>&larr; 返回</button>
-      <h1 className={styles.title}>
-        {ending.name_cn}
-        <span className={styles.num}> #{ending.ending_number}</span>
-      </h1>
+      <div className={styles.titleRow}>
+        <h1 className={styles.title}>
+          {ending.name_cn}
+          <span className={styles.num}> #{ending.ending_number}</span>
+        </h1>
+        {ending.image_url ? (
+          <img
+            src={`/images/${ending.image_url}`}
+            alt={ending.boss_name}
+            className={styles.bossImg}
+            data-boss={ending.boss_name}
+          />
+        ) : (
+          <div className={styles.bossImg} data-boss={ending.boss_name} />
+        )}
+      </div>
       <p className={styles.nameEn}>{ending.name_en}</p>
 
       <table className={styles.table}>

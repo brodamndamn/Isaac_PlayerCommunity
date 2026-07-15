@@ -523,30 +523,92 @@ ISAAC/
 
 ## 图片占位符约定
 
-项目中图片占位符统一使用 HTML `data-item-id` 属性标记道具 ID，方便后续识图模型根据 ID 查找对应图片进行替换。
+项目中所有图片占位符使用 HTML `data-*` 属性标记，方便后续识图模型根据 ID/标识 查找对应图片进行替换。
 
-**样式占位符**（没有图片时）：
+### 通用占位符格式
+
+无图片时：
 ```html
 <span class="xxxPlaceholder" data-item-id="道具ID" />
+<!-- 或 -->
+<div class="xxxPlaceholder" data-item-id="道具ID" />
 ```
 
-**图片标签**（有图片时）：
+有图片时：
 ```html
 <img src="/images/items/道具ID.png" data-item-id="道具ID" />
 ```
 
-**套装效果列表页**：每个套装卡片的占位符 `data-item-id` 为所需第一个道具的 ID（来自 `first_item_id` 字段）。
+### 各模块占位符详细约定
 
-**套装效果详情页**：每个所需道具的占位符 `data-item-id` 为该道具的实际 ID。
+#### 道具（Items）
 
-**道具池图片**：路径格式 `/images/pool/pool_key.png`。
+| 位置 | 属性 | 尺寸 | 说明 |
+|---|---|---|---|
+| 列表卡片 (ItemCard) | `data-item-id` 标注道具 ID | 64×64 | 左图右文字布局 |
+| 详情页标题区 | `data-item-id` 标注道具 ID | 128×128 | 标题行左侧 |
+| 道具池 | `data-stat` 不适用，用 `<img src="/images/pool/pool_key.png">` | 20×20 | 路径格式 `/images/pool/treasure_room.png` 等 |
+| 属性变化表 | 用 `<img src="/images/stat/stat_key.png">` | 20×20 | 路径格式 `/images/stat/damage.png`、`/images/stat/tears.png` 等 |
 
-**属性图片**：路径格式 `/images/stat/stat_key.png`。
+道具池 pool_key 列表：`treasure_room`, `devil_room`, `angel_room`, `secret_room`, `ultra_secret_room`, `shop`, `boss`, `library`, `planetarium`, `curse_room`, `golden_chest`, `red_chest`, `old_chest`, `moms_chest`, `beggar`, `devil_beggar`, `bomb_bum`, `battery_bum`, `rotten_beggar`, `shell_game`, `crane_game`, `key_master`, `baby_shop`, `wooden_chest`, `challenge_room`, `boss_challenge_room`, `dice_room`, `bedroom`, `card_drop`（卡牌）, `pill_pool`（胶囊）, `trinket_drop`（饰品）, `transformation`（套装）
 
-**角色卡片图片占位符**：
-- 角色立绘：`data-item-id` 标注角色 ID，64×64 尺寸
-- 生命值：`<span data-heart="health" />` 标注为生命值占位符，放在中文名右侧
-- 攻击力：`<span data-stat="damage" />` 标注为攻击力占位符，放在英文名右侧
+属性 stat_key 列表：`damage`（伤害/攻击）, `tears`（射速）, `speed`（移速）, `range`（射程）, `shot_speed`（弹速）, `luck`（幸运）, `health`（生命/心之容器）, `soul_heart`（魂心）, `black_heart`（黑心）, `eternal_heart`（永恒之心）, `bomb`（炸弹）, `coin`（硬币）, `key`（钥匙）
+
+#### 套装效果（Transformations）
+
+| 位置 | 属性 | 尺寸 | 说明 |
+|---|---|---|---|
+| 列表卡片 | `data-item-id` 标注第一个所需道具 ID | 64×64 | 后端 `first_item_id` 字段 |
+| 详情页所需道具 | `data-item-id` 标注每个道具的实际 ID | 24×24 | 后端 `required_items_enriched[].id` |
+| 卡片分类标签 | 无占位符，CSS 粉色椭圆标签 `#c2185b` | — | 文字"套装" |
+
+#### 角色（Characters）
+
+| 位置 | 属性 | 尺寸 | 说明 |
+|---|---|---|---|
+| 列表卡片立绘 | `data-item-id` 标注角色 ID | 64×64 | 左图右文字布局 |
+| 列表卡片生命值 | `data-heart="health"` | 16×16 | 中文名右侧，后跟原始生命文本（如 `3❤ 1🖤`） |
+| 列表卡片攻击力 | `data-stat="damage"` | 16×16 | 英文名右侧，后跟数值 |
+| 详情页生命值 | `data-heart="heart_type"` | 20×20 | 每种心类型独立占位符 |
+| 详情页初始属性表 | `<img src="/images/stat/damage.png">` 等 | 20×20 | 表头"属性 / 数值"，与道具属性变化表一致 |
+| 详情页初始道具 | `data-item-id` 标注道具 ID | 24×24 | 后端 `starting_items_enriched[].id` |
+
+心类型 `data-heart` 值：`red`（❤红心）, `soul`（💙魂心）, `black`（🖤黑心）, `gold`（💛金心）, `eternal`（🤍永恒之心）, `bone`（🦴骨心）, `rotten`（💚腐心）
+
+#### 结局（Endings）
+
+| 位置 | 属性 | 尺寸 | 说明 |
+|---|---|---|---|
+| 列表卡片 | `data-boss` 标注 Boss 中文名 | 64×64 | "结局 N"文字右侧 |
+| 详情页标题 | `data-boss` 标注 Boss 中文名 | 80×80 | 标题行右侧 |
+| 详情页完成后解锁 | `data-item-id` 标注道具/角色 ID | 24×24 | 后端 `unlocks_enriched[].item_id` / `character_id` |
+
+#### 生命类型（HeartTypes，角色页）
+
+| 位置 | 属性 | 尺寸 | 说明 |
+|---|---|---|---|
+| 生命类型卡片 | `data-heart="type_key"` | 22×22 | type_key: `red`, `soul`, `black`, `eternal`, `gold`, `bone`, `rotten` |
+
+### 数据来源
+
+- **道具名/效果/解锁**：灰机 wiki（`isaac.huijiwiki.com`），C 页（道具）、K 页（卡牌）、P 页（药丸）、T 页（饰品）
+- **道具池**：Fandom wiki（`bindingofisaacrebirth.fandom.com`）infobox `data-source="alias"` 字段
+- **角色/结局**：灰机 wiki 页面 parse
+- **套装效果**：json 手工整理 + 后端查 items/characters 表自动匹配中文名和图片 URL
+- **属性变化**：正则从中文 effect 文本提取数值
+- **LaTeX 公式**：字符串替换去 `\dfrac`/`\lfloor`/`\times` 等，保留可读部分
+
+### 后端 enrich 模式
+
+以下 API 在详情端点自动从 items/characters 表查询中文名和图片 URL：
+
+- `GET /api/v1/characters/{id}` → `starting_items_enriched`（每个 item 的 id/name_cn/image_url）
+- `GET /api/v1/transformations/{id}` → `required_items_enriched`（每个 item 的 id/name_cn/image_url）；列表端点 → `first_item_id`
+- `GET /api/v1/endings/{id}` → `unlocks_enriched`（每个 unlock 的 item_id/character_id/image_url）
+
+### 不可自行翻译的原则
+
+所有中文文本必须从灰机 wiki 获取，**绝对禁止**自行翻译或机翻。英文名保留用于数据库匹配，前端优先显示中文名。
 
 ---
 

@@ -12,7 +12,16 @@ export default function EndingCard({ ending }: EndingCardProps) {
       <span className={styles.number}>#{ending.ending_number}</span>
       <div className={styles.titleRow}>
         <h3 className={styles.name}>{ending.name_cn}</h3>
-        <div className={styles.bossImg} data-boss={ending.boss_name} />
+        {ending.image_url ? (
+          <img
+            src={`/images/${ending.image_url}`}
+            alt={ending.boss_name}
+            className={styles.bossImg}
+            data-boss={ending.boss_name}
+          />
+        ) : (
+          <div className={styles.bossImg} data-boss={ending.boss_name} />
+        )}
       </div>
       <p className={styles.nameEn}>{ending.name_en}</p>
       <div className={styles.boss}>

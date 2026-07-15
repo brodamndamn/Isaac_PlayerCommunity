@@ -49,6 +49,14 @@
   flex-shrink: 0;
 }
 
+.characterImage {
+  width: 100px;
+  height: 120px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
 .name {
   font-size: 28px;
   margin: 0;

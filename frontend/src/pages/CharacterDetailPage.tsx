@@ -33,7 +33,16 @@ export default function CharacterDetailPage() {
     <div className={styles.container}>
       <button onClick={() => navigate(-1)} className={styles.back}>&larr; 返回</button>
       <div className={styles.titleRow}>
-        <div className={styles.imagePlaceholder}><span>立绘</span></div>
+        {char.image_url ? (
+          <img
+            src={`/images/${char.image_url}`}
+            alt={char.name_en}
+            className={styles.characterImage}
+            data-item-id={char.id}
+          />
+        ) : (
+          <div className={styles.imagePlaceholder} data-item-id={char.id}><span>立绘</span></div>
+        )}
         <div>
           <h1 className={styles.name}>
             {char.name_cn}
