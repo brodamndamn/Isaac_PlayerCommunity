@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCharacters } from "../api/characters";
 import CharacterCard from "../components/CharacterCard";
+import HeartTypes from "../components/HeartTypes";
 import type { Character } from "../types/character";
 import styles from "./CharactersPage.module.css";
 
@@ -41,6 +42,8 @@ export default function CharactersPage() {
           </button>
         ))}
       </div>
+
+      <HeartTypes />
 
       {loading ? (
         <p className={styles.loading}>加载中...</p>

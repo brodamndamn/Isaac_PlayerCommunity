@@ -1,0 +1,40 @@
+.wrapper {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 15px;
+  margin: 0 0 10px;
+  color: #6b3a2a;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.card {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #faf7f2;
+  border: 1px solid #e8dccf;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #555;
+}
+
+.iconPlaceholder {
+  width: 22px;
+  height: 22px;
+  background: #f0f0f0;
+  border: 1px dashed #ccc;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.label {
+  line-height: 1.5;
+}
