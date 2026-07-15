@@ -1,6 +1,13 @@
 from pydantic import BaseModel
 
 
+class EnrichedStartingItem(BaseModel):
+    id: int | None = None
+    name_en: str
+    name_cn: str
+    image_url: str | None
+
+
 class CharacterResponse(BaseModel):
     id: int
     name_en: str
@@ -8,10 +15,11 @@ class CharacterResponse(BaseModel):
     is_tainted: bool
     base_character_id: int | None
     health: str
-    damage: float | None
-    speed: float | None
-    tears: float | None
+    damage: str | None
+    speed: str | None
+    tears: str | None
     starting_items: list | None
+    starting_items_enriched: list[EnrichedStartingItem] | None = None
     unlock_method: str | None
     description: str | None
     suitable_items: list | None

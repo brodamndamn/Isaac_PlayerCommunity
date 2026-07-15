@@ -26,7 +26,7 @@
     "starting_items": [
       "Yum Heart"
     ],
-    "unlock_method": "初始角色",
+    "unlock_method": "在一局游戏中，同时拥有七个心之容器",
     "description": "初始携带美味之心，可回复生命。速度较慢但血量高"
   },
   {
@@ -41,7 +41,7 @@
     "starting_items": [
       "Lucky Foot"
     ],
-    "unlock_method": "初始角色",
+    "unlock_method": "在一局游戏中，同时拥有55枚硬币",
     "description": "初始携带幸运脚。伤害高、速度快，但只有两颗心"
   },
   {
@@ -56,7 +56,7 @@
     "starting_items": [
       "The Book of Belial"
     ],
-    "unlock_method": "初始角色",
+    "unlock_method": "击败 撒但 1次",
     "description": "初始携带彼列之书。伤害极高但只有一颗心，高风险高回报"
   },
   {
@@ -71,7 +71,7 @@
     "starting_items": [
       "We Need To Go Deeper!"
     ],
-    "unlock_method": "击败 Mom's Heart 10 次",
+    "unlock_method": "初始角色",
     "description": "魂心角色，无法获得红心。初始携带粪便"
   },
   {
@@ -87,7 +87,7 @@
       "Monster Manual",
       "Dead Bird"
     ],
-    "unlock_method": "初始角色",
+    "unlock_method": "在不拾取心的情况下，连续通过两层",
     "description": "初始携带死鸟和巴比伦娼妇。低血量时触发强力增益"
   },
   {
@@ -102,7 +102,7 @@
     "starting_items": [
       "Bloody Lust"
     ],
-    "unlock_method": "初始角色",
+    "unlock_method": "在不受到伤害的情况下，连续通过两层",
     "description": "初始携带嗜血。每受一次伤害，伤害提升——越战越勇"
   },
   {
@@ -118,7 +118,7 @@
       "Brimstone",
       "Bob's Rotten Head"
     ],
-    "unlock_method": "与恶魔房交易 3 次",
+    "unlock_method": "在一局游戏中，进行3次恶魔交易",
     "description": "初始自带硫磺火（短程）和飞行能力。魂心角色"
   },
   {
@@ -133,7 +133,7 @@
     "starting_items": [
       "Spider Bite"
     ],
-    "unlock_method": "初始角色",
+    "unlock_method": "在一局游戏中，拥有四颗魂心",
     "description": "初始携带拉撒路的破布。死亡后复活为强化版 Lazarus Risen"
   },
   {
@@ -142,11 +142,11 @@
     "name_cn": "伊甸",
     "is_tainted": false,
     "health": "随机",
-    "damage": null,
-    "speed": null,
-    "tears": null,
+    "damage": "随机",
+    "speed": "随机",
+    "tears": "随机",
     "starting_items": [],
-    "unlock_method": "完成一次 Womb 阶段",
+    "unlock_method": "击败 妈妈的心脏 1次",
     "description": "每次游戏的属性、初始道具和外观完全随机"
   },
   {
@@ -162,7 +162,7 @@
       "Eve's Mascara",
       "Brimstone"
     ],
-    "unlock_method": "特定死亡方式解锁",
+    "unlock_method": "角色在 献祭房 死亡，且拥有 寻人启事",
     "description": "无法获得任何血量，一击必死。自带飞行和魂心"
   },
   {
@@ -178,7 +178,7 @@
       "Box of Friends",
       "Incubus"
     ],
-    "unlock_method": "贪婪模式击败 Ultra Greed",
+    "unlock_method": "用 阿撒泻勒 获得贪婪模式通关标记",
     "description": "初始携带恶魔宝宝和淫妇之盒。无法发射眼泪，由跟班代打"
   },
   {
@@ -193,7 +193,7 @@
     "starting_items": [
       "Jar of Flies"
     ],
-    "unlock_method": "贪婪机捐献 1000 枚硬币",
+    "unlock_method": "捐献1000枚硬币给 贪婪机",
     "description": "硬币血量角色，最多 2 枚硬币。硬币代替红心回复"
   },
   {
@@ -208,7 +208,7 @@
     "starting_items": [
       "Void"
     ],
-    "unlock_method": "击败 Mega Satan 后",
+    "unlock_method": "击败 超级撒但 1次",
     "description": "初始携带虚空。可将道具吸入虚空，转化为属性加成"
   },
   {
@@ -223,7 +223,7 @@
     "starting_items": [
       "Jaw Bone"
     ],
-    "unlock_method": "特殊解锁流程",
+    "unlock_method": "使用 妈妈的铲子 挖开 碎土块",
     "description": "双形态角色——灵魂体发射眼泪，骷髅体进行近战攻击"
   },
   {
@@ -238,7 +238,7 @@
     "starting_items": [
       "Lodestone"
     ],
-    "unlock_method": "击败 Mom's Heart 后",
+    "unlock_method": "用 拉撒路 在困难模式下通关第四章且未死亡过",
     "description": "初始携带魂火之书。使用魂火充能主动道具，而非普通充能"
   },
   {
@@ -253,7 +253,7 @@
     "starting_items": [
       "R Key"
     ],
-    "unlock_method": "击败 Mother 后",
+    "unlock_method": "击败 母亲 1次",
     "description": "同时操控两个角色。Jacob 被击中触发 Esau 的仇恨"
   },
   {
@@ -267,7 +267,7 @@
     "speed": 1.0,
     "tears": 2.73,
     "starting_items": [],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "道具槽位限制为 8 个，拾取第 9 个时必须替换。道具循环更频繁"
   },
   {
@@ -281,7 +281,7 @@
     "speed": 0.85,
     "tears": 2.73,
     "starting_items": [],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "接触敌人时产生红心掉落。受伤后短暂获得伤害增益"
   },
   {
@@ -297,7 +297,7 @@
     "starting_items": [
       "Hold"
     ],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "只能通过拾取物合成道具。初始携带制作袋"
   },
   {
@@ -313,7 +313,7 @@
     "starting_items": [
       "The Book of Belial"
     ],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "初始携带暗影之书。进入暗影模式时无法被伤害"
   },
   {
@@ -329,7 +329,7 @@
     "starting_items": [
       "We Need To Go Deeper!"
     ],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "粪便变为爆炸粪便。粪便效果更丰富多样"
   },
   {
@@ -345,7 +345,7 @@
     "starting_items": [
       "Everything Jar"
     ],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "每次拾取道具召唤血块跟班。低血量时血块自动攻击"
   },
   {
@@ -361,7 +361,7 @@
     "starting_items": [
       "TMTRAINER"
     ],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "攻击时进入狂暴状态，获得大幅伤害增益但会持续扣血"
   },
   {
@@ -377,7 +377,7 @@
     "starting_items": [
       "Brimstone"
     ],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "短程硫磺火变为大范围近战挥砍。受伤后释放全屏爆炸"
   },
   {
@@ -391,7 +391,7 @@
     "speed": 1.0,
     "tears": 2.73,
     "starting_items": [],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "每清理一个房间自动在活 Lazarus 和死 Lazarus 之间切换。两个形态独立管理道具"
   },
   {
@@ -405,7 +405,7 @@
     "speed": 1.0,
     "tears": 2.73,
     "starting_items": [],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "每次受伤时全部属性和道具完全重新随机。永远无法预测"
   },
   {
@@ -419,7 +419,7 @@
     "speed": 1.0,
     "tears": 2.73,
     "starting_items": [],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "比普通游魂更难——无法获得 Holy Mantle 的免费护盾，只有更好的道具掉落"
   },
   {
@@ -435,7 +435,7 @@
     "starting_items": [
       "Spindown Dice"
     ],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "发射眼泪时从身后甩出跟班对敌人造成伤害。近战式跟班攻击"
   },
   {
@@ -449,7 +449,7 @@
     "speed": 0.8,
     "tears": 2.73,
     "starting_items": [],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "杀死敌人掉落快速消失的硬币。商店物品可用硬币购买并变得更便宜"
   },
   {
@@ -465,7 +465,7 @@
     "starting_items": [
       "Void"
     ],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "虚空不再吸入道具，而是将道具转化为蝗虫攻击敌人"
   },
   {
@@ -479,7 +479,7 @@
     "speed": 1.3,
     "tears": 0.91,
     "starting_items": [],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "灵魂体抓住骷髅体投掷出去，骷髅砸中敌人造成伤害。完全不同的操作方式"
   },
   {
@@ -495,7 +495,7 @@
     "starting_items": [
       "Lodestone"
     ],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "魂火之书改为用红心充能。可以从虚空中召唤特殊道具"
   },
   {
@@ -509,7 +509,7 @@
     "speed": 1.0,
     "tears": 2.73,
     "starting_items": [],
-    "unlock_method": "使用 Red Key 进入 Home 走廊的隐藏房间",
+    "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
     "description": "被黑暗以扫追杀——碰到即死。可使用 Anima Sola 短暂定身他"
   }
 ]

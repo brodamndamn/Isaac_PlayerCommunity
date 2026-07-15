@@ -117,8 +117,36 @@
 
 .itemRow {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
+}
+
+.itemTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: #f5f0ff;
+  border: 1px solid #d4c4f0;
+  border-radius: 12px;
+  font-size: 13px;
+  color: #5c3d8f;
+}
+
+.itemIcon {
+  width: 24px;
+  height: 24px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.itemIconPlaceholder {
+  width: 24px;
+  height: 24px;
+  background: #e8e0f0;
+  border: 1px dashed #ccc;
+  border-radius: 3px;
+  flex-shrink: 0;
 }
 
 .itemPlaceholder {
@@ -132,4 +160,43 @@
   justify-content: center;
   color: #bbb;
   font-size: 10px;
+}
+
+.statIcon {
+  width: 20px;
+  height: 20px;
+  image-rendering: pixelated;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.statTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.statTable th {
+  text-align: left;
+  padding: 8px 12px;
+  background: #f5f5f5;
+  border-bottom: 2px solid #ddd;
+  color: #666;
+  font-weight: 500;
+}
+
+.statTable td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+.statAttr {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.statValue {
+  font-weight: 500;
 }

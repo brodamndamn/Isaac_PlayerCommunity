@@ -39,7 +39,7 @@ export default function CharacterDetailPage() {
         </div>
       </div>
 
-      {/* 属性表格 */}
+      {/* 基本信息 */}
       <table className={styles.table}>
         <tbody>
           <tr>
@@ -56,28 +56,28 @@ export default function CharacterDetailPage() {
             <td className={styles.label}>生命值</td>
             <td><HealthHearts health={char.health} /></td>
           </tr>
-          {char.damage != null && (
-            <tr>
-              <td className={styles.label}>初始攻击</td>
-              <td>{char.damage}</td>
-            </tr>
-          )}
-          {char.speed != null && (
-            <tr>
-              <td className={styles.label}>初始速度</td>
-              <td>{char.speed}</td>
-            </tr>
-          )}
-          {char.tears != null && (
-            <tr>
-              <td className={styles.label}>初始射速</td>
-              <td>{char.tears}</td>
-            </tr>
-          )}
-          {char.starting_items && char.starting_items.length > 0 && (
+          {char.starting_items_enriched && char.starting_items_enriched.length > 0 && (
             <tr>
               <td className={styles.label}>初始道具</td>
-              <td>ID: {char.starting_items.join(", ")}</td>
+              <td>
+                <div className={styles.itemRow}>
+                  {char.starting_items_enriched.map((ei) => (
+                    <span key={ei.id} className={styles.itemTag}>
+                      {ei.image_url ? (
+                        <img
+                          src={`/images/${ei.image_url}`}
+                          alt={ei.name_cn}
+                          className={styles.itemIcon}
+                          data-item-id={ei.id ?? undefined}
+                        />
+                      ) : (
+                        <span className={styles.itemIconPlaceholder} data-item-id={ei.id ?? undefined} />
+                      )}
+                      {ei.name_cn || ei.name_en}
+                    </span>
+                  ))}
+                </div>
+              </td>
             </tr>
           )}
           {char.unlock_method && (
@@ -88,6 +88,50 @@ export default function CharacterDetailPage() {
           )}
         </tbody>
       </table>
+
+      {/* 初始属性表格 */}
+      {(char.damage != null || char.speed != null || char.tears != null) && (
+        <section className={styles.section}>
+          <h3>初始属性</h3>
+          <table className={styles.statTable}>
+            <thead>
+              <tr>
+                <th>属性</th>
+                <th>数值</th>
+              </tr>
+            </thead>
+            <tbody>
+              {char.damage != null && (
+                <tr>
+                  <td className={styles.statAttr}>
+                    <img src="/images/stat/damage.png" alt="" className={styles.statIcon} />
+                    攻击
+                  </td>
+                  <td className={styles.statValue}>{char.damage}</td>
+                </tr>
+              )}
+              {char.speed != null && (
+                <tr>
+                  <td className={styles.statAttr}>
+                    <img src="/images/stat/speed.png" alt="" className={styles.statIcon} />
+                    速度
+                  </td>
+                  <td className={styles.statValue}>{char.speed}</td>
+                </tr>
+              )}
+              {char.tears != null && (
+                <tr>
+                  <td className={styles.statAttr}>
+                    <img src="/images/stat/tears.png" alt="" className={styles.statIcon} />
+                    射速
+                  </td>
+                  <td className={styles.statValue}>{char.tears}</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </section>
+      )}
 
       {char.description && (
         <section className={styles.section}>

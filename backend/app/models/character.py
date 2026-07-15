@@ -19,14 +19,14 @@ class Character(Base):
         Integer, ForeignKey("characters.id"), nullable=True, comment="里角色对应的表角色 ID"
     )
     health: Mapped[str] = mapped_column(String(50), nullable=False, comment="初始生命值")
-    damage: Mapped[float | None] = mapped_column(
-        Numeric(4, 2), nullable=True, comment="初始攻击力"
+    damage: Mapped[str | None] = mapped_column(
+        String(50), nullable=True, comment="初始攻击力"
     )
-    speed: Mapped[float | None] = mapped_column(
-        Numeric(4, 2), nullable=True, comment="初始速度"
+    speed: Mapped[str | None] = mapped_column(
+        String(50), nullable=True, comment="初始速度"
     )
-    tears: Mapped[float | None] = mapped_column(
-        Numeric(4, 2), nullable=True, comment="初始射速"
+    tears: Mapped[str | None] = mapped_column(
+        String(50), nullable=True, comment="初始射速"
     )
     starting_items: Mapped[list | None] = mapped_column(
         JSON, nullable=True, comment="初始携带道具 ID 数组"
