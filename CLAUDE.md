@@ -543,6 +543,11 @@ ISAAC/
 
 **属性图片**：路径格式 `/images/stat/stat_key.png`。
 
+**角色卡片图片占位符**：
+- 角色立绘：`data-item-id` 标注角色 ID，64×64 尺寸
+- 生命值：`<span data-heart="health" />` 标注为生命值占位符，放在中文名右侧
+- 攻击力：`<span data-stat="damage" />` 标注为攻击力占位符，放在英文名右侧
+
 ---
 
 ## 环境信息

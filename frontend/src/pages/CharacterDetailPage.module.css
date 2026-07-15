@@ -168,6 +168,21 @@
   image-rendering: pixelated;
   vertical-align: middle;
   margin-right: 6px;
+  background: #f0f0f0;
+  border: 1px dashed #ccc;
+  border-radius: 3px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.heartItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-right: 8px;
+  font-size: 14px;
+  color: #c0392b;
+  font-weight: 600;
 }
 
 .statTable {

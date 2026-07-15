@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import type { Character } from "../types/character";
-import HealthHearts from "./HealthHearts";
 import styles from "./CharacterCard.module.css";
 
 interface CharacterCardProps {
@@ -29,11 +28,21 @@ export default function CharacterCard({ character }: CharacterCardProps) {
             <span className={styles.id}>#{character.id}</span>
             {character.is_tainted && <span className={styles.tag}>里</span>}
           </div>
-          <h3 className={styles.name}>{character.name_cn}</h3>
-          <p className={styles.nameEn}>{character.name_en}</p>
-          <div className={styles.stats}>
-            <span><HealthHearts health={character.health} /></span>
-            {character.damage != null && <span>⚔ {character.damage}</span>}
+          <div className={styles.nameRow}>
+            <h3 className={styles.name}>{character.name_cn}</h3>
+            <span className={styles.health}>
+              <span className={styles.statIcon} data-heart="health" />
+              {character.health}
+            </span>
+          </div>
+          <div className={styles.nameEnRow}>
+            <p className={styles.nameEn}>{character.name_en}</p>
+            {character.damage != null && (
+              <span className={styles.damage}>
+                <span className={styles.statIcon} data-stat="damage" />
+                {character.damage}
+              </span>
+            )}
           </div>
         </div>
       </div>

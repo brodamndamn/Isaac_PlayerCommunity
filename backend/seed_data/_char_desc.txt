@@ -1,0 +1,108 @@
+ID 1 Isaac (以撒):
+  desc: 初始角色。初始携带 D6（解锁后），可重抽道具
+  ENGLISH: ['D6（解锁后），可重抽道具']
+
+ID 2 Magdalene (抹大拉):
+  desc: 初始携带美味之心，可回复生命。速度较慢但血量高
+
+ID 3 Cain (该隐):
+  desc: 初始携带幸运脚。伤害高、速度快，但只有两颗心
+
+ID 4 Judas (犹大):
+  desc: 初始携带彼列之书。伤害极高但只有一颗心，高风险高回报
+
+ID 5 ??? (小蓝人):
+  desc: 魂心角色，无法获得红心。初始携带粪便
+
+ID 6 Eve (夏娃):
+  desc: 初始携带死鸟和巴比伦娼妇。低血量时触发强力增益
+
+ID 7 Samson (参孙):
+  desc: 初始携带嗜血。每受一次伤害，伤害提升——越战越勇
+
+ID 8 Azazel (阿萨谢尔):
+  desc: 初始自带硫磺火（短程）和飞行能力。魂心角色
+
+ID 9 Lazarus (拉撒路):
+  desc: 初始携带拉撒路的破布。死亡后复活为强化版 Lazarus Risen
+  ENGLISH: ['Lazarus', 'Risen']
+
+ID 10 Eden (伊甸):
+  desc: 每次游戏的属性、初始道具和外观完全随机
+
+ID 11 The Lost (游魂):
+  desc: 无法获得任何血量，一击必死。自带飞行和魂心
+
+ID 12 Lilith (莉莉丝):
+  desc: 初始携带恶魔宝宝和淫妇之盒。无法发射眼泪，由跟班代打
+
+ID 13 Keeper (店主):
+  desc: 硬币血量角色，最多 2 枚硬币。硬币代替红心回复
+
+ID 14 Apollyon (亚玻伦):
+  desc: 初始携带虚空。可将道具吸入虚空，转化为属性加成
+
+ID 15 The Forgotten (遗骸):
+  desc: 双形态角色——灵魂体发射眼泪，骷髅体进行近战攻击
+
+ID 16 Bethany (伯大尼):
+  desc: 初始携带魂火之书。使用魂火充能主动道具，而非普通充能
+
+ID 17 Jacob & Esau (雅各与以扫):
+  desc: 同时操控两个角色。Jacob 被击中触发 Esau 的仇恨
+  ENGLISH: ['同时操控两个角色。Jacob', 'Esau']
+
+ID 18 Tainted Isaac (里以撒):
+  desc: 道具槽位限制为 8 个，拾取第 9 个时必须替换。道具循环更频繁
+
+ID 19 Tainted Magdalene (里抹大拉):
+  desc: 接触敌人时产生红心掉落。受伤后短暂获得伤害增益
+
+ID 20 Tainted Cain (里该隐):
+  desc: 只能通过拾取物合成道具。初始携带制作袋
+
+ID 21 Tainted Judas (里犹大):
+  desc: 初始携带暗影之书。进入暗影模式时无法被伤害
+
+ID 22 Tainted ??? (里小蓝人):
+  desc: 粪便变为爆炸粪便。粪便效果更丰富多样
+
+ID 23 Tainted Eve (里夏娃):
+  desc: 每次拾取道具召唤血块跟班。低血量时血块自动攻击
+
+ID 24 Tainted Samson (里参孙):
+  desc: 攻击时进入狂暴状态，获得大幅伤害增益但会持续扣血
+
+ID 25 Tainted Azazel (里阿萨谢尔):
+  desc: 短程硫磺火变为大范围近战挥砍。受伤后释放全屏爆炸
+
+ID 26 Tainted Lazarus (里拉撒路):
+  desc: 每清理一个房间自动在活 Lazarus 和死 Lazarus 之间切换。两个形态独立管理道具
+  ENGLISH: ['Lazarus', 'Lazarus']
+
+ID 27 Tainted Eden (里伊甸):
+  desc: 每次受伤时全部属性和道具完全重新随机。永远无法预测
+
+ID 28 Tainted Lost (里游魂):
+  desc: 比普通游魂更难——无法获得 Holy Mantle 的免费护盾，只有更好的道具掉落
+  ENGLISH: ['Holy', 'Mantle']
+
+ID 29 Tainted Lilith (里莉莉丝):
+  desc: 发射眼泪时从身后甩出跟班对敌人造成伤害。近战式跟班攻击
+
+ID 30 Tainted Keeper (里店主):
+  desc: 杀死敌人掉落快速消失的硬币。商店物品可用硬币购买并变得更便宜
+
+ID 31 Tainted Apollyon (里亚玻伦):
+  desc: 虚空不再吸入道具，而是将道具转化为蝗虫攻击敌人
+
+ID 32 Tainted Forgotten (里遗骸):
+  desc: 灵魂体抓住骷髅体投掷出去，骷髅砸中敌人造成伤害。完全不同的操作方式
+
+ID 33 Tainted Bethany (里伯大尼):
+  desc: 魂火之书改为用红心充能。可以从虚空中召唤特殊道具
+
+ID 34 Tainted Jacob (里雅各):
+  desc: 被黑暗以扫追杀——碰到即死。可使用 Anima Sola 短暂定身他
+  ENGLISH: ['Anima', 'Sola']
+

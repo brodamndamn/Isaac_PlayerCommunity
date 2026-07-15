@@ -12,7 +12,7 @@
       "The D6"
     ],
     "unlock_method": "初始角色",
-    "description": "初始角色。初始携带 D6（解锁后），可重抽道具"
+    "description": "初始角色。初始携带 六面骰（解锁成就后可重抽道具）。拥有 3 颗红心，属性均衡。"
   },
   {
     "id": 2,
@@ -134,7 +134,7 @@
       "Spider Bite"
     ],
     "unlock_method": "在一局游戏中，拥有四颗魂心",
-    "description": "初始携带拉撒路的破布。死亡后复活为强化版 Lazarus Risen"
+    "description": "初始携带 拉撒路的破布。死亡后复活为强化版拉撒路，伤害和速度提升。"
   },
   {
     "id": 10,
@@ -224,7 +224,7 @@
       "Jaw Bone"
     ],
     "unlock_method": "使用 妈妈的铲子 挖开 碎土块",
-    "description": "双形态角色——灵魂体发射眼泪，骷髅体进行近战攻击"
+    "description": "双形态角色：灵魂体发射泪弹，骷髅体进行近战攻击。通过 妈妈的铲子 在 碎土块 上挖开地面解锁——需要在特定区域找到碎土块并使用铲子。"
   },
   {
     "id": 16,
@@ -254,7 +254,7 @@
       "R Key"
     ],
     "unlock_method": "击败 母亲 1次",
-    "description": "同时操控两个角色。Jacob 被击中触发 Esau 的仇恨"
+    "description": "同时操控雅各与以扫两个角色，各自拥有独立的血量和道具。雅各被击中会触发以扫的复仇效果。"
   },
   {
     "id": 18,
@@ -392,7 +392,7 @@
     "tears": 2.73,
     "starting_items": [],
     "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
-    "description": "每清理一个房间自动在活 Lazarus 和死 Lazarus 之间切换。两个形态独立管理道具"
+    "description": "每清理一个房间，自动在活拉撒路和死拉撒路之间切换。两个形态各自独立管理道具和属性。"
   },
   {
     "id": 27,
@@ -420,7 +420,7 @@
     "tears": 2.73,
     "starting_items": [],
     "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
-    "description": "比普通游魂更难——无法获得 Holy Mantle 的免费护盾，只有更好的道具掉落"
+    "description": "比普通游魂更难——无法获得 神圣屏障 的免费护盾，但拥有更好的道具掉落概率作为补偿。"
   },
   {
     "id": 29,
@@ -510,6 +510,6 @@
     "tears": 2.73,
     "starting_items": [],
     "unlock_method": "使用 红钥匙 进入 家 走廊的隐藏房间",
-    "description": "被黑暗以扫追杀——碰到即死。可使用 Anima Sola 短暂定身他"
+    "description": "被黑暗以扫追杀——碰到即死。可使用 灵魂锁链 短暂定身黑暗以扫。"
   }
 ]

@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCharacterById } from "../api/characters";
 import type { Character } from "../types/character";
-import HealthHearts from "../components/HealthHearts";
 import styles from "./CharacterDetailPage.module.css";
+
+const HEART_ICONS: Record<string, string> = {
+  "❤": "red", "💙": "soul", "🖤": "black",
+  "💛": "gold", "🤍": "eternal", "🦴": "bone", "💚": "rotten",
+};
 
 export default function CharacterDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -54,7 +58,21 @@ export default function CharacterDetailPage() {
           )}
           <tr>
             <td className={styles.label}>生命值</td>
-            <td><HealthHearts health={char.health} /></td>
+            <td>
+              {char.health.split(" ").map((part, i) => {
+                const match = part.match(/^(\d*)([❤💙🖤💛🤍🦴💚])$/);
+                if (match) {
+                  const key = HEART_ICONS[match[2]] || "health";
+                  return (
+                    <span key={i} className={styles.heartItem}>
+                      <span className={styles.statIcon} data-heart={key} />
+                      {part}
+                    </span>
+                  );
+                }
+                return <span key={i}>{part}</span>;
+              })}
+            </td>
           </tr>
           {char.starting_items_enriched && char.starting_items_enriched.length > 0 && (
             <tr>
