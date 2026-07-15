@@ -1,6 +1,13 @@
 from pydantic import BaseModel
 
 
+class EnrichedUnlock(BaseModel):
+    text: str
+    item_id: int | None = None
+    character_id: int | None = None
+    image_url: str | None = None
+
+
 class EndingResponse(BaseModel):
     id: int
     name_en: str
@@ -11,6 +18,7 @@ class EndingResponse(BaseModel):
     required_character: str | None
     boss_name: str
     unlocks: list | None
+    unlocks_enriched: list[EnrichedUnlock] | None = None
     image_url: str | None
 
     model_config = {"from_attributes": True}

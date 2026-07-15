@@ -20,6 +20,21 @@
   color: #6b3a2a;
 }
 
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bossImg {
+  width: 64px;
+  height: 64px;
+  background: #f5f5f5;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
 .name {
   font-size: 18px;
   font-weight: 700;

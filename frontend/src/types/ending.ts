@@ -1,3 +1,10 @@
+export interface EnrichedUnlock {
+  text: string;
+  item_id: number | null;
+  character_id: number | null;
+  image_url: string | null;
+}
+
 export interface Ending {
   id: number;
   name_en: string;
@@ -8,5 +15,6 @@ export interface Ending {
   required_character: string | null;
   boss_name: string;
   unlocks: string[] | null;
+  unlocks_enriched?: EnrichedUnlock[] | null;
   image_url: string | null;
 }

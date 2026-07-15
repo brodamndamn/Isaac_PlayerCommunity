@@ -235,12 +235,13 @@
     "completion_method": "在 ??? 层（蓝色子宫）击败 静寂",
     "unlock_method": "30 分钟内击败 妈妈的心脏，进入 蓝色子宫",
     "required_character": null,
-    "boss_name": "静寂",
+    "boss_name": "死寂",
     "unlocks": [
       "虚空层解锁",
       "堆肥"
     ],
-    "image_url": null
+    "image_url": null,
+    "completion": "在 ??? 层（蓝色子宫）击败 死寂"
   },
   {
     "id": 18,
@@ -254,7 +255,8 @@
     "unlocks": [
       "店主（角色）"
     ],
-    "image_url": null
+    "image_url": null,
+    "completion": "贪婪模式中击败 究极贪婪"
   },
   {
     "id": 19,
@@ -268,7 +270,8 @@
     "unlocks": [
       "究极贪婪模式永久解锁"
     ],
-    "image_url": null
+    "image_url": null,
+    "completion": "究极贪婪模式中击败 究极大贪婪"
   },
   {
     "id": 20,
@@ -296,7 +299,8 @@
     "unlocks": [
       "雅各与以扫（角色）"
     ],
-    "image_url": null
+    "image_url": null,
+    "completion": "在 尸宫层 击败 母亲"
   },
   {
     "id": 22,

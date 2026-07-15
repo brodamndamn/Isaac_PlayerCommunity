@@ -55,10 +55,31 @@ export default function EndingDetailPage() {
               <td>{ending.required_character}</td>
             </tr>
           )}
-          {ending.unlocks && ending.unlocks.length > 0 && (
+          {ending.unlocks_enriched && ending.unlocks_enriched.length > 0 && (
             <tr>
               <td className={styles.label}>完成后解锁</td>
-              <td>{ending.unlocks.join("、")}</td>
+              <td>
+                <div className={styles.unlockRow}>
+                  {ending.unlocks_enriched.map((u, i) => {
+                    const itemId = u.item_id ?? u.character_id ?? undefined;
+                    return (
+                      <span key={i} className={styles.unlockTag}>
+                        {u.image_url ? (
+                          <img
+                            src={`/images/${u.image_url}`}
+                            alt={u.text}
+                            className={styles.unlockIcon}
+                            data-item-id={itemId}
+                          />
+                        ) : (
+                          <span className={styles.unlockIconPlaceholder} data-item-id={itemId} />
+                        )}
+                        {u.text}
+                      </span>
+                    );
+                  })}
+                </div>
+              </td>
             </tr>
           )}
         </tbody>

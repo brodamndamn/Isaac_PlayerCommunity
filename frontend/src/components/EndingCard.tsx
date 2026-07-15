@@ -10,7 +10,10 @@ export default function EndingCard({ ending }: EndingCardProps) {
   return (
     <Link to={`/endings/${ending.id}`} className={styles.card}>
       <span className={styles.number}>#{ending.ending_number}</span>
-      <h3 className={styles.name}>{ending.name_cn}</h3>
+      <div className={styles.titleRow}>
+        <h3 className={styles.name}>{ending.name_cn}</h3>
+        <div className={styles.bossImg} data-boss={ending.boss_name} />
+      </div>
       <p className={styles.nameEn}>{ending.name_en}</p>
       <div className={styles.boss}>
         <span className={styles.bossLabel}>Boss：</span>

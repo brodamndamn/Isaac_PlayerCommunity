@@ -1,0 +1,132 @@
+ID 1 #1: 结局 1 (Ending 1)
+  boss: 妈妈的心脏
+  completion: 击败 妈妈的心脏 第 1 次
+  unlocks: ['伊甸（角色）']
+  unlock_method: None
+
+ID 2 #2: 结局 2 (Ending 2)
+  boss: 妈妈的心脏
+  completion: 击败 妈妈的心脏 第 2 次
+  unlocks: ['橡胶胶水']
+  unlock_method: None
+
+ID 3 #3: 结局 3 (Ending 3)
+  boss: 妈妈的心脏
+  completion: 击败 妈妈的心脏 第 3 次
+  unlocks: ['超凡升天']
+  unlock_method: None
+
+ID 4 #4: 结局 4 (Ending 4)
+  boss: 妈妈的心脏
+  completion: 击败 妈妈的心脏 第 4 次
+  unlocks: ['铁丝衣架']
+  unlock_method: None
+
+ID 5 #5: 结局 5 (Ending 5)
+  boss: 妈妈的心脏
+  completion: 击败 妈妈的心脏 第 5 次
+  unlocks: ['一切都很糟糕（成就）']
+  unlock_method: None
+
+ID 6 #6: 结局 6 (Ending 6)
+  boss: 妈妈的心脏
+  completion: 击败 妈妈的心脏 第 6 次
+  unlocks: ['吐根酊', '全家福']
+  unlock_method: None
+
+ID 7 #7: 结局 7 (Ending 7)
+  boss: 妈妈的心脏
+  completion: 击败 妈妈的心脏 第 7 次
+  unlocks: ['实验性疗法', '底片']
+  unlock_method: None
+
+ID 8 #8: 结局 8 (Ending 8)
+  boss: 妈妈的心脏
+  completion: 击败 妈妈的心脏 第 8 次
+  unlocks: ['美分']
+  unlock_method: None
+
+ID 9 #9: 结局 9 (Ending 9)
+  boss: 妈妈的心脏
+  completion: 击败 妈妈的心脏 第 9 次
+  unlocks: ['胎儿博士']
+  unlock_method: None
+
+ID 10 #10: 结局 10 (Ending 10)
+  boss: 妈妈的心脏
+  completion: 击败 妈妈的心脏 第 10 次
+  unlocks: ['???（小蓝人角色）']
+  unlock_method: None
+
+ID 11 #11: 结局 11 (Ending 11)
+  boss: 妈妈的心脏
+  completion: 击败 妈妈的心脏 第 11 次
+  unlocks: ['它还活着（Boss 永久替换妈妈的心脏）']
+  unlock_method: None
+
+ID 12 #12: 结局 12 (Ending 12)
+  boss: 撒但
+  completion: 进入 阴间 并击败 撒但
+  unlocks: ['阴间路线永久解锁', '犹大（角色）']
+  unlock_method: 击败 妈妈的心脏 后选择进入 阴间
+
+ID 13 #13: 结局 13 (Ending 13)
+  boss: 以撒
+  completion: 进入 大教堂 并击败 以撒
+  unlocks: ['大教堂路线永久解锁', 'D6（道具，以撒初始携带）']
+  unlock_method: 击败 妈妈的心脏 后选择进入 大教堂
+
+ID 14 #14: 结局 14 (Ending 14)
+  boss: ???（小蓝人）
+  completion: 携带 全家福 进入 宝箱层 并击败 ???（小蓝人）
+  unlocks: ['游魂（角色线索）']
+  unlock_method: 击败 以撒 后携带 全家福 进入 宝箱层
+
+ID 15 #15: 结局 15 (Ending 15)
+  boss: 羔羊
+  completion: 携带 底片 进入 暗室 并击败 羔羊
+  unlocks: ['暗室路线永久解锁']
+  unlock_method: 击败 撒但 后携带 底片 进入 暗室
+
+ID 16 #16: 结局 16 (Ending 16)
+  boss: 超级撒但
+  completion: 在 宝箱层 或 暗室 击败 超级撒但
+  unlocks: ['亚玻伦（角色）']
+  unlock_method: 收集两片钥匙碎片，在 宝箱层/暗室 打开金色大门
+
+ID 17 #17: 结局 17 (Ending 17)
+  boss: 静寂
+  completion: 在 ??? 层（蓝色子宫）击败 静寂
+  unlocks: ['虚空层解锁', '堆肥']
+  unlock_method: 30 分钟内击败 妈妈的心脏，进入 蓝色子宫
+
+ID 18 #18: 结局 18 (Ending 18)
+  boss: 究极贪婪
+  completion: 贪婪模式中击败 究极贪婪
+  unlocks: ['店主（角色）']
+  unlock_method: 贪婪模式下通关所有层
+
+ID 19 #19: 结局 19 (Ending 19)
+  boss: 究极大贪婪
+  completion: 究极贪婪模式中击败 究极大贪婪
+  unlocks: ['究极贪婪模式永久解锁']
+  unlock_method: 究极贪婪模式下通关所有层
+
+ID 20 #20: 结局 20 (Ending 20)
+  boss: 精神错乱
+  completion: 在 虚空 层击败 精神错乱
+  unlocks: ['遗骸（角色线索）']
+  unlock_method: 击败 静寂 后进入 虚空，找到 精神错乱 房间
+
+ID 21 #21: 结局 21 (Ending 21)
+  boss: 母亲
+  completion: 在 尸骸层 II 击败 母亲
+  unlocks: ['雅各与以扫（角色）']
+  unlock_method: 在 陵墓 获取 刀 碎片，进入 尸骸层
+
+ID 22 #22: 结局 22 (Ending 22)
+  boss: 祸兽
+  completion: 在 家层击败 教条 和 祸兽
+  unlocks: ['伯大尼（角色）']
+  unlock_method: 使用 爸爸的便条 进入 上升路线
+
