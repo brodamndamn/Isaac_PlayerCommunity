@@ -74,18 +74,20 @@ export default function EndingDetailPage() {
                 <div className={styles.unlockRow}>
                   {ending.unlocks_enriched.map((u, i) => {
                     const itemId = u.item_id ?? u.character_id ?? undefined;
+                    const hasImage = !!u.image_url;
+                    const hasId = !!itemId;
                     return (
                       <span key={i} className={styles.unlockTag}>
-                        {u.image_url ? (
+                        {hasImage ? (
                           <img
                             src={`/images/${u.image_url}`}
                             alt={u.text}
                             className={styles.unlockIcon}
                             data-item-id={itemId}
                           />
-                        ) : (
+                        ) : hasId ? (
                           <span className={styles.unlockIconPlaceholder} data-item-id={itemId} />
-                        )}
+                        ) : null}
                         {u.text}
                       </span>
                     );

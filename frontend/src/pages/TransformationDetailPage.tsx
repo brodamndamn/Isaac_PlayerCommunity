@@ -29,9 +29,18 @@ export default function TransformationDetailPage() {
       <button onClick={() => navigate(-1)} className={styles.back}>&larr; 返回</button>
 
       <div className={styles.titleRow}>
-        <div className={styles.imagePlaceholder}>
-          <span>套装</span>
-        </div>
+        {item.first_item_id ? (
+          <img
+            src={`/images/items/${item.first_item_id}.png`}
+            alt={item.name_cn || item.name_en}
+            className={styles.thumb}
+            data-item-id={item.first_item_id}
+          />
+        ) : (
+          <div className={styles.imagePlaceholder}>
+            <span>套装</span>
+          </div>
+        )}
         <div>
           <h1 className={styles.name}>{item.name_cn || item.name_en}</h1>
           <p className={styles.nameEn}>{item.name_en}</p>

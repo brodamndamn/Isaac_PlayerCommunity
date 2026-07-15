@@ -23,6 +23,11 @@ def _enrich(t: Transformation, db: Session) -> dict:
         ))
     result = TransformationResponse.model_validate(t)
     result.required_items_enriched = enriched
+    # 第一个所需道具的 ID，方便前端详情页图片展示
+    if t.required_items:
+        first_item = db.query(Item).filter(Item.name_en == t.required_items[0]).first()
+        if first_item:
+            result.first_item_id = first_item.id
     return result.model_dump()
 
 

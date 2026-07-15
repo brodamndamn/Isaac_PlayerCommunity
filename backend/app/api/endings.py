@@ -55,20 +55,40 @@ def get_ending(ending_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="结局不存在")
 
     # Enrich unlocks with item/character IDs and image URLs
+    import re
+    # Manual aliases: unlock text → item name_cn
+    _ALIAS_ITEM = {'D6': '六面骰'}
     enriched = []
     for text in (ending.unlocks or []):
-        # Try to match against items by Chinese name
         # Strip parenthetical notes like "（角色）", "（道具）" for lookup
-        import re
         lookup = re.sub(r'[（(].+[）)]', '', text).strip()
-        item = db.query(Item).filter(Item.name_cn == lookup).first()
+        # Determine hint from parenthetical: "角色" → character, "道具" → item
+        hint = re.search(r'[（(](.+?)[）)]', text)
+        hint_text = hint.group(1) if hint else ""
+
+        # Apply alias if exists
+        item_name = _ALIAS_ITEM.get(lookup, lookup)
+        item = db.query(Item).filter(Item.name_cn == item_name).first()
         char = db.query(Character).filter(Character.name_cn == lookup).first()
+
+        # If hint says "角色" but no character match, try hint name (e.g. "小蓝人角色" → "小蓝人")
+        if not char and '角色' in hint_text:
+            hint_lookup = hint_text.replace('角色', '').strip()
+            if hint_lookup:
+                char = db.query(Character).filter(Character.name_cn == hint_lookup).first()
+
+        # If both match, prefer based on hint
+        if item and char:
+            if '角色' in hint_text:
+                item = None
+            elif '道具' in hint_text:
+                char = None
 
         enriched.append(EnrichedUnlock(
             text=text,
             item_id=item.id if item else None,
             character_id=char.id if char else None,
-            image_url=item.image_url if item else None,
+            image_url=(item.image_url if item else None) or (char.image_url if char else None),
         ))
 
     result = EndingResponse.model_validate(ending)

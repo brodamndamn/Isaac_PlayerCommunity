@@ -48,6 +48,14 @@
   flex-shrink: 0;
 }
 
+.thumb {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
 .name {
   font-size: 28px;
   margin: 0;
