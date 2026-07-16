@@ -1,4 +1,8 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { addFavorite, removeFavorite } from "../api/favorites";
+import { addLike, removeLike } from "../api/likes";
+import { useAuth } from "../hooks/useAuth";
 import type { Guide } from "../types/guide";
 import styles from "./GuideCard.module.css";
 
@@ -11,14 +15,57 @@ const CATEGORY_LABELS: Record<string, string> = {
 
 interface GuideCardProps {
   guide: Guide;
+  onUpdate?: (id: number, data: Partial<Guide>) => void;
 }
 
-export default function GuideCard({ guide }: GuideCardProps) {
+export default function GuideCard({ guide, onUpdate }: GuideCardProps) {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const [likeCount, setLikeCount] = useState(guide.like_count);
+  const [isLiked, setIsLiked] = useState(guide.is_liked);
+  const [favCount, setFavCount] = useState(guide.favorite_count);
+  const [isFavorited, setIsFavorited] = useState(guide.is_favorited);
   const date = new Date(guide.created_at).toLocaleDateString("zh-CN");
   const coverUrl = guide.cover_image || null;
 
+  const goDetail = () => navigate(`/guides/${guide.id}`);
+
+  const handleLike = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!user) return navigate("/login"); // will trigger modal
+    try {
+      if (isLiked) {
+        await removeLike(guide.id);
+        setLikeCount((c) => c - 1);
+        setIsLiked(false);
+      } else {
+        await addLike(guide.id);
+        setLikeCount((c) => c + 1);
+        setIsLiked(true);
+      }
+    } catch { /* ignore */ }
+  };
+
+  const handleFav = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!user) return;
+    try {
+      if (isFavorited) {
+        await removeFavorite(guide.id);
+        setFavCount((c) => c - 1);
+        setIsFavorited(false);
+      } else {
+        await addFavorite(guide.id);
+        setFavCount((c) => c + 1);
+        setIsFavorited(true);
+      }
+    } catch { /* ignore */ }
+  };
+
   return (
-    <Link to={`/guides/${guide.id}`} className={styles.card}>
+    <div className={styles.card} onClick={goDetail} style={{ cursor: "pointer" }}>
       {coverUrl && (
         <div className={styles.coverWrap}>
           <img src={coverUrl} alt="" className={styles.cover} />
@@ -29,7 +76,17 @@ export default function GuideCard({ guide }: GuideCardProps) {
         <span className={styles.date}>{date}</span>
       </div>
       <h3 className={styles.title}>{guide.title}</h3>
-      <p className={styles.author}>@{guide.author_name}</p>
-    </Link>
+      <div className={styles.bottomRow}>
+        <span className={styles.author}>@{guide.author_name}</span>
+        <div className={styles.actions}>
+          <button className={`${styles.actionBtn} ${isLiked ? styles.active : ""}`} onClick={handleLike}>
+            {isLiked ? "❤️" : "🤍"} {likeCount}
+          </button>
+          <button className={`${styles.actionBtn} ${isFavorited ? styles.active : ""}`} onClick={handleFav}>
+            {isFavorited ? "⭐" : "☆"} {favCount}
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }

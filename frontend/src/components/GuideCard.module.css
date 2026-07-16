@@ -85,3 +85,35 @@
   color: #8b7355;
   margin: 0;
 }
+
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+}
+
+.actionBtn {
+  padding: 2px 8px;
+  border: 1px solid #e0d5c5;
+  border-radius: 14px;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.actionBtn:hover {
+  background: #f5f0e8;
+}
+
+.actionBtn.active {
+  background: #f5f0e8;
+  border-color: #d4c5b2;
+}

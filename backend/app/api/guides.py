@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, Header, HTTPException, Query
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
@@ -9,6 +10,24 @@ from app.models.guide import Guide
 from app.models.like import Like
 from app.models.user import User
 from app.schemas.guide import GuideCreate, GuideListData, GuideResponse
+from jose import JWTError, jwt
+from app.core.config import settings
+
+router = APIRouter(prefix="/api/v1/guides", tags=["guides"])
+
+
+def _get_optional_user(authorization: str | None, db: Session) -> User | None:
+    """尝试从 token 获取当前用户，未登录返回 None。"""
+    if not authorization or not authorization.startswith("Bearer "):
+        return None
+    try:
+        payload = jwt.decode(authorization[7:], settings.JWT_SECRET, algorithms=[settings.JWT_ALGORITHM])
+        user_id = payload.get("sub")
+        if user_id is None:
+            return None
+        return db.query(User).filter(User.id == int(user_id)).first()
+    except JWTError:
+        return None
 
 router = APIRouter(prefix="/api/v1/guides", tags=["guides"])
 
@@ -27,6 +46,7 @@ def list_guides(
     search: str | None = Query(None, description="搜索关键词（标题/正文）"),
     category: str | None = Query(None, description="分类筛选"),
     author_id: int | None = Query(None, description="作者 ID 筛选"),
+    authorization: str | None = Header(None),
     db: Session = Depends(get_db),
 ):
     """攻略列表，支持分页、关键词搜索、分类筛选、作者筛选。按发布时间倒序。"""
@@ -59,11 +79,41 @@ def list_guides(
     )
     name_map = {uid: uname for uid, uname in users}
 
+    # 批量统计点赞数 / 收藏数
+    guide_ids = {g.id for g in guides}
+    like_counts: dict[int, int] = {}
+    fav_counts: dict[int, int] = {}
+    if guide_ids:
+        for gid, cnt in db.query(Like.guide_id, func.count()).filter(Like.guide_id.in_(guide_ids)).group_by(Like.guide_id).all():
+            like_counts[gid] = cnt
+        for gid, cnt in db.query(Favorite.guide_id, func.count()).filter(Favorite.guide_id.in_(guide_ids)).group_by(Favorite.guide_id).all():
+            fav_counts[gid] = cnt
+
+    # 当前用户的点赞/收藏状态（可选）
+    current_user = _get_optional_user(authorization=authorization, db=db)
+    liked_set: set[int] = set()
+    favorited_set: set[int] = set()
+    if current_user and guide_ids:
+        for (gid,) in db.query(Like.guide_id).filter(Like.user_id == current_user.id, Like.guide_id.in_(guide_ids)).all():
+            liked_set.add(gid)
+        for (gid,) in db.query(Favorite.guide_id).filter(Favorite.user_id == current_user.id, Favorite.guide_id.in_(guide_ids)).all():
+            favorited_set.add(gid)
+
+    items = []
+    for g in guides:
+        resp = GuideResponse.model_validate(g)
+        resp.author_name = name_map.get(g.author_id, "")
+        resp.like_count = like_counts.get(g.id, 0)
+        resp.favorite_count = fav_counts.get(g.id, 0)
+        resp.is_liked = g.id in liked_set
+        resp.is_favorited = g.id in favorited_set
+        items.append(resp.model_dump())
+
     return {
         "code": 200,
         "message": "ok",
         "data": {
-            "items": [_make_response(g, name_map.get(g.author_id, "")) for g in guides],
+            "items": items,
             "total": total,
             "page": page,
             "page_size": page_size,
@@ -72,19 +122,43 @@ def list_guides(
 
 
 @router.get("/{guide_id}")
-def get_guide(guide_id: int, db: Session = Depends(get_db)):
+def get_guide(
+    guide_id: int,
+    authorization: str | None = Header(None),
+    db: Session = Depends(get_db),
+):
     """攻略详情。"""
     guide = db.query(Guide).filter(Guide.id == guide_id).first()
     if not guide:
         raise HTTPException(status_code=404, detail="攻略不存在")
 
-    user = db.query(User.id, User.username).filter(User.id == guide.author_id).first()
-    author_name = user.username if user else ""
+    author = db.query(User.id, User.username).filter(User.id == guide.author_id).first()
+    author_name = author.username if author else ""
 
+    # 计数
+    like_count = db.query(func.count()).filter(Like.guide_id == guide_id).scalar() or 0
+    fav_count = db.query(func.count()).filter(Favorite.guide_id == guide_id).scalar() or 0
+    comment_count = db.query(func.count()).filter(Comment.guide_id == guide_id).scalar() or 0
+
+    # 当前用户状态
+    is_liked = False
+    is_favorited = False
+    current_user = _get_optional_user(authorization, db)
+    if current_user:
+        is_liked = db.query(Like).filter(Like.user_id == current_user.id, Like.guide_id == guide_id).first() is not None
+        is_favorited = db.query(Favorite).filter(Favorite.user_id == current_user.id, Favorite.guide_id == guide_id).first() is not None
+
+    resp = GuideResponse.model_validate(guide)
+    resp.author_name = author_name
+    resp.like_count = like_count
+    resp.favorite_count = fav_count
+    resp.comment_count = comment_count
+    resp.is_liked = is_liked
+    resp.is_favorited = is_favorited
     return {
         "code": 200,
         "message": "ok",
-        "data": _make_response(guide, author_name),
+        "data": resp.model_dump(),
     }
 
 

@@ -6,6 +6,11 @@ export interface Guide {
   author_name: string;
   category: string;
   cover_image: string | null;
+  like_count: number;
+  favorite_count: number;
+  comment_count: number;
+  is_liked: boolean;
+  is_favorited: boolean;
   related_item_id: number | null;
   related_character_id: number | null;
   related_ending_id: number | null;

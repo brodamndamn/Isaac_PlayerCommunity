@@ -30,6 +30,7 @@ class GuideResponse(BaseModel):
     related_ending_id: int | None
     like_count: int = 0
     favorite_count: int = 0
+    comment_count: int = 0
     is_liked: bool = False
     is_favorited: bool = False
     created_at: datetime
