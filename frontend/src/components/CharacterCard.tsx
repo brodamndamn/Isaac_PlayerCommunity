@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import type { Character } from "../types/character";
+import HealthHearts from "./HealthHearts";
 import styles from "./CharacterCard.module.css";
 
 interface CharacterCardProps {
@@ -30,16 +31,17 @@ export default function CharacterCard({ character }: CharacterCardProps) {
           </div>
           <div className={styles.nameRow}>
             <h3 className={styles.name}>{character.name_cn}</h3>
-            <span className={styles.health}>
-              <span className={styles.statIcon} data-heart="health" />
-              {character.health}
-            </span>
+            {character.health && (
+              <span className={styles.health}>
+                <HealthHearts health={character.health} size={14} />
+              </span>
+            )}
           </div>
           <div className={styles.nameEnRow}>
             <p className={styles.nameEn}>{character.name_en}</p>
             {character.damage != null && (
               <span className={styles.damage}>
-                <span className={styles.statIcon} data-stat="damage" />
+                <img src="/images/stat/damage.png" alt="伤害" className={styles.statIcon} />
                 {character.damage}
               </span>
             )}

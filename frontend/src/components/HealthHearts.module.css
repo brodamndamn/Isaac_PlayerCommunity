@@ -1,12 +1,33 @@
 .hearts {
-  font-size: inherit;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1px;
   line-height: 1;
   vertical-align: middle;
 }
 
+.group {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+}
+
 .plus {
-  margin: 0 4px;
+  margin: 0 3px;
   color: #888;
+  font-size: 11px;
+}
+
+.heartImg {
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.halfWrap {
+  display: inline-flex;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .half {

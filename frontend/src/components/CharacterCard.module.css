@@ -119,10 +119,9 @@
 .statIcon {
   width: 16px;
   height: 16px;
-  background: #f0f0f0;
-  border: 1px dashed #ccc;
-  border-radius: 3px;
+  object-fit: contain;
   flex-shrink: 0;
+  image-rendering: pixelated;
 }
 
 .desc {
