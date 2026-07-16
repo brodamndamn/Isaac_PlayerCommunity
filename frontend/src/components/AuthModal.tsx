@@ -2,16 +2,6 @@ import { useState, type FormEvent, type KeyboardEvent } from "react";
 import { login, register, type UserData } from "../api/auth";
 import styles from "./AuthModal.module.css";
 
-const SAVED_KEY = "saved_credentials";
-
-function loadSaved() {
-  try {
-    const raw = localStorage.getItem(SAVED_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch { /* ignore */ }
-  return null;
-}
-
 interface AuthModalProps {
   isOpen: boolean;
   initialTab?: "login" | "register";
@@ -20,16 +10,14 @@ interface AuthModalProps {
 }
 
 export default function AuthModal({ isOpen, initialTab = "login", onClose, onLogin }: AuthModalProps) {
-  const saved = loadSaved();
   const [tab, setTab] = useState<"login" | "register">(initialTab);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // 登录表单 —— 挂载时从 localStorage 恢复
-  const [loginField, setLoginField] = useState(saved?.login || "");
-  const [loginPassword, setLoginPassword] = useState(saved?.password || "");
+  // 登录表单
+  const [loginField, setLoginField] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
   const [showLoginPw, setShowLoginPw] = useState(false);
-  const [rememberMe, setRememberMe] = useState(!!saved);
 
   // 注册表单
   const [regUsername, setRegUsername] = useState("");
@@ -62,14 +50,8 @@ export default function AuthModal({ isOpen, initialTab = "login", onClose, onLog
     setError("");
     setLoading(true);
     try {
-      const res = await login({ login: loginField.trim(), password: loginPassword, remember_me: rememberMe });
+      const res = await login({ login: loginField.trim(), password: loginPassword });
       localStorage.setItem("access_token", res.data.token);
-      // 记住密码：保存账号密码到 localStorage；不勾选则清除
-      if (rememberMe) {
-        localStorage.setItem(SAVED_KEY, JSON.stringify({ login: loginField.trim(), password: loginPassword }));
-      } else {
-        localStorage.removeItem(SAVED_KEY);
-      }
       onLogin(res.data.user);
       onClose();
       reset();
@@ -179,14 +161,6 @@ export default function AuthModal({ isOpen, initialTab = "login", onClose, onLog
                   )}
               </button>
             </div>
-            <label className={styles.remember}>
-              <input
-                type="checkbox"
-                checked={rememberMe}
-                onChange={(e) => setRememberMe(e.target.checked)}
-              />
-              记住密码（7 天内自动登录）
-            </label>
             <button className={styles.submitBtn} type="submit" disabled={loading}>
               {loading ? "登录中..." : "登录"}
             </button>

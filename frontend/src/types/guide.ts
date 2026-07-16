@@ -5,6 +5,7 @@ export interface Guide {
   author_id: number;
   author_name: string;
   category: string;
+  cover_image: string | null;
   related_item_id: number | null;
   related_character_id: number | null;
   related_ending_id: number | null;

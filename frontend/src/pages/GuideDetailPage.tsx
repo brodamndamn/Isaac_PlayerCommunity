@@ -47,19 +47,40 @@ export default function GuideDetailPage() {
     }
   };
 
-  const canDelete = user && guide && (user.id === guide.author_id || user.role === "admin");
+  const isOwner = user && guide && user.id === guide.author_id;
+  const isAdmin = user?.role === "admin";
+  const canDelete = isOwner || isAdmin;
 
   if (loading) return <p className={styles.loading}>加载中...</p>;
   if (!guide) return <p className={styles.loading}>攻略不存在</p>;
 
   const date = new Date(guide.created_at).toLocaleString("zh-CN");
 
+  // 简易 Markdown → HTML
+  const renderContent = (md: string) => {
+    let html = md
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+    // 图片 ![](url)
+    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%;border-radius:6px;margin:8px 0" />');
+    // 粗体 **text**
+    html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    // 标题 ## text
+    html = html.replace(/^### (.+)$/gm, "<h4>$1</h4>");
+    html = html.replace(/^## (.+)$/gm, "<h3>$1</h3>");
+    html = html.replace(/^# (.+)$/gm, "<h2>$1</h2>");
+    // 换行
+    html = html.replace(/\n/g, "<br />");
+    return html;
+  };
+
   return (
     <div>
       <button onClick={() => navigate(-1)} className={styles.backBtn}>&larr; 返回</button>
 
       <div className={styles.header}>
-        <span className={styles.category}>{CATEGORY_LABELS[guide.category] || guide.category}</span>
+        <span className={`${styles.category} ${styles[guide.category] || ""}`}>{CATEGORY_LABELS[guide.category] || guide.category}</span>
         <h1 className={styles.title}>{guide.title}</h1>
         <p className={styles.meta}>
           @{guide.author_name} · {date}
@@ -67,7 +88,7 @@ export default function GuideDetailPage() {
         </p>
       </div>
 
-      <div className={styles.content}>{guide.content}</div>
+      <div className={styles.content} dangerouslySetInnerHTML={{ __html: renderContent(guide.content) }} />
 
       {canDelete && (
         <div className={styles.actions}>

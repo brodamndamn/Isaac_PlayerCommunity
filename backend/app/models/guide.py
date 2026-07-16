@@ -27,6 +27,9 @@ class Guide(Base):
     related_ending_id: Mapped[int | None] = mapped_column(
         Integer, ForeignKey("endings.id"), nullable=True, comment="关联结局"
     )
+    cover_image: Mapped[str | None] = mapped_column(
+        String(255), nullable=True, comment="封面图片路径"
+    )
     created_at: Mapped[datetime] = mapped_column(
         DateTime, nullable=False, server_default=func.now()
     )

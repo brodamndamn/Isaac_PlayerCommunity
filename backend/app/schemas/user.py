@@ -16,7 +16,6 @@ class UserLogin(BaseModel):
 
     login: str = Field(min_length=1, max_length=100, description="用户名或邮箱")
     password: str = Field(min_length=1, max_length=128, description="密码")
-    remember_me: bool = False
 
 
 class UserResponse(BaseModel):

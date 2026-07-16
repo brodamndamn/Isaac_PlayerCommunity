@@ -5,6 +5,8 @@ import GuideCard from "../components/GuideCard";
 import type { Guide } from "../types/guide";
 import styles from "./GuidesPage.module.css";
 
+const TOAST_DURATION = 3500;
+
 const CATEGORIES = ["", "general", "item", "character", "ending"];
 const CATEGORY_LABELS: Record<string, string> = {
   "": "全部",
@@ -27,6 +29,29 @@ export default function GuidesPage() {
 
   const [searchInput, setSearchInput] = useState(search);
   const [pageInput, setPageInput] = useState("");
+
+  // Toast 提示
+  const toast = searchParams.get("toast");
+  const [toastLeaving, setToastLeaving] = useState(false);
+
+  const removeToast = () => {
+    const params = new URLSearchParams(searchParams);
+    params.delete("toast");
+    setSearchParams(params, { replace: true });
+  };
+
+  const dismissToast = () => {
+    setToastLeaving(true);
+    setTimeout(removeToast, 250); // 等退出动画播完
+  };
+
+  useEffect(() => {
+    if (toast === "published") {
+      setToastLeaving(false);
+      const timer = setTimeout(dismissToast, TOAST_DURATION);
+      return () => clearTimeout(timer);
+    }
+  }, [toast]);
 
   const fetchGuides = useCallback(async () => {
     setLoading(true);
@@ -93,6 +118,13 @@ export default function GuidesPage() {
   return (
     <div>
       <a href="/" className={styles.homeBtn}>返回首页</a>
+      {toast === "published" && (
+        <div className={`${styles.toast} ${toastLeaving ? styles.toastOut : ""}`}>
+          <span>✅ 帖子已成功发布！</span>
+          <button className={styles.toastClose} onClick={dismissToast}>&times;</button>
+        </div>
+      )}
+
       <div className={styles.topRow}>
         <h1 className={styles.title}>玩家社区</h1>
         <Link to="/guides/new" className={styles.createBtn}>发布攻略</Link>

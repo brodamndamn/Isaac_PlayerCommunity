@@ -19,8 +19,25 @@ export default function CreateGuidePage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [uploadingImg, setUploadingImg] = useState(false);
+  const [coverImage, setCoverImage] = useState("");
+  const [uploadingCover, setUploadingCover] = useState(false);
+  const [preview, setPreview] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const renderMarkdown = (md: string) => {
+    let html = md
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%;border-radius:6px;margin:8px 0" />');
+    html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/^### (.+)$/gm, "<h4>$1</h4>");
+    html = html.replace(/^## (.+)$/gm, "<h3>$1</h3>");
+    html = html.replace(/^# (.+)$/gm, "<h2>$1</h2>");
+    html = html.replace(/\n/g, "<br />");
+    return html;
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -28,8 +45,8 @@ export default function CreateGuidePage() {
     setError("");
     setLoading(true);
     try {
-      const res = await createGuide({ title: title.trim(), content: content.trim(), category });
-      navigate(`/guides/${res.data!.id}`);
+      await createGuide({ title: title.trim(), content: content.trim(), category, cover_image: coverImage || undefined });
+      navigate("/guides?toast=published");
     } catch (err: any) {
       setError(err.response?.data?.message || "发布失败");
     } finally {
@@ -64,8 +81,21 @@ export default function CreateGuidePage() {
       setError(err.response?.data?.message || "图片上传失败");
     } finally {
       setUploadingImg(false);
-      // 清空 file input，允许重复上传同一文件
       if (fileInputRef.current) fileInputRef.current.value = "";
+    }
+  };
+
+  const handleCoverUpload = async (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploadingCover(true);
+    try {
+      const res = await uploadImage(file);
+      setCoverImage(res.data!.url);
+    } catch (err: any) {
+      setError(err.response?.data?.message || "封面上传失败");
+    } finally {
+      setUploadingCover(false);
     }
   };
 
@@ -86,6 +116,26 @@ export default function CreateGuidePage() {
           maxLength={200}
           autoFocus
         />
+
+        <div className={styles.coverRow}>
+          <input
+            type="file"
+            accept="image/png,image/jpeg,image/gif,image/webp"
+            onChange={handleCoverUpload}
+            style={{ display: "none" }}
+            id="coverInput"
+          />
+          <button type="button" className={styles.coverBtn} onClick={() => document.getElementById("coverInput")?.click()} disabled={uploadingCover}>
+            {uploadingCover ? "上传中..." : coverImage ? "🖼 更换封面" : "🖼 添加封面（可选）"}
+          </button>
+          {coverImage && (
+            <>
+              <img src={coverImage} alt="封面预览" className={styles.coverPreview} />
+              <button type="button" className={styles.coverRemove} onClick={() => setCoverImage("")}>✕</button>
+            </>
+          )}
+        </div>
+
         <div className={styles.categories}>
           {CATEGORIES.map((c) => (
             <label key={c.value} className={`${styles.radio} ${category === c.value ? styles.radioActive : ""}`}>
@@ -101,14 +151,18 @@ export default function CreateGuidePage() {
           ))}
         </div>
         <div className={styles.contentArea}>
-          <textarea
-            ref={textareaRef}
-            className={styles.textarea}
-            placeholder="正文内容（支持 Markdown）"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            rows={15}
-          />
+          {preview ? (
+            <div className={styles.preview} dangerouslySetInnerHTML={{ __html: renderMarkdown(content) || "<span style='color:#b0a090'>暂无内容</span>" }} />
+          ) : (
+            <textarea
+              ref={textareaRef}
+              className={styles.textarea}
+              placeholder="正文内容（支持 Markdown）"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              rows={15}
+            />
+          )}
           <div className={styles.contentToolbar}>
             <input
               ref={fileInputRef}
@@ -117,15 +171,24 @@ export default function CreateGuidePage() {
               onChange={handleImageUpload}
               style={{ display: "none" }}
             />
+            {!preview && (
+              <button
+                type="button"
+                className={styles.imgBtn}
+                onClick={() => fileInputRef.current?.click()}
+                disabled={uploadingImg}
+              >
+                {uploadingImg ? "上传中..." : "📷 插入图片"}
+              </button>
+            )}
             <button
               type="button"
-              className={styles.imgBtn}
-              onClick={() => fileInputRef.current?.click()}
-              disabled={uploadingImg}
+              className={styles.previewBtn}
+              onClick={() => setPreview((v) => !v)}
             >
-              {uploadingImg ? "上传中..." : "📷 插入图片"}
+              {preview ? "✏️ 编辑" : "👁 预览"}
             </button>
-            <span className={styles.imgHint}>支持 PNG/JPEG/GIF/WebP，最大 5MB</span>
+            {!preview && <span className={styles.imgHint}>编辑时图片不可见，请切换到预览查看</span>}
           </div>
         </div>
         <button className={styles.submitBtn} type="submit" disabled={loading}>

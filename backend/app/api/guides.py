@@ -3,7 +3,10 @@ from sqlalchemy.orm import Session
 
 from app.core.database import get_db
 from app.core.security import get_current_user
+from app.models.comment import Comment
+from app.models.favorite import Favorite
 from app.models.guide import Guide
+from app.models.like import Like
 from app.models.user import User
 from app.schemas.guide import GuideCreate, GuideListData, GuideResponse
 
@@ -23,11 +26,14 @@ def list_guides(
     page_size: int = Query(20, ge=1, le=100, alias="page_size"),
     search: str | None = Query(None, description="搜索关键词（标题/正文）"),
     category: str | None = Query(None, description="分类筛选"),
+    author_id: int | None = Query(None, description="作者 ID 筛选"),
     db: Session = Depends(get_db),
 ):
-    """攻略列表，支持分页、关键词搜索、分类筛选。按发布时间倒序。"""
+    """攻略列表，支持分页、关键词搜索、分类筛选、作者筛选。按发布时间倒序。"""
     query = db.query(Guide)
 
+    if author_id:
+        query = query.filter(Guide.author_id == author_id)
     if category:
         query = query.filter(Guide.category == category)
     if search:
@@ -94,6 +100,7 @@ def create_guide(
         content=body.content,
         author_id=current_user.id,
         category=body.category,
+        cover_image=body.cover_image,
         related_item_id=body.related_item_id,
         related_character_id=body.related_character_id,
         related_ending_id=body.related_ending_id,
@@ -115,13 +122,18 @@ def delete_guide(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    """删除攻略（需登录，仅作者或 admin 可删）。"""
+    """删除攻略（需登录，仅作者或 admin 可删）。同时删除关联的评论、收藏、点赞。"""
     guide = db.query(Guide).filter(Guide.id == guide_id).first()
     if not guide:
         raise HTTPException(status_code=404, detail="攻略不存在")
 
     if current_user.id != guide.author_id and current_user.role != "admin":
         raise HTTPException(status_code=403, detail="无权删除此攻略")
+
+    # 先删除关联数据（评论、收藏、点赞）
+    db.query(Comment).filter(Comment.guide_id == guide_id).delete()
+    db.query(Favorite).filter(Favorite.guide_id == guide_id).delete()
+    db.query(Like).filter(Like.guide_id == guide_id).delete()
 
     db.delete(guide)
     db.commit()

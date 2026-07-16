@@ -20,6 +20,7 @@ client.interceptors.response.use(
   (err) => {
     if (err.response?.status === 401) {
       localStorage.removeItem("access_token");
+      window.dispatchEvent(new Event("auth:logout"));
     }
     return Promise.reject(err);
   },

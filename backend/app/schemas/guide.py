@@ -9,6 +9,7 @@ class GuideCreate(BaseModel):
     title: str = Field(min_length=1, max_length=200, description="标题")
     content: str = Field(min_length=1, description="正文（Markdown）")
     category: str = Field(description="分类：item / character / ending / general")
+    cover_image: str | None = None
     related_item_id: int | None = None
     related_character_id: int | None = None
     related_ending_id: int | None = None
@@ -23,6 +24,7 @@ class GuideResponse(BaseModel):
     author_id: int
     author_name: str = ""
     category: str
+    cover_image: str | None = None
     related_item_id: int | None
     related_character_id: int | None
     related_ending_id: int | None

@@ -21,6 +21,7 @@ export async function createGuide(body: {
   title: string;
   content: string;
   category: string;
+  cover_image?: string;
   related_item_id?: number;
   related_character_id?: number;
   related_ending_id?: number;
