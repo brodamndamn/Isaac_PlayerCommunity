@@ -28,6 +28,10 @@ class GuideResponse(BaseModel):
     related_item_id: int | None
     related_character_id: int | None
     related_ending_id: int | None
+    like_count: int = 0
+    favorite_count: int = 0
+    is_liked: bool = False
+    is_favorited: bool = False
     created_at: datetime
     updated_at: datetime
 

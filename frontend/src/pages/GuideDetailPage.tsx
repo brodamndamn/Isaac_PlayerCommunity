@@ -79,6 +79,12 @@ export default function GuideDetailPage() {
     <div>
       <button onClick={() => navigate(-1)} className={styles.backBtn}>&larr; 返回</button>
 
+      {canDelete && (
+        <button onClick={handleDelete} disabled={deleting} className={styles.deleteBtn}>
+          {deleting ? "删除中..." : "删除攻略"}
+        </button>
+      )}
+
       <div className={styles.header}>
         <span className={`${styles.category} ${styles[guide.category] || ""}`}>{CATEGORY_LABELS[guide.category] || guide.category}</span>
         <h1 className={styles.title}>{guide.title}</h1>
@@ -89,14 +95,6 @@ export default function GuideDetailPage() {
       </div>
 
       <div className={styles.content} dangerouslySetInnerHTML={{ __html: renderContent(guide.content) }} />
-
-      {canDelete && (
-        <div className={styles.actions}>
-          <button onClick={handleDelete} disabled={deleting} className={styles.deleteBtn}>
-            {deleting ? "删除中..." : "删除攻略"}
-          </button>
-        </div>
-      )}
     </div>
   );
 }

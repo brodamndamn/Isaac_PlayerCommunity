@@ -1,4 +1,4 @@
-import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import { useMemo, useRef, useState, type ChangeEvent, type ClipboardEvent, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { createGuide } from "../api/guides";
 import { uploadImage } from "../api/upload";
@@ -85,6 +85,53 @@ export default function CreateGuidePage() {
     }
   };
 
+  // Ctrl+V 粘贴图片
+  const handlePaste = async (e: ClipboardEvent) => {
+    const items = e.clipboardData?.items;
+    if (!items) return;
+    for (const item of Array.from(items)) {
+      if (item.type.startsWith("image/")) {
+        e.preventDefault();
+        const file = item.getAsFile();
+        if (!file) continue;
+        setUploadingImg(true);
+        try {
+          const res = await uploadImage(file);
+          const url = res.data!.url;
+          const ta = textareaRef.current;
+          const imgMd = `![](${url})`;
+          if (ta) {
+            const start = ta.selectionStart;
+            const end = ta.selectionEnd;
+            setContent((prev) => prev.slice(0, start) + imgMd + prev.slice(end));
+            setTimeout(() => {
+              ta.focus();
+              ta.selectionStart = ta.selectionEnd = start + imgMd.length;
+            }, 0);
+          } else {
+            setContent((prev) => prev + imgMd + "\n");
+          }
+        } catch {
+          setError("图片粘贴失败");
+        } finally {
+          setUploadingImg(false);
+        }
+        break;
+      }
+    }
+  };
+
+  // 从正文中提取所有图片 URL
+  const contentImages = useMemo(() => {
+    const urls: string[] = [];
+    const re = /!\[[^\]]*\]\(([^)]+)\)/g;
+    let m;
+    while ((m = re.exec(content)) !== null) {
+      urls.push(m[1]);
+    }
+    return urls;
+  }, [content]);
+
   const handleCoverUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -157,11 +204,19 @@ export default function CreateGuidePage() {
             <textarea
               ref={textareaRef}
               className={styles.textarea}
-              placeholder="正文内容（支持 Markdown）"
+              placeholder="正文内容（支持 Markdown）。Ctrl+V 可直接粘贴图片"
               value={content}
               onChange={(e) => setContent(e.target.value)}
+              onPaste={handlePaste}
               rows={15}
             />
+          )}
+          {!preview && contentImages.length > 0 && (
+            <div className={styles.imgStrip}>
+              {contentImages.map((url, i) => (
+                <img key={i} src={url} alt="" className={styles.imgThumb} />
+              ))}
+            </div>
           )}
           <div className={styles.contentToolbar}>
             <input
