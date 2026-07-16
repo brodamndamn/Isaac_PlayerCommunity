@@ -38,15 +38,24 @@ export default function ItemsPage() {
   const fetchItems = useCallback(async () => {
     setLoading(true);
     try {
-      if (isTransformation) {
+      if (search) {
+        // 有搜索词：忽略分类，搜全部道具 + 同时加载套装做本地匹配
+        const [itemRes, transRes] = await Promise.all([
+          getItems({ page, page_size: 20, search }),
+          getTransformations(),
+        ]);
+        setItems(itemRes.data!.items);
+        setTotal(itemRes.data!.total);
+        setTransformations(transRes.data.items);
+      } else if (isTransformation) {
         const res = await getTransformations();
         setTransformations(res.data.items);
         setTotal(res.data.total);
+        setItems([]);
       } else {
         const res = await getItems({
           page,
           page_size: 20,
-          search: search || undefined,
           category: category || undefined,
         });
         setItems(res.data!.items);
@@ -103,12 +112,16 @@ export default function ItemsPage() {
     if (e.key === "Enter") doPageJump();
   };
 
-  // 套装搜索过滤
-  const filteredTransformations = transformations.filter((t) => {
-    if (!search) return true;
-    const s = search.toLowerCase();
-    return t.name_cn.includes(s) || t.name_en.toLowerCase().includes(s);
-  });
+  // 套装搜索过滤（仅搜索时过滤，非搜索时保留全部）
+  const filteredTransformations = search
+    ? transformations.filter((t) => {
+        const s = search.toLowerCase();
+        return t.name_cn.includes(s) || t.name_en.toLowerCase().includes(s);
+      })
+    : transformations;
+
+  // 是否显示道具列表：非套装 tab 或 有搜索词时
+  const showItems = !isTransformation || !!search;
 
   return (
     <div>
@@ -142,44 +155,66 @@ export default function ItemsPage() {
 
       {loading ? (
         <p className={styles.loading}>加载中...</p>
-      ) : isTransformation ? (
-        <>
-          <p className={styles.count}>共 {filteredTransformations.length} 个</p>
-          <div className={styles.grid}>
-            {filteredTransformations.map((t) => (
-              <TransformationCard key={t.id} transformation={t} />
-            ))}
-          </div>
-        </>
       ) : (
         <>
-          <p className={styles.count}>共 {total} 个</p>
-          <div className={styles.grid}>
-            {items.map((item) => (
-              <ItemCard key={item.id} item={item} />
-            ))}
-          </div>
-          {totalPages > 1 && (
-            <div className={styles.pagination}>
-              <button disabled={page <= 1} onClick={() => updateParam("page", String(page - 1))}>
-                上一页
-              </button>
-              <span>{page} / {totalPages}</span>
-              <input
-                type="number"
-                min={1}
-                max={totalPages}
-                placeholder="跳转"
-                value={pageInput}
-                onChange={(e) => setPageInput(e.target.value)}
-                onKeyDown={handlePageJumpKeyDown}
-                className={styles.pageJump}
-              />
-              <button onClick={doPageJump} className={styles.goBtn}>Go</button>
-              <button disabled={page >= totalPages} onClick={() => updateParam("page", String(page + 1))}>
-                下一页
-              </button>
-            </div>
+          {/* 有搜索词时，匹配的套装显示在最前面 */}
+          {!!search && filteredTransformations.length > 0 && (
+            <>
+              <p className={styles.count}>匹配 {filteredTransformations.length} 个套装</p>
+              <div className={styles.grid}>
+                {filteredTransformations.map((t) => (
+                  <TransformationCard key={t.id} transformation={t} />
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* 道具列表：非套装 tab 或 有搜索时显示 */}
+          {showItems && (
+            <>
+              <p className={styles.count}>
+                {!!search && filteredTransformations.length > 0 ? "共 " + total + " 个道具" : "共 " + total + " 个"}
+              </p>
+              <div className={styles.grid}>
+                {items.map((item) => (
+                  <ItemCard key={item.id} item={item} />
+                ))}
+              </div>
+              {totalPages > 1 && (
+                <div className={styles.pagination}>
+                  <button disabled={page <= 1} onClick={() => updateParam("page", String(page - 1))}>
+                    上一页
+                  </button>
+                  <span>{page} / {totalPages}</span>
+                  <input
+                    type="number"
+                    min={1}
+                    max={totalPages}
+                    placeholder="跳转"
+                    value={pageInput}
+                    onChange={(e) => setPageInput(e.target.value)}
+                    onKeyDown={handlePageJumpKeyDown}
+                    className={styles.pageJump}
+                  />
+                  <button onClick={doPageJump} className={styles.goBtn}>Go</button>
+                  <button disabled={page >= totalPages} onClick={() => updateParam("page", String(page + 1))}>
+                    下一页
+                  </button>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* 纯套装展示：套装 tab 且无搜索 */}
+          {isTransformation && !search && (
+            <>
+              <p className={styles.count}>共 {filteredTransformations.length} 个</p>
+              <div className={styles.grid}>
+                {filteredTransformations.map((t) => (
+                  <TransformationCard key={t.id} transformation={t} />
+                ))}
+              </div>
+            </>
           )}
         </>
       )}
