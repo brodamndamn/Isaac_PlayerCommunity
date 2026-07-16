@@ -54,7 +54,7 @@ def login(body: UserLogin, db: Session = Depends(get_db)):
     if not user or not verify_password(body.password, user.password_hash):
         raise HTTPException(status_code=401, detail="用户名或密码错误")
 
-    token = create_access_token(user.id, user.username)
+    token = create_access_token(user.id, user.username, expire_minutes=10080 if body.remember_me else None)  # 7天
     return {
         "code": 200,
         "message": "登录成功",

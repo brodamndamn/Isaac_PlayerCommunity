@@ -2,6 +2,16 @@ import { useState, type FormEvent, type KeyboardEvent } from "react";
 import { login, register, type UserData } from "../api/auth";
 import styles from "./AuthModal.module.css";
 
+const SAVED_KEY = "saved_credentials";
+
+function loadSaved() {
+  try {
+    const raw = localStorage.getItem(SAVED_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch { /* ignore */ }
+  return null;
+}
+
 interface AuthModalProps {
   isOpen: boolean;
   initialTab?: "login" | "register";
@@ -10,19 +20,24 @@ interface AuthModalProps {
 }
 
 export default function AuthModal({ isOpen, initialTab = "login", onClose, onLogin }: AuthModalProps) {
+  const saved = loadSaved();
   const [tab, setTab] = useState<"login" | "register">(initialTab);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // 登录表单
-  const [loginField, setLoginField] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  // 登录表单 —— 挂载时从 localStorage 恢复
+  const [loginField, setLoginField] = useState(saved?.login || "");
+  const [loginPassword, setLoginPassword] = useState(saved?.password || "");
+  const [showLoginPw, setShowLoginPw] = useState(false);
+  const [rememberMe, setRememberMe] = useState(!!saved);
 
   // 注册表单
   const [regUsername, setRegUsername] = useState("");
   const [regEmail, setRegEmail] = useState("");
   const [regPassword, setRegPassword] = useState("");
+  const [showRegPw, setShowRegPw] = useState(false);
   const [regConfirm, setRegConfirm] = useState("");
+  const [showConfirmPw, setShowConfirmPw] = useState(false);
 
   if (!isOpen) return null;
 
@@ -47,8 +62,14 @@ export default function AuthModal({ isOpen, initialTab = "login", onClose, onLog
     setError("");
     setLoading(true);
     try {
-      const res = await login({ login: loginField.trim(), password: loginPassword });
+      const res = await login({ login: loginField.trim(), password: loginPassword, remember_me: rememberMe });
       localStorage.setItem("access_token", res.data.token);
+      // 记住密码：保存账号密码到 localStorage；不勾选则清除
+      if (rememberMe) {
+        localStorage.setItem(SAVED_KEY, JSON.stringify({ login: loginField.trim(), password: loginPassword }));
+      } else {
+        localStorage.removeItem(SAVED_KEY);
+      }
       onLogin(res.data.user);
       onClose();
       reset();
@@ -91,16 +112,12 @@ export default function AuthModal({ isOpen, initialTab = "login", onClose, onLog
     }
   };
 
-  const handleOverlayClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) onClose();
-  };
-
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Escape") onClose();
   };
 
   return (
-    <div className={styles.overlay} onClick={handleOverlayClick} onKeyDown={handleKeyDown}>
+    <div className={styles.overlay} onKeyDown={handleKeyDown}>
       <div className={styles.modal}>
         <button className={styles.closeBtn} onClick={onClose} aria-label="关闭">
           &times;
@@ -133,13 +150,43 @@ export default function AuthModal({ isOpen, initialTab = "login", onClose, onLog
               onChange={(e) => setLoginField(e.target.value)}
               autoFocus
             />
-            <input
-              className={styles.input}
-              type="password"
-              placeholder="密码"
-              value={loginPassword}
-              onChange={(e) => setLoginPassword(e.target.value)}
-            />
+            <div className={styles.passwordWrap}>
+              <input
+                className={styles.input}
+                type={showLoginPw ? "text" : "password"}
+                placeholder="密码"
+                value={loginPassword}
+                onChange={(e) => setLoginPassword(e.target.value)}
+              />
+              <button
+                type="button"
+                className={styles.togglePw}
+                onClick={() => setShowLoginPw((v) => !v)}
+                tabIndex={-1}
+              >
+                {showLoginPw ? (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  ) : (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
+                      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
+                      <path d="M1 1l22 22" />
+                      <path d="M14.12 14.12a3 3 0 1 1-4.24-4.24" />
+                    </svg>
+                  )}
+              </button>
+            </div>
+            <label className={styles.remember}>
+              <input
+                type="checkbox"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+              />
+              记住密码（7 天内自动登录）
+            </label>
             <button className={styles.submitBtn} type="submit" disabled={loading}>
               {loading ? "登录中..." : "登录"}
             </button>
@@ -161,20 +208,64 @@ export default function AuthModal({ isOpen, initialTab = "login", onClose, onLog
               value={regEmail}
               onChange={(e) => setRegEmail(e.target.value)}
             />
-            <input
-              className={styles.input}
-              type="password"
-              placeholder="密码（至少 6 位）"
-              value={regPassword}
-              onChange={(e) => setRegPassword(e.target.value)}
-            />
-            <input
-              className={styles.input}
-              type="password"
-              placeholder="确认密码"
-              value={regConfirm}
-              onChange={(e) => setRegConfirm(e.target.value)}
-            />
+            <div className={styles.passwordWrap}>
+              <input
+                className={styles.input}
+                type={showRegPw ? "text" : "password"}
+                placeholder="密码（至少 6 位）"
+                value={regPassword}
+                onChange={(e) => setRegPassword(e.target.value)}
+              />
+              <button
+                type="button"
+                className={styles.togglePw}
+                onClick={() => setShowRegPw((v) => !v)}
+                tabIndex={-1}
+              >
+                {showRegPw ? (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  ) : (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
+                      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
+                      <path d="M1 1l22 22" />
+                      <path d="M14.12 14.12a3 3 0 1 1-4.24-4.24" />
+                    </svg>
+                  )}
+              </button>
+            </div>
+            <div className={styles.passwordWrap}>
+              <input
+                className={styles.input}
+                type={showConfirmPw ? "text" : "password"}
+                placeholder="确认密码"
+                value={regConfirm}
+                onChange={(e) => setRegConfirm(e.target.value)}
+              />
+              <button
+                type="button"
+                className={styles.togglePw}
+                onClick={() => setShowConfirmPw((v) => !v)}
+                tabIndex={-1}
+              >
+                {showConfirmPw ? (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  ) : (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
+                      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
+                      <path d="M1 1l22 22" />
+                      <path d="M14.12 14.12a3 3 0 1 1-4.24-4.24" />
+                    </svg>
+                  )}
+              </button>
+            </div>
             <button className={styles.submitBtn} type="submit" disabled={loading}>
               {loading ? "注册中..." : "注册"}
             </button>

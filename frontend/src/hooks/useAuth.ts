@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { getMe, type UserData } from "../api/auth";
 
 export function useAuth() {
@@ -6,6 +6,7 @@ export function useAuth() {
   const [authChecked, setAuthChecked] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalTab, setModalTab] = useState<"login" | "register">("login");
+  const modalKeyRef = useRef(0);
 
   // 页面加载时从 localStorage token 恢复登录状态
   useEffect(() => {
@@ -26,10 +27,12 @@ export function useAuth() {
 
   const logout = useCallback(() => {
     localStorage.removeItem("access_token");
+    localStorage.removeItem("saved_credentials");
     setUser(null);
   }, []);
 
   const openModal = useCallback((tab: "login" | "register") => {
+    modalKeyRef.current += 1;
     setModalTab(tab);
     setModalOpen(true);
   }, []);
@@ -38,5 +41,5 @@ export function useAuth() {
     setModalOpen(false);
   }, []);
 
-  return { user, authChecked, modalOpen, modalTab, login, logout, openModal, closeModal };
+  return { user, authChecked, modalOpen, modalTab, modalKey: modalKeyRef.current, login, logout, openModal, closeModal };
 }

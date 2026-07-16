@@ -27,6 +27,7 @@ export async function register(body: {
 export async function login(body: {
   login: string;
   password: string;
+  remember_me?: boolean;
 }): Promise<ApiResponse<LoginData>> {
   const { data } = await client.post("/auth/login", body);
   return data;

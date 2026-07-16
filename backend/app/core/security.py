@@ -38,9 +38,10 @@ def verify_password(password: str, password_hash: str) -> bool:
         return False
 
 
-def create_access_token(user_id: int, username: str) -> str:
-    """生成 JWT access token。"""
-    expire = datetime.now(timezone.utc) + timedelta(minutes=settings.JWT_EXPIRE_MINUTES)
+def create_access_token(user_id: int, username: str, expire_minutes: int | None = None) -> str:
+    """生成 JWT access token，可指定过期时间（分钟）。"""
+    minutes = expire_minutes if expire_minutes is not None else settings.JWT_EXPIRE_MINUTES
+    expire = datetime.now(timezone.utc) + timedelta(minutes=minutes)
     payload = {
         "sub": str(user_id),
         "username": username,

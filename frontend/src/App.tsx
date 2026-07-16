@@ -15,7 +15,7 @@ import MyFavoritesPage from "./pages/MyFavoritesPage";
 import TransformationDetailPage from "./pages/TransformationDetailPage";
 
 export default function App() {
-  const { user, authChecked, modalOpen, modalTab, login, logout, openModal, closeModal } = useAuth();
+  const { user, authChecked, modalOpen, modalTab, modalKey, login, logout, openModal, closeModal } = useAuth();
 
   return (
     <BrowserRouter>
@@ -130,6 +130,7 @@ export default function App() {
       </div>
 
       <AuthModal
+        key={modalKey}
         isOpen={modalOpen}
         initialTab={modalTab}
         onClose={closeModal}

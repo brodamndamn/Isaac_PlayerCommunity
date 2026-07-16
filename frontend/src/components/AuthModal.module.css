@@ -85,6 +85,54 @@
   border-color: #6b3a2a;
 }
 
+.passwordWrap {
+  position: relative;
+  display: flex;
+}
+
+.passwordWrap .input {
+  flex: 1;
+  padding-right: 36px;
+}
+
+/* 隐藏 Edge/Chrome 浏览器自带的密码显示按钮 */
+.passwordWrap .input::-ms-reveal,
+.passwordWrap .input::-ms-clear {
+  display: none;
+}
+
+.togglePw {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.togglePw:hover {
+  color: #555;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #8b7355;
+  cursor: pointer;
+}
+
+.remember input {
+  accent-color: #6b3a2a;
+}
+
 .submitBtn {
   margin-top: 4px;
   padding: 10px;
