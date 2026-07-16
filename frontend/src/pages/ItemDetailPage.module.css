@@ -216,15 +216,6 @@
   flex-shrink: 0;
 }
 
-.poolIconPlaceholder {
-  width: 20px;
-  height: 20px;
-  background: #f0f0f0;
-  border: 1px dashed #ccc;
-  border-radius: 3px;
-  flex-shrink: 0;
-}
-
 /* 属性变化表格 */
 .statTable {
   width: 100%;
@@ -257,15 +248,6 @@
   width: 20px;
   height: 20px;
   image-rendering: pixelated;
-  flex-shrink: 0;
-}
-
-.statIconPlaceholder {
-  width: 20px;
-  height: 20px;
-  background: #f0f0f0;
-  border: 1px dashed #ccc;
-  border-radius: 3px;
   flex-shrink: 0;
 }
 

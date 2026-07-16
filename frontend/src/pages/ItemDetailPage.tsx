@@ -13,10 +13,21 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 // 解析道具池文字中的图片占位符 [img:pool/xxx]
+// 无专用图标的 pool 不渲染图片
+const POOLS_WITHOUT_ICON = new Set([
+  "pool/card_drop", "pool/pill_pool", "pool/trinket_drop",
+  "pool/special", "pool/story",
+]);
+
 function parsePoolEntry(entry: string): { img?: string; label: string } {
   const match = entry.match(/^\[img:(.+?)\]\s*(.*)/);
   if (match) {
-    return { img: match[1], label: match[2] || match[1] };
+    const imgPath = match[1];
+    const label = match[2] || match[1];
+    if (POOLS_WITHOUT_ICON.has(imgPath)) {
+      return { label };
+    }
+    return { img: imgPath, label };
   }
   return { label: entry };
 }
@@ -102,14 +113,12 @@ export default function ItemDetailPage() {
                 <div className={styles.poolList}>
                   {poolEntries.map((entry, i) => (
                     <span key={i} className={styles.poolItem}>
-                      {entry.img ? (
+                      {entry.img && (
                         <img
                           src={`/images/${entry.img}.png`}
                           alt={entry.label}
                           className={styles.poolIcon}
                         />
-                      ) : (
-                        <span className={styles.poolIconPlaceholder} />
                       )}
                       {entry.label}
                     </span>
