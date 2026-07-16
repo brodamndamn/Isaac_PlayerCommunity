@@ -67,12 +67,6 @@
   font-weight: 600;
 }
 
-.nameRow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 .name {
   font-size: 17px;
   font-weight: 700;
@@ -85,40 +79,30 @@
   white-space: nowrap;
 }
 
-.nameEnRow {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 .nameEn {
   font-size: 12px;
   color: #999;
-  margin: 2px 0;
+  margin: 2px 0 6px;
 }
 
-.health {
-  display: inline-flex;
+.statsRow {
+  display: flex;
   align-items: center;
-  gap: 4px;
-  font-size: 13px;
-  color: #c0392b;
-  font-weight: 600;
-  flex-shrink: 0;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.damage {
+.stat {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 13px;
+  gap: 3px;
+  font-size: 12px;
   color: #666;
-  flex-shrink: 0;
 }
 
 .statIcon {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   object-fit: contain;
   flex-shrink: 0;
   image-rendering: pixelated;

@@ -31,18 +31,30 @@ export default function CharacterCard({ character }: CharacterCardProps) {
           </div>
           <div className={styles.nameRow}>
             <h3 className={styles.name}>{character.name_cn}</h3>
+          </div>
+          <p className={styles.nameEn}>{character.name_en}</p>
+          <div className={styles.statsRow}>
             {character.health && (
-              <span className={styles.health}>
+              <span className={styles.stat}>
                 <HealthHearts health={character.health} size={14} />
               </span>
             )}
-          </div>
-          <div className={styles.nameEnRow}>
-            <p className={styles.nameEn}>{character.name_en}</p>
             {character.damage != null && (
-              <span className={styles.damage}>
-                <img src="/images/stat/damage.png" alt="伤害" className={styles.statIcon} />
+              <span className={styles.stat}>
+                <img src="/images/stat/damage.png" alt="" className={styles.statIcon} />
                 {character.damage}
+              </span>
+            )}
+            {character.speed != null && (
+              <span className={styles.stat}>
+                <img src="/images/stat/speed.png" alt="" className={styles.statIcon} />
+                {character.speed}
+              </span>
+            )}
+            {character.tears != null && (
+              <span className={styles.stat}>
+                <img src="/images/stat/tears.png" alt="" className={styles.statIcon} />
+                {character.tears}
               </span>
             )}
           </div>

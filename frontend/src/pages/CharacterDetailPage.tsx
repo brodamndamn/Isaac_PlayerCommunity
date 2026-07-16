@@ -100,7 +100,7 @@ export default function CharacterDetailPage() {
         </tbody>
       </table>
 
-      {/* 初始属性表格 */}
+      {/* 初始属性 */}
       {(char.damage != null || char.speed != null || char.tears != null) && (
         <section className={styles.section}>
           <h3>初始属性</h3>
