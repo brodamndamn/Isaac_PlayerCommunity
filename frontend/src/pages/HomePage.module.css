@@ -139,6 +139,29 @@
   margin: 0;
 }
 
+/* ===== 社区入口卡片（全宽） ===== */
+.communityCard {
+  grid-column: 1 / -1;
+  flex-direction: column;
+  padding: 32px 20px 24px;
+}
+
+.communityImages {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.communityPlaceholder {
+  display: block;
+  width: 96px;
+  height: 96px;
+  background: #f0ebe0;
+  border: 2px dashed #d4c5b2;
+  border-radius: 4px;
+}
+
 /* ===== 底部 ===== */
 .bottom {
   text-align: center;

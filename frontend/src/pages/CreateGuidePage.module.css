@@ -1,0 +1,150 @@
+.backBtn {
+  position: absolute;
+  top: 8px;
+  left: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #5c4033;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+
+.title {
+  font-size: 24px;
+  margin: 0 0 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 640px;
+}
+
+.input {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #6b3a2a;
+}
+
+.categories {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.radio:hover {
+  background: #f0f0f0;
+}
+
+.radio input {
+  display: none;
+}
+
+.radioActive {
+  background: #1a1a2e;
+  color: #fff;
+  border-color: #1a1a2e;
+}
+
+.textarea {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+  line-height: 1.6;
+}
+
+.textarea:focus {
+  border-color: #6b3a2a;
+}
+
+.contentArea {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contentToolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.imgBtn {
+  padding: 5px 12px;
+  border: 1px solid #d4c5b2;
+  border-radius: 6px;
+  background: #fff;
+  color: #5c4033;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.imgBtn:hover {
+  background: #f5f0e8;
+}
+
+.imgBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.imgHint {
+  font-size: 12px;
+  color: #b0a090;
+}
+
+.submitBtn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #1a0a00;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.2s;
+}
+
+.submitBtn:hover {
+  background: #3a2210;
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 13px;
+  margin: 0 0 8px;
+}

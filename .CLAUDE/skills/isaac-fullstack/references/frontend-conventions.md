@@ -11,12 +11,16 @@ frontend/src/
 │   ├── endings.ts          # 结局相关 API 函数
 │   ├── auth.ts             # 登录注册 API 函数
 │   ├── guides.ts           # 攻略 CRUD API 函数
+│   ├── likes.ts              # 点赞 API 函数
+│   ├── comments.ts           # 评论 API 函数
 │   └── favorites.ts        # 收藏 API 函数
 ├── components/             # 可复用展示组件
 │   ├── Layout/             # 布局组件（Header、Footer、Sidebar）
 │   ├── ItemCard.tsx        # 道具卡片（列表展示用）
 │   ├── CharacterCard.tsx   # 角色卡片
 │   ├── GuideCard.tsx       # 攻略卡片
+│   ├── CommentList.tsx     # 评论列表 + 发表评论
+│   ├── AvatarUpload.tsx    # 头像上传组件
 │   └── ui/                 # 通用 UI 组件（Button、Modal、Pagination 等）
 ├── pages/                  # 页面级组件
 │   ├── HomePage.tsx        # 首页

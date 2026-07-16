@@ -41,23 +41,28 @@
 
 | # | 功能 | 状态 |
 |---|---|---|
-| 4.1 | 用户数据模型 + 数据库迁移 | ⬜ |
-| 4.2 | 注册 API（Argon2 哈希） | ⬜ |
-| 4.3 | 登录 API（返回 JWT） | ⬜ |
-| 4.4 | JWT 认证中间件 | ⬜ |
-| 4.5 | 注册页面 + 登录页面 | ⬜ |
-| 4.6 | 前端 token 存储 + 登录状态持久化 | ⬜ |
+| 4.1 | 用户数据模型 + 数据库迁移 | ✅ |
+| 4.2 | 注册 API（Argon2 哈希） | ✅ |
+| 4.3 | 登录 API（返回 JWT） | ✅ |
+| 4.4 | JWT 认证中间件 | ✅ |
+| 4.5 | 注册页面 + 登录页面 | ✅ |
+| 4.6 | 前端 token 存储 + 登录状态持久化 | ✅ |
 
 ### 阶段四：社区功能
 
 | # | 功能 | 状态 |
 |---|---|---|
-| 5.1 | 攻略数据模型 | ⬜ |
-| 5.2 | 创建攻略 API + 删除攻略 API（需登录） | ⬜ |
-| 5.3 | 攻略列表 API（分页 + 筛选） | ⬜ |
-| 5.4 | 收藏/取消收藏 API | ⬜ |
-| 5.5 | 攻略列表页 + 详情页 + 创建页 | ⬜ |
-| 5.6 | 我的收藏页面 | ⬜ |
+| 5.1 | 攻略数据模型 | ✅ |
+| 5.2 | 创建攻略 API + 删除攻略 API（需登录） | ✅ |
+| 5.3 | 攻略列表 API（分页 + 筛选） | ✅ |
+| 5.4 | 收藏/取消收藏 API | ✅ |
+| 5.5 | 攻略列表页 + 详情页 + 创建页 | ✅ |
+| 5.6 | 我的收藏页面 | ✅ |
+| 5.7 | 点赞数据模型 + 数据库迁移 | ✅ |
+| 5.8 | 点赞/取消点赞 API（需登录） | ✅ |
+| 5.9 | 评论数据模型 + 数据库迁移 | ✅ |
+| 5.10 | 发表/删除评论 API（需登录） | ✅ |
+| 5.11 | 头像上传 API（需登录） | ✅ |
 
 ### 阶段五：部署
 
@@ -411,6 +416,290 @@
   - `update_cn_cards_pills.py` 只更新 `name_cn` 和 `effect`，不动 `description`（description 保留英文）
   - 如果以后重新跑 `seed_data.py` 全量导入，cards_pills 部分需要走 `update_cn_cards_pills.py` 单独同步（因为 seed_data.py 的 `seed_items` 只读 items.json，不读 cards_pills.json）
 
+### 2026-07-16 — 用户数据模型 ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/models/user.py` — User 模型（7 字段，对齐 database-schema.md）
+  - `backend/app/models/__init__.py` — 注册 User
+  - `backend/alembic/versions/8f9ff1fbea7a_add_users_table.py` — alembic autogen 迁移
+- **验证**：`python -c "from app.models.user import User; from sqlalchemy import inspect; ..."` — 7 字段完整（id/username/email/password_hash/avatar/created_at/updated_at）
+- **注意事项**：
+  - users 表有 `updated_at`（其他表只有 `created_at`），使用 `onupdate=func.now()` 在 ORM 层自动更新
+  - username + email 双 UNIQUE 约束
+  - `password_hash` 存 Argon2 哈希，在 4.2 注册 API 中处理
+
+### 2026-07-16 — 注册 API（Argon2 哈希）✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/core/security.py` — 新增 `hash_password()` 和 `verify_password()`（Argon2id）
+  - `backend/app/schemas/user.py` — UserCreate（username/email/password）+ UserResponse
+  - `backend/app/api/auth.py` — `POST /api/v1/auth/register`
+  - `backend/app/main.py` — 注册 `auth.router`
+- **验证**：
+  - 正常注册 → 201 + 用户数据（不含 password_hash）
+  - 重复用户名 → 409 `"用户名已被注册"`
+  - 重复邮箱 → 409 `"邮箱已被注册"`
+  - 密码 <6 位 → 422 Pydantic 拦截
+  - 无效邮箱 → 422 Pydantic 拦截
+  - 数据库验证：`verify_password("abc123", hash)` → True，错误密码 → False
+  - Argon2id 参数：`m=65536,t=3,p=4`
+- **注意事项**：
+  - `EmailStr` 需要 `pydantic[email]` 依赖（已在 requirements.txt）
+  - 注册不返回 JWT——登录在 4.3 实现
+  - HTTPException 由 `main.py` 的 `exception_handler` 统一转为 `{code, message, data}` 格式
+
+### 2026-07-16 — 登录 API（返回 JWT）✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/schemas/user.py` — 新增 `UserLogin`（login + password 字段）
+  - `backend/app/api/auth.py` — 新增 `POST /api/v1/auth/login`（支持用户名或邮箱登录）
+- **验证**：
+  - 用户名登录 → 200 + JWT token + 用户数据
+  - 邮箱登录 → 200 + JWT token + 用户数据
+  - 错误密码 → 401 `"用户名或密码错误"`
+  - 不存在用户 → 401 `"用户名或密码错误"`
+  - JWT 解码验证 → sub=2, username=alice, exp 正确
+- **注意事项**：
+  - `login` 字段支持用户名或邮箱（`or_(User.username == x, User.email == x)`）
+  - 不存在的用户和错误密码返回相同 401 提示，防止用户枚举攻击
+  - JWT 有效期 30 分钟（`settings.JWT_EXPIRE_MINUTES`）
+
+### 2026-07-16 — JWT 认证中间件 ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/core/security.py` — 新增 `get_current_user()` 依赖注入（HTTPBearer + JWT 解析 + 数据库查用户）
+  - `backend/app/api/auth.py` — 新增 `GET /api/v1/auth/me`（验证中间件可用 + 前端获取当前用户）
+- **验证**：
+  - 有效 token 访问 `/api/v1/auth/me` → 200 + 用户数据
+  - 无 token → 401 `"请先登录"`
+  - 无效 token → 401 `"无效的认证令牌"`
+  - 过期 token → 401 `"无效的认证令牌"`
+- **注意事项**：
+  - `HTTPBearer(auto_error=False)` 避免 FastAPI 默认 403，统一返回 401
+  - 后续受保护端点只需在函数签名加 `current_user: User = Depends(get_current_user)` 即可
+  - `/auth/me` 同时作为中间件测试端点和前端"获取当前用户"的 API
+
+### 2026-07-16 — 注册页面 + 登录页面 ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `frontend/src/api/auth.ts` — auth API 封装（register / login / getMe）
+  - `frontend/src/components/AuthModal.tsx` + `.module.css` — 登录/注册弹窗组件（tab 切换）
+  - `frontend/src/App.tsx` — header 右侧 `登录 | 注册` 入口 + modal 状态管理 + 页面刷新自动恢复登录
+  - `frontend/src/api/client.ts` — 401 拦截器移除 `/login` 跳转（改为仅清除 token）
+- **验证**：
+  - `npx tsc --noEmit` 零错误
+  - 注册新用户 → 201 + 自动登录
+  - 登录 → 200 + JWT 存 localStorage
+  - `/auth/me` 带 token → 200
+  - 退出 → 清除 token → `/auth/me` 401
+  - 页面刷新 → useEffect 从 token 恢复用户状态
+- **注意事项**：
+  - 登录/注册使用 modal 弹窗形式，不是独立路由页面
+  - 注册成功后自动调用登录接口获取 token（一站式）
+  - header 的 `authChecked` 状态避免刷新时闪烁（token 校验完成前不显示按钮）
+  - 后续受保护操作（发帖/收藏）通过 `get_current_user` 依赖注入验证
+
+### 2026-07-16 — 前端 token 存储 + 登录状态持久化 ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `frontend/src/hooks/useAuth.ts` — 登录状态管理 hook（user/modal/token 恢复/logout）
+  - `frontend/src/App.tsx` — 重构为使用 `useAuth()` hook
+- **验证**：
+  - `npx tsc --noEmit` 零错误
+  - `npx vite build` 构建成功（3.00s）
+- **Hook 导出接口**：
+  - `user` / `authChecked` — 当前用户 + 是否已检查完毕（避免刷新闪烁）
+  - `modalOpen` / `modalTab` — 登录弹窗状态
+  - `login(u)` — 登录成功后设置用户状态
+  - `logout()` — 清除 token + 用户状态
+  - `openModal(tab)` / `closeModal()` — 控制弹窗
+- **注意事项**：
+  - `useAuth` 可在任何组件中使用，后续社区功能页面可直接 `const { user } = useAuth()` 获取当前用户
+  - 页面刷新 → `useEffect` 检测 localStorage token → 调 `GET /auth/me` 验证 → 有效则恢复，无效则清除
+
+### 2026-07-16 — 攻略数据模型 ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/models/guide.py` — Guide 模型（10 字段，4 个外键）
+  - `backend/app/models/__init__.py` — 注册 Guide
+  - `backend/alembic/versions/45f87b3b9dab_add_guides_table.py` — autogen 迁移
+- **验证**：`inspect(engine).get_columns('guides')` → 10 字段，4 FK 全部正确
+- **注意事项**：
+  - `updated_at` 使用 `onupdate=func.now()`（与 User 一致）
+  - 4 个外键：author_id→users, related_item_id→items, related_character_id→characters, related_ending_id→endings
+  - 攻略正文存 Markdown 格式
+
+### 2026-07-16 — 创建攻略 API + 删除攻略 API ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/schemas/guide.py` — GuideCreate + GuideResponse
+  - `backend/app/api/guides.py` — `POST /api/v1/guides` + `DELETE /api/v1/guides/{id}`
+  - `backend/app/main.py` — 注册 `guides.router`
+- **验证**：
+  - 登录用户创建 → 201 + 攻略数据
+  - 无 token 创建 → 401
+  - 非作者删除 → 403 `"无权删除此攻略"`
+  - 作者自己删除 → 200
+  - admin 删除他人攻略 → 200
+  - 不存在的攻略 → 404
+- **注意事项**：
+  - 删除权限：`current_user.id == guide.author_id or current_user.role == "admin"`
+  - category 支持 item / character / ending / general
+  - related_*_id 均为可选，不填表示不关联特定资源
+
+### 2026-07-16 — 攻略列表 API（分页 + 筛选）✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/schemas/guide.py` — GuideResponse 增加 `author_name` + GuideListData
+  - `backend/app/api/guides.py` — 新增 `GET /api/v1/guides` + `_make_response()` 辅助函数
+- **验证**：
+  - 默认列表 → 200 + 含 author_name
+  - 搜索 `azazel` → 1 条（标题/正文模糊匹配）
+  - 分类筛选 `category=character` → 1 条
+  - 分页 `page_size=2` → page1=2, page2=2
+- **注意事项**：
+  - 列表按 `created_at DESC` 排序（最新在前）
+  - 作者名通过 `IN (author_ids)` 批量查询，避免 N+1 问题
+  - 搜索同时匹配标题和正文
+
+### 2026-07-16 — 收藏/取消收藏 API ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/models/favorite.py` — Favorite 模型（UNIQUE(user_id, guide_id)）
+  - `backend/app/schemas/favorite.py` — FavoriteResponse + FavoriteListData
+  - `backend/app/api/favorites.py` — `GET/POST /api/v1/favorites` + `DELETE /api/v1/favorites/{guide_id}`
+  - `backend/app/main.py` — 注册 `favorites.router`
+  - `backend/alembic/versions/8ec1094b8f41_add_favorites_table.py` — autogen 迁移
+- **验证**：
+  - 收藏 → 201；重复收藏 → 409；取消 → 200；再次取消 → 404
+  - 我的收藏列表 → 仅返回当前用户的收藏，用户间隔离
+  - 无 token → 401
+- **注意事项**：
+  - 收藏列表只返回 Favorite 记录（含 guide_id），前端需额外查攻略详情
+  - UNIQUE 约束 `uq_user_guide_favorite` 防止重复收藏
+
+### 2026-07-16 — 攻略列表页 + 详情页 + 创建页 ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `frontend/src/types/guide.ts` — Guide 接口类型
+  - `frontend/src/api/guides.ts` — getGuides / getGuideById / createGuide / deleteGuide
+  - `frontend/src/components/GuideCard.tsx` + `.module.css` — 攻略卡片（分类标签+日期+作者）
+  - `frontend/src/pages/GuidesPage.tsx` + `.module.css` — 列表页（分页+搜索+分类筛选+"发布攻略"按钮）
+  - `frontend/src/pages/GuideDetailPage.tsx` + `.module.css` — 详情页（正文+作者名+删除按钮）
+  - `frontend/src/pages/CreateGuidePage.tsx` + `.module.css` — 创建页（表单+分类单选）
+  - `frontend/src/App.tsx` — 注册 3 条路由
+  - `backend/app/api/guides.py` — 新增 `GET /api/v1/guides/{id}` 详情端点
+- **验证**：
+  - `npx tsc --noEmit` 零错误
+  - `npx vite build` 2.81s 构建成功
+  - `GET /api/v1/guides/6` → 200 + author_name
+  - `GET /api/v1/guides/99999` → 404
+- **注意事项**：
+  - 详情页删除按钮仅在当前用户是作者或 admin 时显示（`canDelete` 判断）
+  - CreateGuidePage 使用 radio button 选择分类（general/item/character/ending）
+  - 首页社区卡片 + 导航栏"社区"链接已在之前完成，现在都指向 `/guides`
+  - 前端路由：`/guides`（列表）→ `/guides/new`（创建）→ `/guides/:id`（详情）
+
+### 2026-07-16 — 我的收藏页面 ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/schemas/favorite.py` — FavoriteResponse 增加 `guide_title` + `guide_author`
+  - `backend/app/api/favorites.py` — 列表端点加入 guides + users 表关联查询
+  - `frontend/src/types/favorite.ts` — Favorite 接口类型
+  - `frontend/src/api/favorites.ts` — getMyFavorites / addFavorite / removeFavorite
+  - `frontend/src/pages/MyFavoritesPage.tsx` + `.module.css` — 收藏列表 + 取消收藏按钮
+  - `frontend/src/App.tsx` — 注册 `/favorites` 路由 + header 已登录用户旁"我的收藏"链接
+- **验证**：
+  - `npx tsc --noEmit` 零错误
+  - `npx vite build` 3.76s 构建成功
+  - `GET /api/v1/favorites` → 200 + guide_title + guide_author
+- **注意事项**：
+  - 收藏列表后端用 3 次批量查询（favorites → guides → users），避免 N+1
+  - 导航栏"我的收藏"仅在已登录时显示
+  - 取消收藏即时从列表移除（乐观更新）
+
+### 2026-07-16 — 点赞数据模型 ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/models/like.py` — Like 模型（UNIQUE(user_id, guide_id)）
+  - `backend/app/models/__init__.py` — 注册 Like
+  - `backend/alembic/versions/c9a570ba2d76_add_likes_table.py` — autogen 迁移
+- **验证**：4 字段 + 2 FK（user_id→users, guide_id→guides）+ UNIQUE 约束
+- **注意事项**：
+  - 迁移链路：`8ec1094b8f41 → c9a570ba2d76`
+  - 结构与 favorites 表一致，可复用相同模式实现 API
+
+### 2026-07-16 — 点赞/取消点赞 API ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/schemas/like.py` — LikeResponse
+  - `backend/app/api/likes.py` — `POST /api/v1/likes` + `DELETE /api/v1/likes/{guide_id}`
+  - `backend/app/main.py` — 注册 `likes.router`
+- **验证**：
+  - 点赞 → 201 + like_count；取消 → 200 + like_count
+  - 重复点赞 → 409；重复取消 → 404
+  - 无 token → 401
+  - 两人点赞同一攻略 count=2，各自取消互不影响
+- **注意事项**：
+  - 端点返回 `like_count` 方便前端直接显示点赞数
+  - 与 favorites API 结构一致，只是表名和字段名不同
+
+### 2026-07-16 — 评论数据模型 ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/models/comment.py` — Comment 模型（5 字段，2 FK）
+  - `backend/alembic/versions/95066bf0ae3d_add_comments_table.py` — autogen 迁移
+- **验证**：5 字段 + 2 FK（guide_id→guides, user_id→users）
+- **注意事项**：
+  - 迁移链路：`c9a570ba2d76 → 95066bf0ae3d`
+  - 无 UNIQUE 约束（同一用户可多次评论同一攻略）
+
+### 2026-07-16 — 发表/删除评论 API ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/schemas/comment.py` — CommentCreate + CommentResponse（含 author_name）
+  - `backend/app/api/comments.py` — `GET/POST /api/v1/guides/{id}/comments` + `DELETE /api/v1/comments/{id}`
+  - `backend/app/main.py` — 注册 `comments.router`
+- **验证**：
+  - 发表评论 → 201 + author_name
+  - 评论列表（公开）→ 200 + 含作者名
+  - 非作者删除 → 403；admin 删除 → 200
+  - 无 token → 401
+- **注意事项**：
+  - 评论列表无需登录（公开可看）
+  - 删除权限：作者本人或 admin
+  - comments 路由无统一 prefix（两个端点前缀不同：/guides/{id}/comments 和 /comments/{id}）
+
+### 2026-07-16 — 头像上传 API ✅
+
+- **状态**：✅ 已完成
+- **涉及文件**：
+  - `backend/app/api/auth.py` — 新增 `POST /api/v1/auth/avatar`
+  - `backend/app/main.py` — 挂载 `/uploads` 静态文件目录
+- **验证**：
+  - 上传 PNG → 200 + `{"avatar": "avatars/2_xxx.png"}`
+  - `/uploads/avatars/2_xxx.png` → HTTP 200 可访问
+  - `/me` 响应含 `avatar` 字段
+- **注意事项**：
+  - 仅允许 PNG/JPEG/GIF/WebP，文件大小限制 2MB
+  - 文件名格式：`{user_id}_{uuid8}.{ext}`
+
 ---
 
 ## 项目架构与代码逻辑
@@ -506,7 +795,7 @@ ISAAC/
 | 顺序 | 模块 |
 |---|---|
 | 4.1~4.6 | 用户系统（注册登录 + JWT） |
-| 5.1~5.6 | 社区功能（攻略发帖 + 收藏） |
+| 5.1~5.11 | 社区功能（攻略发帖 + 收藏 + 点赞 + 评论 + 头像上传） |
 | 6.1~6.2 | 部署 |
 | 6.1~6.2 | 部署 |
 

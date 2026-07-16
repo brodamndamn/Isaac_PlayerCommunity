@@ -1,11 +1,13 @@
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy import text
 
-from app.api import characters, endings, items, transformations
+from app.api import auth, characters, comments, endings, favorites, guides, items, likes, transformations, upload
 from app.core.config import settings
 from app.core.database import SessionLocal
 
@@ -59,10 +61,21 @@ async def general_exception_handler(request: Request, exc: Exception):
     )
 
 
+app.include_router(auth.router)
 app.include_router(characters.router)
+app.include_router(comments.router)
 app.include_router(endings.router)
+app.include_router(favorites.router)
+app.include_router(guides.router)
 app.include_router(items.router)
+app.include_router(likes.router)
 app.include_router(transformations.router)
+app.include_router(upload.router)
+
+# 静态文件——头像上传后可通过 /uploads/avatars/xxx.png 访问
+uploads_dir = Path(__file__).resolve().parent.parent / "uploads"
+uploads_dir.mkdir(exist_ok=True)
+app.mount("/uploads", StaticFiles(directory=str(uploads_dir)), name="uploads")
 
 
 @app.get("/api/v1/health")

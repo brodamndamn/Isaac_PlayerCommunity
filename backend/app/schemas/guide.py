@@ -1,0 +1,39 @@
+from datetime import datetime
+
+from pydantic import BaseModel, Field
+
+
+class GuideCreate(BaseModel):
+    """创建攻略请求体"""
+
+    title: str = Field(min_length=1, max_length=200, description="标题")
+    content: str = Field(min_length=1, description="正文（Markdown）")
+    category: str = Field(description="分类：item / character / ending / general")
+    related_item_id: int | None = None
+    related_character_id: int | None = None
+    related_ending_id: int | None = None
+
+
+class GuideResponse(BaseModel):
+    """攻略响应"""
+
+    id: int
+    title: str
+    content: str
+    author_id: int
+    author_name: str = ""
+    category: str
+    related_item_id: int | None
+    related_character_id: int | None
+    related_ending_id: int | None
+    created_at: datetime
+    updated_at: datetime
+
+    model_config = {"from_attributes": True}
+
+
+class GuideListData(BaseModel):
+    items: list[GuideResponse]
+    total: int
+    page: int
+    page_size: int

@@ -23,6 +23,12 @@
 | 收藏攻略 | `/api/v1/favorites` | POST（需登录） |
 | 取消收藏 | `/api/v1/favorites/{guide_id}` | DELETE（需登录） |
 | 我的收藏 | `/api/v1/favorites` | GET（需登录） |
+| 点赞攻略 | `/api/v1/likes` | POST（需登录） |
+| 取消点赞 | `/api/v1/likes/{guide_id}` | DELETE（需登录） |
+| 攻略评论列表 | `/api/v1/guides/{id}/comments` | GET |
+| 发表评论 | `/api/v1/guides/{id}/comments` | POST（需登录） |
+| 删除评论 | `/api/v1/comments/{id}` | DELETE（仅作者/admin） |
+| 上传头像 | `/api/v1/auth/avatar` | POST（需登录） |
 
 命名要点：
 - 资源名用复数名词
@@ -143,7 +149,9 @@ backend/app/api/
 ├── endings.py        # /api/v1/endings/*
 ├── auth.py           # /api/v1/auth/*
 ├── guides.py         # /api/v1/guides/*
-└── favorites.py      # /api/v1/favorites/*
+├── favorites.py      # /api/v1/favorites/*
+├── likes.py          # /api/v1/likes/*
+└── comments.py       # /api/v1/comments/*
 ```
 
 每个文件内使用 FastAPI 的 `APIRouter(prefix="/api/v1/xxx", tags=["xxx"])` 定义子路由，然后在 `main.py` 中 `app.include_router()` 汇总。

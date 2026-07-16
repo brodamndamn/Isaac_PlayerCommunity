@@ -2,3 +2,8 @@ from app.models.character import Character  # noqa: F401
 from app.models.ending import Ending  # noqa: F401
 from app.models.item import Item  # noqa: F401
 from app.models.transformation import Transformation  # noqa: F401
+from app.models.comment import Comment  # noqa: F401
+from app.models.favorite import Favorite  # noqa: F401
+from app.models.guide import Guide  # noqa: F401
+from app.models.like import Like  # noqa: F401
+from app.models.user import User  # noqa: F401
