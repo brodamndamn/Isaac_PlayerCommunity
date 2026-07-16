@@ -73,6 +73,28 @@
 - `public/images/pool/` — pool 图标（treasure_room, devil_room 等）
 - `public/images/stat/` — stat 图标（damage, tears, speed, luck, range, shot_speed, health）
 
+### 2026-07-16 — 道具池数据修正 ✅
+- 数据库 104 条道具的 pool 显示名从英文统一为中文
+- `baby_shop`: "Baby Shop" → "宝宝商店"
+- `battery_bum`: "Battery Bum" → "电池乞丐"
+- `rotten_beggar`: "Rotten Beggar" → "腐烂乞丐"
+- `wooden_chest`: "Wooden Chest" → "木宝箱"
+- `boss_room` 合并到 `boss`（消除重复 key）
+- **涉及文件**：`backend/seed_data/fix_pool_names.py`
+
+### 2026-07-16 — 道具池图片下载 ✅
+- 从 Fandom Wiki 下载 26 个 pool 图标到 `frontend/public/images/pool/`
+- 5 个无专用图标的 pool（card_drop、pill_pool、trinket_drop、special、story）跳过
+- **涉及文件**：`backend/seed_data/fetch_pool_images.py`
+
+### 2026-07-16 — 道具池占位符修复 ✅
+- 无图标的 pool 不再显示 broken image 图标，只显示纯文字
+- 代码中维护 `POOLS_WITHOUT_ICON` 集合，排除 card_drop/pill_pool/trinket_drop/special/story
+- 删除 CSS 中无用的 `poolIconPlaceholder` 和 `statIconPlaceholder` 类
+- **涉及文件**：
+  - `frontend/src/pages/ItemDetailPage.tsx` — `parsePoolEntry` 函数加 `POOLS_WITHOUT_ICON` 过滤
+  - `frontend/src/pages/ItemDetailPage.module.css` — 删除两个无用 placeholder 样式
+
 ---
 
 ## 二、进行中
@@ -93,8 +115,10 @@
 - 角色属性图标 ✅（已有 `stat/` 目录）
 
 ### 道具池图片
-- pool 图标 ✅（已有 `pool/` 目录）
+- pool 图标 ✅（26/31 已下载，5 个无专用图标跳过）
 - stat 图标 ✅（已有 `stat/` 目录）
+- pool 数据修正 ✅（英文→中文，boss_room→boss 合并）
+- pool 占位符修复 ✅（无图 pool 不显示 broken image）
 
 ---
 
@@ -121,6 +145,7 @@
 | `frontend/src/components/HeartTypes.tsx` | 生命类型卡片（7 种心形图片） |
 | `frontend/src/components/CharacterCard.tsx` | 角色卡片（图片立绘 + 属性行） |
 | `frontend/src/pages/CharacterDetailPage.tsx` | 角色详情页（HealthHearts + 表格属性） |
+| `frontend/src/pages/ItemDetailPage.tsx` | 道具详情页（pool 图标渲染 + POOLS_WITHOUT_ICON 过滤） |
 | `frontend/src/pages/HomePage.tsx` | 首页（3 张卡片图片） |
 
 ### 图片目录
@@ -137,6 +162,8 @@
 | 文件 | 用途 |
 |---|---|
 | `backend/seed_data/fetch_coin_image.py` | 下载硬币 sprite |
+| `backend/seed_data/fetch_pool_images.py` | 下载 26 个道具池图标 |
+| `backend/seed_data/fix_pool_names.py` | 修正 pool 英文→中文 + 合并 boss_room |
 
 ---
 
