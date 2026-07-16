@@ -3,8 +3,11 @@ from sqlalchemy.orm import Session
 
 from app.core.database import get_db
 from app.core.security import get_current_user
+from sqlalchemy import func
+
 from app.models.favorite import Favorite
 from app.models.guide import Guide
+from app.models.like import Like
 from app.models.user import User
 from app.schemas.favorite import FavoriteResponse
 
@@ -29,25 +32,42 @@ def list_favorites(
         .all()
     )
 
-    # 批量查询攻略标题和作者名
+    # 批量查询攻略信息
     guide_ids = {f.guide_id for f in favs}
     guides_map = {}
     for g in db.query(Guide.id, Guide.title, Guide.author_id, Guide.category, Guide.cover_image).filter(Guide.id.in_(guide_ids)).all():
         guides_map[g.id] = (g.title, g.author_id, g.category, g.cover_image)
-    author_ids = {aid for _, aid in guides_map.values()}
+    author_ids = {info[1] for info in guides_map.values()}
     users_map = {
-        u.id: u.username
-        for u in db.query(User.id, User.username).filter(User.id.in_(author_ids)).all()
+        u.id: (u.username, u.avatar)
+        for u in db.query(User.id, User.username, User.avatar).filter(User.id.in_(author_ids)).all()
     }
+
+    # 点赞数 / 收藏数 / 当前用户点赞状态
+    like_counts: dict[int, int] = {}
+    fav_counts: dict[int, int] = {}
+    liked_set: set[int] = set()
+    if guide_ids:
+        for gid, cnt in db.query(Like.guide_id, func.count()).filter(Like.guide_id.in_(guide_ids)).group_by(Like.guide_id).all():
+            like_counts[gid] = cnt
+        for gid, cnt in db.query(Favorite.guide_id, func.count()).filter(Favorite.guide_id.in_(guide_ids)).group_by(Favorite.guide_id).all():
+            fav_counts[gid] = cnt
+        for (gid,) in db.query(Like.guide_id).filter(Like.user_id == current_user.id, Like.guide_id.in_(guide_ids)).all():
+            liked_set.add(gid)
 
     items = []
     for f in favs:
         resp = FavoriteResponse.model_validate(f)
         info = guides_map.get(f.guide_id, ("", 0, "", None))
+        uname, av = users_map.get(info[1], ("", None))
         resp.guide_title = info[0]
-        resp.guide_author = users_map.get(info[1], "")
+        resp.guide_author = uname
+        resp.guide_author_avatar = av
         resp.guide_category = info[2]
         resp.guide_cover = info[3]
+        resp.guide_like_count = like_counts.get(f.guide_id, 0)
+        resp.guide_fav_count = fav_counts.get(f.guide_id, 0)
+        resp.guide_is_liked = f.guide_id in liked_set
         items.append(resp.model_dump())
 
     return {

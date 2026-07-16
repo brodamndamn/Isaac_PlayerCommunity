@@ -204,7 +204,7 @@ export default function CreateGuidePage() {
             <textarea
               ref={textareaRef}
               className={styles.textarea}
-              placeholder="正文内容（支持 Markdown）。Ctrl+V 可直接粘贴图片"
+              placeholder="正文内容。Ctrl+V 可直接粘贴图片"
               value={content}
               onChange={(e) => setContent(e.target.value)}
               onPaste={handlePaste}
