@@ -7,6 +7,7 @@ export async function getGuides(params: {
   page_size?: number;
   category?: string;
   search?: string;
+  author_id?: number;
 }): Promise<ApiResponse<PaginatedData<Guide>>> {
   const { data } = await client.get("/guides", { params });
   return data;

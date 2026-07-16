@@ -21,7 +21,7 @@ interface GuideCardProps {
 
 export default function GuideCard({ guide, onUpdate }: GuideCardProps) {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, openModal } = useAuth();
   const [likeCount, setLikeCount] = useState(guide.like_count);
   const [isLiked, setIsLiked] = useState(guide.is_liked);
   const [favCount, setFavCount] = useState(guide.favorite_count);
@@ -34,7 +34,7 @@ export default function GuideCard({ guide, onUpdate }: GuideCardProps) {
   const handleLike = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (!user) return navigate("/login"); // will trigger modal
+    if (!user) { openModal("login"); return; }
     try {
       if (isLiked) {
         await removeLike(guide.id);
@@ -51,7 +51,7 @@ export default function GuideCard({ guide, onUpdate }: GuideCardProps) {
   const handleFav = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (!user) return;
+    if (!user) { openModal("login"); return; }
     try {
       if (isFavorited) {
         await removeFavorite(guide.id);

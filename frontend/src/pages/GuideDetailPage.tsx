@@ -21,7 +21,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 export default function GuideDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, openModal } = useAuth();
   const [guide, setGuide] = useState<Guide | null>(null);
   const [loading, setLoading] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -74,7 +74,7 @@ export default function GuideDetailPage() {
   };
 
   const handleLike = async () => {
-    if (!user) return;
+    if (!user) { openModal("login"); return; }
     try {
       if (isLiked) {
         await removeLike(Number(id));
@@ -89,7 +89,7 @@ export default function GuideDetailPage() {
   };
 
   const handleFav = async () => {
-    if (!user) return;
+    if (!user) { openModal("login"); return; }
     try {
       if (isFavorited) {
         await removeFavorite(Number(id));

@@ -247,6 +247,9 @@
 }
 
 .commentAuthor {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 12px;
   font-weight: 600;
   color: #6b3a2a;

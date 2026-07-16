@@ -1,6 +1,8 @@
-import { useRef, useState, type ChangeEvent, type WheelEvent, useCallback } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type WheelEvent, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import client from "../api/client";
+import { getMyFavorites } from "../api/favorites";
+import { getGuides } from "../api/guides";
 import { useAuth } from "../hooks/useAuth";
 import type { ApiResponse } from "../types/api";
 import styles from "./ProfilePage.module.css";
@@ -12,7 +14,15 @@ export default function ProfilePage() {
   const { user, login, logout } = useAuth();
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
+  const [postCount, setPostCount] = useState(0);
+  const [favCount, setFavCount] = useState(0);
   const fileRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (!user) return;
+    getGuides({ author_id: user.id, page_size: 1 }).then(r => setPostCount(r.data?.total || 0)).catch(() => {});
+    getMyFavorites({ page_size: 1 }).then(r => setFavCount(r.data?.total || 0)).catch(() => {});
+  }, [user]);
 
   // 裁剪状态
   const [cropSrc, setCropSrc] = useState<string | null>(null);
@@ -226,10 +236,14 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        <div className={styles.links}>
-          <Link to={`/guides?author_id=${user.id}`} className={styles.linkBtn}>我的帖子</Link>
-          <Link to="/favorites" className={styles.linkBtn}>收藏的帖子</Link>
-        </div>
+        <Link to={`/guides?author_id=${user.id}`} className={styles.row}>
+          <span className={styles.label}>我的帖子</span>
+          <span className={styles.value}>{postCount}</span>
+        </Link>
+        <Link to="/favorites" className={styles.row}>
+          <span className={styles.label}>收藏的帖子</span>
+          <span className={styles.value}>{favCount}</span>
+        </Link>
 
         <button
           className={styles.logoutBtn}
