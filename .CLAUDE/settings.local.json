@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(alembic revision *)",
-      "Bash(alembic upgrade *)"
+      "Bash(alembic upgrade *)",
+      "Bash(npx vite *)"
     ]
   }
 }

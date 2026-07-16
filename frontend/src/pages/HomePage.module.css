@@ -115,9 +115,12 @@
   letter-spacing: 1px;
 }
 
-.cardIcon {
-  font-size: 40px;
+.cardImage {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
   margin-bottom: 10px;
+  image-rendering: pixelated;
 }
 
 .cardTitle {
