@@ -194,9 +194,6 @@ export default function ItemDetailPage() {
               <p className={styles.effectEn}>{item.description}</p>
             )}
           </div>
-          <div className={styles.effectImagePlaceholder}>
-            <span>效果图</span>
-          </div>
         </div>
       </section>
 

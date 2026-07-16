@@ -160,20 +160,6 @@
   border-top: 1px dashed #e0e0e0;
 }
 
-.effectImagePlaceholder {
-  width: 120px;
-  height: 90px;
-  background: #f0f0f0;
-  border: 2px dashed #ccc;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #bbb;
-  font-size: 13px;
-  flex-shrink: 0;
-}
-
 /* 适合角色 */
 .charRow {
   display: flex;
