@@ -73,11 +73,12 @@ def list_guides(
     # 批量查询作者名，避免 N+1
     author_ids = {g.author_id for g in guides}
     users = (
-        db.query(User.id, User.username)
+        db.query(User.id, User.username, User.avatar)
         .filter(User.id.in_(author_ids))
         .all()
     )
-    name_map = {uid: uname for uid, uname in users}
+    name_map = {uid: uname for uid, uname, _ in users}
+    avatar_map = {uid: av for uid, _, av in users}
 
     # 批量统计点赞数 / 收藏数
     guide_ids = {g.id for g in guides}
@@ -103,6 +104,7 @@ def list_guides(
     for g in guides:
         resp = GuideResponse.model_validate(g)
         resp.author_name = name_map.get(g.author_id, "")
+        resp.author_avatar = avatar_map.get(g.author_id)
         resp.like_count = like_counts.get(g.id, 0)
         resp.favorite_count = fav_counts.get(g.id, 0)
         resp.is_liked = g.id in liked_set
@@ -132,8 +134,9 @@ def get_guide(
     if not guide:
         raise HTTPException(status_code=404, detail="攻略不存在")
 
-    author = db.query(User.id, User.username).filter(User.id == guide.author_id).first()
+    author = db.query(User.id, User.username, User.avatar).filter(User.id == guide.author_id).first()
     author_name = author.username if author else ""
+    author_avatar = author.avatar if author else None
 
     # 计数
     like_count = db.query(func.count()).filter(Like.guide_id == guide_id).scalar() or 0
@@ -150,6 +153,7 @@ def get_guide(
 
     resp = GuideResponse.model_validate(guide)
     resp.author_name = author_name
+    resp.author_avatar = author_avatar
     resp.like_count = like_count
     resp.favorite_count = fav_count
     resp.comment_count = comment_count

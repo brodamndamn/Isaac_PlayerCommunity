@@ -53,8 +53,8 @@ def list_comments(
     # 批量查询作者名
     author_ids = {c.user_id for c in comments}
     users_map = {
-        u.id: u.username
-        for u in db.query(User.id, User.username).filter(User.id.in_(author_ids)).all()
+        u.id: (u.username, u.avatar)
+        for u in db.query(User.id, User.username, User.avatar).filter(User.id.in_(author_ids)).all()
     }
 
     # 批量统计点赞数
@@ -78,7 +78,9 @@ def list_comments(
     items = []
     for c in comments:
         resp = CommentResponse.model_validate(c)
-        resp.author_name = users_map.get(c.user_id, "")
+        name, av = users_map.get(c.user_id, ("", None))
+        resp.author_name = name
+        resp.author_avatar = av
         resp.like_count = like_map.get(c.id, 0)
         resp.is_liked = c.id in liked_set
         items.append(resp.model_dump())

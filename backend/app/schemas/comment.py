@@ -16,6 +16,7 @@ class CommentResponse(BaseModel):
     guide_id: int
     user_id: int
     author_name: str = ""
+    author_avatar: str | None = None
     content: str
     like_count: int = 0
     is_liked: bool = False

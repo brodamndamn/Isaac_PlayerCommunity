@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { addFavorite, removeFavorite } from "../api/favorites";
 import { addLike, removeLike } from "../api/likes";
 import { useAuth } from "../hooks/useAuth";
+import UserAvatar from "./UserAvatar";
 import type { Guide } from "../types/guide";
 import styles from "./GuideCard.module.css";
 
@@ -77,7 +78,9 @@ export default function GuideCard({ guide, onUpdate }: GuideCardProps) {
       </div>
       <h3 className={styles.title}>{guide.title}</h3>
       <div className={styles.bottomRow}>
-        <span className={styles.author}>@{guide.author_name}</span>
+        <span className={styles.author}>
+          <UserAvatar avatar={guide.author_avatar} username={guide.author_name} size={16} /> {guide.author_name}
+        </span>
         <div className={styles.actions}>
           <button className={`${styles.actionBtn} ${isLiked ? styles.active : ""}`} onClick={handleLike}>
             {isLiked ? "❤️" : "🤍"} {likeCount}

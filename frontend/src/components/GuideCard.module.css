@@ -81,6 +81,9 @@
 }
 
 .author {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 13px;
   color: #8b7355;
   margin: 0;

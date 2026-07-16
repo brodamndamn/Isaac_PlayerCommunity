@@ -4,6 +4,7 @@ export interface Guide {
   content: string;
   author_id: number;
   author_name: string;
+  author_avatar: string | null;
   category: string;
   cover_image: string | null;
   like_count: number;

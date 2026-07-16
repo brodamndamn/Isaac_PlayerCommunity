@@ -23,6 +23,7 @@ class GuideResponse(BaseModel):
     content: str
     author_id: int
     author_name: str = ""
+    author_avatar: str | None = None
     category: str
     cover_image: str | None = None
     related_item_id: int | None

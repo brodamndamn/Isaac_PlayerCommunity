@@ -5,6 +5,7 @@ import { deleteGuide, getGuideById } from "../api/guides";
 import { addLike, removeLike } from "../api/likes";
 import { likeComment, unlikeComment } from "../api/comments";
 import { useAuth } from "../hooks/useAuth";
+import UserAvatar from "../components/UserAvatar";
 import client from "../api/client";
 import type { ApiResponse, PaginatedData } from "../types/api";
 import type { Guide } from "../types/guide";
@@ -157,7 +158,9 @@ export default function GuideDetailPage() {
         <span className={`${styles.category} ${styles[guide.category] || ""}`}>{CATEGORY_LABELS[guide.category] || guide.category}</span>
         <h1 className={styles.title}>{guide.title}</h1>
         <div className={styles.metaRow}>
-          <span className={styles.author}>@{guide.author_name}</span>
+          <span className={styles.author}>
+            <UserAvatar avatar={guide.author_avatar} username={guide.author_name} size={18} /> {guide.author_name}
+          </span>
           <span className={styles.metaSep}>·</span>
           <span className={styles.date}>{date}</span>
           {guide.updated_at !== guide.created_at && " (已编辑)"}
@@ -203,7 +206,9 @@ export default function GuideDetailPage() {
           {comments.map((c) => (
             <div key={c.id} className={styles.commentItem}>
               <div className={styles.commentMeta}>
-                <span className={styles.commentAuthor}>@{c.author_name}</span>
+                <span className={styles.commentAuthor}>
+                  <UserAvatar avatar={c.author_avatar} username={c.author_name} size={14} /> {c.author_name}
+                </span>
                 <span className={styles.commentDate}>{new Date(c.created_at).toLocaleDateString("zh-CN")}</span>
                 <button
                   className={`${styles.commentLikeBtn} ${c.is_liked ? styles.commentLiked : ""}`}
@@ -236,7 +241,7 @@ export default function GuideDetailPage() {
                       } catch { /* ignore */ }
                     }}
                   >
-                    ✕
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
                   </button>
                 )}
               </div>
