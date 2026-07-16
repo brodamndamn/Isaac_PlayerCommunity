@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.core.security import get_current_user
 from app.models.comment import Comment
+from app.models.comment_like import CommentLike
 from app.models.favorite import Favorite
 from app.models.guide import Guide
 from app.models.like import Like
@@ -208,7 +209,10 @@ def delete_guide(
     if current_user.id != guide.author_id and current_user.role != "admin":
         raise HTTPException(status_code=403, detail="无权删除此攻略")
 
-    # 先删除关联数据（评论、收藏、点赞）
+    # 先删除关联数据（评论的点赞 → 评论 → 收藏 → 点赞）
+    comment_ids = [c.id for c in db.query(Comment.id).filter(Comment.guide_id == guide_id).all()]
+    if comment_ids:
+        db.query(CommentLike).filter(CommentLike.comment_id.in_(comment_ids)).delete()
     db.query(Comment).filter(Comment.guide_id == guide_id).delete()
     db.query(Favorite).filter(Favorite.guide_id == guide_id).delete()
     db.query(Like).filter(Like.guide_id == guide_id).delete()

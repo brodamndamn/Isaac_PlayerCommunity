@@ -26,6 +26,7 @@ export default function GuidesPage() {
   const page = Number(searchParams.get("page")) || 1;
   const search = searchParams.get("search") || "";
   const category = searchParams.get("category") || "";
+  const authorId = searchParams.get("author_id") || "";
 
   const [searchInput, setSearchInput] = useState(search);
   const [pageInput, setPageInput] = useState("");
@@ -61,13 +62,14 @@ export default function GuidesPage() {
         page_size: 20,
         search: search || undefined,
         category: category || undefined,
+        author_id: authorId ? Number(authorId) : undefined,
       });
       setGuides(res.data!.items);
       setTotal(res.data!.total);
     } finally {
       setLoading(false);
     }
-  }, [page, search, category]);
+  }, [page, search, category, authorId]);
 
   useEffect(() => {
     fetchGuides();

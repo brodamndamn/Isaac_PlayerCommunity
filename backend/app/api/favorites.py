@@ -31,11 +31,9 @@ def list_favorites(
 
     # 批量查询攻略标题和作者名
     guide_ids = {f.guide_id for f in favs}
-    guides_map = {
-        g.id: (g.title, g.author_id)
-        for g in db.query(Guide.id, Guide.title, Guide.author_id)
-        .filter(Guide.id.in_(guide_ids)).all()
-    }
+    guides_map = {}
+    for g in db.query(Guide.id, Guide.title, Guide.author_id, Guide.category, Guide.cover_image).filter(Guide.id.in_(guide_ids)).all():
+        guides_map[g.id] = (g.title, g.author_id, g.category, g.cover_image)
     author_ids = {aid for _, aid in guides_map.values()}
     users_map = {
         u.id: u.username
@@ -45,9 +43,11 @@ def list_favorites(
     items = []
     for f in favs:
         resp = FavoriteResponse.model_validate(f)
-        title, aid = guides_map.get(f.guide_id, ("", 0))
-        resp.guide_title = title
-        resp.guide_author = users_map.get(aid, "")
+        info = guides_map.get(f.guide_id, ("", 0, "", None))
+        resp.guide_title = info[0]
+        resp.guide_author = users_map.get(info[1], "")
+        resp.guide_category = info[2]
+        resp.guide_cover = info[3]
         items.append(resp.model_dump())
 
     return {

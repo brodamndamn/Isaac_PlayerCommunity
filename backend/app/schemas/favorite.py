@@ -11,6 +11,8 @@ class FavoriteResponse(BaseModel):
     guide_id: int
     guide_title: str = ""
     guide_author: str = ""
+    guide_category: str = ""
+    guide_cover: str | None = None
     created_at: datetime
 
     model_config = {"from_attributes": True}

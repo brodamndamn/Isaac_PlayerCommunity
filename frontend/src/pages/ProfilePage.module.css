@@ -116,6 +116,26 @@
   color: #3d2017;
 }
 
+.linkRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: #1565c0;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0d5c5;
+  transition: background 0.15s;
+}
+
+.linkRow:hover {
+  background: #e3f2fd;
+}
+
+.linkValue {
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .row:hover {
   background: #f5f0e8;
 }

@@ -236,13 +236,13 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        <Link to={`/guides?author_id=${user.id}`} className={styles.row}>
+        <Link to={`/guides?author_id=${user.id}`} className={styles.linkRow}>
           <span className={styles.label}>我的帖子</span>
-          <span className={styles.value}>{postCount}</span>
+          <span className={styles.linkValue}>{postCount} →</span>
         </Link>
-        <Link to="/favorites" className={styles.row}>
+        <Link to="/favorites" className={styles.linkRow}>
           <span className={styles.label}>收藏的帖子</span>
-          <span className={styles.value}>{favCount}</span>
+          <span className={styles.linkValue}>{favCount} →</span>
         </Link>
 
         <button

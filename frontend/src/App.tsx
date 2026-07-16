@@ -43,8 +43,7 @@ function AppInner() {
           {authChecked ? (
             user ? (
               <>
-                <a href="/favorites" style={{ color: "#ccc", textDecoration: "none", fontSize: 13 }}>我的收藏</a>
-                <Link to="/profile" style={{ display: "flex", alignItems: "center" }}>
+                                <Link to="/profile" style={{ display: "flex", alignItems: "center" }}>
                   {user.avatar ? (
                     <img src={`/uploads/${user.avatar}`} alt="头像"
                       style={{ width: 26, height: 26, borderRadius: "50%", objectFit: "cover", border: "2px solid #6b3a2a" }} />
@@ -55,7 +54,7 @@ function AppInner() {
                     </span>
                   )}
                 </Link>
-                <span style={{ color: "#ccc", fontSize: 13 }}>{user.username}</span>
+                <Link to="/profile" style={{ color: "#ccc", fontSize: 13, textDecoration: "none" }}>{user.username}</Link>
                 <button onClick={logout} style={{ background: "none", border: "1px solid #6b3a2a", color: "#ccc",
                   padding: "3px 10px", borderRadius: 4, cursor: "pointer", fontSize: 12, fontFamily: "inherit" }}>退出</button>
               </>
