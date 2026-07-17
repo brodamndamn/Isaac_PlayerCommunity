@@ -57,6 +57,15 @@ for t in trans:
 db.commit()
 print(f"[OK] Transformations imported: {count}")
 
+# 3.5. 修正道具池名称：赌运气 → 赌博乞丐（游戏房）
+for item in db.query(Item).all():
+    if item.item_pools:
+        new_pools = [p.replace("赌运气", "赌博乞丐（游戏房）") for p in item.item_pools]
+        if new_pools != item.item_pools:
+            item.item_pools = new_pools
+db.commit()
+print("[OK] Pool names fixed")
+
 # 4. 同步图片
 # 结局图片
 img_dir = Path(__file__).resolve().parent.parent / "frontend" / "public" / "images"
