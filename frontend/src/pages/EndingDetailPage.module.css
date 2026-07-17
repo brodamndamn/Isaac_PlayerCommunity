@@ -88,36 +88,87 @@
   color: #333;
 }
 
-.unlockRow {
+.unlockList {
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.unlockTag {
-  display: inline-flex;
+.unlockRow {
+  display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
-  background: #f0f7e8;
-  border: 1px solid #c8e6c9;
-  border-radius: 12px;
+  gap: 8px;
+}
+
+.unlockHeading {
+  padding: 8px 0 4px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 2px;
+}
+
+.unlockText {
   font-size: 13px;
+  color: #333;
+}
+
+.headingText {
+  font-size: 13px;
+  font-weight: 600;
+  color: #5c4033;
+}
+
+/* ── Type Badge ── */
+.typeBadge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 9px;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+  min-width: 28px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.badge_character {
+  background: #e8f5e9;
   color: #2e7d32;
 }
 
+.badge_item {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.badge_achievement {
+  background: #fce4ec;
+  color: #c62828;
+}
+
+.badge_system {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.badge_unknown {
+  background: #f5f5f5;
+  color: #999;
+}
+
+/* ── Icons ── */
 .unlockIcon {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   image-rendering: pixelated;
   flex-shrink: 0;
+  border-radius: 2px;
 }
 
 .unlockIconPlaceholder {
-  width: 24px;
-  height: 24px;
-  background: #e8f0e0;
+  width: 28px;
+  height: 28px;
+  background: #eee;
   border: 1px dashed #ccc;
-  border-radius: 3px;
+  border-radius: 2px;
   flex-shrink: 0;
 }

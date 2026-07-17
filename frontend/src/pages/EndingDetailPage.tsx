@@ -71,25 +71,24 @@ export default function EndingDetailPage() {
             <tr>
               <td className={styles.label}>完成后解锁</td>
               <td>
-                <div className={styles.unlockRow}>
+                <div className={styles.unlockList}>
                   {ending.unlocks_enriched.map((u, i) => {
-                    const itemId = u.item_id ?? u.character_id ?? undefined;
-                    const hasImage = !!u.image_url;
-                    const hasId = !!itemId;
+                    const id = u.item_id ?? u.character_id ?? undefined;
+                    const isHeading = u.unlock_type === "system" && !u.image_url;
                     return (
-                      <span key={i} className={styles.unlockTag}>
-                        {hasImage ? (
-                          <img
-                            src={`/images/${u.image_url}`}
-                            alt={u.text}
-                            className={styles.unlockIcon}
-                            data-item-id={itemId}
-                          />
-                        ) : hasId ? (
-                          <span className={styles.unlockIconPlaceholder} data-item-id={itemId} />
+                      <div key={i} className={`${styles.unlockRow} ${isHeading ? styles.unlockHeading : ""}`}>
+                        {u.label_cn && (
+                          <span className={`${styles.typeBadge} ${styles["badge_" + u.unlock_type] || styles.badge_unknown}`}>
+                            {u.label_cn}
+                          </span>
+                        )}
+                        {u.image_url ? (
+                          <img src={`/images/${u.image_url}`} alt={u.text} className={styles.unlockIcon} data-item-id={id} />
+                        ) : id ? (
+                          <span className={styles.unlockIconPlaceholder} data-item-id={id} />
                         ) : null}
-                        {u.text}
-                      </span>
+                        <span className={isHeading ? styles.headingText : styles.unlockText}>{u.text}</span>
+                      </div>
                     );
                   })}
                 </div>

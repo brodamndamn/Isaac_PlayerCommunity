@@ -1,8 +1,10 @@
 export interface EnrichedUnlock {
   text: string;
+  unlock_type: string;
   item_id: number | null;
   character_id: number | null;
   image_url: string | null;
+  label_cn: string | null;
 }
 
 export interface Ending {

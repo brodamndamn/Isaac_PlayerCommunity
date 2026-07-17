@@ -56,39 +56,67 @@ def get_ending(ending_id: int, db: Session = Depends(get_db)):
 
     # Enrich unlocks with item/character IDs and image URLs
     import re
-    # Manual aliases: unlock text → item name_cn
-    _ALIAS_ITEM = {'D6': '六面骰'}
     enriched = []
     for text in (ending.unlocks or []):
-        # Strip parenthetical notes like "（角色）", "（道具）" for lookup
+        item = None
+        char = None
+        u_type = "unknown"
+        label = None
+
+        # Skip section headers
+        if text.startswith("以下为") or text.startswith("各角色"):
+            enriched.append(EnrichedUnlock(text=text, unlock_type="system", label_cn="说明"))
+            continue
+
+        # ── Detect type from SHORT tail marker like "（角色）" ──
+        tail = re.search(r'[（(](.{1,8})[）)]\s*$', text)
+        if tail:
+            m = tail.group(1)
+            if '角色' in m: u_type = "character"; label = "角色"
+            elif '道具' in m: u_type = "item"; label = "道具"
+            elif '成就' in m: u_type = "achievement"; label = "成就"
+            elif any(k in m for k in ['路线','解锁','开启','路线']): u_type = "system"; label = "系统"
+
+        if u_type == "unknown" and any(k in text for k in ["解锁", "路线"]):
+            u_type = "system"; label = "系统"
+
+        # ── Parse name ──
         lookup = re.sub(r'[（(].+[）)]', '', text).strip()
-        # Determine hint from parenthetical: "角色" → character, "道具" → item
-        hint = re.search(r'[（(](.+?)[）)]', text)
-        hint_text = hint.group(1) if hint else ""
 
-        # Apply alias if exists
-        item_name = _ALIAS_ITEM.get(lookup, lookup)
-        item = db.query(Item).filter(Item.name_cn == item_name).first()
-        char = db.query(Character).filter(Character.name_cn == lookup).first()
+        # Arrow format: "角色 → 道具名"
+        arrow = re.match(r'^(.+?)\s*[→>]\s*(.+)$', lookup)
+        if arrow:
+            char_name = arrow.group(1).strip()
+            item_name = arrow.group(2).strip()
+            char = db.query(Character).filter(Character.name_cn == char_name).first()
+            item = db.query(Item).filter(Item.name_en == item_name).first()
+            if not item:
+                item = db.query(Item).filter(Item.name_cn == item_name).first()
+            if u_type == "unknown":
+                u_type = "item"; label = "道具"
+        else:
+            # Standard format
+            char = db.query(Character).filter(Character.name_cn == lookup).first()
+            item = db.query(Item).filter(Item.name_cn == lookup).first()
+            if not item:
+                item = db.query(Item).filter(Item.name_en == lookup).first()
+            if u_type == "character" and not char:
+                name_only = re.sub(r'角色', '', lookup).strip()
+                char = db.query(Character).filter(Character.name_cn.like(f"%{name_only}%")).first()
 
-        # If hint says "角色" but no character match, try hint name (e.g. "小蓝人角色" → "小蓝人")
-        if not char and '角色' in hint_text:
-            hint_lookup = hint_text.replace('角色', '').strip()
-            if hint_lookup:
-                char = db.query(Character).filter(Character.name_cn == hint_lookup).first()
+        # ── Enforce type marker ──
+        if u_type == "character": item = None
+        elif u_type == "item": char = None
+        elif item and char:
+            char = None  # prefer item when ambiguous
 
-        # If both match, prefer based on hint
-        if item and char:
-            if '角色' in hint_text:
-                item = None
-            elif '道具' in hint_text:
-                char = None
+        image_url = (item.image_url if item else None) or (char.image_url if char else None)
 
         enriched.append(EnrichedUnlock(
-            text=text,
+            text=text, unlock_type=u_type, label_cn=label,
             item_id=item.id if item else None,
             character_id=char.id if char else None,
-            image_url=(item.image_url if item else None) or (char.image_url if char else None),
+            image_url=image_url,
         ))
 
     result = EndingResponse.model_validate(ending)

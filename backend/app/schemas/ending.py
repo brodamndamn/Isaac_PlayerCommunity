@@ -3,9 +3,11 @@ from pydantic import BaseModel
 
 class EnrichedUnlock(BaseModel):
     text: str
+    unlock_type: str = "unknown"
     item_id: int | None = None
     character_id: int | None = None
     image_url: str | None = None
+    label_cn: str | None = None
 
 
 class EndingResponse(BaseModel):

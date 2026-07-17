@@ -23,7 +23,7 @@
     "required_character": null,
     "boss_name": "妈妈的心脏",
     "unlocks": [
-      "橡胶胶水"
+      "橡胶胶水（道具）"
     ],
     "image_url": null
   },
@@ -37,7 +37,7 @@
     "required_character": null,
     "boss_name": "妈妈的心脏",
     "unlocks": [
-      "超凡升天"
+      "超凡升天（道具）"
     ],
     "image_url": null
   },
@@ -51,7 +51,7 @@
     "required_character": null,
     "boss_name": "妈妈的心脏",
     "unlocks": [
-      "铁丝衣架"
+      "铁丝衣架（道具）"
     ],
     "image_url": null
   },
@@ -65,7 +65,7 @@
     "required_character": null,
     "boss_name": "妈妈的心脏",
     "unlocks": [
-      "一切都很糟糕（成就）"
+      "一切都很糟糕（成就，游戏难度永久提升）"
     ],
     "image_url": null
   },
@@ -79,8 +79,8 @@
     "required_character": null,
     "boss_name": "妈妈的心脏",
     "unlocks": [
-      "吐根酊",
-      "全家福"
+      "吐根酊（道具）",
+      "全家福（开启宝箱层路线）"
     ],
     "image_url": null
   },
@@ -94,8 +94,8 @@
     "required_character": null,
     "boss_name": "妈妈的心脏",
     "unlocks": [
-      "实验性疗法",
-      "底片"
+      "实验性疗法（道具）",
+      "底片（开启暗室路线）"
     ],
     "image_url": null
   },
@@ -109,7 +109,7 @@
     "required_character": null,
     "boss_name": "妈妈的心脏",
     "unlocks": [
-      "美分"
+      "美分（道具）"
     ],
     "image_url": null
   },
@@ -123,7 +123,7 @@
     "required_character": null,
     "boss_name": "妈妈的心脏",
     "unlocks": [
-      "胎儿博士"
+      "胎儿博士（道具）"
     ],
     "image_url": null
   },
@@ -151,7 +151,7 @@
     "required_character": null,
     "boss_name": "妈妈的心脏",
     "unlocks": [
-      "它还活着（Boss 永久替换妈妈的心脏）"
+      "它还活着（Boss 永久替换妈妈的心脏，教堂/阴间路线开启）"
     ],
     "image_url": null
   },
@@ -161,7 +161,7 @@
     "name_cn": "结局 12",
     "ending_number": 12,
     "completion_method": "进入 阴间 并击败 撒但",
-    "unlock_method": "击败 妈妈的心脏 后选择进入 阴间",
+    "unlock_method": "击败 它还活着 后进入陷阱门前往 阴间",
     "required_character": null,
     "boss_name": "撒但",
     "unlocks": [
@@ -176,7 +176,7 @@
     "name_cn": "结局 13",
     "ending_number": 13,
     "completion_method": "进入 大教堂 并击败 以撒",
-    "unlock_method": "击败 妈妈的心脏 后选择进入 大教堂",
+    "unlock_method": "击败 它还活着 后进入光束前往 大教堂",
     "required_character": null,
     "boss_name": "以撒",
     "unlocks": [
@@ -191,11 +191,11 @@
     "name_cn": "结局 14",
     "ending_number": 14,
     "completion_method": "携带 全家福 进入 宝箱层 并击败 ???（小蓝人）",
-    "unlock_method": "击败 以撒 后携带 全家福 进入 宝箱层",
+    "unlock_method": "击败 以撒 后，携带 全家福 触碰宝箱进入 宝箱层",
     "required_character": null,
     "boss_name": "???（小蓝人）",
     "unlocks": [
-      "游魂（角色线索）"
+      "游魂（角色，需通过拼图线索解锁）"
     ],
     "image_url": null
   },
@@ -205,7 +205,7 @@
     "name_cn": "结局 15",
     "ending_number": 15,
     "completion_method": "携带 底片 进入 暗室 并击败 羔羊",
-    "unlock_method": "击败 撒但 后携带 底片 进入 暗室",
+    "unlock_method": "击败 撒但 后，携带 底片 触碰宝箱进入 暗室",
     "required_character": null,
     "boss_name": "羔羊",
     "unlocks": [
@@ -219,7 +219,7 @@
     "name_cn": "结局 16",
     "ending_number": 16,
     "completion_method": "在 宝箱层 或 暗室 击败 超级撒但",
-    "unlock_method": "收集两片钥匙碎片，在 宝箱层/暗室 打开金色大门",
+    "unlock_method": "收集两片钥匙碎片（炸天使雕像获得），在宝箱层/暗室打开金色大门",
     "required_character": null,
     "boss_name": "超级撒但",
     "unlocks": [
@@ -232,16 +232,15 @@
     "name_en": "Ending 17",
     "name_cn": "结局 17",
     "ending_number": 17,
-    "completion_method": "在 ??? 层（蓝色子宫）击败 静寂",
-    "unlock_method": "30 分钟内击败 妈妈的心脏，进入 蓝色子宫",
+    "completion_method": "在 ??? 层（蓝色子宫）击败 死寂",
+    "unlock_method": "30 分钟内击败 它还活着，进入 ??? 层",
     "required_character": null,
     "boss_name": "死寂",
     "unlocks": [
       "虚空层解锁",
-      "堆肥"
+      "堆肥（道具）"
     ],
-    "image_url": null,
-    "completion": "在 ??? 层（蓝色子宫）击败 死寂"
+    "image_url": null
   },
   {
     "id": 18,
@@ -255,8 +254,7 @@
     "unlocks": [
       "店主（角色）"
     ],
-    "image_url": null,
-    "completion": "贪婪模式中击败 究极贪婪"
+    "image_url": null
   },
   {
     "id": 19,
@@ -270,8 +268,7 @@
     "unlocks": [
       "究极贪婪模式永久解锁"
     ],
-    "image_url": null,
-    "completion": "究极贪婪模式中击败 究极大贪婪"
+    "image_url": null
   },
   {
     "id": 20,
@@ -279,11 +276,11 @@
     "name_cn": "结局 20",
     "ending_number": 20,
     "completion_method": "在 虚空 层击败 精神错乱",
-    "unlock_method": "击败 静寂 后进入 虚空，找到 精神错乱 房间",
+    "unlock_method": "击败 死寂 后进入 虚空，找到 BOSS 房间",
     "required_character": null,
     "boss_name": "精神错乱",
     "unlocks": [
-      "遗骸（角色线索）"
+      "遗骸（角色）"
     ],
     "image_url": null
   },
@@ -292,27 +289,61 @@
     "name_en": "Ending 21",
     "name_cn": "结局 21",
     "ending_number": 21,
-    "completion_method": "在 尸骸层 II 击败 母亲",
-    "unlock_method": "在 陵墓 获取 刀 碎片，进入 尸骸层",
+    "completion_method": "在 尸宫层 II 击败 母亲",
+    "unlock_method": "在 陵墓/火湖 收集两片刀碎片，在陵墓 II Boss 房后打开红色大门进入 尸宫",
     "required_character": null,
     "boss_name": "母亲",
     "unlocks": [
       "雅各与以扫（角色）"
     ],
-    "image_url": null,
-    "completion": "在 尸宫层 击败 母亲"
+    "image_url": null
   },
   {
     "id": 22,
     "name_en": "Ending 22",
     "name_cn": "结局 22",
     "ending_number": 22,
-    "completion_method": "在 家层击败 教条 和 祸兽",
-    "unlock_method": "使用 爸爸的便条 进入 上升路线",
+    "completion_method": "在家层击败 教条 与 祸兽",
+    "unlock_method": "在陵墓 II 的 Boss 房后使用 爸爸的便条，进入上升路线，最终到达 家层",
     "required_character": null,
     "boss_name": "祸兽",
     "unlocks": [
-      "伯大尼（角色）"
+      "可解锁当前角色的里版本（在家层使用红钥匙/破损钥匙）",
+      "以下为每个角色击败祸兽的专属解锁道具：",
+      "以撒 → 选择？（道具）",
+      "抹大拉 → 糖心（道具）",
+      "该隐 → 一磅肉（道具）",
+      "犹大 → 赎罪（道具）",
+      "??? → 水土不服症（道具）",
+      "夏娃 → 碎裂的宝珠（道具）",
+      "参孙 → 空虚之心（道具）",
+      "阿撒泻勒 → 亚巴顿宝宝（道具）",
+      "拉撒路 → 灵魂出窍（道具）",
+      "伊甸 → 百宝罐（道具）",
+      "游魂 → 饥饿幽魂（道具）",
+      "莉莉丝 → 剖腹产（道具）",
+      "店主 → 店主的盒子（道具）",
+      "亚玻伦 → 触手朋友（道具）",
+      "遗骸 → 灵魂枷锁（道具）",
+      "伯大尼 → 魂火罐（道具）",
+      "雅各与以扫 → 寻友护符（道具）",
+      "里以撒 → 错误王冠（道具）",
+      "里抹大拉 → 肚肚软糖（道具）",
+      "里该隐 → 蓝钥匙（道具）",
+      "里犹大 → 血色羁绊（道具）",
+      "里??? → 虫群（道具）",
+      "里夏娃 → 心碎（道具）",
+      "里参孙 → 声带（道具）",
+      "里阿撒泻勒 → 阿撒泻勒之怒（道具）",
+      "里拉撒路 → 救恩（道具）",
+      "里伊甸 → 错误技（道具）",
+      "里游魂 → 十字圣球（道具）",
+      "里莉莉丝 → 作孽双子（道具）",
+      "里店主 → 稻草人（道具）",
+      "里亚玻伦 → 回声室（道具）",
+      "里遗骸 → 以撒的坟墓（道具）",
+      "里伯大尼 → 复仇之魂（道具）",
+      "里雅各 → 小以扫（道具）"
     ],
     "image_url": null
   }
