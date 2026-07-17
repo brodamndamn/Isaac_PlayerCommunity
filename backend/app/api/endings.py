@@ -98,8 +98,16 @@ def get_ending(ending_id: int, db: Session = Depends(get_db)):
             # Standard format
             char = db.query(Character).filter(Character.name_cn == lookup).first()
             item = db.query(Item).filter(Item.name_cn == lookup).first()
+            # Alias map for abbreviated names
+            _ITEM_ALIAS = {'D6': '六面骰'}
+            item_lookup = _ITEM_ALIAS.get(lookup, lookup)
             if not item:
-                item = db.query(Item).filter(Item.name_en == lookup).first()
+                item = db.query(Item).filter(Item.name_en == item_lookup).first()
+            if not item:
+                item = db.query(Item).filter(Item.name_cn == item_lookup).first()
+            if u_type == "character" and not char:
+                # Try by English name (e.g. "???" matches character name_en)
+                char = db.query(Character).filter(Character.name_en == lookup).first()
             if u_type == "character" and not char:
                 name_only = re.sub(r'角色', '', lookup).strip()
                 char = db.query(Character).filter(Character.name_cn.like(f"%{name_only}%")).first()

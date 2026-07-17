@@ -80,7 +80,7 @@
     "boss_name": "妈妈的心脏",
     "unlocks": [
       "吐根酊（道具）",
-      "全家福（开启宝箱层路线）"
+      "全家福（道具）"
     ],
     "image_url": null
   },
@@ -95,7 +95,7 @@
     "boss_name": "妈妈的心脏",
     "unlocks": [
       "实验性疗法（道具）",
-      "底片（开启暗室路线）"
+      "底片（道具）"
     ],
     "image_url": null
   },
@@ -181,7 +181,7 @@
     "boss_name": "以撒",
     "unlocks": [
       "大教堂路线永久解锁",
-      "D6（道具，以撒初始携带）"
+      "六面骰（道具，以撒初始携带）"
     ],
     "image_url": null
   },
@@ -195,7 +195,7 @@
     "required_character": null,
     "boss_name": "???（小蓝人）",
     "unlocks": [
-      "游魂（角色，需通过拼图线索解锁）"
+      "宝箱层路线永久解锁"
     ],
     "image_url": null
   },
@@ -252,7 +252,8 @@
     "required_character": null,
     "boss_name": "究极贪婪",
     "unlocks": [
-      "店主（角色）"
+      "究极贪婪模式解锁",
+      "贪婪捐献机解锁（捐献1000硬币可解锁店主）"
     ],
     "image_url": null
   },
@@ -280,7 +281,8 @@
     "required_character": null,
     "boss_name": "精神错乱",
     "unlocks": [
-      "遗骸（角色）"
+      "精神错乱（道具）",
+      "精神错乱宝宝（道具）"
     ],
     "image_url": null
   },
