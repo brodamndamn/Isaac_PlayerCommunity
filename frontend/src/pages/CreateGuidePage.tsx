@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ChangeEvent, type ClipboardEvent, type FormEvent } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent, type ClipboardEvent, type FormEvent } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { createGuide, getGuideById, updateGuide } from "../api/guides";
 import { uploadImage } from "../api/upload";
@@ -26,6 +26,9 @@ export default function CreateGuidePage() {
   const [coverImage, setCoverImage] = useState("");
   const [uploadingCover, setUploadingCover] = useState(false);
   const [preview, setPreview] = useState(false);
+  const [warning, setWarning] = useState(false);
+  const [warnLeaving, setWarnLeaving] = useState(false);
+  const warnTimerRef = useRef<ReturnType<typeof setTimeout>>();
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -55,9 +58,27 @@ export default function CreateGuidePage() {
     return html;
   };
 
+  const dismissWarning = useCallback(() => {
+    setWarnLeaving(true);
+    setTimeout(() => {
+      setWarning(false);
+      setWarnLeaving(false);
+    }, 250);
+  }, []);
+
+  const showWarning = useCallback(() => {
+    if (warnTimerRef.current) clearTimeout(warnTimerRef.current);
+    setWarning(true);
+    setWarnLeaving(false);
+    warnTimerRef.current = setTimeout(dismissWarning, 3000);
+  }, [dismissWarning]);
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!title.trim() || !content.trim()) return;
+    if (!title.trim() || !content.trim()) {
+      showWarning();
+      return;
+    }
     setError("");
     setLoading(true);
     try {
@@ -173,6 +194,13 @@ export default function CreateGuidePage() {
       <h1 className={styles.title}>{isEdit ? "编辑攻略" : "发布攻略"}</h1>
 
       {error && <p className={styles.error}>{error}</p>}
+
+      {warning && (
+        <div className={`${styles.toast} ${warnLeaving ? styles.toastOut : ""}`}>
+          <span>⚠️ 标题和正文都不能为空</span>
+          <button className={styles.toastClose} onClick={dismissWarning}>&times;</button>
+        </div>
+      )}
 
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
