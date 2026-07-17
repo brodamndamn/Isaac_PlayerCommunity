@@ -185,44 +185,56 @@
 
 /* ── Mobile ── */
 @media (max-width: 640px) {
+  .root {
+    margin: -16px;
+  }
   .title {
-    font-size: 30px;
-    letter-spacing: 2px;
+    font-size: 26px;
+    letter-spacing: 1px;
   }
   .subtitle {
-    font-size: 14px;
-    letter-spacing: 3px;
+    font-size: 12px;
+    letter-spacing: 2px;
   }
   .heroDesc {
-    font-size: 12px;
-    max-width: 280px;
+    font-size: 11px;
+    max-width: 260px;
   }
   .heroOverlay {
-    padding: 32px 16px;
+    padding: 18px 12px;
   }
   .hero {
-    min-height: 200px;
+    min-height: 140px;
   }
   .cards {
     grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 20px 12px;
+    gap: 10px;
+    padding: 14px 10px;
   }
   .communityImages {
-    gap: 12px;
+    gap: 6px;
   }
   .communityImage, .communityPlaceholder {
-    width: 64px;
-    height: 64px;
+    width: 44px;
+    height: 44px;
   }
   .cardImage {
-    width: 72px;
-    height: 72px;
+    width: 48px;
+    height: 48px;
   }
   .cardTitle {
-    font-size: 16px;
+    font-size: 15px;
+    margin-bottom: 2px;
   }
   .card {
-    padding: 20px 14px 16px;
+    padding: 12px 10px 10px;
+  }
+  .cardDesc {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .bottom {
+    padding: 16px 10px;
+    font-size: 11px;
   }
 }
