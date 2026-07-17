@@ -188,7 +188,7 @@ export default function CreateGuidePage() {
         <div className={styles.coverRow}>
           <input
             type="file"
-            accept="image/png,image/jpeg,image/jpg,image/gif,image/webp,image/bmp"
+            accept="image/png,image/jpeg,image/gif,image/webp,image/bmp"
             onChange={handleCoverUpload}
             style={{ display: "none" }}
             id="coverInput"
@@ -243,7 +243,7 @@ export default function CreateGuidePage() {
             <input
               ref={fileInputRef}
               type="file"
-              accept="image/png,image/jpeg,image/jpg,image/gif,image/webp,image/bmp"
+              accept="image/png,image/jpeg,image/gif,image/webp,image/bmp"
               onChange={handleImageUpload}
               style={{ display: "none" }}
             />
