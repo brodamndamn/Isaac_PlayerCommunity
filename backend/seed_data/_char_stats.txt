@@ -1,1 +1,0 @@
-ID 10 Eden (伊甸): missing ['damage', 'speed', 'tears']

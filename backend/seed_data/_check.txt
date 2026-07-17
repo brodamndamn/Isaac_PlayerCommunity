@@ -1,5 +1,0 @@
-ID 33: count=1 repr='4格（按房间充能）'
-ID 34: count=1 repr='3格（按房间充能）'
-ID 35: count=1 repr='4格（按房间充能）'
-ID 36: count=1 repr='1格（按房间充能）'
-ID 37: count=1 repr='2格（按房间充能）'

@@ -66,10 +66,257 @@
 
 ### 阶段五：部署
 
+#### 部署架构
+
+```
+浏览器 (80/443)
+  │
+  ▼
+Nginx
+  ├── /              → 前端静态文件 (/var/www/isaac)
+  ├── /api/*         → proxy_pass → 127.0.0.1:8000
+  └── /uploads/*     → proxy_pass → 127.0.0.1:8000
+                            │
+                            ▼
+                    Uvicorn (systemd 守护)
+                            │
+                            ▼
+                       MySQL 8.0
+```
+
+#### 6.1 服务器环境准备
+
+- 操作系统：Ubuntu 22.04+ / Debian 12+
+- 安装依赖：
+  ```bash
+  sudo apt update
+  sudo apt install nginx mysql-server python3 python3-pip python3-venv -y
+  ```
+- 启动并启用 Nginx / MySQL：
+  ```bash
+  sudo systemctl enable --now nginx mysql
+  ```
+
+#### 6.2 MySQL 建库建用户
+
+```sql
+CREATE DATABASE isaac_community CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'isaac'@'localhost' IDENTIFIED BY '你的密码';
+GRANT ALL PRIVILEGES ON isaac_community.* TO 'isaac'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+#### 6.3 后端部署
+
+```bash
+# 放置代码
+cd /opt
+git clone <仓库地址> isaac
+# 或 scp backend/ 到 /opt/isaac/
+
+# 虚拟环境
+cd /opt/isaac/backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+创建 `.env`（生产配置）：
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=isaac
+DB_PASSWORD=你的密码
+DB_NAME=isaac_community
+JWT_SECRET=<python3 -c "import secrets; print(secrets.token_hex(32))">
+DEBUG=False
+```
+
+初始化数据库：
+```bash
+source venv/bin/activate
+alembic upgrade head
+python seed_data.py
+```
+
+#### 6.4 代码层面生产配置修改
+
+部署前需要改两个文件：
+
+**`backend/app/core/config.py`** — `DEBUG` 默认值从 `True` 改 `False`：
+```python
+DEBUG: bool = False
+```
+这样 SQL echo 日志关闭，不会在生产环境刷屏。
+
+**`backend/app/main.py`** — CORS `allow_origins` 从 `localhost:5173` 改为实际域名：
+```python
+allow_origins=["https://你的域名"],
+```
+如果前后端同域名（Nginx 反代），浏览器视为同源，CORS 实际不需要；但保留显式白名单更安全。
+
+#### 6.5 systemd 服务 —— 让后端在后台运行、挂了自动重启
+
+```bash
+sudo nano /etc/systemd/system/isaac-backend.service
+```
+
+```ini
+[Unit]
+Description=ISAAC Community Backend
+After=network.target mysql.service
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/isaac/backend
+ExecStart=/opt/isaac/backend/venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+```
+
+> `--host 127.0.0.1` 只监听本机——外网只能通过 Nginx 访问，不暴露端口。
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now isaac-backend
+sudo systemctl status isaac-backend   # 确认 active (running)
+```
+
+#### 6.6 前端构建
+
+```bash
+cd /opt/isaac/frontend
+npm install
+npm run build          # 产出 dist/
+```
+
+```bash
+sudo mkdir -p /var/www/isaac
+sudo cp -r dist/* /var/www/isaac/
+sudo chown -R www-data:www-data /var/www/isaac
+```
+
+#### 6.7 Nginx 配置
+
+```bash
+sudo nano /etc/nginx/sites-available/isaac
+```
+
+```nginx
+server {
+    listen 80;
+    server_name 你的域名或IP;
+
+    root /var/www/isaac;
+    index index.html;
+
+    # SPA 路由回退 —— 所有非文件请求返回 index.html
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # API 转发给后端
+    location /api/ {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # 上传文件（头像等）
+    location /uploads/ {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    # 静态图片缓存
+    location /images/ {
+        expires 7d;
+        add_header Cache-Control "public, immutable";
+    }
+}
+```
+
+启用并重载：
+
+```bash
+sudo ln -s /etc/nginx/sites-available/isaac /etc/nginx/sites-enabled/
+sudo rm /etc/nginx/sites-enabled/default   # 删掉默认站点
+sudo nginx -t                              # 语法检查
+sudo systemctl reload nginx
+```
+
+#### 6.8 防火墙
+
+```bash
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp   # 后续配 HTTPS
+sudo ufw allow 22/tcp    # SSH
+sudo ufw enable
+```
+
+#### 6.9 HTTPS（Let's Encrypt 免费证书）
+
+```bash
+sudo apt install certbot python3-certbot-nginx -y
+sudo certbot --nginx -d 你的域名
+```
+
+certbot 会自动修改 Nginx 配置，加上 SSL 证书并开启 HTTP→HTTPS 重定向。
+
+#### 6.10 生产环境检查清单
+
+| 检查项 | 说明 |
+|---|---|
+| `.env` 不在版本控制中 | `backend/.env` 已在 `.gitignore` |
+| `JWT_SECRET` 已更换 | 不再使用 `change-me-in-production` |
+| `DEBUG=False` | 生产环境关闭 SQL echo |
+| CORS 指向真实域名 | 不再 `localhost:5173` |
+| MySQL 密码已设置 | 不用 root 空密码 |
+| Nginx 不暴露 8000 端口 | 后端 `--host 127.0.0.1` 仅本机监听 |
+| systemd enable | 服务器重启后自动拉起后端 |
+| HTTPS 已启用 | certbot 配置 + 自动续期 |
+
+#### 6.11 日常运维命令
+
+```bash
+# 后端
+sudo systemctl status isaac-backend     # 查看状态
+sudo systemctl restart isaac-backend    # 重启
+sudo journalctl -u isaac-backend -f     # 实时日志
+
+# Nginx
+sudo nginx -t && sudo systemctl reload nginx   # 改配置后重载
+
+# 数据库备份
+mysqldump -u isaac -p isaac_community > backup_$(date +%Y%m%d).sql
+
+# 更新部署
+cd /opt/isaac && git pull
+cd backend && source venv/bin/activate && alembic upgrade head
+cd ../frontend && npm install && npm run build
+sudo cp -r dist/* /var/www/isaac/
+sudo systemctl restart isaac-backend
+```
+
 | # | 功能 | 状态 |
 |---|---|---|
-| 6.1 | Nginx 配置 + Uvicorn 生产配置 | ⬜ |
-| 6.2 | 前端构建 + 部署验证 | ⬜ |
+| 6.1 | 服务器环境准备（Nginx + MySQL + Python） | ⬜ |
+| 6.2 | MySQL 建库建用户 | ⬜ |
+| 6.3 | 后端部署（代码 + venv + .env + 数据迁移） | ⬜ |
+| 6.4 | 代码层面生产配置修改（DEBUG + CORS） | ⬜ |
+| 6.5 | systemd 守护进程 | ⬜ |
+| 6.6 | 前端构建 + 部署到 Nginx | ⬜ |
+| 6.7 | Nginx 配置（反向代理 + SPA 路由） | ⬜ |
+| 6.8 | 防火墙开放端口 | ⬜ |
+| 6.9 | HTTPS（Let's Encrypt） | ⬜ |
+| 6.10 | 生产检查清单逐项确认 | ⬜ |
 
 ---
 
@@ -773,15 +1020,17 @@ ISAAC/
 | 模块 | 完成项 |
 |---|---|
 | 项目初始化 (0.x) | 脚手架、数据库、Git |
-| 道具系统 (1.x) | 模型、种子(719)、API、前端页面 |
-| 角色系统 (2.x) | 模型、种子(34)、API、前端页面 |
-| 结局系统 (3.x) | 模型、种子(22)、API、前端页面 |
+| 道具系统 (1.x) | 模型、种子(866)、API、前端页面（列表+详情） |
+| 角色系统 (2.x) | 模型、种子(34)、API、前端页面（列表+详情） |
+| 结局系统 (3.x) | 模型、种子(22)、API、前端页面（列表+详情） |
 | 道具分类重做 | passive 470 / active 168 / trinket 81 / card 97 / pill 50 = 866 条 |
 | 卡牌药丸数据 | 从 Wiki 抓取 147 条 + 中文名/效果（97/97 卡牌名+效果、49/50 药丸名、50/50 药丸效果） |
 | 前端优化 | 实时搜索、翻页跳转、返回按钮、道具分色边框 |
-| 图片系统重构 | 866/866 item 都有 image_url；列表页图左标题右布局；详情页 128×128 sprite；逆位塔罗补 ？；药丸按列分配 3 sprite |
+| 图片系统重构 | 866/866 item 都有 image_url；列表页图左标题右布局；详情页 128×128 sprite |
+| 用户系统 (4.x) | 注册/登录 API（Argon2 + JWT）+ 认证中间件 + 前端登录弹窗 + token 持久化 |
+| 社区功能 (5.x) | 攻略 CRUD + 收藏/点赞/评论 API + 列表/详情/创建页 + 我的收藏页 + 头像上传 |
 
-### 进行中
+### 待做
 
 | 顺序 | 模块 |
 |---|---|
@@ -789,15 +1038,7 @@ ISAAC/
 | 2.5.2-a | ? Card (ID 844) 缺独立 sprite，目前 fallback 到 tarot_normal——待选方案 |
 | 2.5.3 | 角色配图（⬜ 未开始） |
 | 2.5.4 | 结局配图（⬜ 未开始） |
-
-### 待做
-
-| 顺序 | 模块 |
-|---|---|
-| 4.1~4.6 | 用户系统（注册登录 + JWT） |
-| 5.1~5.11 | 社区功能（攻略发帖 + 收藏 + 点赞 + 评论 + 头像上传） |
-| 6.1~6.2 | 部署 |
-| 6.1~6.2 | 部署 |
+| 6.1~6.10 | 部署（详见阶段五详细步骤） |
 
 ---
 

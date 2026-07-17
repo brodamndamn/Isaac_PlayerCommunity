@@ -18,6 +18,9 @@ build/
 .vscode/
 .idea/
 
+# Claude Code local settings
+.CLAUDE/settings.local.json
+
 # OS
 .DS_Store
 Thumbs.db
@@ -28,3 +31,11 @@ backend/uploads/*
 
 # Logs
 *.log
+
+# Temp debug files
+backend/seed_data/_*
+
+# Editor
+*.swp
+*.swo
+*~
