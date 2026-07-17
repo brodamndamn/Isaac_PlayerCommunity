@@ -31,6 +31,19 @@ export async function createGuide(body: {
   return data;
 }
 
+export async function updateGuide(id: number, body: {
+  title: string;
+  content: string;
+  category: string;
+  cover_image?: string;
+  related_item_id?: number;
+  related_character_id?: number;
+  related_ending_id?: number;
+}): Promise<ApiResponse<Guide>> {
+  const { data } = await client.put(`/guides/${id}`, body);
+  return data;
+}
+
 export async function deleteGuide(id: number): Promise<ApiResponse<null>> {
   const { data } = await client.delete(`/guides/${id}`);
   return data;

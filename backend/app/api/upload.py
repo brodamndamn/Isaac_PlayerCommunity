@@ -10,7 +10,7 @@ from app.core.security import get_current_user
 from app.models.user import User
 
 UPLOAD_DIR = Path(__file__).resolve().parent.parent.parent / "uploads" / "guides"
-ALLOWED_TYPES = {"image/png", "image/jpeg", "image/gif", "image/webp"}
+ALLOWED_TYPES = {"image/png", "image/jpeg", "image/jpg", "image/gif", "image/webp", "image/bmp"}
 
 router = APIRouter(prefix="/api/v1", tags=["upload"])
 
@@ -32,8 +32,8 @@ async def upload_image(
     UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
     content = await file.read()
-    if len(content) > 5 * 1024 * 1024:  # 5MB
-        raise HTTPException(status_code=400, detail="图片大小不能超过 5MB")
+    if len(content) > 10 * 1024 * 1024:  # 10MB
+        raise HTTPException(status_code=400, detail="图片大小不能超过 10MB")
 
     with open(filepath, "wb") as f:
         f.write(content)

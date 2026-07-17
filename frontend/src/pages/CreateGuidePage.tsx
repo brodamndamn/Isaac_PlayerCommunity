@@ -1,6 +1,6 @@
-import { useMemo, useRef, useState, type ChangeEvent, type ClipboardEvent, type FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
-import { createGuide } from "../api/guides";
+import { useEffect, useMemo, useRef, useState, type ChangeEvent, type ClipboardEvent, type FormEvent } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { createGuide, getGuideById, updateGuide } from "../api/guides";
 import { uploadImage } from "../api/upload";
 import styles from "./CreateGuidePage.module.css";
 
@@ -13,6 +13,10 @@ const CATEGORIES = [
 
 export default function CreateGuidePage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const editId = searchParams.get("edit");
+  const isEdit = !!editId;
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [category, setCategory] = useState("general");
@@ -24,6 +28,18 @@ export default function CreateGuidePage() {
   const [preview, setPreview] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // 编辑模式：加载已有攻略
+  useEffect(() => {
+    if (!editId) return;
+    getGuideById(Number(editId)).then((res) => {
+      const g = res.data!;
+      setTitle(g.title);
+      setContent(g.content);
+      setCategory(g.category);
+      if (g.cover_image) setCoverImage(g.cover_image);
+    }).catch(() => setError("加载攻略失败"));
+  }, [editId]);
 
   const renderMarkdown = (md: string) => {
     let html = md
@@ -45,8 +61,13 @@ export default function CreateGuidePage() {
     setError("");
     setLoading(true);
     try {
-      await createGuide({ title: title.trim(), content: content.trim(), category, cover_image: coverImage || undefined });
-      navigate("/guides?toast=published");
+      if (isEdit) {
+        await updateGuide(Number(editId), { title: title.trim(), content: content.trim(), category, cover_image: coverImage || undefined });
+        navigate(`/guides/${editId}`);
+      } else {
+        await createGuide({ title: title.trim(), content: content.trim(), category, cover_image: coverImage || undefined });
+        navigate("/guides?toast=published");
+      }
     } catch (err: any) {
       setError(err.response?.data?.message || "发布失败");
     } finally {
@@ -149,7 +170,7 @@ export default function CreateGuidePage() {
   return (
     <div>
       <button onClick={() => navigate(-1)} className={styles.backBtn}>&larr; 返回</button>
-      <h1 className={styles.title}>发布攻略</h1>
+      <h1 className={styles.title}>{isEdit ? "编辑攻略" : "发布攻略"}</h1>
 
       {error && <p className={styles.error}>{error}</p>}
 
@@ -167,7 +188,7 @@ export default function CreateGuidePage() {
         <div className={styles.coverRow}>
           <input
             type="file"
-            accept="image/png,image/jpeg,image/gif,image/webp"
+            accept="image/png,image/jpeg,image/jpg,image/gif,image/webp,image/bmp"
             onChange={handleCoverUpload}
             style={{ display: "none" }}
             id="coverInput"
@@ -222,7 +243,7 @@ export default function CreateGuidePage() {
             <input
               ref={fileInputRef}
               type="file"
-              accept="image/png,image/jpeg,image/gif,image/webp"
+              accept="image/png,image/jpeg,image/jpg,image/gif,image/webp,image/bmp"
               onChange={handleImageUpload}
               style={{ display: "none" }}
             />
@@ -247,7 +268,7 @@ export default function CreateGuidePage() {
           </div>
         </div>
         <button className={styles.submitBtn} type="submit" disabled={loading}>
-          {loading ? "发布中..." : "发布"}
+          {loading ? "保存中..." : isEdit ? "保存修改" : "发布"}
         </button>
       </form>
     </div>

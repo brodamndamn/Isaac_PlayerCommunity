@@ -36,9 +36,9 @@ export default function HomePage() {
         {/* 社区入口 — 全宽卡片 */}
         <Link to="/guides" className={`${styles.card} ${styles.communityCard}`}>
           <div className={styles.communityImages}>
-            <span className={styles.communityPlaceholder} data-item-id="community-guide" />
-            <span className={styles.communityPlaceholder} data-item-id="community-discuss" />
-            <span className={styles.communityPlaceholder} data-item-id="community-favorite" />
+            <img src="/images/community-discuss/1.gif" alt="攻略" className={styles.communityImage} />
+            <img src="/images/community-discuss/2.gif" alt="讨论" className={styles.communityImage} />
+            <img src="/images/community-discuss/3.png" alt="收藏" className={styles.communityImage} />
           </div>
           <span className={styles.badge}>NEW</span>
           <h3 className={styles.cardTitle}>玩家社区</h3>

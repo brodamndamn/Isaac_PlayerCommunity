@@ -153,6 +153,11 @@ export default function GuideDetailPage() {
           {deleting ? "删除中..." : "删除攻略"}
         </button>
       )}
+      {(isOwner || isAdmin) && (
+        <button onClick={() => navigate(`/guides/new?edit=${id}`)} className={styles.editBtn}>
+          编辑攻略
+        </button>
+      )}
 
       <div className={styles.header}>
         <span className={`${styles.category} ${styles[guide.category] || ""}`}>{CATEGORY_LABELS[guide.category] || guide.category}</span>

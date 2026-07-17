@@ -274,6 +274,21 @@
   padding: 20px;
 }
 
+.editBtn {
+  position: absolute;
+  top: 8px;
+  right: 130px;
+  padding: 6px 16px;
+  background: transparent;
+  color: #1565c0;
+  border: 1px solid #1565c0;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.editBtn:hover { background: #1565c0; color: #fff; }
+
 .deleteBtn {
   position: absolute;
   top: 8px;

@@ -209,7 +209,7 @@ export default function ProfilePage() {
           <input
             ref={fileRef}
             type="file"
-            accept="image/png,image/jpeg,image/gif,image/webp"
+            accept="image/png,image/jpeg,image/jpg,image/gif,image/webp,image/bmp"
             onChange={handleFileSelect}
             style={{ display: "none" }}
           />

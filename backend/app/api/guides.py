@@ -195,6 +195,38 @@ def create_guide(
     }
 
 
+@router.put("/{guide_id}")
+def update_guide(
+    guide_id: int,
+    body: GuideCreate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """编辑攻略（需登录，仅作者可编辑）。"""
+    guide = db.query(Guide).filter(Guide.id == guide_id).first()
+    if not guide:
+        raise HTTPException(status_code=404, detail="攻略不存在")
+    if current_user.id != guide.author_id and current_user.role != "admin":
+        raise HTTPException(status_code=403, detail="无权编辑此攻略")
+
+    guide.title = body.title
+    guide.content = body.content
+    guide.category = body.category
+    guide.cover_image = body.cover_image
+    guide.related_item_id = body.related_item_id
+    guide.related_character_id = body.related_character_id
+    guide.related_ending_id = body.related_ending_id
+    db.commit()
+    db.refresh(guide)
+
+    author = db.query(User.id, User.username, User.avatar).filter(User.id == guide.author_id).first()
+    return {
+        "code": 200,
+        "message": "编辑成功",
+        "data": _make_response(guide, author.username if author else ""),
+    }
+
+
 @router.delete("/{guide_id}")
 def delete_guide(
     guide_id: int,

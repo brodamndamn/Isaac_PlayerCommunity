@@ -12,7 +12,7 @@ from app.models.user import User
 from app.schemas.user import UserCreate, UserLogin, UserResponse
 
 UPLOAD_DIR = Path(__file__).resolve().parent.parent.parent / "uploads" / "avatars"
-ALLOWED_TYPES = {"image/png", "image/jpeg", "image/gif", "image/webp"}
+ALLOWED_TYPES = {"image/png", "image/jpeg", "image/jpg", "image/gif", "image/webp", "image/bmp"}
 
 router = APIRouter(prefix="/api/v1/auth", tags=["auth"])
 
