@@ -69,3 +69,13 @@
   color: #999;
   padding: 40px;
 }
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .homeBtn { left: 10px; top: 4px; font-size: 14px; }
+  .title { font-size: 20px; }
+  .filters { flex-wrap: wrap; }
+  .fBtn { padding: 4px 12px; font-size: 12px; }
+  .grid { grid-template-columns: 1fr; gap: 10px; }
+  .sectionTitle { font-size: 16px; }
+}

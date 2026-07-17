@@ -35,3 +35,7 @@
   transform: scaleX(0.5);
   transform-origin: left center;
 }
+
+@media (max-width: 640px) {
+  .heart { width: 14px; height: 14px; }
+}

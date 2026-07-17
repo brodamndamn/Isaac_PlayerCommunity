@@ -128,3 +128,9 @@
 .bTrinket { border-left: 4px solid #7b1fa2; }
 .bCard    { border-left: 4px solid #d32f2f; }
 .bPill    { border-left: 4px solid #00897b; }
+
+@media (max-width: 640px) {
+  .card { padding: 10px; }
+  .image { width: 28px; height: 28px; }
+  .title { font-size: 13px; }
+}

@@ -37,3 +37,7 @@
 .label {
   line-height: 1.5;
 }
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}

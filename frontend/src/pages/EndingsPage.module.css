@@ -33,3 +33,10 @@
   color: #999;
   padding: 40px;
 }
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .homeBtn { left: 10px; top: 4px; font-size: 14px; }
+  .title { font-size: 20px; }
+  .grid { grid-template-columns: 1fr; gap: 10px; }
+}

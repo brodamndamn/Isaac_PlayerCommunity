@@ -148,3 +148,8 @@
   margin: 0 0 8px;
   text-align: center;
 }
+
+@media (max-width: 640px) {
+  .overlay { padding: 12px; }
+  .modal { width: 100%; max-width: none; padding: 20px 16px; }
+}

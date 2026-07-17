@@ -312,3 +312,10 @@
   opacity: 0.6;
   cursor: default;
 }
+
+@media (max-width: 640px) {
+  .back { left: 4px; top: 4px; font-size: 14px; }
+  .title { font-size: 20px; }
+  .content img { max-width: 100%; }
+  .meta { font-size: 12px; }
+}

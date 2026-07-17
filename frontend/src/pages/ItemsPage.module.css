@@ -159,3 +159,14 @@
   -webkit-appearance: none;
   margin: 0;
 }
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .homeBtn { left: 10px; top: 4px; font-size: 14px; }
+  .title { font-size: 20px; }
+  .search { max-width: none; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+  .pagination { gap: 8px; flex-wrap: wrap; }
+  .pagination button { padding: 5px 10px; font-size: 12px; }
+  .pageJump { width: 42px; font-size: 12px; }
+}

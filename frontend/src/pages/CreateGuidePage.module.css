@@ -276,3 +276,10 @@
   from { opacity: 1; transform: translateX(-50%) translateY(0); }
   to { opacity: 0; transform: translateX(-50%) translateY(-12px); }
 }
+
+@media (max-width: 640px) {
+  .backBtn { left: 4px; top: 4px; font-size: 14px; }
+  .title { font-size: 20px; }
+  .form { max-width: none; }
+  .coverRow { flex-wrap: wrap; }
+}

@@ -120,3 +120,7 @@
   background: #f5f0e8;
   border-color: #d4c5b2;
 }
+
+@media (max-width: 640px) {
+  .card { padding: 12px; }
+}

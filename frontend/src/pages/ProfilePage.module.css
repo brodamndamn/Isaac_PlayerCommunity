@@ -257,3 +257,12 @@
   opacity: 0.6;
   cursor: default;
 }
+
+@media (max-width: 640px) {
+  .backBtn { left: 4px; top: 4px; font-size: 14px; }
+  .profile { flex-direction: column; align-items: center; text-align: center; }
+  .avatar { width: 80px; height: 80px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .tabRow { flex-wrap: wrap; gap: 4px; }
+  .tabBtn { padding: 4px 10px; font-size: 12px; }
+}

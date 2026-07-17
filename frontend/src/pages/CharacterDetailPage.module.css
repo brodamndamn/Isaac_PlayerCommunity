@@ -209,3 +209,13 @@
 .statValue {
   font-weight: 500;
 }
+
+@media (max-width: 640px) {
+  .container { padding: 0 4px; }
+  .back { left: 4px; top: 4px; font-size: 14px; }
+  .titleRow { flex-direction: column; align-items: flex-start; }
+  .title { font-size: 22px; }
+  .table td { padding: 8px 8px; font-size: 13px; }
+  .table .label { width: 80px; font-size: 12px; }
+  .portrait { width: 80px; height: 80px; }
+}

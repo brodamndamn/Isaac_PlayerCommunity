@@ -98,3 +98,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+@media (max-width: 640px) {
+  .card { padding: 12px; }
+}

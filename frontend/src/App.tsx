@@ -14,64 +14,46 @@ import ItemsPage from "./pages/ItemsPage";
 import MyFavoritesPage from "./pages/MyFavoritesPage";
 import ProfilePage from "./pages/ProfilePage";
 import TransformationDetailPage from "./pages/TransformationDetailPage";
+import styles from "./App.module.css";
 
 function AppInner() {
   const { user, authChecked, modalOpen, modalTab, login, logout, openModal, closeModal } = useAuth();
 
   return (
     <div style={{ minHeight: "100vh" }}>
-      <header
-        style={{
-          padding: "0 24px",
-          height: 56,
-          background: "#1a0a00",
-          display: "flex",
-          alignItems: "center",
-          gap: 24,
-          borderBottom: "2px solid #6b3a2a",
-        }}
-      >
-        <a href="/" style={{ color: "#eee", fontWeight: 600, textDecoration: "none", fontSize: 18 }}>
-          ISAAC 玩家社区
-        </a>
-        <a href="/items" style={{ color: "#ccc", textDecoration: "none", fontSize: 14 }}>道具</a>
-        <a href="/characters" style={{ color: "#ccc", textDecoration: "none", fontSize: 14 }}>角色</a>
-        <a href="/endings" style={{ color: "#ccc", textDecoration: "none", fontSize: 14 }}>结局</a>
-        <a href="/guides" style={{ color: "#ccc", textDecoration: "none", fontSize: 14 }}>社区</a>
+      <header className={styles.header}>
+        <a href="/" className={styles.brand}>ISAAC 玩家社区</a>
+        <a href="/items" className={styles.navLink}>道具</a>
+        <a href="/characters" className={styles.navLink}>角色</a>
+        <a href="/endings" className={styles.navLink}>结局</a>
+        <a href="/guides" className={styles.navLink}>社区</a>
 
-        <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 12 }}>
+        <div className={styles.navRight}>
           {authChecked ? (
             user ? (
               <>
-                                <Link to="/profile" style={{ display: "flex", alignItems: "center" }}>
+                <Link to="/profile" style={{ display: "flex", alignItems: "center" }}>
                   {user.avatar ? (
-                    <img src={`/uploads/${user.avatar}`} alt="头像"
-                      style={{ width: 26, height: 26, borderRadius: "50%", objectFit: "cover", border: "2px solid #6b3a2a" }} />
+                    <img src={`/uploads/${user.avatar}`} alt="头像" className={styles.avatarImg} />
                   ) : (
-                    <span style={{ width: 26, height: 26, borderRadius: "50%", background: "#6b3a2a", color: "#f5e6d0",
-                      display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 700 }}>
-                      {user.username[0].toUpperCase()}
-                    </span>
+                    <span className={styles.avatarFallback}>{user.username[0].toUpperCase()}</span>
                   )}
                 </Link>
                 <Link to="/profile" style={{ color: "#ccc", fontSize: 13, textDecoration: "none" }}>{user.username}</Link>
-                <button onClick={logout} style={{ background: "none", border: "1px solid #6b3a2a", color: "#ccc",
-                  padding: "3px 10px", borderRadius: 4, cursor: "pointer", fontSize: 12, fontFamily: "inherit" }}>退出</button>
+                <button onClick={logout} className={styles.logoutBtn}>退出</button>
               </>
             ) : (
               <>
-                <button onClick={() => openModal("login")} style={{ background: "none", border: "none", color: "#ccc",
-                  cursor: "pointer", fontSize: 13, fontFamily: "inherit" }}>登录</button>
+                <button onClick={() => openModal("login")} className={styles.authBtn}>登录</button>
                 <span style={{ color: "#555" }}>|</span>
-                <button onClick={() => openModal("register")} style={{ background: "none", border: "none", color: "#ccc",
-                  cursor: "pointer", fontSize: 13, fontFamily: "inherit" }}>注册</button>
+                <button onClick={() => openModal("register")} className={styles.authBtn}>注册</button>
               </>
             )
           ) : null}
         </div>
       </header>
 
-      <main style={{ maxWidth: 960, margin: "0 auto", padding: 24, position: "relative" }}>
+      <main className={styles.main}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/items" element={<ItemsPage />} />
@@ -89,7 +71,7 @@ function AppInner() {
         </Routes>
       </main>
 
-      <footer style={{ textAlign: "center", padding: 16, fontSize: 13, color: "#999", borderTop: "1px solid #eee" }}>
+      <footer className={styles.footer}>
         游戏图片版权 &copy; Edmund McMillen / Nicalis
       </footer>
 

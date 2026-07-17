@@ -80,3 +80,10 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+@media (max-width: 640px) {
+  .card { padding: 14px; }
+  .bossImg { width: 64px; height: 64px; }
+  .name { font-size: 16px; }
+  .number { font-size: 20px; }
+}

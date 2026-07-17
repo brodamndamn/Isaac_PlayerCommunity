@@ -203,3 +203,14 @@
   cursor: pointer;
   font-size: 13px;
 }
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .homeBtn { left: 10px; top: 4px; font-size: 14px; }
+  .title { font-size: 20px; }
+  .topRow { flex-wrap: wrap; gap: 8px; }
+  .search { max-width: none; }
+  .grid { grid-template-columns: 1fr; gap: 10px; }
+  .pagination { gap: 8px; flex-wrap: wrap; }
+  .toast { width: calc(100% - 20px); max-width: none; font-size: 12px; padding: 8px 14px; }
+}
