@@ -28,7 +28,7 @@ export default function CreateGuidePage() {
   const [preview, setPreview] = useState(false);
   const [warning, setWarning] = useState(false);
   const [warnLeaving, setWarnLeaving] = useState(false);
-  const warnTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const warnTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
