@@ -19,7 +19,7 @@ interface GuideCardProps {
   onUpdate?: (id: number, data: Partial<Guide>) => void;
 }
 
-export default function GuideCard({ guide, onUpdate }: GuideCardProps) {
+export default function GuideCard({ guide }: GuideCardProps) {
   const navigate = useNavigate();
   const { user, openModal } = useAuth();
   const [likeCount, setLikeCount] = useState(guide.like_count);

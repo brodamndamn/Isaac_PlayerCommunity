@@ -76,7 +76,7 @@ export default function AuthModal({ isOpen, initialTab = "login", onClose, onLog
     setError("");
     setLoading(true);
     try {
-      const res = await register({
+      await register({
         username: regUsername.trim(),
         email: regEmail.trim(),
         password: regPassword,

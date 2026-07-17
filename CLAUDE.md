@@ -112,10 +112,10 @@ FLUSH PRIVILEGES;
 # 放置代码
 cd /opt
 git clone <仓库地址> isaac
-# 或 scp backend/ 到 /opt/isaac/
+# 或 scp backend/ 到 ~/isaac/
 
 # 虚拟环境
-cd /opt/isaac/backend
+cd ~/isaac/backend
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -169,8 +169,8 @@ After=network.target mysql.service
 [Service]
 User=www-data
 Group=www-data
-WorkingDirectory=/opt/isaac/backend
-ExecStart=/opt/isaac/backend/venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+WorkingDirectory=~/isaac/backend
+ExecStart=~/isaac/backend/venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
 Restart=always
 RestartSec=3
 
@@ -189,7 +189,7 @@ sudo systemctl status isaac-backend   # 确认 active (running)
 #### 6.6 前端构建
 
 ```bash
-cd /opt/isaac/frontend
+cd ~/isaac/frontend
 npm install
 npm run build          # 产出 dist/
 ```
@@ -298,7 +298,7 @@ sudo nginx -t && sudo systemctl reload nginx   # 改配置后重载
 mysqldump -u isaac -p isaac_community > backup_$(date +%Y%m%d).sql
 
 # 更新部署
-cd /opt/isaac && git pull
+cd ~/isaac && git pull
 cd backend && source venv/bin/activate && alembic upgrade head
 cd ../frontend && npm install && npm run build
 sudo cp -r dist/* /var/www/isaac/

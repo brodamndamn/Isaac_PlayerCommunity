@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { getEndings } from "../api/endings";
 import EndingCard from "../components/EndingCard";
 import type { Ending } from "../types/ending";
 import styles from "./EndingsPage.module.css";
 
 export default function EndingsPage() {
-  const navigate = useNavigate();
   const [endings, setEndings] = useState<Ending[]>([]);
   const [loading, setLoading] = useState(false);
 

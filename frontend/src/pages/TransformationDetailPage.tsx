@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getTransformationById } from "../api/transformations";
-import type { EnrichedItem, Transformation } from "../types/transformation";
+import type { Transformation } from "../types/transformation";
 import styles from "./TransformationDetailPage.module.css";
 
 export default function TransformationDetailPage() {
