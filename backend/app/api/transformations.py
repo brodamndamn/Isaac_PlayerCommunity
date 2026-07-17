@@ -13,21 +13,18 @@ router = APIRouter(prefix="/api/v1/transformations", tags=["transformations"])
 def _enrich(t: Transformation, db: Session) -> dict:
     """给套装效果附加道具中文名和图片 URL。"""
     enriched = []
-    for name_en in t.required_items or []:
-        item = db.query(Item).filter(Item.name_en == name_en).first()
+    for item_id in t.required_items or []:
+        item = db.query(Item).filter(Item.id == item_id).first()
         enriched.append(EnrichedItem(
             id=item.id if item else None,
-            name_en=name_en,
-            name_cn=item.name_cn if item else name_en,
+            name_en=item.name_en if item else "",
+            name_cn=item.name_cn if item else "",
             image_url=item.image_url if item else None,
         ))
     result = TransformationResponse.model_validate(t)
     result.required_items_enriched = enriched
-    # 第一个所需道具的 ID，方便前端详情页图片展示
     if t.required_items:
-        first_item = db.query(Item).filter(Item.name_en == t.required_items[0]).first()
-        if first_item:
-            result.first_item_id = first_item.id
+        result.first_item_id = t.required_items[0]
     return result.model_dump()
 
 
@@ -40,9 +37,7 @@ def list_transformations(db: Session = Depends(get_db)):
         d = TransformationResponse.model_validate(t)
         # 第一个所需道具的 ID，方便前端图片占位符标注
         if t.required_items:
-            first_item = db.query(Item).filter(Item.name_en == t.required_items[0]).first()
-            if first_item:
-                d.first_item_id = first_item.id
+            d.first_item_id = t.required_items[0]
         result.append(d)
     return {
         "code": 200,
