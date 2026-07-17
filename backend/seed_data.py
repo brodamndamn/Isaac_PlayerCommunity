@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 from app.core.database import SessionLocal
-from app.models import Character, Ending, Item
+from app.models import Character, Ending, Item, Transformation
 
 
 def seed_items(db) -> int:
@@ -118,6 +118,37 @@ def seed_endings(db) -> int:
     return count
 
 
+def seed_transformations(db) -> int:
+    """从 JSON 导入套装数据。返回导入条数。"""
+    json_path = Path(__file__).parent / "seed_data" / "transformations.json"
+    if not json_path.exists():
+        print(f"[SKIP] {json_path} not found")
+        return 0
+
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    count = 0
+    for t in data:
+        item_ids = []
+        for ename in t["required_items"]:
+            it = db.query(Item).filter(Item.name_en == ename).first()
+            if it:
+                item_ids.append(it.id)
+        tr = Transformation(
+            name_en=t["name_en"],
+            name_cn=t["name_cn"],
+            items_needed=t["items_needed"],
+            required_items=item_ids,
+            effect=t.get("effect"),
+        )
+        db.add(tr)
+        count += 1
+
+    db.commit()
+    return count
+
+
 def main():
     db = SessionLocal()
     try:
@@ -127,6 +158,8 @@ def main():
         print(f"[OK] Characters imported: {n2}")
         n3 = seed_endings(db)
         print(f"[OK] Endings imported: {n3}")
+        n4 = seed_transformations(db)
+        print(f"[OK] Transformations imported: {n4}")
     except Exception as e:
         db.rollback()
         print(f"[FAIL] {e}")
