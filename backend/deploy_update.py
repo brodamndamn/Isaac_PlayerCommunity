@@ -66,6 +66,30 @@ for item in db.query(Item).all():
 db.commit()
 print("[OK] Pool names fixed")
 
+# 3.6. 修正粪臭素效果文本
+it9 = db.query(Item).filter(Item.id == 9).first()
+if it9:
+    it9.effect = "使大多数苍蝇类怪物变为友好，不会攻击角色。包括红苍蝇、永恒苍蝇、环绕苍蝇、炸弹苍蝇等。对头目及其生成的攻击苍蝇无效。"
+    db.commit()
+    print("[OK] Skatole effect fixed")
+
+# 3.7. 修正 item 474 损坏的玻璃大炮（主动道具，品质0，充能4）
+it474 = db.query(Item).filter(Item.id == 474).first()
+if it474:
+    it474.category = "active"
+    it474.quality = 0
+    it474.recharge_time = 4
+    it474.name_en = "Broken Glass Cannon"
+    db.commit()
+    print("[OK] Item 474 fixed: active, quality=0, recharge=4")
+
+# 3.8. 修正 item 1001 扁桃体效果文本
+it1001 = db.query(Item).filter(Item.id == 1001).first()
+if it1001:
+    it1001.effect = "在角色受伤后，生成一个扁桃体跟班。扁桃体跟班跟随着角色，能够阻挡敌人的眼泪。效果触发后，该饰品消失。"
+    db.commit()
+    print("[OK] Item 1001 effect text fixed")
+
 # 4. 同步图片
 # 结局图片
 img_dir = Path(__file__).resolve().parent.parent / "frontend" / "public" / "images"

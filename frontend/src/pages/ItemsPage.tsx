@@ -30,6 +30,7 @@ export default function ItemsPage() {
   const page = Number(searchParams.get("page")) || 1;
   const search = searchParams.get("search") || "";
   const category = searchParams.get("category") || "";
+  const quality = searchParams.get("quality") || "";
   const isTransformation = category === "transformation";
 
   const [searchInput, setSearchInput] = useState(search);
@@ -57,6 +58,7 @@ export default function ItemsPage() {
           page,
           page_size: 20,
           category: category || undefined,
+          quality: quality ? Number(quality) : undefined,
         });
         setItems(res.data!.items);
         setTotal(res.data!.total);
@@ -64,7 +66,7 @@ export default function ItemsPage() {
     } finally {
       setLoading(false);
     }
-  }, [page, search, category, isTransformation]);
+  }, [page, search, category, quality, isTransformation]);
 
   useEffect(() => {
     fetchItems();
@@ -151,6 +153,21 @@ export default function ItemsPage() {
             </button>
           ))}
         </div>
+        {/* 品质筛选：仅被动/主动/全部时显示 */}
+        {(!category || category === "passive" || category === "active") && (
+          <div className={styles.categories}>
+            <span className={styles.qualityLabel}>品质：</span>
+            {["", "0", "1", "2", "3", "4"].map((q) => (
+              <button
+                key={q || "all"}
+                onClick={() => updateParam("quality", q)}
+                className={`${styles.catBtn} ${quality === q ? styles.active : ""}`}
+              >
+                {q === "" ? "全部" : q}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {loading ? (

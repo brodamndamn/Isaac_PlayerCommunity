@@ -7,6 +7,7 @@ export async function getItems(params: {
   page_size?: number;
   category?: string;
   search?: string;
+  quality?: number;
 }): Promise<ApiResponse<PaginatedData<Item>>> {
   const { data } = await client.get("/items", { params });
   return data;

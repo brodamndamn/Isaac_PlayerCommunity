@@ -14,13 +14,16 @@ def list_items(
     page_size: int = Query(20, ge=1, le=100, alias="page_size"),
     search: str | None = Query(None, description="搜索关键词（名称/描述）"),
     category: str | None = Query(None, description="分类筛选"),
+    quality: int | None = Query(None, description="品质筛选 0-4"),
     db: Session = Depends(get_db),
 ):
-    """道具列表，支持分页、关键词搜索、分类筛选。"""
+    """道具列表，支持分页、关键词搜索、分类筛选、品质筛选。"""
     query = db.query(Item)
 
     if category:
         query = query.filter(Item.category == category)
+    if quality is not None:
+        query = query.filter(Item.quality == quality)
     if search:
         pattern = f"%{search}%"
         query = query.filter(

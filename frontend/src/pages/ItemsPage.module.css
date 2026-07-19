@@ -153,6 +153,13 @@
   background: #f0f0f0;
 }
 
+.qualityLabel {
+  font-size: 13px;
+  color: #999;
+  margin-right: 4px;
+  align-self: center;
+}
+
 /* 隐藏 number input 的上下箭头 */
 .pageJump::-webkit-inner-spin-button,
 .pageJump::-webkit-outer-spin-button {

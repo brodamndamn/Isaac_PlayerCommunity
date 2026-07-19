@@ -9592,7 +9592,7 @@
     "quote": "Gross...",
     "description": "Grants afamiliarthat follows Isaac and blocks enemy shots.",
     "quality": null,
-    "category": "passive",
+    "category": "trinket",
     "name_cn": "损坏的玻璃大炮",
     "effect": "每当损坏的玻璃大炮获得充能时，如果损坏的玻璃大炮的充能已满，则将损坏的玻璃大炮替换为 玻璃大炮。",
     "item_pools": [
