@@ -85,6 +85,21 @@ export default function ItemsPage() {
     setSearchParams(params);
   };
 
+  const switchCategory = (cat: string) => {
+    const params = new URLSearchParams(searchParams);
+    if (cat) {
+      params.set("category", cat);
+    } else {
+      params.delete("category");
+    }
+    // 饰品/卡牌/胶囊/套装/全部 不支持品质筛选，清除
+    if (cat !== "passive" && cat !== "active") {
+      params.delete("quality");
+    }
+    params.set("page", "1");
+    setSearchParams(params);
+  };
+
   const handleSearchChange = (value: string) => {
     setSearchInput(value);
     if (timerRef.current) clearTimeout(timerRef.current);
@@ -146,7 +161,7 @@ export default function ItemsPage() {
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
-              onClick={() => updateParam("category", cat)}
+              onClick={() => switchCategory(cat)}
               className={`${styles.catBtn} ${category === cat ? styles.active : ""}`}
             >
               {CATEGORY_LABELS[cat]}
