@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getMyFavorites } from "../api/favorites";
 import GuideCard from "../components/GuideCard";
 import type { Guide } from "../types/guide";
@@ -46,7 +47,7 @@ export default function MyFavoritesPage() {
 
   return (
     <div>
-      <a href="/" className={styles.homeBtn}>返回首页</a>
+      <Link to="/" className={styles.homeBtn}>返回首页</Link>
       <h1 className={styles.title}>收藏的帖子</h1>
 
       {loading ? (

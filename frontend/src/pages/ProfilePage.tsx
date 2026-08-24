@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState, type ChangeEvent, type WheelEvent, useCallback } from "react";
+import { staticUrl, uploadUrl } from "../lib/paths";
 import { Link, useNavigate } from "react-router-dom";
 import client from "../api/client";
 import { getMyFavorites } from "../api/favorites";
 import { getGuides } from "../api/guides";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../hooks/useAuthHook";
 import type { ApiResponse } from "../types/api";
 import styles from "./ProfilePage.module.css";
 
@@ -35,9 +36,6 @@ export default function ProfilePage() {
   const dragStart = useRef({ x: 0, y: 0, cx: 0, cy: 0 });
   const [, forceRender] = useState(0);
 
-  if (!user) return null;
-
-  const avatarUrl = user.avatar ? `/uploads/${user.avatar}` : null;
 
   const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -98,7 +96,7 @@ export default function ProfilePage() {
 
   // Canvas 裁剪 → 上传
   const handleCropAndUpload = useCallback(async () => {
-    if (!cropSrc) return;
+    if (!cropSrc || !user) return;
     setUploading(true);
     setError("");
 
@@ -115,12 +113,7 @@ export default function ProfilePage() {
       canvas.height = CROP_SIZE;
       const ctx = canvas.getContext("2d")!;
 
-      // 圆形裁剪区域
-      ctx.beginPath();
-      ctx.arc(CROP_SIZE / 2, CROP_SIZE / 2, CROP_SIZE / 2, 0, Math.PI * 2);
-      ctx.clip();
-
-      // 用与预览一致的参数画图
+      // 正方形裁剪区域：直接按裁剪框绘制，不再创建圆形透明边缘。
       const sw = img.width * cropScale;
       const sh = img.height * cropScale;
       ctx.drawImage(img, cropX.current, cropY.current, sw, sh);
@@ -144,6 +137,10 @@ export default function ProfilePage() {
       setUploading(false);
     }
   }, [cropSrc, cropScale, user, login]);
+
+  if (!user) return null;
+
+  const avatarUrl = user.avatar ? uploadUrl(user.avatar) : null;
 
   return (
     <div>
@@ -172,7 +169,7 @@ export default function ProfilePage() {
                   transform: `translate(${cropX.current}px, ${cropY.current}px) scale(${cropScale})`,
                 }}
               />
-              <div className={styles.cropCircle} />
+              <div className={styles.cropFrame} />
             </div>
             <input
               type="range"
@@ -202,7 +199,12 @@ export default function ProfilePage() {
       <div className={styles.card}>
         <div className={styles.avatarSection}>
           {avatarUrl ? (
-            <img src={avatarUrl} alt="头像" className={styles.avatar} />
+            <img
+              src={avatarUrl}
+              alt="头像"
+              className={styles.avatar}
+              onError={(event) => { event.currentTarget.src = staticUrl("favicon.ico"); }}
+            />
           ) : (
             <div className={styles.avatarPlaceholder}>{user.username[0].toUpperCase()}</div>
           )}

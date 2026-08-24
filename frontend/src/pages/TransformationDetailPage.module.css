@@ -169,3 +169,10 @@
   .back { left: 4px; top: 4px; font-size: 14px; }
   .title { font-size: 20px; }
 }
+
+/* Basement transformation file */
+.container{max-width:940px;margin:0 auto;padding:0}.status{padding:80px 20px;color:var(--paper-dim);text-align:center}.back{position:static;display:inline-flex;margin-bottom:18px;padding:0;border:0;color:var(--paper-dim);background:none;cursor:pointer;font-family:var(--utility-font);font-size:11px;letter-spacing:.1em}.titleRow{position:relative;display:grid;grid-template-columns:200px 1fr;align-items:center;gap:38px;padding:34px 42px;border:1px solid var(--line);background:linear-gradient(120deg,#2f2630,#191316);box-shadow:var(--shadow)}.thumb,.imagePlaceholder{width:180px;height:180px;object-fit:contain;image-rendering:pixelated}.name{color:#fff1d5;font-family:var(--display-font);font-size:clamp(40px,7vw,66px);line-height:1.05}.nameEn{color:var(--paper-dim);font-family:Georgia,serif;font-style:italic}.table{width:100%;margin:24px 0;border-collapse:collapse;color:var(--paper);background:rgba(36,28,24,.86)}.table td{padding:13px 16px;border:1px solid var(--line)}.section{margin-top:24px;padding:26px 30px;border:1px solid var(--line);background:rgba(36,28,24,.82)}.section h3{color:var(--soul);font-family:var(--display-font);font-size:25px}.itemTag,.poolItem{border-radius:0;color:var(--ink);background:#d8c6a5}.itemIcon,.poolIcon{image-rendering:pixelated}.effectText{color:var(--paper);line-height:1.9}
+@media(max-width:640px){.container{padding:0}.titleRow{grid-template-columns:1fr;padding:28px 22px;text-align:center}.thumb,.imagePlaceholder{width:130px;height:130px;margin:auto}.name{font-size:40px}.section{padding:21px 18px}}
+
+.back { position:static; display:inline-flex; margin-bottom:18px; padding:0; border:0; color:#efe0c4; background:none; cursor:pointer; font-family:var(--utility-font); font-size:15px; font-weight:700; letter-spacing:.08em; }
+.back:hover { color:#fff4dc; }

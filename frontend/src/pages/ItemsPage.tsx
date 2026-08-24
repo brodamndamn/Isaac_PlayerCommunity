@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { getItems } from "../api/items";
 import { getTransformations } from "../api/transformations";
 import ItemCard from "../components/ItemCard";
@@ -142,7 +142,7 @@ export default function ItemsPage() {
 
   return (
     <div>
-      <a href="/" className={styles.homeBtn}>返回首页</a>
+      <Link to="/" className={styles.homeBtn}>返回首页</Link>
       <h1 className={styles.title}>道具图鉴</h1>
 
       <div className={styles.filters}>

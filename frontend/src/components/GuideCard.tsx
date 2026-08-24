@@ -2,8 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addFavorite, removeFavorite } from "../api/favorites";
 import { addLike, removeLike } from "../api/likes";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../hooks/useAuthHook";
+import { normalizeMediaUrl } from "../lib/paths";
 import UserAvatar from "./UserAvatar";
+import FlatActionIcon from "./FlatActionIcon";
 import type { Guide } from "../types/guide";
 import styles from "./GuideCard.module.css";
 
@@ -27,7 +29,7 @@ export default function GuideCard({ guide }: GuideCardProps) {
   const [favCount, setFavCount] = useState(guide.favorite_count);
   const [isFavorited, setIsFavorited] = useState(guide.is_favorited);
   const date = new Date(guide.created_at).toLocaleDateString("zh-CN");
-  const coverUrl = guide.cover_image || null;
+  const coverUrl = guide.cover_image ? normalizeMediaUrl(guide.cover_image) : null;
 
   const goDetail = () => navigate(`/guides/${guide.id}`);
 
@@ -82,11 +84,11 @@ export default function GuideCard({ guide }: GuideCardProps) {
           <UserAvatar avatar={guide.author_avatar} username={guide.author_name} size={16} /> {guide.author_name}
         </span>
         <div className={styles.actions}>
-          <button className={`${styles.actionBtn} ${isLiked ? styles.active : ""}`} onClick={handleLike}>
-            {isLiked ? "❤️" : "🤍"} {likeCount}
+          <button className={`${styles.actionBtn} ${isLiked ? styles.liked : ""}`} onClick={handleLike}>
+            <FlatActionIcon name="like" active={isLiked} /> {likeCount}
           </button>
-          <button className={`${styles.actionBtn} ${isFavorited ? styles.active : ""}`} onClick={handleFav}>
-            {isFavorited ? "⭐" : "☆"} {favCount}
+          <button className={`${styles.actionBtn} ${isFavorited ? styles.favorited : ""}`} onClick={handleFav}>
+            <FlatActionIcon name="favorite" active={isFavorited} /> {favCount}
           </button>
         </div>
       </div>

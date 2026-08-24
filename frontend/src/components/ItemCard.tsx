@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { staticUrl } from "../lib/paths";
 import type { Item } from "../types/item";
 import styles from "./ItemCard.module.css";
 
@@ -12,6 +13,14 @@ const CATEGORY_LABELS: Record<string, string> = {
   trinket: "饰品",
   card: "卡牌",
   pill: "胶囊",
+};
+
+const CATEGORY_MARKS: Record<string, string> = {
+  passive: "◆",
+  active: "⚡",
+  trinket: "✦",
+  card: "▤",
+  pill: "●",
 };
 
 // CSS 类名映射 — 避免 .card 容器同名冲突
@@ -35,7 +44,7 @@ export default function ItemCard({ item }: ItemCardProps) {
   // 或者其他 image_url（如 _shared/xxx 或 items/xxx）
   const pillSprite = item.category === "pill";
   const imgSrc = item.image_url
-    ? `/images/${item.image_url}`
+    ? staticUrl(`images/${item.image_url}`)
     : null;
 
   return (
@@ -56,6 +65,9 @@ export default function ItemCard({ item }: ItemCardProps) {
           <div className={styles.headerRow}>
             <span className={styles.id}>#{item.id}</span>
             <span className={`${styles.category} ${styles[TAG_CLASS[item.category]] || ""}`}>
+              <span className={styles.categoryMark} aria-hidden="true">
+                {CATEGORY_MARKS[item.category] || "•"}
+              </span>
               {CATEGORY_LABELS[item.category] || item.category}
             </span>
           </div>

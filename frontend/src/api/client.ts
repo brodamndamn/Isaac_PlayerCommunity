@@ -1,7 +1,8 @@
 import axios from "axios";
+import { APP_BASE_PATH } from "../lib/paths";
 
 const client = axios.create({
-  baseURL: "/api/v1",
+  baseURL: `${APP_BASE_PATH}/api/v1`,
   timeout: 10000,
 });
 

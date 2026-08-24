@@ -219,3 +219,24 @@
   .table .label { width: 80px; font-size: 12px; }
   .portrait { width: 80px; height: 80px; }
 }
+
+/* Basement resident dossier */
+.container { max-width: 940px; margin: 0 auto; padding: 0; }
+.status { padding: 80px 20px; color: var(--paper-dim); text-align: center; }
+.back { position: static; display: inline-flex; margin-bottom: 18px; padding: 0; border: 0; color: var(--paper-dim); background: none; cursor: pointer; font-family: var(--utility-font); font-size: 11px; letter-spacing: .1em; }
+.titleRow { position: relative; display: grid; grid-template-columns: 210px 1fr; align-items: center; gap: 38px; padding: 34px 42px; border: 1px solid var(--line); background: linear-gradient(120deg,#263032,#181412); box-shadow: var(--shadow); }
+.titleRow::after { content: "RESIDENT FILE"; position:absolute;right:25px;top:20px;color:#718185;font-family:var(--utility-font);font-size:10px;letter-spacing:.16em }
+.characterImage, .imagePlaceholder { width:190px;height:210px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(9px 12px 3px rgba(0,0,0,.38)) }
+.imagePlaceholder{display:grid;place-items:center;border:1px dashed var(--line)}
+.name{color:#fff1d5;font-family:var(--display-font);font-size:clamp(42px,7vw,68px);line-height:1.05;text-shadow:3px 4px 0 rgba(114,166,179,.25)}
+.nameEn{color:var(--paper-dim);font-family:Georgia,serif;font-style:italic}.taintedBadge{border-radius:0;color:#ffdcd7;background:var(--blood)}
+.table,.statTable{width:100%;margin:24px 0 0;border-collapse:collapse;color:var(--paper);background:rgba(36,28,24,.86)}
+.table td,.statTable td,.statTable th{padding:13px 16px;border:1px solid var(--line);color:#f1e2c6;font-size:15px}
+.table .label{width:130px;color:#f2dcb9;background:#3b2c25;font-family:var(--utility-font);font-size:13px;font-weight:700;letter-spacing:.08em}
+.statTable th{color:#f2dcb9;background:#3b2c25;font-family:var(--utility-font);font-size:13px;font-weight:700;letter-spacing:.08em}
+.statAttr{color:#f6e7cb;font-weight:700}.statValue{color:#ffe4a7;font-size:16px;font-weight:800}.statIcon{box-sizing:content-box;padding:2px;border:1px solid #bca887;background:#dfd0b3}
+.section{margin-top:24px;padding:26px 30px;border:1px solid var(--line);background:rgba(36,28,24,.82);box-shadow:6px 7px 0 rgba(0,0,0,.18)}.section h3{margin-bottom:16px;color:var(--soul);font-family:var(--display-font);font-size:25px}.section p{color:#f1e2c6;font-size:15px;font-weight:500;line-height:1.9}.itemTag{border-radius:0;color:var(--ink);background:#d8c6a5}.itemIcon,.statIcon{image-rendering:pixelated}
+@media(max-width:640px){.container{padding:0}.titleRow{grid-template-columns:1fr;padding:28px 22px;text-align:center}.characterImage,.imagePlaceholder{width:140px;height:155px;margin:auto}.name{font-size:42px}.table .label{width:85px}.section{padding:21px 18px}}
+
+.back { position:static; display:inline-flex; margin-bottom:18px; padding:0; border:0; color:#efe0c4; background:none; cursor:pointer; font-family:var(--utility-font); font-size:15px; font-weight:700; letter-spacing:.08em; }
+.back:hover { color:#fff4dc; }

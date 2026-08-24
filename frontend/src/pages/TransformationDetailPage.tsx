@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { staticUrl } from "../lib/paths";
 import { useNavigate, useParams } from "react-router-dom";
 import { getTransformationById } from "../api/transformations";
 import type { Transformation } from "../types/transformation";
@@ -31,7 +32,7 @@ export default function TransformationDetailPage() {
       <div className={styles.titleRow}>
         {item.first_item_id ? (
           <img
-            src={`/images/items/${item.first_item_id}.png`}
+            src={staticUrl(`images/items/${item.first_item_id}.png`)}
             alt={item.name_cn || item.name_en}
             className={styles.thumb}
             data-item-id={item.first_item_id}
@@ -70,7 +71,7 @@ export default function TransformationDetailPage() {
             <span key={i} className={styles.itemTag}>
               {ei.image_url ? (
                 <img
-                  src={`/images/${ei.image_url}`}
+                  src={staticUrl(`images/${ei.image_url}`)}
                   alt={ei.name_cn}
                   className={styles.itemIcon}
                   data-item-id={ei.id ?? undefined}

@@ -1,3 +1,4 @@
+import { staticUrl } from "../lib/paths";
 import styles from "./HeartTypes.module.css";
 
 interface HeartType {
@@ -23,7 +24,7 @@ export default function HeartTypes() {
       <div className={styles.grid}>
         {HEART_TYPES.map((h) => (
           <div key={h.key} className={styles.card}>
-            <img src={`/images/heart/${h.key}.png`} alt={h.name} className={styles.icon} data-heart={h.key} />
+            <img src={staticUrl(`images/heart/${h.key}.png`)} alt={h.name} className={styles.icon} data-heart={h.key} />
             <span className={styles.label}>{h.name}：{h.effect}</span>
           </div>
         ))}

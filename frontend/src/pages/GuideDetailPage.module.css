@@ -319,3 +319,174 @@
   .content img { max-width: 100%; }
   .meta { font-size: 12px; }
 }
+
+/* Basement notice theme */
+.backBtn{position:static;display:inline-flex;margin-bottom:18px;color:var(--paper-dim);font-family:var(--utility-font);font-size:11px;letter-spacing:.1em;text-decoration:none}.loading{padding:80px 20px;color:var(--paper-dim);text-align:center}.header{padding:30px 34px;border:1px solid #b9a889;border-top:5px solid var(--blood);border-radius:0;color:var(--ink);background:#dfd0b3;box-shadow:7px 9px 0 rgba(0,0,0,.28)}.category{border:1px solid currentColor;border-radius:0;background:transparent;font-family:var(--utility-font);font-size:10px}.title{margin:12px 0;font-family:var(--display-font);font-size:clamp(32px,5vw,48px);line-height:1.2}.metaRow{color:#6d5f50}.metaActions{gap:7px}.actionBtn{border:1px solid rgba(48,41,35,.3);border-radius:0;color:var(--ink);background:rgba(255,255,255,.12)}.actionBtn:hover,.actionActive{border-color:var(--blood);color:var(--blood)}.content{margin-top:24px;padding:34px 38px;border:1px solid #b9a889;color:var(--ink);background:#e0d1b4;box-shadow:7px 9px 0 rgba(0,0,0,.25);font-size:15px;line-height:1.9}.content h1,.content h2,.content h3{font-family:var(--display-font)}.content a{color:#74433e}.content img{border:8px solid #c7b596;box-shadow:4px 5px 0 rgba(48,41,35,.2)}.actions{margin-top:20px}.editBtn,.deleteBtn{border-radius:0;font-weight:800}.commentSection{margin-top:34px;padding:28px 30px;border:1px solid var(--line);background:rgba(36,28,24,.84)}.commentTitle{color:var(--soul);font-family:var(--display-font);font-size:27px}.commentInput{border:1px solid #5c4a3d;border-radius:0;color:var(--paper);background:#171210}.commentSubmit{border-radius:0;color:#fff;background:var(--blood)}.commentItem{padding:17px 0;border-color:var(--line)}.commentBody{color:var(--paper)}.commentDate,.commentEmpty,.commentLoginHint{color:#8f7d69}
+@media(max-width:640px){.header,.content,.commentSection{padding:22px 18px}.title{font-size:34px}}
+
+.backBtn { position:static; display:inline-flex; margin-bottom:18px; padding:0; border:0; color:#efe0c4; background:none; cursor:pointer; font-family:var(--utility-font); font-size:15px; font-weight:700; letter-spacing:.08em; text-decoration:none; }
+.backBtn:hover { color:#fff4dc; }
+
+/* 评论同样作为地下室公告条目，保证深色界面中的可读性。 */
+.commentItem {
+  padding: 18px 20px;
+  border: 1px solid #5c4a3d;
+  border-radius: 0;
+  background: rgba(56, 43, 36, 0.76);
+}
+
+.commentMeta {
+  gap: 11px;
+  margin-bottom: 10px;
+}
+
+.commentAuthor {
+  color: #f4e0bf;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.commentDate,
+.commentEmpty,
+.commentLoginHint {
+  color: #c2aa87;
+  font-size: 13px;
+}
+
+.commentBody {
+  color: #f0ddbf;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+.commentLikeBtn {
+  min-width: 0;
+  padding: 3px;
+  border: 0;
+  border-radius: 0;
+  color: #e5c893;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.commentLikeBtn:hover,
+.commentLiked {
+  color: #ffd7ce;
+  background: transparent;
+}
+
+.actionBtn,
+.commentLikeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.actionBtn.liked,
+.actionBtn.favorited { border-color:rgba(48,41,35,.3); color:var(--ink); background:rgba(255,255,255,.12); }
+.actionBtn.liked svg,
+.commentLiked svg { color:#d84538; }
+.actionBtn.favorited svg { color:#ffc928; filter:drop-shadow(0 1px 0 #5f4520) drop-shadow(0 0 2px rgba(255,230,116,.85)); }
+.commentLiked { color:#e5c893; background:transparent; }
+
+/* 管理操作采用档案页签样式，和正文内容保持清晰的层级。 */
+.editBtn,
+.deleteBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 15px;
+  border-radius: 0;
+  font-family: var(--utility-font);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, .22);
+  transition: transform .14s ease, box-shadow .14s ease, background .14s ease;
+}
+
+.editBtn span,
+.deleteBtn span { font-size: 16px; line-height: 1; }
+
+.editBtn {
+  right: 190px;
+  border-color: #856121;
+  color: #3e2c0d;
+  background: #e5c98d;
+}
+
+.deleteBtn {
+  border-color: #80342e;
+  color: #fff3dc;
+  background: #8f3933;
+}
+
+.editBtn:hover,
+.deleteBtn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, .26);
+}
+
+.editBtn:hover { color: #241807; background: #efd69e; }
+.deleteBtn:hover { color: #fff9ed; background: #ad443c; }
+
+.commentItem {
+  padding: 18px 20px;
+  border-color: #b9a889;
+  background: #dfd0b3;
+  box-shadow: 3px 4px 0 rgba(0, 0, 0, .17);
+}
+
+.commentAuthor { color: #30251d; }
+.commentDate { color: #776858; }
+.commentBody { color: #41362b; }
+
+.commentLikeBtn {
+  border-color: #a58e68;
+  color: #6d531c;
+  background: #eadbbd;
+}
+
+.commentLikeBtn:hover,
+.commentLiked {
+  border-color: #9a3d35;
+  color: #712b25;
+  background: #ebc1b6;
+}
+
+.commentDelBtn { color: #765f4a; }
+.commentDelBtn:hover { color: #782d27; background: #efc2b8; }
+
+/* 评论操作只保留同尺寸的图标，避免形成额外的按钮框。 */
+.commentLikeBtn,
+.commentDelBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none;
+  outline: none;
+}
+
+.commentLikeBtn:hover,
+.commentLikeBtn:focus-visible,
+.commentLiked {
+  background: transparent !important;
+}
+
+.commentLikeBtn {
+  margin-left: auto;
+}
+
+.commentDelBtn {
+  margin-left: 5px;
+}

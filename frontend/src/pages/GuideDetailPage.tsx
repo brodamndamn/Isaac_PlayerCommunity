@@ -4,8 +4,11 @@ import { addFavorite, removeFavorite } from "../api/favorites";
 import { deleteGuide, getGuideById } from "../api/guides";
 import { addLike, removeLike } from "../api/likes";
 import { likeComment, unlikeComment } from "../api/comments";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../hooks/useAuthHook";
+import SimpleMarkdown from "../components/SimpleMarkdown";
 import UserAvatar from "../components/UserAvatar";
+import FlatActionIcon from "../components/FlatActionIcon";
+import DangerConfirmDialog from "../components/DangerConfirmDialog";
 import client from "../api/client";
 import type { ApiResponse, PaginatedData } from "../types/api";
 import type { Guide } from "../types/guide";
@@ -32,6 +35,9 @@ export default function GuideDetailPage() {
   const [comments, setComments] = useState<any[]>([]);
   const [commentText, setCommentText] = useState("");
   const [submittingComment, setSubmittingComment] = useState(false);
+  const [showGuideDeleteDialog, setShowGuideDeleteDialog] = useState(false);
+  const [commentToDelete, setCommentToDelete] = useState<number | null>(null);
+  const [deletingComment, setDeletingComment] = useState(false);
 
   const fetchComments = useCallback(async () => {
     try {
@@ -61,7 +67,6 @@ export default function GuideDetailPage() {
   }, [fetchGuide, fetchComments]);
 
   const handleDelete = async () => {
-    if (!confirm("确定删除这篇攻略吗？")) return;
     setDeleting(true);
     try {
       await deleteGuide(Number(id));
@@ -70,6 +75,21 @@ export default function GuideDetailPage() {
       alert(err.response?.data?.message || "删除失败");
     } finally {
       setDeleting(false);
+    }
+  };
+
+  const handleCommentDelete = async () => {
+    if (commentToDelete === null) return;
+    setDeletingComment(true);
+    try {
+      await client.delete(`/comments/${commentToDelete}`);
+      setComments((current) => current.filter((comment) => comment.id !== commentToDelete));
+      setGuide((current) => current ? { ...current, comment_count: Math.max(0, current.comment_count - 1) } : current);
+      setCommentToDelete(null);
+    } catch (err: any) {
+      alert(err.response?.data?.detail || err.response?.data?.message || "删除评论失败");
+    } finally {
+      setDeletingComment(false);
     }
   };
 
@@ -125,36 +145,20 @@ export default function GuideDetailPage() {
 
   const date = new Date(guide.created_at).toLocaleString("zh-CN");
 
-  // 简易 Markdown → HTML
-  const renderContent = (md: string) => {
-    let html = md
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-    // 图片 ![](url)
-    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%;border-radius:6px;margin:8px 0" />');
-    // 粗体 **text**
-    html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-    // 标题 ## text
-    html = html.replace(/^### (.+)$/gm, "<h4>$1</h4>");
-    html = html.replace(/^## (.+)$/gm, "<h3>$1</h3>");
-    html = html.replace(/^# (.+)$/gm, "<h2>$1</h2>");
-    // 换行
-    html = html.replace(/\n/g, "<br />");
-    return html;
-  };
 
   return (
     <div>
       <button onClick={() => navigate(-1)} className={styles.backBtn}>&larr; 返回</button>
 
       {canDelete && (
-        <button onClick={handleDelete} disabled={deleting} className={styles.deleteBtn}>
+        <button onClick={() => setShowGuideDeleteDialog(true)} disabled={deleting} className={styles.deleteBtn}>
+          <span aria-hidden="true">⌫</span>
           {deleting ? "删除中..." : "删除攻略"}
         </button>
       )}
       {(isOwner || isAdmin) && (
         <button onClick={() => navigate(`/guides/new?edit=${id}`)} className={styles.editBtn}>
+          <span aria-hidden="true">✎</span>
           编辑攻略
         </button>
       )}
@@ -170,18 +174,18 @@ export default function GuideDetailPage() {
           <span className={styles.date}>{date}</span>
           {guide.updated_at !== guide.created_at && " (已编辑)"}
           <div className={styles.metaActions}>
-            <button className={`${styles.actionBtn} ${isLiked ? styles.actionActive : ""}`} onClick={handleLike}>
-              {isLiked ? "❤️" : "🤍"} {likeCount}
+            <button className={`${styles.actionBtn} ${isLiked ? styles.liked : ""}`} onClick={handleLike}>
+              <FlatActionIcon name="like" active={isLiked} /> {likeCount}
             </button>
-            <button className={`${styles.actionBtn} ${isFavorited ? styles.actionActive : ""}`} onClick={handleFav}>
-              {isFavorited ? "⭐" : "☆"} {favCount}
+            <button className={`${styles.actionBtn} ${isFavorited ? styles.favorited : ""}`} onClick={handleFav}>
+              <FlatActionIcon name="favorite" active={isFavorited} /> {favCount}
             </button>
-            <span className={styles.actionBtn} onClick={() => document.getElementById("comments")?.scrollIntoView({ behavior: "smooth" })} style={{ cursor: "pointer" }}>💬 {guide.comment_count}</span>
+            <span className={styles.actionBtn} onClick={() => document.getElementById("comments")?.scrollIntoView({ behavior: "smooth" })} style={{ cursor: "pointer" }}><FlatActionIcon name="comment" /> {guide.comment_count}</span>
           </div>
         </div>
       </div>
 
-      <div className={styles.content} dangerouslySetInnerHTML={{ __html: renderContent(guide.content) }} />
+      <div className={styles.content}><SimpleMarkdown content={guide.content} /></div>
 
       <div className={styles.commentSection} id="comments">
         <h3 className={styles.commentTitle}>评论 ({guide.comment_count})</h3>
@@ -233,18 +237,12 @@ export default function GuideDetailPage() {
                     } catch { /* ignore */ }
                   }}
                 >
-                  {c.is_liked ? "❤️" : "🤍"} {c.like_count || 0}
+                  <FlatActionIcon name="like" active={c.is_liked} size={12} /> {c.like_count || 0}
                 </button>
                 {(user?.id === c.user_id || user?.role === "admin") && (
                   <button
                     className={styles.commentDelBtn}
-                    onClick={async () => {
-                      if (!confirm("确定删除这条评论吗？")) return;
-                      try {
-                        await client.delete(`/comments/${c.id}`);
-                        fetchComments();
-                      } catch { /* ignore */ }
-                    }}
+                    onClick={() => setCommentToDelete(c.id)}
                   >
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
                   </button>
@@ -256,6 +254,27 @@ export default function GuideDetailPage() {
           {comments.length === 0 && <p className={styles.commentEmpty}>暂无评论，来发表第一条吧</p>}
         </div>
       </div>
+
+      {showGuideDeleteDialog && (
+        <DangerConfirmDialog
+          title="删除这篇攻略？"
+          description="攻略正文、图片和全部评论都会被永久移除，无法恢复。"
+          confirmLabel="确认删除攻略"
+          busy={deleting}
+          onConfirm={handleDelete}
+          onCancel={() => setShowGuideDeleteDialog(false)}
+        />
+      )}
+      {commentToDelete !== null && (
+        <DangerConfirmDialog
+          title="删除这条评论？"
+          description="这条评论将从攻略讨论中永久移除，无法恢复。"
+          confirmLabel="确认删除评论"
+          busy={deletingComment}
+          onConfirm={handleCommentDelete}
+          onCancel={() => setCommentToDelete(null)}
+        />
+      )}
     </div>
   );
 }

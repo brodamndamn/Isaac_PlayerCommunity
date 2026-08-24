@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { staticUrl } from "../lib/paths";
 import type { Character } from "../types/character";
 import HealthHearts from "./HealthHearts";
 import styles from "./CharacterCard.module.css";
@@ -16,7 +17,7 @@ export default function CharacterCard({ character }: CharacterCardProps) {
       <div className={styles.topRow}>
         {character.image_url ? (
           <img
-            src={`/images/${character.image_url}`}
+            src={staticUrl(`images/${character.image_url}`)}
             alt={character.name_cn}
             className={styles.thumb}
             data-item-id={character.id}
@@ -41,19 +42,19 @@ export default function CharacterCard({ character }: CharacterCardProps) {
             )}
             {character.damage != null && (
               <span className={styles.stat}>
-                <img src="/images/stat/damage.png" alt="" className={styles.statIcon} />
+                <img src={staticUrl("images/stat/damage.png")} alt="" className={styles.statIcon} />
                 {character.damage}
               </span>
             )}
             {character.speed != null && (
               <span className={styles.stat}>
-                <img src="/images/stat/speed.png" alt="" className={styles.statIcon} />
+                <img src={staticUrl("images/stat/speed.png")} alt="" className={styles.statIcon} />
                 {character.speed}
               </span>
             )}
             {character.tears != null && (
               <span className={styles.stat}>
-                <img src="/images/stat/tears.png" alt="" className={styles.statIcon} />
+                <img src={staticUrl("images/stat/tears.png")} alt="" className={styles.statIcon} />
                 {character.tears}
               </span>
             )}

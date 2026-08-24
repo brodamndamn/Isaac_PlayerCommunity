@@ -1,17 +1,26 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/isaac/",
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "http://localhost:8000",
-      "/uploads": "http://localhost:8000",
+      "/isaac/api/": {
+        target: "http://localhost:8000",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/isaac\/api\//, "/api/"),
+      },
+      "/isaac/uploads/": {
+        target: "http://localhost:8000",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/isaac\/uploads\//, "/uploads/"),
+      },
     },
     watch: {
       usePolling: true,
       interval: 100,
     },
   },
-})
+});

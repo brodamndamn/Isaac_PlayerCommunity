@@ -1,18 +1,7 @@
-import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { getMe, type UserData } from "../api/auth";
+import { AuthContext } from "./authContext";
 
-interface AuthCtx {
-  user: UserData | null;
-  authChecked: boolean;
-  modalOpen: boolean;
-  modalTab: "login" | "register";
-  login: (u: UserData) => void;
-  logout: () => void;
-  openModal: (tab: "login" | "register") => void;
-  closeModal: () => void;
-}
-
-const AuthContext = createContext<AuthCtx | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<UserData | null>(null);
@@ -63,10 +52,4 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       {children}
     </AuthContext.Provider>
   );
-}
-
-export function useAuth() {
-  const ctx = useContext(AuthContext);
-  if (!ctx) throw new Error("useAuth must be used within AuthProvider");
-  return ctx;
 }

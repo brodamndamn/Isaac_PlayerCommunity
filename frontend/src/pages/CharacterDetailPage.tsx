@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { staticUrl } from "../lib/paths";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCharacterById } from "../api/characters";
 import type { Character } from "../types/character";
@@ -31,7 +32,7 @@ export default function CharacterDetailPage() {
       <div className={styles.titleRow}>
         {char.image_url ? (
           <img
-            src={`/images/${char.image_url}`}
+            src={staticUrl(`images/${char.image_url}`)}
             alt={char.name_en}
             className={styles.characterImage}
             data-item-id={char.id}
@@ -76,7 +77,7 @@ export default function CharacterDetailPage() {
                     <span key={ei.id} className={styles.itemTag}>
                       {ei.image_url ? (
                         <img
-                          src={`/images/${ei.image_url}`}
+                          src={staticUrl(`images/${ei.image_url}`)}
                           alt={ei.name_cn}
                           className={styles.itemIcon}
                           data-item-id={ei.id ?? undefined}
@@ -115,7 +116,7 @@ export default function CharacterDetailPage() {
               {char.damage != null && (
                 <tr>
                   <td className={styles.statAttr}>
-                    <img src="/images/stat/damage.png" alt="" className={styles.statIcon} />
+                    <img src={staticUrl("images/stat/damage.png")} alt="" className={styles.statIcon} />
                     攻击
                   </td>
                   <td className={styles.statValue}>{char.damage}</td>
@@ -124,7 +125,7 @@ export default function CharacterDetailPage() {
               {char.speed != null && (
                 <tr>
                   <td className={styles.statAttr}>
-                    <img src="/images/stat/speed.png" alt="" className={styles.statIcon} />
+                    <img src={staticUrl("images/stat/speed.png")} alt="" className={styles.statIcon} />
                     速度
                   </td>
                   <td className={styles.statValue}>{char.speed}</td>
@@ -133,7 +134,7 @@ export default function CharacterDetailPage() {
               {char.tears != null && (
                 <tr>
                   <td className={styles.statAttr}>
-                    <img src="/images/stat/tears.png" alt="" className={styles.statIcon} />
+                    <img src={staticUrl("images/stat/tears.png")} alt="" className={styles.statIcon} />
                     射速
                   </td>
                   <td className={styles.statValue}>{char.tears}</td>
