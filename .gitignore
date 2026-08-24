@@ -21,6 +21,10 @@ build/
 # Claude Code local settings
 .CLAUDE/settings.local.json
 
+# Local agent instructions and skills (not project source)
+.agents/
+AGENTS.md
+
 # OS
 .DS_Store
 Thumbs.db
