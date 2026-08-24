@@ -36,3 +36,17 @@ export function normalizeMediaUrl(url: string): string {
   if (URL_SCHEME_PATTERN.test(value)) return "";
   return staticUrl(value);
 }
+
+/**
+ * 兼容数据库中不同年代保存的头像路径：
+ * "avatars/a.png"、"uploads/avatars/a.png" 与 "/uploads/avatars/a.png"。
+ */
+export function uploadUrl(path: string): string {
+  const value = path.trim();
+  if (!value) return "";
+  if (isAllowedExternalUrl(value)) return value;
+  if (URL_SCHEME_PATTERN.test(value)) return "";
+
+  const withoutUploads = value.replace(/^\/?uploads\//, "");
+  return staticUrl(`uploads/${withoutUploads}`);
+}

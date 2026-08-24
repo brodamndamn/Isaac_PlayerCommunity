@@ -24,7 +24,10 @@ export default function TransformationCard({ transformation }: Props) {
         <div className={styles.titleCol}>
           <div className={styles.headerRow}>
             <span className={styles.id}>#{transformation.id}</span>
-            <span className={styles.category}>套装</span>
+            <span className={styles.category}>
+              <span className={styles.categoryMark} aria-hidden="true">∞</span>
+              套装
+            </span>
           </div>
           <h3 className={styles.name}>{transformation.name_cn || transformation.name_en}</h3>
           <p className={styles.nameEn}>{transformation.name_en}</p>

@@ -1,14 +1,77 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  color-scheme: dark;
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+  color: #e5d5b8;
+  background: #171210;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --basement: #171210;
+  --basement-deep: #100c0b;
+  --wall: #241c18;
+  --wall-light: #30251f;
+  --paper: #e5d5b8;
+  --paper-dim: #bba98b;
+  --ink: #302923;
+  --blood: #8e332c;
+  --blood-bright: #b64a3f;
+  --soul: #72a6b3;
+  --coin: #c49a45;
+  --line: rgba(229, 213, 184, 0.2);
+  --shadow: 0 18px 44px rgba(0, 0, 0, 0.34);
+  --display-font: "STKaiti", "KaiTi", "Microsoft YaHei", serif;
+  --body-font: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+  --utility-font: "Cascadia Mono", "Consolas", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  min-width: 320px;
+  background: var(--basement-deep);
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f5f5f5;
+  min-width: 320px;
+  min-height: 100vh;
+  line-height: 1.65;
+  color: var(--paper);
+  background:
+    radial-gradient(circle at 14% 8%, rgba(142, 51, 44, 0.14), transparent 24rem),
+    radial-gradient(circle at 84% 22%, rgba(114, 166, 179, 0.08), transparent 28rem),
+    repeating-linear-gradient(90deg, transparent 0 47px, rgba(229, 213, 184, 0.018) 48px),
+    repeating-linear-gradient(0deg, transparent 0 47px, rgba(229, 213, 184, 0.014) 48px),
+    var(--basement);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 38%, rgba(0, 0, 0, 0.48) 100%);
+}
+
+button, input, textarea, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 3px solid var(--soul);
+  outline-offset: 3px;
+}
+
+::selection { color: #fff8e9; background: var(--blood); }
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--basement-deep); }
+::-webkit-scrollbar-thumb { border: 3px solid var(--basement-deep); border-radius: 8px; background: #58463a; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

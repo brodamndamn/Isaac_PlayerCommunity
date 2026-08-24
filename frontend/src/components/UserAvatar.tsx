@@ -1,4 +1,4 @@
-import { staticUrl } from "../lib/paths";
+import { staticUrl, uploadUrl } from "../lib/paths";
 
 interface UserAvatarProps {
   avatar: string | null;
@@ -7,16 +7,17 @@ interface UserAvatarProps {
 }
 
 export default function UserAvatar({ avatar, username, size = 22 }: UserAvatarProps) {
-  const src = avatar ? staticUrl(`uploads/${avatar}`) : null;
+  const src = avatar ? uploadUrl(avatar) : null;
   if (src) {
     return (
       <img
         src={src}
         alt={username}
+        onError={(event) => { event.currentTarget.src = staticUrl("favicon.ico"); }}
         style={{
           width: size,
           height: size,
-          borderRadius: "50%",
+          borderRadius: 0,
           objectFit: "cover",
           flexShrink: 0,
         }}
@@ -28,7 +29,7 @@ export default function UserAvatar({ avatar, username, size = 22 }: UserAvatarPr
       style={{
         width: size,
         height: size,
-        borderRadius: "50%",
+        borderRadius: 0,
         background: "#6b3a2a",
         color: "#f5e6d0",
         display: "inline-flex",

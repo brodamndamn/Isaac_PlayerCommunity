@@ -15,6 +15,14 @@ const CATEGORY_LABELS: Record<string, string> = {
   pill: "胶囊",
 };
 
+const CATEGORY_MARKS: Record<string, string> = {
+  passive: "◆",
+  active: "⚡",
+  trinket: "✦",
+  card: "▤",
+  pill: "●",
+};
+
 // CSS 类名映射 — 避免 .card 容器同名冲突
 const TAG_CLASS: Record<string, string> = {
   passive: "passive",
@@ -57,6 +65,9 @@ export default function ItemCard({ item }: ItemCardProps) {
           <div className={styles.headerRow}>
             <span className={styles.id}>#{item.id}</span>
             <span className={`${styles.category} ${styles[TAG_CLASS[item.category]] || ""}`}>
+              <span className={styles.categoryMark} aria-hidden="true">
+                {CATEGORY_MARKS[item.category] || "•"}
+              </span>
               {CATEGORY_LABELS[item.category] || item.category}
             </span>
           </div>

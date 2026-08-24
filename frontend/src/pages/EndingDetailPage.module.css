@@ -182,3 +182,15 @@
   .table td { padding: 8px 8px; font-size: 13px; }
   .table .label { width: 70px; font-size: 12px; }
 }
+
+/* Basement escape record */
+.container{max-width:940px;margin:0 auto;padding:0}.status{padding:80px 20px;color:var(--paper-dim);text-align:center}.back{position:static;display:inline-flex;margin-bottom:18px;padding:0;border:0;color:var(--paper-dim);background:none;cursor:pointer;font-family:var(--utility-font);font-size:11px;letter-spacing:.1em}
+.titleRow{position:relative;display:grid;grid-template-columns:210px 1fr;align-items:center;gap:38px;padding:34px 42px;border:1px solid var(--line);background:linear-gradient(120deg,#34231f,#191210);box-shadow:var(--shadow)}.titleRow::after{content:"ESCAPE RECORD";position:absolute;right:25px;top:20px;color:#80665c;font-family:var(--utility-font);font-size:10px;letter-spacing:.16em}.bossImg{width:190px;height:190px;border:1px dashed var(--line);border-radius:0;object-fit:contain;image-rendering:pixelated}.title{color:#fff1d5;font-family:var(--display-font);font-size:clamp(40px,7vw,66px);line-height:1.05;text-shadow:3px 4px 0 rgba(142,51,44,.35)}.num{color:var(--blood-bright);font-family:var(--utility-font)}.nameEn{color:var(--paper-dim);font-family:Georgia,serif;font-style:italic}
+.table{width:100%;margin:24px 0;border-collapse:collapse;color:var(--paper);background:rgba(36,28,24,.86)}.table td{padding:13px 16px;border:1px solid var(--line);color:#f1e2c6;font-size:15px}.table .label{width:130px;color:#f2dcb9;background:#3b2c25;font-family:var(--utility-font);font-size:13px;font-weight:700;letter-spacing:.08em}.unlockList{display:grid;gap:12px}.unlockRow{padding:18px;border:1px solid var(--line);border-radius:0;background:rgba(36,28,24,.82)}.unlockHeading{color:#9bd9e1;font-family:var(--display-font);font-size:21px}.unlockText{color:#f1e2c6;font-size:15px}.typeBadge{border-radius:0}.unlockIcon{image-rendering:pixelated}
+.unlockHeading { margin-bottom: 2px; padding: 10px 12px; border-bottom-color: rgba(229, 213, 184, 0.22); }
+.headingText { color: #fff0d5; font-family: var(--display-font); font-size: 18px; font-weight: 800; }
+.unlockText { color: #f0ddbf; font-size: 14px; font-weight: 600; }
+@media(max-width:640px){.container{padding:0}.titleRow{grid-template-columns:1fr;padding:28px 22px;text-align:center}.bossImg{width:135px;height:135px;margin:auto}.title{font-size:40px}.table .label{width:85px}}
+
+.back { position:static; display:inline-flex; margin-bottom:18px; padding:0; border:0; color:#efe0c4; background:none; cursor:pointer; font-family:var(--utility-font); font-size:15px; font-weight:700; letter-spacing:.08em; }
+.back:hover { color:#fff4dc; }

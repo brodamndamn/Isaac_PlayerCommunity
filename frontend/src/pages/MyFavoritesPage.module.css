@@ -25,3 +25,11 @@
   .title { font-size: 20px; }
   .grid { grid-template-columns: 1fr; gap: 10px; }
 }
+
+/* Basement saved notes */
+.homeBtn{position:static;display:inline-flex;margin-bottom:16px;color:var(--paper-dim);font-family:var(--utility-font);font-size:11px;text-decoration:none}.title{margin-bottom:10px;font-family:var(--display-font);font-size:clamp(38px,6vw,58px)}.count,.loading{color:var(--paper-dim)}.empty{max-width:520px;margin-top:24px;padding:34px;border:1px dashed var(--line);color:var(--paper-dim);background:rgba(36,28,24,.72);font-family:var(--display-font);font-size:20px;text-align:left}.grid{gap:18px}.cardWrap{filter:none}.removeBtn{border-radius:0;color:#ffb5ad;background:#3a1e1b}.removeBtn:hover{color:#fff;background:var(--blood)}
+
+.homeBtn { display:inline-flex; margin:-27px 0 13px; color:var(--paper-dim); font-family:var(--utility-font); font-size:14px; font-weight:700; letter-spacing:.1em; text-decoration:none; }
+.homeBtn::before { content:"←"; margin-right:8px; color:var(--blood-bright); }
+.homeBtn:hover { color:#fff4dd; }
+@media (max-width:640px) { .homeBtn { margin-top:-11px; } }
