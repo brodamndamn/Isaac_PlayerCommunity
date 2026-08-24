@@ -119,7 +119,7 @@ export default function GuidesPage() {
 
   return (
     <div>
-      <a href="/" className={styles.homeBtn}>返回首页</a>
+      <Link to="/" className={styles.homeBtn}>返回首页</Link>
       {toast === "published" && (
         <div className={`${styles.toast} ${toastLeaving ? styles.toastOut : ""}`}>
           <span>✅ 帖子已成功发布！</span>

@@ -1,3 +1,4 @@
+import { staticUrl } from "../lib/paths";
 import styles from "./HealthHearts.module.css";
 
 interface Props {
@@ -72,7 +73,7 @@ function renderGroup(part: string, size: number) {
         {Array.from({ length: full }, (_, i) => (
           <img
             key={i}
-            src={`/images/heart/${key}.png`}
+            src={staticUrl(`images/heart/${key}.png`)}
             alt={key}
             className={styles.heartImg}
             style={{ width: size, height: size }}
@@ -81,7 +82,7 @@ function renderGroup(part: string, size: number) {
         {hasHalf && (
           <span className={styles.halfWrap} style={{ width: size, height: size }}>
             <img
-              src={`/images/heart/${key}.png`}
+              src={staticUrl(`images/heart/${key}.png`)}
               alt={key}
               className={styles.heartImg}
               style={{ width: size, height: size }}

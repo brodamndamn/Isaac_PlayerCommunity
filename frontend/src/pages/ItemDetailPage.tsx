@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { staticUrl } from "../lib/paths";
 import { useNavigate, useParams } from "react-router-dom";
 import { getItemById } from "../api/items";
 import type { Item } from "../types/item";
@@ -62,7 +63,7 @@ export default function ItemDetailPage() {
       <div className={styles.titleRow}>
         {item.image_url ? (
           <img
-            src={`/images/${item.image_url}`}
+            src={staticUrl(`images/${item.image_url}`)}
             alt={item.name_cn || item.name_en}
             className={styles.itemImage}
           />
@@ -115,7 +116,7 @@ export default function ItemDetailPage() {
                     <span key={i} className={styles.poolItem}>
                       {entry.img && (
                         <img
-                          src={`/images/${entry.img}.png`}
+                          src={staticUrl(`images/${entry.img}.png`)}
                           alt={entry.label}
                           className={styles.poolIcon}
                         />
@@ -160,7 +161,7 @@ export default function ItemDetailPage() {
                     <td className={styles.statAttr}>
                       {imgPath ? (
                         <img
-                          src={`/images/${imgPath}.png`}
+                          src={staticUrl(`images/${imgPath}.png`)}
                           alt={attrName}
                           className={styles.statIcon}
                         />

@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import { staticUrl } from "../lib/paths";
 import styles from "./HomePage.module.css";
 
 const SECTIONS = [
-  { path: "/items", image: "/images/items/114.png", title: "道具图鉴", desc: "700+ 道具的详细效果、解锁方式与搭配推荐", count: "1000+" },
-  { path: "/characters", image: "/images/characters/1.png", title: "角色资料", desc: "34 个表里角色的属性、初始道具与解锁条件", count: "34" },
-  { path: "/endings", image: "/images/moms-heart.png", title: "结局一览", desc: "全部结局的达成方式、Boss 信息与解锁奖励", count: "20+" },
+  { path: "/items", image: staticUrl("images/items/114.png"), title: "道具图鉴", desc: "700+ 道具的详细效果、解锁方式与搭配推荐", count: "1000+" },
+  { path: "/characters", image: staticUrl("images/characters/1.png"), title: "角色资料", desc: "34 个表里角色的属性、初始道具与解锁条件", count: "34" },
+  { path: "/endings", image: staticUrl("images/moms-heart.png"), title: "结局一览", desc: "全部结局的达成方式、Boss 信息与解锁奖励", count: "20+" },
 ];
 
 export default function HomePage() {
@@ -36,9 +37,9 @@ export default function HomePage() {
         {/* 社区入口 — 全宽卡片 */}
         <Link to="/guides" className={`${styles.card} ${styles.communityCard}`}>
           <div className={styles.communityImages}>
-            <img src="/images/community-discuss/1.gif" alt="攻略" className={styles.communityImage} />
-            <img src="/images/community-discuss/2.gif" alt="讨论" className={styles.communityImage} />
-            <img src="/images/community-discuss/3.png" alt="收藏" className={styles.communityImage} />
+            <img src={staticUrl("images/community-discuss/1.gif")} alt="攻略" className={styles.communityImage} />
+            <img src={staticUrl("images/community-discuss/2.gif")} alt="讨论" className={styles.communityImage} />
+            <img src={staticUrl("images/community-discuss/3.png")} alt="收藏" className={styles.communityImage} />
           </div>
           <span className={styles.badge}>NEW</span>
           <h3 className={styles.cardTitle}>玩家社区</h3>

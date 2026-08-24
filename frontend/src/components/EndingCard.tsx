@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { staticUrl } from "../lib/paths";
 import type { Ending } from "../types/ending";
 import styles from "./EndingCard.module.css";
 
@@ -14,7 +15,7 @@ export default function EndingCard({ ending }: EndingCardProps) {
         <h3 className={styles.name}>{ending.name_cn}</h3>
         {ending.image_url ? (
           <img
-            src={`/images/${ending.image_url}`}
+            src={staticUrl(`images/${ending.image_url}`)}
             alt={ending.boss_name}
             className={styles.bossImg}
             data-boss={ending.boss_name}

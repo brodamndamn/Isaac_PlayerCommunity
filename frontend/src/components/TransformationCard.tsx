@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { staticUrl } from "../lib/paths";
 import type { Transformation } from "../types/transformation";
 import styles from "./TransformationCard.module.css";
 
@@ -13,7 +14,7 @@ export default function TransformationCard({ transformation }: Props) {
         {transformation.first_item_id ? (
           <img
             className={styles.thumb}
-            src={`/images/items/${transformation.first_item_id}.png`}
+            src={staticUrl(`images/items/${transformation.first_item_id}.png`)}
             alt={transformation.name_cn || transformation.name_en}
             data-item-id={transformation.first_item_id}
           />

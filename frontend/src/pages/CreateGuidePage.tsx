@@ -2,6 +2,8 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent, ty
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { createGuide, getGuideById, updateGuide } from "../api/guides";
 import { uploadImage } from "../api/upload";
+import SimpleMarkdown from "../components/SimpleMarkdown";
+import { normalizeMediaUrl } from "../lib/paths";
 import styles from "./CreateGuidePage.module.css";
 
 const CATEGORIES = [
@@ -40,23 +42,10 @@ export default function CreateGuidePage() {
       setTitle(g.title);
       setContent(g.content);
       setCategory(g.category);
-      if (g.cover_image) setCoverImage(g.cover_image);
+      if (g.cover_image) setCoverImage(normalizeMediaUrl(g.cover_image));
     }).catch(() => setError("加载攻略失败"));
   }, [editId]);
 
-  const renderMarkdown = (md: string) => {
-    let html = md
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%;border-radius:6px;margin:8px 0" />');
-    html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-    html = html.replace(/^### (.+)$/gm, "<h4>$1</h4>");
-    html = html.replace(/^## (.+)$/gm, "<h3>$1</h3>");
-    html = html.replace(/^# (.+)$/gm, "<h2>$1</h2>");
-    html = html.replace(/\n/g, "<br />");
-    return html;
-  };
 
   const dismissWarning = useCallback(() => {
     setWarnLeaving(true);
@@ -169,7 +158,7 @@ export default function CreateGuidePage() {
     const re = /!\[[^\]]*\]\(([^)]+)\)/g;
     let m;
     while ((m = re.exec(content)) !== null) {
-      urls.push(m[1]);
+      urls.push(normalizeMediaUrl(m[1]));
     }
     return urls;
   }, [content]);
@@ -226,7 +215,7 @@ export default function CreateGuidePage() {
           </button>
           {coverImage && (
             <>
-              <img src={coverImage} alt="封面预览" className={styles.coverPreview} />
+              <img src={normalizeMediaUrl(coverImage)} alt="封面预览" className={styles.coverPreview} />
               <button type="button" className={styles.coverRemove} onClick={() => setCoverImage("")}>✕</button>
             </>
           )}
@@ -248,7 +237,7 @@ export default function CreateGuidePage() {
         </div>
         <div className={styles.contentArea}>
           {preview ? (
-            <div className={styles.preview} dangerouslySetInnerHTML={{ __html: renderMarkdown(content) || "<span style='color:#b0a090'>暂无内容</span>" }} />
+            <div className={styles.preview}><SimpleMarkdown content={content} emptyText="暂无内容" /></div>
           ) : (
             <textarea
               ref={textareaRef}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getCharacters } from "../api/characters";
 import CharacterCard from "../components/CharacterCard";
 import HeartTypes from "../components/HeartTypes";
@@ -26,7 +27,7 @@ export default function CharactersPage() {
 
   return (
     <div>
-      <a href="/" className={styles.homeBtn}>返回首页</a>
+      <Link to="/" className={styles.homeBtn}>返回首页</Link>
       <h1 className={styles.title}>角色资料</h1>
 
       <div className={styles.filters}>

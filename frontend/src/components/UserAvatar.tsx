@@ -1,3 +1,5 @@
+import { staticUrl } from "../lib/paths";
+
 interface UserAvatarProps {
   avatar: string | null;
   username: string;
@@ -5,7 +7,7 @@ interface UserAvatarProps {
 }
 
 export default function UserAvatar({ avatar, username, size = 22 }: UserAvatarProps) {
-  const src = avatar ? `/uploads/${avatar}` : null;
+  const src = avatar ? staticUrl(`uploads/${avatar}`) : null;
   if (src) {
     return (
       <img

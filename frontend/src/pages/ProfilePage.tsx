@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ChangeEvent, type WheelEvent, useCallback } from "react";
+import { staticUrl } from "../lib/paths";
 import { Link, useNavigate } from "react-router-dom";
 import client from "../api/client";
 import { getMyFavorites } from "../api/favorites";
@@ -35,9 +36,6 @@ export default function ProfilePage() {
   const dragStart = useRef({ x: 0, y: 0, cx: 0, cy: 0 });
   const [, forceRender] = useState(0);
 
-  if (!user) return null;
-
-  const avatarUrl = user.avatar ? `/uploads/${user.avatar}` : null;
 
   const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -98,7 +96,7 @@ export default function ProfilePage() {
 
   // Canvas 裁剪 → 上传
   const handleCropAndUpload = useCallback(async () => {
-    if (!cropSrc) return;
+    if (!cropSrc || !user) return;
     setUploading(true);
     setError("");
 
@@ -144,6 +142,10 @@ export default function ProfilePage() {
       setUploading(false);
     }
   }, [cropSrc, cropScale, user, login]);
+
+  if (!user) return null;
+
+  const avatarUrl = user.avatar ? staticUrl(`uploads/${user.avatar}`) : null;
 
   return (
     <div>

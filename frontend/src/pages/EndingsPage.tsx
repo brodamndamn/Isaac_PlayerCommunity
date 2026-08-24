@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getEndings } from "../api/endings";
 import EndingCard from "../components/EndingCard";
 import type { Ending } from "../types/ending";
@@ -17,7 +18,7 @@ export default function EndingsPage() {
 
   return (
     <div>
-      <a href="/" className={styles.homeBtn}>返回首页</a>
+      <Link to="/" className={styles.homeBtn}>返回首页</Link>
       <h1 className={styles.title}>结局一览</h1>
 
       {loading ? (

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getEndingById } from "../api/endings";
+import { staticUrl } from "../lib/paths";
 import type { Ending } from "../types/ending";
 import styles from "./EndingDetailPage.module.css";
 
@@ -34,7 +35,7 @@ export default function EndingDetailPage() {
         </h1>
         {ending.image_url ? (
           <img
-            src={`/images/${ending.image_url}`}
+            src={staticUrl(`images/${ending.image_url}`)}
             alt={ending.boss_name}
             className={styles.bossImg}
             data-boss={ending.boss_name}
@@ -83,7 +84,7 @@ export default function EndingDetailPage() {
                           </span>
                         )}
                         {u.image_url ? (
-                          <img src={`/images/${u.image_url}`} alt={u.text} className={styles.unlockIcon} data-item-id={id} />
+                          <img src={staticUrl(`images/${u.image_url}`)} alt={u.text} className={styles.unlockIcon} data-item-id={id} />
                         ) : id ? (
                           <span className={styles.unlockIconPlaceholder} data-item-id={id} />
                         ) : null}

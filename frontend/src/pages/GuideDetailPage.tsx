@@ -5,6 +5,7 @@ import { deleteGuide, getGuideById } from "../api/guides";
 import { addLike, removeLike } from "../api/likes";
 import { likeComment, unlikeComment } from "../api/comments";
 import { useAuth } from "../hooks/useAuth";
+import SimpleMarkdown from "../components/SimpleMarkdown";
 import UserAvatar from "../components/UserAvatar";
 import client from "../api/client";
 import type { ApiResponse, PaginatedData } from "../types/api";
@@ -125,24 +126,6 @@ export default function GuideDetailPage() {
 
   const date = new Date(guide.created_at).toLocaleString("zh-CN");
 
-  // 简易 Markdown → HTML
-  const renderContent = (md: string) => {
-    let html = md
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-    // 图片 ![](url)
-    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%;border-radius:6px;margin:8px 0" />');
-    // 粗体 **text**
-    html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-    // 标题 ## text
-    html = html.replace(/^### (.+)$/gm, "<h4>$1</h4>");
-    html = html.replace(/^## (.+)$/gm, "<h3>$1</h3>");
-    html = html.replace(/^# (.+)$/gm, "<h2>$1</h2>");
-    // 换行
-    html = html.replace(/\n/g, "<br />");
-    return html;
-  };
 
   return (
     <div>
@@ -181,7 +164,7 @@ export default function GuideDetailPage() {
         </div>
       </div>
 
-      <div className={styles.content} dangerouslySetInnerHTML={{ __html: renderContent(guide.content) }} />
+      <div className={styles.content}><SimpleMarkdown content={guide.content} /></div>
 
       <div className={styles.commentSection} id="comments">
         <h3 className={styles.commentTitle}>评论 ({guide.comment_count})</h3>

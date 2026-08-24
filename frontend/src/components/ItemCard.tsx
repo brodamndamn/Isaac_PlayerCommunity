@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { staticUrl } from "../lib/paths";
 import type { Item } from "../types/item";
 import styles from "./ItemCard.module.css";
 
@@ -35,7 +36,7 @@ export default function ItemCard({ item }: ItemCardProps) {
   // 或者其他 image_url（如 _shared/xxx 或 items/xxx）
   const pillSprite = item.category === "pill";
   const imgSrc = item.image_url
-    ? `/images/${item.image_url}`
+    ? staticUrl(`images/${item.image_url}`)
     : null;
 
   return (

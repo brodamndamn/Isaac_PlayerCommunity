@@ -1,20 +1,13 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, useRoutes } from "react-router-dom";
 import AuthModal from "./components/AuthModal";
 import { AuthProvider, useAuth } from "./hooks/useAuth";
-import CharacterDetailPage from "./pages/CharacterDetailPage";
-import CharactersPage from "./pages/CharactersPage";
-import CreateGuidePage from "./pages/CreateGuidePage";
-import EndingDetailPage from "./pages/EndingDetailPage";
-import EndingsPage from "./pages/EndingsPage";
-import GuideDetailPage from "./pages/GuideDetailPage";
-import GuidesPage from "./pages/GuidesPage";
-import HomePage from "./pages/HomePage";
-import ItemDetailPage from "./pages/ItemDetailPage";
-import ItemsPage from "./pages/ItemsPage";
-import MyFavoritesPage from "./pages/MyFavoritesPage";
-import ProfilePage from "./pages/ProfilePage";
-import TransformationDetailPage from "./pages/TransformationDetailPage";
+import { APP_BASE_PATH, staticUrl } from "./lib/paths";
+import { APP_ROUTES } from "./routes";
 import styles from "./App.module.css";
+
+function AppRoutes() {
+  return useRoutes(APP_ROUTES);
+}
 
 function AppInner() {
   const { user, authChecked, modalOpen, modalTab, login, logout, openModal, closeModal } = useAuth();
@@ -22,11 +15,11 @@ function AppInner() {
   return (
     <div style={{ minHeight: "100vh" }}>
       <header className={styles.header}>
-        <a href="/" className={styles.brand}>ISAAC 玩家社区</a>
-        <a href="/items" className={styles.navLink}>道具</a>
-        <a href="/characters" className={styles.navLink}>角色</a>
-        <a href="/endings" className={styles.navLink}>结局</a>
-        <a href="/guides" className={styles.navLink}>社区</a>
+        <Link to="/" className={styles.brand}>ISAAC 玩家社区</Link>
+        <Link to="/items" className={styles.navLink}>道具</Link>
+        <Link to="/characters" className={styles.navLink}>角色</Link>
+        <Link to="/endings" className={styles.navLink}>结局</Link>
+        <Link to="/guides" className={styles.navLink}>社区</Link>
 
         <div className={styles.navRight}>
           {authChecked ? (
@@ -34,7 +27,7 @@ function AppInner() {
               <>
                 <Link to="/profile" style={{ display: "flex", alignItems: "center" }}>
                   {user.avatar ? (
-                    <img src={`/uploads/${user.avatar}`} alt="头像" className={styles.avatarImg} />
+                    <img src={staticUrl(`uploads/${user.avatar}`)} alt="头像" className={styles.avatarImg} />
                   ) : (
                     <span className={styles.avatarFallback}>{user.username[0].toUpperCase()}</span>
                   )}
@@ -54,21 +47,7 @@ function AppInner() {
       </header>
 
       <main className={styles.main}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/items" element={<ItemsPage />} />
-          <Route path="/items/:id" element={<ItemDetailPage />} />
-          <Route path="/characters" element={<CharactersPage />} />
-          <Route path="/characters/:id" element={<CharacterDetailPage />} />
-          <Route path="/endings" element={<EndingsPage />} />
-          <Route path="/endings/:id" element={<EndingDetailPage />} />
-          <Route path="/guides" element={<GuidesPage />} />
-          <Route path="/guides/new" element={<CreateGuidePage />} />
-          <Route path="/guides/:id" element={<GuideDetailPage />} />
-          <Route path="/favorites" element={<MyFavoritesPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/transformations/:id" element={<TransformationDetailPage />} />
-        </Routes>
+        <AppRoutes />
       </main>
 
       <footer className={styles.footer}>
@@ -82,7 +61,7 @@ function AppInner() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={APP_BASE_PATH || "/"}>
       <AuthProvider>
         <AppInner />
       </AuthProvider>

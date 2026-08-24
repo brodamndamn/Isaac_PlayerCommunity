@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { addFavorite, removeFavorite } from "../api/favorites";
 import { addLike, removeLike } from "../api/likes";
 import { useAuth } from "../hooks/useAuth";
+import { normalizeMediaUrl } from "../lib/paths";
 import UserAvatar from "./UserAvatar";
 import type { Guide } from "../types/guide";
 import styles from "./GuideCard.module.css";
@@ -27,7 +28,7 @@ export default function GuideCard({ guide }: GuideCardProps) {
   const [favCount, setFavCount] = useState(guide.favorite_count);
   const [isFavorited, setIsFavorited] = useState(guide.is_favorited);
   const date = new Date(guide.created_at).toLocaleDateString("zh-CN");
-  const coverUrl = guide.cover_image || null;
+  const coverUrl = guide.cover_image ? normalizeMediaUrl(guide.cover_image) : null;
 
   const goDetail = () => navigate(`/guides/${guide.id}`);
 
