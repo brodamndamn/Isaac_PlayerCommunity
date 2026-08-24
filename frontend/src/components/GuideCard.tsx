@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addFavorite, removeFavorite } from "../api/favorites";
 import { addLike, removeLike } from "../api/likes";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../hooks/useAuthHook";
 import { normalizeMediaUrl } from "../lib/paths";
 import UserAvatar from "./UserAvatar";
 import type { Guide } from "../types/guide";

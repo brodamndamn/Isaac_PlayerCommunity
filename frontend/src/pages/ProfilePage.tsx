@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import client from "../api/client";
 import { getMyFavorites } from "../api/favorites";
 import { getGuides } from "../api/guides";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../hooks/useAuthHook";
 import type { ApiResponse } from "../types/api";
 import styles from "./ProfilePage.module.css";
 

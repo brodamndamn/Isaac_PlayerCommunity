@@ -1,6 +1,7 @@
 import { BrowserRouter, Link, useRoutes } from "react-router-dom";
 import AuthModal from "./components/AuthModal";
-import { AuthProvider, useAuth } from "./hooks/useAuth";
+import { AuthProvider } from "./hooks/useAuth";
+import { useAuth } from "./hooks/useAuthHook";
 import { APP_BASE_PATH, staticUrl } from "./lib/paths";
 import { APP_ROUTES } from "./routes";
 import styles from "./App.module.css";

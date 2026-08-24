@@ -4,7 +4,7 @@ import { addFavorite, removeFavorite } from "../api/favorites";
 import { deleteGuide, getGuideById } from "../api/guides";
 import { addLike, removeLike } from "../api/likes";
 import { likeComment, unlikeComment } from "../api/comments";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../hooks/useAuthHook";
 import SimpleMarkdown from "../components/SimpleMarkdown";
 import UserAvatar from "../components/UserAvatar";
 import client from "../api/client";

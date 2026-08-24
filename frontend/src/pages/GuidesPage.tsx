@@ -35,16 +35,16 @@ export default function GuidesPage() {
   const toast = searchParams.get("toast");
   const [toastLeaving, setToastLeaving] = useState(false);
 
-  const removeToast = () => {
+  const removeToast = useCallback(() => {
     const params = new URLSearchParams(searchParams);
     params.delete("toast");
     setSearchParams(params, { replace: true });
-  };
+  }, [searchParams, setSearchParams]);
 
-  const dismissToast = () => {
+  const dismissToast = useCallback(() => {
     setToastLeaving(true);
     setTimeout(removeToast, 250); // 等退出动画播完
-  };
+  }, [removeToast]);
 
   useEffect(() => {
     if (toast === "published") {
@@ -52,7 +52,7 @@ export default function GuidesPage() {
       const timer = setTimeout(dismissToast, TOAST_DURATION);
       return () => clearTimeout(timer);
     }
-  }, [toast]);
+  }, [dismissToast, toast]);
 
   const fetchGuides = useCallback(async () => {
     setLoading(true);
