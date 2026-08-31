@@ -62,26 +62,26 @@
 }
 
 @media (max-width: 640px) {
-  .root { gap: 42px; }
-  .hero { min-height: auto; padding: 34px 22px 38px; }
+  .root { gap: 32px; }
+  .hero { min-height: auto; padding: 28px 18px 30px; }
   .eyebrow { font-size: 10px; letter-spacing: .16em; }
-  .title { max-width: 100%; font-size: clamp(40px, 11.5vw, 48px); line-height: 1.1; }
+  .title { max-width: 100%; font-size: clamp(36px, 10vw, 44px); line-height: 1.1; }
   .heroDesc { margin-top: 18px; font-size: 15px; line-height: 1.8; }
   .heroActions { margin-top: 26px; align-items: stretch; flex-direction: column; gap: 16px; }
-  .primaryAction { min-height: 54px; justify-content: space-between; padding-inline: 18px; }
+  .primaryAction { min-height: 48px; justify-content: space-between; padding-inline: 18px; }
   .secondaryAction { align-self: flex-start; font-size: 14px; }
   .archiveHeading { align-items: flex-start; flex-direction: column; gap: 12px; }
-  .archiveHeading h2 { font-size: clamp(32px, 9vw, 42px); }
+  .archiveHeading h2 { font-size: clamp(28px, 8vw, 36px); }
   .archiveHeading > span { max-width: none; font-size: 13px; text-align: left; }
   .cards { grid-template-columns: 1fr; gap: 18px; }
-  .card, .card:nth-child(2), .card:nth-child(3) { min-height: 0; grid-column: auto; padding: 21px 20px 22px; transform: none; }
-  .spriteStage { height: 126px; margin: 16px 0 14px; }
-  .spriteStage img { width: 108px; height: 108px; }
-  .card h3 { font-size: 31px; }
+  .card, .card:nth-child(2), .card:nth-child(3) { min-height: 0; grid-column: auto; padding: 18px; transform: none; }
+  .spriteStage { height: 108px; margin: 16px 0 14px; }
+  .spriteStage img { width: 92px; height: 92px; }
+  .card h3 { font-size: 26px; }
   .cardDesc { min-height: 0; margin-bottom: 18px; font-size: 14px; }
   .cardLink { position: static; margin-top: 18px; }
-  .community { gap: 26px; padding: 30px 22px; }
-  .communityCopy h2 { font-size: clamp(32px, 9vw, 42px); }
+  .community { gap: 26px; padding: 24px 18px; }
+  .communityCopy h2 { font-size: clamp(28px, 8vw, 36px); }
   .communityCopy > p:not(.eyebrow) { margin-bottom: 22px; font-size: 15px; line-height: 1.8; }
   .communityImages { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .communityImages figure { padding: 11px 8px 8px; }
@@ -92,8 +92,8 @@
 
 @media (max-width: 390px) {
   .root { gap: 34px; }
-  .hero { padding: 28px 18px 32px; }
-  .title { font-size: 39px; }
+  .hero { padding: 24px 16px 28px; }
+  .title { font-size: 36px; }
   .heroDesc { font-size: 14px; }
   .archiveHeading h2, .communityCopy h2 { font-size: 31px; }
   .community { padding: 26px 18px; }

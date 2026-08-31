@@ -290,3 +290,13 @@
 
 .backBtn { position:static; display:inline-flex; margin-bottom:18px; padding:0; border:0; color:#efe0c4; background:none; cursor:pointer; font-family:var(--utility-font); font-size:15px; font-weight:700; letter-spacing:.08em; text-decoration:none; }
 .backBtn:hover { color:#fff4dc; }
+
+@media (max-width: 640px) {
+  .title { font-size: 32px; line-height: 1.15; }
+  .form { gap: 14px; padding: 18px 16px; }
+  .input, .textarea { min-height: 44px; font-size: 16px; }
+  .textarea { min-height: 180px; }
+  .contentToolbar, .coverRow { align-items: stretch; flex-wrap: wrap; }
+  .imgBtn, .previewBtn, .coverBtn, .submitBtn { min-height: 44px; }
+  .submitBtn { width: 100%; }
+}

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Link, NavLink, useRoutes } from "react-router-dom";
 import AuthModal from "./components/AuthModal";
 import { AuthProvider } from "./hooks/useAuth";
@@ -17,6 +18,7 @@ function AppRoutes() { return useRoutes(APP_ROUTES); }
 
 function AppInner() {
   const { user, authChecked, modalOpen, modalTab, login, logout, openModal, closeModal } = useAuth();
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
     <div className={styles.appShell}>
@@ -26,14 +28,17 @@ function AppInner() {
             <img src={staticUrl("favicon.ico")} alt="" className={styles.brandSigil} />
             <span className={styles.brandCopy}><strong>ISAAC</strong><small>地下室档案</small></span>
           </Link>
-          <nav className={styles.nav} aria-label="主要导航">
+          <button type="button" className={styles.mobileMenuButton} aria-label={mobileNavOpen ? "关闭导航" : "打开导航"} aria-expanded={mobileNavOpen} onClick={() => setMobileNavOpen((open) => !open)}>
+            <span></span><span></span><span></span>
+          </button>
+          <nav className={`${styles.nav} ${mobileNavOpen ? styles.navOpen : ""}`} aria-label="主要导航">
             {NAV_ITEMS.map((item) => (
-              <NavLink key={item.to} to={item.to} className={({ isActive }) => `${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}>
+              <NavLink key={item.to} to={item.to} onClick={() => setMobileNavOpen(false)} className={({ isActive }) => `${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}>
                 {item.label}
               </NavLink>
             ))}
           </nav>
-          <div className={styles.navRight}>
+          <div className={`${styles.navRight} ${mobileNavOpen ? styles.navRightOpen : ""}`}>
             {authChecked ? user ? (
               <>
                 <Link to="/profile" className={styles.userLink}>

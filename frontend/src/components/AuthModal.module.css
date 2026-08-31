@@ -156,3 +156,10 @@
 
 /* Basement access note */
 .overlay{background:rgba(10,7,6,.82);backdrop-filter:blur(8px)}.modal{border:1px solid #b9a889;border-radius:0;color:var(--ink);background:#dfd0b3;box-shadow:12px 15px 0 rgba(0,0,0,.42)}.modal::before{content:"BASEMENT ACCESS";display:block;margin-bottom:15px;color:#776858;font-family:var(--utility-font);font-size:10px;font-weight:800;letter-spacing:.16em}.closeBtn{color:#6d5d4e}.tabs{border-color:rgba(48,41,35,.24)}.tab{color:#776858}.tab.active{border-color:var(--blood);color:var(--blood)}.input{border:1px solid rgba(48,41,35,.38);border-radius:0;color:var(--ink);background:rgba(255,250,235,.34)}.input:focus{border-color:var(--blood)}.togglePw{color:#6d5d4e}.submitBtn{border:1px solid #ba574c;border-radius:0;color:#fff4de;background:var(--blood);box-shadow:4px 5px 0 rgba(48,41,35,.72);font-weight:800}.error{color:#8e332c}
+
+@media (max-width: 640px) {
+  .overlay { align-items: flex-start; overflow-y: auto; padding: 20px 12px; }
+  .modal { width: 100%; max-height: calc(100dvh - 40px); overflow-y: auto; padding: 22px 18px; }
+  .tab, .submitBtn { min-height: 44px; }
+  .input { min-height: 44px; font-size: 16px; }
+}

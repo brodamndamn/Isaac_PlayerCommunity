@@ -32,3 +32,13 @@
 .homeBtn::before { content:"←"; margin-right:8px; color:var(--blood-bright); }
 .homeBtn:hover { color:#fff4dd; }
 @media (max-width:640px) { .homeBtn { margin-top:-11px; } }
+
+@media (max-width: 640px) {
+  .title { font-size: 32px; line-height: 1.15; }
+  .title::after { display: block; margin-top: 8px; }
+  .createBtn { width: 100%; min-height: 46px; text-align: center; }
+  .searchRow { flex-wrap: wrap; }
+  .search { min-height: 44px; }
+  .searchBtn { width: 100%; min-height: 44px; }
+  .catBtn, .pagination button { min-height: 40px; }
+}
