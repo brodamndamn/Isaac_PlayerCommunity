@@ -62,20 +62,40 @@
 }
 
 @media (max-width: 640px) {
-  .root { gap: 36px; }
-  .hero { min-height: auto; padding: 38px 24px 42px; }
-  .title { font-size: 45px; }
+  .root { gap: 42px; }
+  .hero { min-height: auto; padding: 34px 22px 38px; }
+  .eyebrow { font-size: 10px; letter-spacing: .16em; }
+  .title { max-width: 100%; font-size: clamp(40px, 11.5vw, 48px); line-height: 1.1; }
+  .heroDesc { margin-top: 18px; font-size: 15px; line-height: 1.8; }
+  .heroActions { margin-top: 26px; align-items: stretch; flex-direction: column; gap: 16px; }
+  .primaryAction { min-height: 54px; justify-content: space-between; padding-inline: 18px; }
+  .secondaryAction { align-self: flex-start; font-size: 14px; }
+  .archiveHeading { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .archiveHeading h2 { font-size: clamp(32px, 9vw, 42px); }
+  .archiveHeading > span { max-width: none; font-size: 13px; text-align: left; }
+  .cards { grid-template-columns: 1fr; gap: 18px; }
+  .card, .card:nth-child(2), .card:nth-child(3) { min-height: 0; grid-column: auto; padding: 21px 20px 22px; transform: none; }
+  .spriteStage { height: 126px; margin: 16px 0 14px; }
+  .spriteStage img { width: 108px; height: 108px; }
+  .card h3 { font-size: 31px; }
+  .cardDesc { min-height: 0; margin-bottom: 18px; font-size: 14px; }
+  .cardLink { position: static; margin-top: 18px; }
+  .community { gap: 26px; padding: 30px 22px; }
+  .communityCopy h2 { font-size: clamp(32px, 9vw, 42px); }
+  .communityCopy > p:not(.eyebrow) { margin-bottom: 22px; font-size: 15px; line-height: 1.8; }
+  .communityImages { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .communityImages figure { padding: 11px 8px 8px; }
+  .communityImages figure:nth-child(3) { grid-column: 1 / -1; width: calc(50% - 6px); justify-self: center; }
+  .communityImages img { height: 92px; }
+  .communityImages figcaption { font-size: 16px; }
+}
+
+@media (max-width: 390px) {
+  .root { gap: 34px; }
+  .hero { padding: 28px 18px 32px; }
+  .title { font-size: 39px; }
   .heroDesc { font-size: 14px; }
-  .heroActions { align-items: stretch; flex-direction: column; }
-  .primaryAction { justify-content: space-between; }
-  .archiveHeading { align-items: flex-start; flex-direction: column; }
-  .archiveHeading > span { text-align: left; }
-  .cards { grid-template-columns: 1fr; }
-  .card, .card:nth-child(2), .card:nth-child(3) { min-height: 390px; grid-column: auto; transform: none; }
-  .spriteStage { height: 130px; }
-  .spriteStage img { width: 105px; height: 105px; }
-  .community { padding: 32px 24px; }
-  .communityImages { gap: 8px; }
-  .communityImages figure { padding: 8px 5px 6px; }
-  .communityImages img { height: 70px; }
+  .archiveHeading h2, .communityCopy h2 { font-size: 31px; }
+  .community { padding: 26px 18px; }
+  .communityImages img { height: 78px; }
 }
